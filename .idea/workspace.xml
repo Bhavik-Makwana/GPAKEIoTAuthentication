@@ -1,44 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9c1d043-d834-41f2-bb3f-99c43d026b18" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcmail_jdk15on_1_51.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcpg_jdk15to18_1_64.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcpkix_jdk15on_1_53.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_64.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk16_1_45.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/junit5-jupiter-starter-maven-jitpack.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/junit5-jupiter-starter-maven-snapshot.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/junit5-jupiter-starter-maven.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ChatClient.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ChatServer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Client.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/FirstTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPAKEPlusClient.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPAKEPlusServer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPAKEProtocol.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPMultiServer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPMultiServerThread.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Message.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/template.json" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/IotComissioningPerformanceTesting.iml" afterPath="$PROJECT_DIR$/IotComissioningPerformanceTesting.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusDemo.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusDemo.java" />
-      <change beforePath="$PROJECT_DIR$/src/JUnit5ExampleTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/MulticastClient.java" afterPath="$PROJECT_DIR$/src/MulticastClient.java" />
-      <change beforePath="$PROJECT_DIR$/src/MulticastServerThread.java" afterPath="$PROJECT_DIR$/src/MulticastServerThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/QuoteServerThread.java" afterPath="$PROJECT_DIR$/src/QuoteServerThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" afterPath="$PROJECT_DIR$/src/Server.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/IoTComissioning/PAKE/FirstTest.java" afterPath="" />
-    </list>
+    <list default="true" id="f9c1d043-d834-41f2-bb3f-99c43d026b18" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,10 +13,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ChatServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChatServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
+            <state relative-caret-position="1116">
               <caret line="138" column="49" lean-forward="false" selection-start-line="138" selection-start-column="49" selection-end-line="138" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -66,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatClient.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChatClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="233" column="26" lean-forward="true" selection-start-line="233" selection-start-column="26" selection-end-line="233" selection-end-column="26" />
+            <state relative-caret-position="575">
+              <caret line="230" column="13" lean-forward="true" selection-start-line="230" selection-start-column="13" selection-end-line="230" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,8 +86,8 @@
       <find>clients</find>
       <find>in.</find>
       <find>out.</find>
-      <find>out.println</find>
       <find>startTest</find>
+      <find>out.println</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -889,20 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="138" column="49" lean-forward="false" selection-start-line="138" selection-start-column="49" selection-end-line="138" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#574#582#0" expanded="true" />
-            <element signature="e#842#855#0" expanded="true" />
-            <element signature="e#1979#1980#0" expanded="true" />
-            <element signature="e#2023#2024#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JPAKEPlusDemo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -913,10 +862,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="233" column="26" lean-forward="true" selection-start-line="233" selection-start-column="26" selection-end-line="233" selection-end-column="26" />
+        <state relative-caret-position="575">
+          <caret line="230" column="13" lean-forward="true" selection-start-line="230" selection-start-column="13" selection-end-line="230" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="138" column="49" lean-forward="false" selection-start-line="138" selection-start-column="49" selection-end-line="138" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#574#582#0" expanded="true" />
+            <element signature="e#842#855#0" expanded="true" />
+            <element signature="e#1979#1980#0" expanded="true" />
+            <element signature="e#2023#2024#0" expanded="true" />
           </folding>
         </state>
       </provider>
