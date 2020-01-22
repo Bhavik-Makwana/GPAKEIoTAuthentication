@@ -31,6 +31,7 @@
 
 import java.io.*;
 import java.net.*;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class MulticastServerThread extends QuoteServerThread {
@@ -49,7 +50,7 @@ public class MulticastServerThread extends QuoteServerThread {
                     // construct quote
                 String dString = null;
                 if (in == null)
-                    dString = "THIS IS A BROADCAST, I REPEAT THIS IS A BROADCAST";
+                    dString = "(" + LocalDateTime.now() + ") THIS IS A BROADCAST, I REPEAT THIS IS A BROADCAST";
                 else
                     dString = getNextQuote();
                 buf = dString.getBytes();

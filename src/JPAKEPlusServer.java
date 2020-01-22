@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995, 2008, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1995, 2014, Oracle and/or its affiliates. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -27,35 +27,47 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ 
+ */
 
-import java.io.*;
 import java.net.*;
-import java.util.*;
+import java.io.*;
 
-public class MulticastClient {
-
+public class JPAKEPlusServer {
     public static void main(String[] args) throws IOException {
 
-        MulticastSocket socket = new MulticastSocket(4446);
-        InetAddress address = InetAddress.getByName("230.0.0.1");
-	socket.joinGroup(address);
+        if (args.length != 1) {
+            System.err.println("Usage: java KnockKnockServer <port number>");
+            System.exit(1);
+        }
 
-        DatagramPacket packet;
-    
-            // get a few quotes
-	for (int i = 0; i < 10; i++) {
+        int portNumber = Integer.parseInt(args[0]);
 
-	    byte[] buf = new byte[256];
-            packet = new DatagramPacket(buf, buf.length);
-            socket.receive(packet);
+        try (
+                ServerSocket serverSocket = new ServerSocket(portNumber);
+                Socket clientSocket = serverSocket.accept();
+                PrintWriter out =
+                        new PrintWriter(clientSocket.getOutputStream(), true);
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(clientSocket.getInputStream()));
+        ) {
 
-            String received = new String(packet.getData(), 0, packet.getLength());
-            System.out.println("Broadcast test: " + received);
-	}
+            String inputLine, outputLine;
 
-	socket.leaveGroup(address);
-	socket.close();
+            // Initiate conversation with client
+            JPAKEProtocol jpp = new JPAKEProtocol();
+            outputLine = jpp.processInput(null);
+            out.println(outputLine);
+
+            while ((inputLine = in.readLine()) != null) {
+                outputLine = jpp.processInput(inputLine);
+                out.println(outputLine);
+                if (outputLine.equals("Bye."))
+                    break;
+            }
+        } catch (IOException e) {
+            System.out.println("Exception caught when trying to listen on port "
+                    + portNumber + " or listening for a connection");
+            System.out.println(e.getMessage());
+        }
     }
-
 }

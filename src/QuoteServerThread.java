@@ -31,7 +31,7 @@
 import java.io.*;
 import java.net.*;
 import java.util.*;
-
+import java.time.LocalDateTime;
 public class QuoteServerThread extends Thread {
 
     protected DatagramSocket socket = null;
@@ -66,7 +66,7 @@ public class QuoteServerThread extends Thread {
                 // figure out response
                 String dString = null;
                 if (in == null)
-                    dString = "THIS IS A BROADCAST, I REPEAT THIS IS A BROADCAST";
+                    dString = "(" + LocalDateTime.now() + ") THIS IS A BROADCAST, I REPEAT THIS IS A BROADCAST";
                 else
                     dString = getNextQuote();
 

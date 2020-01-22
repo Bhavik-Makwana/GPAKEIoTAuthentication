@@ -1,68 +1,36 @@
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
-import java.util.concurrent.Executors;
+import java.util.ArrayList;
+import java.util.*;
 
-/**
- * Written by Martin Ombura Jr. <@martinomburajr>
- */
 public class Server {
-    public static void main(String[] args) {
-        connectToServerMultiple();
-    }
-    public static void connectToServerMultiple() {
-        int max_con = 3; //indicate maximum number of connections.
-        int port = 8187;
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        // don't need to specify a hostname, it will be the current machine
+        ServerSocket ss = new ServerSocket(7777);
+        System.out.println("ServerSocket awaiting connections...");
+        Socket socket = ss.accept(); // blocking call, this will wait until a connection is attempted on this port.
+        System.out.println("Connection from " + socket + "!");
 
-        //Create multiple ServerSockets to connect to a server
-        ServerSocket serverSocket = null;
-        try {
-            serverSocket = new ServerSocket(port);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //Create a for loop that creates max_con number of threads
-        for (int i = 0; i < max_con; i++) {
-            ServerSocket finalServerSocket = serverSocket;
-            //Create the thread
-            Runnable runnable = () -> {
-                try {
-                    Socket listenerSocket = finalServerSocket.accept();
-                    InputStream inputToServer = listenerSocket.getInputStream();
-                    OutputStream outputFromServer = listenerSocket.getOutputStream();
+        // get the input stream from the connected socket
+        InputStream inputStream = socket.getInputStream();
+        // create a DataInputStream so we can read data from it.
+//        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+        Map<Integer, Message> messages = new HashMap<>();
+        messages.put(1, new Message("Hello from the other side!"));
+        messages.put(2, new Message("How are you doing?"));
+        messages.put(3, new Message("What time is it?"));
+        messages.put(4, new Message("Hi hi hi hi."));
+        objectOutputStream.writeObject(messages);
+        // read the list of messages from the socket
+//        List<Message> listOfMessages = (List<Message>) objectInputStream.readObject();
+//        System.out.println("Received [" + listOfMessages.size() + "] messages from: " + socket);
+        // print out the text of every message
 
-                    Scanner input = new Scanner(inputToServer, "UTF-8");
-                    PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(outputFromServer, "UTF-8"), true);
 
-                    printWriter.println("Welcome Minion! I'll multiply the number you give by 10.\n Type -19 to quit");
-                    printWriter.println("I'm Running on Thread: " + Thread.currentThread().getName());
-
-                    boolean done = false;
-                    while(!done && input.hasNextLine()) {
-                        String line = input.nextLine();
-                        double inputDouble = 0;
-
-                        try{
-                            inputDouble = Double.parseDouble(line);
-                            //If input is -19 or line == null, terminate and close socket
-                            if(line == null || inputDouble == -19) {
-                                done = true;
-                                printWriter.println("Sad to see you leave! ... Closing Connection!");
-                                listenerSocket.close();
-                            }
-                            printWriter.println("Your answer is: " + inputDouble * 10);
-                        }catch (Exception ex) {
-                            printWriter.println(":{( - Only insert numbers!!!");
-                        }
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            };
-            //Execute the runnables!
-            Executors.newCachedThreadPool().execute(runnable);
-        }
+        System.out.println("Closing sockets.");
+        ss.close();
+        socket.close();
     }
 }
