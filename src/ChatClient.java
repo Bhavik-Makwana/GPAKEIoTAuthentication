@@ -1,4 +1,3 @@
-package edu.lmu.cs.networking;
 
 import com.google.gson.Gson;
 import org.json.simple.JsonObject;
@@ -7,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
@@ -28,29 +28,34 @@ public class ChatClient {
     JFrame frame = new JFrame("InstantMessenger");
     JTextField textField = new JTextField(40);
     JTextArea messageArea = new JTextArea(8, 40);
+    String clientName;
+    String data;
+    String response;
+
+    int clientId;
 
     //    BigInteger [][] aij = new BigInteger [n][n];
-    ArrayList<ArrayList<BigInteger>> aij = new ArrayList<>();
+    ArrayList<BigInteger> aij = new ArrayList<>();
     //    BigInteger [][] gPowAij = new BigInteger [n][n];
-    ArrayList<ArrayList<BigInteger>> gPowAij = new ArrayList<>();
+    ArrayList<BigInteger> gPowAij = new ArrayList<>();
     //    BigInteger [][][] schnorrZKPaij = new BigInteger [n][n][2];
-    ArrayList<ArrayList<ArrayList<BigInteger>>> schnorrZKPaij = new ArrayList<>();
+    ArrayList<ArrayList<BigInteger>> schnorrZKPaij = new ArrayList<>();
     //    BigInteger [][] bij = new BigInteger [n][n];
-    ArrayList<ArrayList<BigInteger>> bij = new ArrayList<>();
+    ArrayList<BigInteger> bij = new ArrayList<>();
     //    BigInteger [][] gPowBij = new BigInteger [n][n];
-    ArrayList<ArrayList<BigInteger>> gPowBij = new ArrayList<>();
+    ArrayList<BigInteger> gPowBij = new ArrayList<>();
     //    BigInteger [][][] schnorrZKPbij = new BigInteger [n][n][2];
-    ArrayList<ArrayList<ArrayList<BigInteger>>> schnorrZKPbij = new ArrayList<>();
+    ArrayList<ArrayList<BigInteger>> schnorrZKPbij = new ArrayList<>();
     //    BigInteger [] yi = new BigInteger [n];
-    ArrayList<BigInteger> yi = new ArrayList<>();
+    BigInteger yi;
     //    BigInteger [] gPowYi = new BigInteger [n];
-    ArrayList<BigInteger> gPowYi = new ArrayList<>();
+    BigInteger gPowYi;
     //    BigInteger [] gPowZi = new BigInteger [n];
-    ArrayList<BigInteger> gPowZi = new ArrayList<>();
+    BigInteger gPowZi;
     //    BigInteger [][] schnorrZKPyi = new BigInteger [n][2]; // {g^v, r}
-    ArrayList<ArrayList<BigInteger>> schnorrZKPyi = new ArrayList<>();
+    ArrayList<BigInteger> schnorrZKPyi = new ArrayList<>();
     //    String [] signerID = new String [n];
-    ArrayList<String> signerID = new ArrayList<>();
+    String signerID;
     SchnorrZKP schnorrZKP = new SchnorrZKP();
     /**
      * Constructs the client by laying out the GUI and registering a
@@ -128,8 +133,10 @@ public class ChatClient {
             System.out.println(" LINE: " + line);
 
             if (line.startsWith("SUBMITNAME")) {
-                out.println(getName());
+                clientName = getName();
+                out.println(clientName);
             } else if (line.startsWith("NAMEACCEPTED")) {
+                clientId = Integer.parseInt(in.readLine());
                 textField.setEditable(true);
             } else if (line.startsWith("MESSAGE")) {
                 messageArea.append(line.substring(8) + "\n");
@@ -140,6 +147,9 @@ public class ChatClient {
                 System.out.println(clients.toString());
 
             } else if (line.startsWith(":START")) {
+                String json = in.readLine();
+                clients = gson.fromJson(json, HashSet.class);
+                System.out.println(json);
                 break;
             }
         }
@@ -149,90 +159,145 @@ public class ChatClient {
         BigInteger g = new BigInteger("A59A749A11242C58C894E9E5A91804E8FA0AC64B56288F8D47D51B1EDC4D65444FECA0111D78F35FC9FDD4CB1F1B79A3BA9CBEE83A3F811012503C8117F98E5048B089E387AF6949BF8784EBD9EF45876F2E6A5A495BE64B6E770409494B7FEE1DBB1E4B2BC2A53D4F893D418B7159592E4FFFDF6969E91D770DAEBD0B5CB14C00AD68EC7DC1E5745EA55C706C4A1C5C88964E34D09DEB753AD418C1AD0F4FDFD049A955E5D78491C0B7A2F1575A008CCD727AB376DB6E695515B05BD412F5B8C2F4C77EE10DA48ABD53F5DD498927EE7B692BBBCDA2FB23A516C5B4533D73980B2A3B60E384ED200AE21B40D273651AD6060C13D97FD69AA13C5611A51B9085", 16);
 
         int n = clients.size();
-        for (int i=0; i<n; i++) {
 
-            // signerId[i] = i + ""
-            signerID.add(i + "");
+        // signerId[i] = i + ""
+        signerID = clientId + "";
 
-            // aij in [0, q-1], b_ij in [1, q-1]
-            aij.add(new ArrayList<BigInteger>());
-            gPowAij.add(new ArrayList<BigInteger>());
-            schnorrZKPaij.add(new ArrayList<>());
-            bij.add(new ArrayList<>());
-            gPowBij.add(new ArrayList<>());
-            schnorrZKPbij.add(new ArrayList<>());
-            schnorrZKPyi.add(new ArrayList<>());
-            for (int j=0; j<n; j++) {
-                schnorrZKPaij.get(i).add(new ArrayList<>());
-                schnorrZKPbij.get(i).add(new ArrayList<>());
-                if (i==j){
-                    continue;
-                }
+        // aij in [0, q-1], b_ij in [1, q-1]
 
-                // aij and ZKP
-//                aij[i][j] = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
-//                        q.subtract(BigInteger.ONE), new SecureRandom());
-                aij.get(i).add(org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
-                        q.subtract(BigInteger.ONE), new SecureRandom()));
+        for (int j=0; j<n; j++) {
 
-//                gPowAij[i][j] = g.modPow(aij[i][j], p);
-                gPowAij.get(i).add(g.modPow(aij.get(i).get(j), p));
-                schnorrZKP.generateZKP(p, q, g, gPowAij.get(i).get(j), aij.get(i).get(j), signerID.get(i));
-//                schnorrZKPaij[i][j][0] = schnorrZKP.getGenPowV();
-                schnorrZKPaij.get(i).get(j).add(schnorrZKP.getGenPowV());
-//                schnorrZKPaij[i][j][1] = schnorrZKP.getR();
-                schnorrZKPaij.get(i).get(j).add(schnorrZKP.getR());
-
-
-                // bij and ZKP
-//                bij[i][j] = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ONE,
-//                        q.subtract(BigInteger.ONE), new SecureRandom());
-
-                bij.get(i).add(org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ONE,
-                        q.subtract(BigInteger.ONE), new SecureRandom()));
-
-//                gPowBij[i][j] = g.modPow(bij[i][j], p);
-                gPowBij.get(i).add(g.modPow(bij.get(i).get(j),p));
-//                schnorrZKP.generateZKP(p, q, g, gPowBij[i][j], bij[i][j], signerID[i]);
-                schnorrZKP.generateZKP(p, q, g, gPowBij.get(i).get(j), bij.get(i).get(j), signerID.get(i));
-//                schnorrZKPbij[i][j][0] = schnorrZKP.getGenPowV();
-                schnorrZKPbij.get(i).get(j).add(schnorrZKP.getGenPowV());
-//                schnorrZKPbij[i][j][1] = schnorrZKP.getR();
-                schnorrZKPbij.get(i).get(j).add(schnorrZKP.getR());
+            if (clientId==j){
+                continue;
             }
 
-            // yi from Zq and ZKP
-//            yi[i] = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
-//                    q.subtract(BigInteger.ONE), new SecureRandom());
-            yi.add(org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
+            // aij and ZKP
+//                aij[i][j] = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
+//                        q.subtract(BigInteger.ONE), new SecureRandom());
+            aij.add(org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
                     q.subtract(BigInteger.ONE), new SecureRandom()));
 
-//            gPowYi[i] = g.modPow(yi[i], p);
-            gPowYi.add(g.modPow(yi.get(i),p));
-//            signerID[i] = i + "";
-            signerID.set(i, i + "");
-//            schnorrZKP.generateZKP(p, q, g, gPowYi[i], yi[i], signerID[i]);
-            schnorrZKP.generateZKP(p, q, g, gPowYi.get(i), yi.get(i), signerID.get(i));
-//            schnorrZKPyi[i][0] = schnorrZKP.getGenPowV();
-            schnorrZKPyi.get(i).add(schnorrZKP.getGenPowV());
-//            schnorrZKPyi[i][1] = schnorrZKP.getR();
-            schnorrZKPyi.get(i).add(schnorrZKP.getR());
+//                gPowAij[i][j] = g.modPow(aij[i][j], p);
+            gPowAij.add(g.modPow(aij.get(j), p));
+
+            schnorrZKP.generateZKP(p, q, g, gPowAij.get(j), aij.get(j), signerID);
+//                schnorrZKPaij[i][j][0] = schnorrZKP.getGenPowV();
+            schnorrZKPaij.add(new ArrayList<>());
+            schnorrZKPaij.get(j).add(schnorrZKP.getGenPowV());
+//                schnorrZKPaij[i][j][1] = schnorrZKP.getR();
+            schnorrZKPaij.get(j).add(schnorrZKP.getR());
+
+
+            // bij and ZKP
+//                bij[i][j] = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ONE,
+//                        q.subtract(BigInteger.ONE), new SecureRandom());
+            bij.add(org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ONE,
+                    q.subtract(BigInteger.ONE), new SecureRandom()));
+
+//                gPowBij[i][j] = g.modPow(bij[i][j], p);
+            gPowBij.add(g.modPow(bij.get(j),p));
+//                schnorrZKP.generateZKP(p, q, g, gPowBij[i][j], bij[i][j], signerID[i]);
+            schnorrZKP.generateZKP(p, q, g, gPowBij.get(j), bij.get(j), signerID);
+//                schnorrZKPbij[i][j][0] = schnorrZKP.getGenPowV();
+            schnorrZKPbij.add(new ArrayList<>());
+            schnorrZKPbij.get(j).add(schnorrZKP.getGenPowV());
+//                schnorrZKPbij[i][j][1] = schnorrZKP.getR();
+            schnorrZKPbij.get(j).add(schnorrZKP.getR());
         }
 
+        // yi from Zq and ZKP
+//            yi[i] = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
+//                    q.subtract(BigInteger.ONE), new SecureRandom());
+        yi = (org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
+                q.subtract(BigInteger.ONE), new SecureRandom()));
+
+//            gPowYi[i] = g.modPow(yi[i], p);
+        gPowYi = g.modPow(yi,p);
+//            signerID[i] = i + "";
+        signerID = clientId + "";
+//            schnorrZKP.generateZKP(p, q, g, gPowYi[i], yi[i], signerID[i]);
+        schnorrZKP.generateZKP(p, q, g, gPowYi, yi, signerID);
+//            schnorrZKPyi[i][0] = schnorrZKP.getGenPowV();
+        schnorrZKPyi.add(schnorrZKP.getGenPowV());
+//            schnorrZKPyi[i][1] = schnorrZKP.getR();
+        schnorrZKPyi.add(schnorrZKP.getR());
+//        }
+
+
+
+        RoundOne dataObject = new RoundOne();
+        dataObject.setAij(aij);
+        dataObject.setBij(bij);
+        dataObject.setgPowAij(gPowAij);
+        dataObject.setgPowBij(gPowBij);
+        dataObject.setgPowYi(gPowYi);
+        dataObject.setgPowZi(gPowZi);
+        dataObject.setSchnorrZKPaij(schnorrZKPaij);
+        dataObject.setSchnorrZKPbij(schnorrZKPbij);
+        dataObject.setSchnorrZKPyi(schnorrZKPyi);
+        dataObject.setYi(yi);
+        dataObject.setSignerID(signerID);
+
+        data = gson.toJson(dataObject);
+
+        out.println(data);
+
+        response = in.readLine();
+        RoundOneResponse rOneResponse = gson.fromJson(response, RoundOneResponse.class);
+
+
+        // VERIFICATION
         for (int i=0; i<n; i++) {
 
             int iPlusOne = (i==n-1) ? 0: i+1;
             int iMinusOne = (i==0) ? n-1 : i-1;
 
 //            gPowZi[i] = gPowYi[iMinusOne].modInverse(p).multiply(gPowYi[iPlusOne]).mod(p);
-            gPowZi.add(gPowYi.get(iMinusOne).modInverse(p).multiply(gPowYi.get(iPlusOne).mod(p)));
-            if(gPowZi.get(i).compareTo(BigInteger.ONE) == 0) {
+            // LINE BROKEN FIX PLS
+            rOneResponse.getgPowZi().replace(Long.parseLong(rOneResponse.getSignerID().get(i)), rOneResponse.getgPowYi().get(rOneResponse.getSignerID().get(iMinusOne)).modInverse(p).multiply(rOneResponse.getgPowYi().get(rOneResponse.getSignerID().get(iPlusOne)).mod(p)));
+            if(rOneResponse.getgPowZi().get(i).compareTo(BigInteger.ONE) == 0) {
                 System.out.println("Round 1 verification failed at checking g^{y_{i+1}}/g^{y_{i-1}}!=1 for i="+i);
             }
         }
-        String data = gson.toJson(schnorrZKP);
-        out.println(data);
-        data = gson.toJson(gPowYi);
+
+//        for (int i=0; i<n; i++) {
+//
+//            // ith participant
+//
+//            for (int j=0; j<n; j++) {
+//
+//                if (i==j) {
+//                    continue;
+//                }
+//
+//                // Check ZKP{bji}
+////                if(!verifySchnorrZKP(p, q, g, gPowBij[j][i], schnorrZKPbij[j][i][0], schnorrZKPbij[j][i][1], signerID[j])) {
+//                if(!verifySchnorrZKP(p, q, g, gPowBij.get(j).get(i), schnorrZKPbij.get(j).get(i).get(0),
+//                        schnorrZKPbij.get(j).get(i).get(1), signerID.get(j))) {
+//                    exitWithError("Round 1 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + i + "," +j + ")");
+//                }
+//
+//                // check g^{b_ji} != 1
+////                if (gPowBij[j][i].compareTo(BigInteger.ONE) == 0){
+//                if (gPowBij.get(j).get(i).compareTo(BigInteger.ONE) == 0) {
+//                    exitWithError("Round 1 verification failed at checking g^{ji} !=1");
+//                }
+//
+//                // Check ZKP{aji}
+//
+////                if(!verifySchnorrZKP(p, q, g, gPowAij[j][i], schnorrZKPaij[j][i][0], schnorrZKPaij[j][i][1], signerID[j])) {
+//                if(!verifySchnorrZKP(p, q, g, gPowAij.get(j).get(i), schnorrZKPaij.get(j).get(i).get(0),
+//                        schnorrZKPaij.get(j).get(i).get(1), signerID.get(j))) {
+//                    exitWithError("Round 1 verification failed at checking SchnorrZKP for aij. (i,j)="+"(" + i + "," +j + ")");
+//                }
+//
+//                // Check ZKP{yi}
+////                if (!verifySchnorrZKP(p, q, g, gPowYi[j], schnorrZKPyi[j][0], schnorrZKPyi[j][1], signerID[j])) {
+//                if (!verifySchnorrZKP(p, q, g, gPowYi.get(j), schnorrZKPyi.get(j).get(0), schnorrZKPyi.get(j).get(1), signerID.get(j))) {
+//                    exitWithError("Round 1 verification failed at checking SchnorrZKP for yi. (i,j)="+"(" + i + "," +j + ")");
+//                }
+//            }
+//        }
     }
 
     /**
@@ -275,6 +340,39 @@ public class ChatClient {
         }
 
         return new BigInteger(sha256.digest());
+    }
+
+    /*
+     * Check
+     * a) g^x in [1, q-1]
+     * b) (g^x)^q = 1
+     * c) g^v = g^r (g^x)^h
+     *
+     * Note: the case of x = 0 is not excluded in this routine. Handle that in the upstream if you need to.
+     */
+    public boolean verifySchnorrZKP(BigInteger p, BigInteger q, BigInteger gen, BigInteger genPowX, BigInteger genPowV, BigInteger r, String userID) {
+
+        // ZKP: {V=gen^v, r}
+        BigInteger h = getSHA256(gen, genPowV, genPowX, userID);
+
+        if (genPowX.compareTo(BigInteger.ZERO) == 1 && // gen^x > 0
+                genPowX.compareTo(p) == -1 && // gen^x < p
+                genPowX.modPow(q, p).compareTo(BigInteger.ONE) == 0 && // gen^x^q = 1
+
+                /* A straightforward way to compute g^r * g^x^h needs 2 exp. Using
+                 * a simultaneous computation technique would only need 1 exp.
+                 */
+                gen.modPow(r,p).multiply(genPowX.modPow(h,p)).mod(p).compareTo(genPowV) == 0) { // gen^v=gen^r * gen^x^h
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void exitWithError(String s){
+        System.out.println("Exit with ERROR: " + s);
+        System.exit(0);
     }
 
     private class SchnorrZKP {
