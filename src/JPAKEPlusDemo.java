@@ -56,9 +56,9 @@ public class JPAKEPlusDemo {
 
     	JPAKEPlusDemo test = new JPAKEPlusDemo();
 
-    	int maxNoOfParticipants = 3;
+    	int maxNoOfParticipants = 2;
 
-    	for (int noOfParticiapnts = 3; noOfParticiapnts <= maxNoOfParticipants+1; noOfParticiapnts++){
+    	for (int noOfParticiapnts = 2; noOfParticiapnts <= maxNoOfParticipants+1; noOfParticiapnts++){
 
     		test.startTest(noOfParticiapnts);
     	}

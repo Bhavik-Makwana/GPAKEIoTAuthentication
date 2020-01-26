@@ -68,6 +68,27 @@ public class ChatServer {
     //    String [] signerID = new String [n];
 //        ArrayList<String> signerID = new ArrayList<>();
     private static ArrayList<String> signerID = new ArrayList<>();
+
+
+// ****************************** ROUND 2 ****************************************
+
+    //    BigInteger [][] newGen = new BigInteger [n][n];
+//    ArrayList<BigInteger> newGen = new ArrayList<>();
+    private static HashMap<Long, ArrayList<BigInteger>> newGen = new HashMap<>();
+    //    BigInteger [][] bijs = new BigInteger [n][n];
+//    ArrayList<BigInteger> bijs = new ArrayList<>();
+    private static  HashMap<Long, ArrayList<BigInteger>> bijs = new HashMap<>();
+    //    BigInteger [][] newGenPowBijs = new BigInteger [n][n];
+//    ArrayList<BigInteger> newGenPowBijs = new ArrayList<>();;
+    private static  HashMap<Long, ArrayList<BigInteger>> newGenPowBijs = new HashMap<>();
+    //    BigInteger [][][] schnorrZKPbijs = new BigInteger [n][n][2];
+//    ArrayList<ArrayList<BigInteger>> schnorrZKPbijs = new ArrayList<>();
+    private static  HashMap<Long, ArrayList<ArrayList<BigInteger>>> schnorrZKPbijs = new HashMap<>();
+
+
+
+
+
     /**
      * The appplication main method, which just listens on a port and
      * spawns handler threads.
@@ -175,15 +196,38 @@ public class ChatServer {
                     else if (input.equals(":START")) {
                         out.println(":START");
                         out.println(gson.toJson(names));
+                        // round 1
                         response = in.readLine();
                         RoundOne roundOne = gson.fromJson(response, RoundOne.class);
                         System.out.println(roundOne.getSignerID());
                         updateDataRoundOne(id, roundOne);
                         roundComplete.replace(id, true);
-
+                        System.out.println(roundComplete.toString());
                         while(roundComplete.containsValue(false)) { } // busy wait
-                        RoundOneResponse data = setDataRoundOneResponse();
-                        out.println(gson.toJson(data));
+                        // round 1 verification
+                        RoundOneResponse dataRoundOne = setDataRoundOneResponse();
+                        out.println(gson.toJson(dataRoundOne));
+                        roundComplete.replace(id, false);
+                        response = in.readLine();
+                        if (response.equals("0")) {
+                            break;
+                        }
+                        else {
+                            roundComplete.replace(id, true);
+                        }
+                        while(roundComplete.containsValue(false)) {}
+                        // round 2
+                        roundComplete.replace(id, false);
+                        out.println("1"); // OK
+
+                        // Take in users round two data
+                        response = in.readLine();
+                        RoundTwo roundTwo = gson.fromJson(response, RoundTwo.class);
+                        updateDataRoundTwo(id, roundTwo);
+                        roundComplete.replace(id, true);
+                        while (roundComplete.containsValue(false)) {}
+                        RoundTwoResponse dataRoundTwo = setDataRoundTwoResponse();
+                        out.println(gson.toJson(dataRoundTwo));
                         break;
                     }
                     for (PrintWriter writer : writers) {
@@ -239,6 +283,22 @@ public class ChatServer {
             r.setgPowZi(gPowZi);
             r.setSchnorrZKPyi(schnorrZKPyi);
             r.setSignerID(signerID);
+            return r;
+        }
+
+        public void updateDataRoundTwo(Long id, RoundTwo data) {
+            newGen.put(id, data.getNewGen());
+            bijs.put(id, data.getBijs());
+            newGenPowBijs.put(id, data.getNewGenPowBijs());
+            schnorrZKPbijs.put(id, data.getSchnorrZKPbijs());
+        }
+
+        public RoundTwoResponse setDataRoundTwoResponse() {
+            RoundTwoResponse r = new RoundTwoResponse();
+            r.setNewGen(newGen);
+            r.setBijs(bijs);
+            r.setNewGenPowBijs(newGenPowBijs);
+            r.setSchnorrZKPbijs(schnorrZKPbijs);
             return r;
         }
     }
