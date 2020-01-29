@@ -3,50 +3,44 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RoundTwoResponse {
-    //    BigInteger [][] newGen = new BigInteger [n][n];
-//    ArrayList<BigInteger> newGen = new ArrayList<>();
-    private HashMap<Long, ArrayList<BigInteger>> newGen = new HashMap<>();
-    //    BigInteger [][] bijs = new BigInteger [n][n];
-//    ArrayList<BigInteger> bijs = new ArrayList<>();
-    private HashMap<Long, ArrayList<BigInteger>> bijs = new HashMap<>();
-    //    BigInteger [][] newGenPowBijs = new BigInteger [n][n];
-//    ArrayList<BigInteger> newGenPowBijs = new ArrayList<>();;
-    private HashMap<Long, ArrayList<BigInteger>> newGenPowBijs = new HashMap<>();
-    //    BigInteger [][][] schnorrZKPbijs = new BigInteger [n][n][2];
-//    ArrayList<ArrayList<BigInteger>> schnorrZKPbijs = new ArrayList<>();
-    private HashMap<Long, ArrayList<ArrayList<BigInteger>>> schnorrZKPbijs = new HashMap<>();
+    private HashMap<Long, HashMap<Long, BigInteger>> newGen = new HashMap<>();
+    private HashMap<Long, HashMap<Long, BigInteger>> bijs = new HashMap<>();
+    private HashMap<Long, HashMap<Long, BigInteger>> newGenPowBijs = new HashMap<>();
+    private HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbijs = new HashMap<>();
 
     private ArrayList<String> SignerID = new ArrayList<>();
 
-    public HashMap<Long, ArrayList<BigInteger>> getNewGen() {
+    public RoundTwoResponse() {}
+
+    public HashMap<Long, HashMap<Long, BigInteger>> getNewGen() {
         return newGen;
     }
 
-    public void setNewGen(HashMap<Long, ArrayList<BigInteger>> newGen) {
+    public void setNewGen(HashMap<Long, HashMap<Long, BigInteger>> newGen) {
         this.newGen = newGen;
     }
 
-    public HashMap<Long, ArrayList<BigInteger>> getBijs() {
+    public HashMap<Long, HashMap<Long, BigInteger>> getBijs() {
         return bijs;
     }
 
-    public void setBijs(HashMap<Long, ArrayList<BigInteger>> bijs) {
+    public void setBijs(HashMap<Long, HashMap<Long, BigInteger>> bijs) {
         this.bijs = bijs;
     }
 
-    public HashMap<Long, ArrayList<BigInteger>> getNewGenPowBijs() {
+    public HashMap<Long, HashMap<Long, BigInteger>> getNewGenPowBijs() {
         return newGenPowBijs;
     }
 
-    public void setNewGenPowBijs(HashMap<Long, ArrayList<BigInteger>> newGenPowBijs) {
+    public void setNewGenPowBijs(HashMap<Long, HashMap<Long, BigInteger>> newGenPowBijs) {
         this.newGenPowBijs = newGenPowBijs;
     }
 
-    public HashMap<Long, ArrayList<ArrayList<BigInteger>>> getSchnorrZKPbijs() {
+    public HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> getSchnorrZKPbijs() {
         return schnorrZKPbijs;
     }
 
-    public void setSchnorrZKPbijs(HashMap<Long, ArrayList<ArrayList<BigInteger>>> schnorrZKPbijs) {
+    public void setSchnorrZKPbijs(HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbijs) {
         this.schnorrZKPbijs = schnorrZKPbijs;
     }
 

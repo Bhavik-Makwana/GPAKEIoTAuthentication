@@ -3,65 +3,63 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RoundOneResponse {
-    HashMap<Long, ArrayList<BigInteger>> aij;
-    HashMap<Long, ArrayList<BigInteger>> gPowAij;
-    HashMap<Long, ArrayList<ArrayList<BigInteger>>> schnorrZKPaij;
-    HashMap<Long, ArrayList<BigInteger>> bij;
-    HashMap<Long, ArrayList<BigInteger>> gPowBij;
-    HashMap<Long, ArrayList<ArrayList<BigInteger>>> schnorrZKPbij;
-    HashMap<Long, BigInteger> yi;
-    HashMap<Long, BigInteger> gPowYi;
-    HashMap<Long, BigInteger> gPowZi;
-    HashMap<Long, ArrayList<BigInteger>> schnorrZKPyi;
-    ArrayList<String> signerID;
+    private  HashMap<Long, HashMap<Long, BigInteger>> aij = new HashMap<>();
+    private  HashMap<Long, HashMap<Long, BigInteger>> gPowAij = new HashMap<>();
+    private  HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPaij = new HashMap<>();
+    private  HashMap<Long, HashMap<Long, BigInteger>> bij = new HashMap<>();
+    private  HashMap<Long, HashMap<Long, BigInteger>> gPowBij = new HashMap<>();
+    private  HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbij = new HashMap<>();
+    private  HashMap<Long, BigInteger> yi = new HashMap<>();
+    private  HashMap<Long, BigInteger> gPowYi = new HashMap<>();
+    private  HashMap<Long, BigInteger> gPowZi = new HashMap<>();
+    private  HashMap<Long, ArrayList<BigInteger>> schnorrZKPyi = new HashMap<>();
+    private  ArrayList<String> signerID = new ArrayList<>();
 
-    public RoundOneResponse() {}
-
-    public HashMap<Long, ArrayList<BigInteger>> getAij() {
+    public HashMap<Long, HashMap<Long, BigInteger>> getAij() {
         return aij;
     }
 
-    public void setAij(HashMap<Long, ArrayList<BigInteger>> aij) {
+    public void setAij(HashMap<Long, HashMap<Long, BigInteger>> aij) {
         this.aij = aij;
     }
 
-    public HashMap<Long, ArrayList<BigInteger>> getgPowAij() {
+    public HashMap<Long, HashMap<Long, BigInteger>> getgPowAij() {
         return gPowAij;
     }
 
-    public void setgPowAij(HashMap<Long, ArrayList<BigInteger>> gPowAij) {
+    public void setgPowAij(HashMap<Long, HashMap<Long, BigInteger>> gPowAij) {
         this.gPowAij = gPowAij;
     }
 
-    public HashMap<Long, ArrayList<ArrayList<BigInteger>>> getSchnorrZKPaij() {
+    public HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> getSchnorrZKPaij() {
         return schnorrZKPaij;
     }
 
-    public void setSchnorrZKPaij(HashMap<Long, ArrayList<ArrayList<BigInteger>>> schnorrZKPaij) {
+    public void setSchnorrZKPaij(HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPaij) {
         this.schnorrZKPaij = schnorrZKPaij;
     }
 
-    public HashMap<Long, ArrayList<BigInteger>> getBij() {
+    public HashMap<Long, HashMap<Long, BigInteger>> getBij() {
         return bij;
     }
 
-    public void setBij(HashMap<Long, ArrayList<BigInteger>> bij) {
+    public void setBij(HashMap<Long, HashMap<Long, BigInteger>> bij) {
         this.bij = bij;
     }
 
-    public HashMap<Long, ArrayList<BigInteger>> getgPowBij() {
+    public HashMap<Long, HashMap<Long, BigInteger>> getgPowBij() {
         return gPowBij;
     }
 
-    public void setgPowBij(HashMap<Long, ArrayList<BigInteger>> gPowBij) {
+    public void setgPowBij(HashMap<Long, HashMap<Long, BigInteger>> gPowBij) {
         this.gPowBij = gPowBij;
     }
 
-    public HashMap<Long, ArrayList<ArrayList<BigInteger>>> getSchnorrZKPbij() {
+    public HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> getSchnorrZKPbij() {
         return schnorrZKPbij;
     }
 
-    public void setSchnorrZKPbij(HashMap<Long, ArrayList<ArrayList<BigInteger>>> schnorrZKPbij) {
+    public void setSchnorrZKPbij(HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbij) {
         this.schnorrZKPbij = schnorrZKPbij;
     }
 
