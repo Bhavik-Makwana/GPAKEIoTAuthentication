@@ -28,7 +28,10 @@ public class ChatServer {
      */
     private static HashSet<HashMap<Long,String>> names = new HashSet<>();
 
-    private static HashMap<Long, Boolean> roundComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> roundOneComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> roundOneVComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> roundTwoComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> roundTwoVComplete = new HashMap<>();
     /**
      * The set of all the print writers for all the clients.  This
      * set is kept so we can easily broadcast messages.
@@ -144,7 +147,10 @@ public class ChatServer {
                 gson = new Gson();
                 idName = new HashMap<>();
                 id = currentThread().getId();
-                roundComplete.put(id, false);
+                roundOneComplete.put(id, false);
+                roundOneVComplete.put(id, false);
+                roundTwoComplete.put(id, false);
+                roundTwoVComplete.put(id, false);
                 in = new BufferedReader(new InputStreamReader(
                         socket.getInputStream()));
                 out = new PrintWriter(socket.getOutputStream(), true);
@@ -201,31 +207,34 @@ public class ChatServer {
                         RoundOne roundOne = gson.fromJson(response, RoundOne.class);
                         System.out.println(roundOne.getSignerID());
                         updateDataRoundOne(id, roundOne);
-                        roundComplete.replace(id, true);
-                        System.out.println(roundComplete.toString());
-                        while(roundComplete.containsValue(false)) { } // busy wait
+                        roundOneComplete.replace(id, true);
+                        System.out.println(roundOneComplete.toString());
+                        while(roundOneComplete.containsValue(false)) { } // busy wait
                         // round 1 verification
+                        System.out.println("************ ROUND 1V **********");
                         RoundOneResponse dataRoundOne = setDataRoundOneResponse();
                         out.println(gson.toJson(dataRoundOne));
-                        roundComplete.replace(id, false);
+
                         response = in.readLine();
                         if (response.equals("0")) {
                             break;
                         }
                         else {
-                            roundComplete.replace(id, true);
+                            roundOneVComplete.replace(id, true);
                         }
-                        while(roundComplete.containsValue(false)) {}
+                        System.out.println(roundOneVComplete.toString());
+                        while(roundOneVComplete.containsValue(false)) {}
                         // round 2
-                        roundComplete.replace(id, false);
+                        System.out.println("************ ROUND 2 ***********");
+
                         out.println("1"); // OK
 
                         // Take in users round two data
                         response = in.readLine();
                         RoundTwo roundTwo = gson.fromJson(response, RoundTwo.class);
                         updateDataRoundTwo(id, roundTwo);
-                        roundComplete.replace(id, true);
-                        while (roundComplete.containsValue(false)) {}
+                        roundTwoComplete.replace(id, true);
+                        while (roundTwoComplete.containsValue(false)) {}
                         RoundTwoResponse dataRoundTwo = setDataRoundTwoResponse();
                         out.println(gson.toJson(dataRoundTwo));
                         break;
@@ -291,6 +300,7 @@ public class ChatServer {
             bijs.put(id, data.getBijs());
             newGenPowBijs.put(id, data.getNewGenPowBijs());
             schnorrZKPbijs.put(id, data.getSchnorrZKPbijs());
+            signerID.add(data.getSignerID());
         }
 
         public RoundTwoResponse setDataRoundTwoResponse() {
@@ -299,6 +309,7 @@ public class ChatServer {
             r.setBijs(bijs);
             r.setNewGenPowBijs(newGenPowBijs);
             r.setSchnorrZKPbijs(schnorrZKPbijs);
+            r.setSignerID(signerID);
             return r;
         }
     }

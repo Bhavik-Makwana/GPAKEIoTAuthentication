@@ -169,10 +169,12 @@ public class ChatClient {
             }
         }
         // round 1
+
         BigInteger p = new BigInteger("C196BA05AC29E1F9C3C72D56DFFC6154A033F1477AC88EC37F09BE6C5BB95F51C296DD20D1A28A067CCC4D4316A4BD1DCA55ED1066D438C35AEBAABF57E7DAE428782A95ECA1C143DB701FD48533A3C18F0FE23557EA7AE619ECACC7E0B51652A8776D02A425567DED36EABD90CA33A1E8D988F0BBB92D02D1D20290113BB562CE1FC856EEB7CDD92D33EEA6F410859B179E7E789A8F75F645FAE2E136D252BFFAFF89528945C1ABE705A38DBC2D364AADE99BE0D0AAD82E5320121496DC65B3930E38047294FF877831A16D5228418DE8AB275D7D75651CEFED65F78AFC3EA7FE4D79B35F62A0402A1117599ADAC7B269A59F353CF450E6982D3B1702D9CA83", 16);
         BigInteger q = new BigInteger("90EAF4D1AF0708B1B612FF35E0A2997EB9E9D263C9CE659528945C0D", 16);
         BigInteger g = new BigInteger("A59A749A11242C58C894E9E5A91804E8FA0AC64B56288F8D47D51B1EDC4D65444FECA0111D78F35FC9FDD4CB1F1B79A3BA9CBEE83A3F811012503C8117F98E5048B089E387AF6949BF8784EBD9EF45876F2E6A5A495BE64B6E770409494B7FEE1DBB1E4B2BC2A53D4F893D418B7159592E4FFFDF6969E91D770DAEBD0B5CB14C00AD68EC7DC1E5745EA55C706C4A1C5C88964E34D09DEB753AD418C1AD0F4FDFD049A955E5D78491C0B7A2F1575A008CCD727AB376DB6E695515B05BD412F5B8C2F4C77EE10DA48ABD53F5DD498927EE7B692BBBCDA2FB23A516C5B4533D73980B2A3B60E384ED200AE21B40D273651AD6060C13D97FD69AA13C5611A51B9085", 16);
 
+        System.out.println("*************** ROUND 1 ***************");
         int n = clients.size();
 
         // signerId[i] = i + ""
@@ -239,7 +241,7 @@ public class ChatClient {
 //        }
 
 
-
+        System.out.println("********** SEND ROUND 1 DATA **********");
         RoundOne dataObject = new RoundOne();
         dataObject.setAij(aij);
         dataObject.setBij(bij);
@@ -252,16 +254,18 @@ public class ChatClient {
         dataObject.setSchnorrZKPyi(schnorrZKPyi);
         dataObject.setYi(yi);
         dataObject.setSignerID(signerID);
-
+        System.out.println("A");
         data = gson.toJson(dataObject);
-
+        System.out.println("B");
         out.println(data);
-
+        System.out.println("C");
         response = in.readLine();
+        System.out.println("D");
         RoundOneResponse rOneResponse = gson.fromJson(response, RoundOneResponse.class);
-
+        System.out.println("E");
 
         // VERIFICATION
+        System.out.println("************ VERIFY ROUND 1 ***********");
         for (int i=0; i<n; i++) {
 
             int iPlusOne = (i==n-1) ? 0: i+1;
@@ -288,7 +292,7 @@ public class ChatClient {
         for (int j=0; j<n; j++) {
             long jID = Long.parseLong(rOneResponse.getSignerID().get(j));
             int iID = rOneResponse.getSignerID().indexOf(Integer.toString(clientId));
-            if (iID==jID) {
+            if (clientId==jID) {
                 continue;
             }
 
@@ -296,6 +300,8 @@ public class ChatClient {
 //                if(!verifySchnorrZKP(p, q, g, gPowBij[j][i], schnorrZKPbij[j][i][0], schnorrZKPbij[j][i][1], signerID[j])) {
             if(!verifySchnorrZKP(p, q, g, rOneResponse.getgPowBij().get(jID).get(iID), rOneResponse.getSchnorrZKPbij().get(jID).get(iID).get(0),
                      rOneResponse.getSchnorrZKPbij().get(jID).get(iID).get(1), Long.toString(jID))) {
+                out.println(0);
+                System.out.println("FAILED 1");
                 exitWithError("Round 1 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + iID + "," +jID + ")");
             }
 
@@ -303,6 +309,7 @@ public class ChatClient {
 //                if (gPowBij[j][i].compareTo(BigInteger.ONE) == 0){
             if (rOneResponse.getgPowBij().get(jID).get(iID).compareTo(BigInteger.ONE) == 0) {
                 out.println("0");
+                System.out.println("FAILED 2");
                 exitWithError("Round 1 verification failed at checking g^{ji} !=1");
             }
 
@@ -313,6 +320,7 @@ public class ChatClient {
                     rOneResponse.getSchnorrZKPaij().get(jID).get(iID).get(0),
                     rOneResponse.getSchnorrZKPaij().get(jID).get(iID).get(1), Long.toString(jID))) {
                 out.println("0");
+                System.out.println("FAILED 3");
                 exitWithError("Round 1 verification failed at checking SchnorrZKP for aij. (i,j)="+"(" + iID + "," + jID + ")");
             }
 
@@ -323,38 +331,46 @@ public class ChatClient {
                     rOneResponse.getSchnorrZKPyi().get(jID).get(1),
                     Long.toString(jID))) {
                 out.println("0");
+                System.out.println("FAILED 4");
                 exitWithError("Round 1 verification failed at checking SchnorrZKP for yi. (i,j)="+"(" + iID + "," +jID + ")");
             }
         }
 //        }
-        System.out.println("gucci");
 
         // send confirmation to server
         out.println("1");
+        System.out.println("A");
         // server can issue go ahead of next stage
         response = in.readLine();
+        System.out.println("B");
         if (!response.equals("1")) {
             exitWithError("All participants failed to verify Round 1");
         }
+        System.out.println("C");
         // ROUND 2
 
 //        for (int i=0; i<n; i++) {
-
+        System.out.println("*************** ROUND 2 ***************");
             // Each participant sends newGen^{bij * s} and ZKP{bij * s}
         for (int j=0; j<n; j++) {
+
+            long jID = Long.parseLong(rOneResponse.getSignerID().get(j));
             int iID = rOneResponse.getSignerID().indexOf(Integer.toString(clientId));
-            if (clientId==j){
-                continue;
-            }
+//            if ((long) clientId==jID){
+//                continue;
+//            }
 
             // g^{a_ij} * g^{a_ji} * g^{b_jj} mod p
 //            newGen[i][j] = gPowAij[i][j].multiply(gPowAij[j][i]).multiply(gPowBij[j][i]).mod(p);
-            newGen.add(rOneResponse.getgPowAij().get(clientId).get(j).multiply(rOneResponse.getgPowAij().get(j).get(iID)).mod(p));
+
+            newGen.add(rOneResponse.getgPowAij().get(cID).get(j).multiply(rOneResponse.getgPowAij().get(jID).get(iID))
+                    .multiply(rOneResponse.getgPowBij().get(jID).get(iID)).mod(p));
             // b_ij * s
 //            bijs[i][j] = bij[i][j].multiply(s).mod(q);
-            bijs.add(rOneResponse.getBij().get(clientId).get(j).multiply(s).mod(q));
+            bijs.add(rOneResponse.getBij().get(cID).get(j).multiply(s).mod(q));
+
             // (g^{a_ij} * g^{a_ji} * g^{b_jj} mod p)^{b_ij * s}
-//            newGenPowBijs[i][j] = newGen[i][j].modPow(bijs[i][j], p);
+//            newGenPowBijs[i][j] = newGen[i][j].modPow(bijs[i][j], p)
             newGenPowBijs.add(newGen.get(j).modPow(bijs.get(j),p));
 //            schnorrZKP.generateZKP(p, q, newGen[i][j], newGenPowBijs[i][j], bijs[i][j], signerID[i]);
             schnorrZKP.generateZKP(p, q, newGen.get(j), newGenPowBijs.get(j), bijs.get(j), signerID);
@@ -372,30 +388,34 @@ public class ChatClient {
         dataRoundTwo.setNewGen(newGen);
         dataRoundTwo.setNewGenPowBijs(newGenPowBijs);
         dataRoundTwo.setSchnorrZKPbijs(schnorrZKPbijs);
-
+        dataRoundTwo.setSignerID(signerID);
         // send serialized round two data to server
         out.println(gson.toJson(dataRoundTwo));
         // get serialized json of all round 2 calculations
         response = in.readLine();
-//        RoundOneResponse rTwoResponse = gson.fromJson(response, RoundOneResponse.class);
+        RoundTwoResponse rTwoResponse = gson.fromJson(response, RoundTwoResponse.class);
 
 //        for (int i=0; i<n; i++) {
 //
-//            // each participant verifies ZKP{bijs}
+//             each participant verifies ZKP{bijs}
 //
-//            for (int j=0; j<n; j++) {
-//
-//                if (i==j){
-//                    continue;
-//                }
-//
-//                // Check ZKP{bji}
-//                if(!verifySchnorrZKP(p, q, newGen[j][i], newGenPowBijs[j][i], schnorrZKPbijs[j][i][0], schnorrZKPbijs[j][i][1], signerID[j])) {
-//                    exitWithError("Round 2 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + i + "," +j + ")");
-//                }
-//            }
-//        }
+        System.out.println("************ VERIFY ROUND 2 ***********");
+        for (int j=0; j<n; j++) {
+            System.out.println("j`; " + j);
+            long jID = Long.parseLong(rTwoResponse.getSignerID().get(j));
+            int iID = rTwoResponse.getSignerID().indexOf(Integer.toString(clientId));
+            if (clientId==jID){
+                System.out.println("skipped " + jID + " " + clientId);
+                continue;
+            }
 
+            // Check ZKP{bji}
+//            if(!verifySchnorrZKP(p, q, newGen[j][i], newGenPowBijs[j][i], schnorrZKPbijs[j][i][0], schnorrZKPbijs[j][i][1], signerID[j])) {
+            if(!verifySchnorrZKP(p, q, rTwoResponse.getNewGen().get(jID).get(iID), rTwoResponse.getNewGenPowBijs().get(jID).get(iID),
+                    rTwoResponse.getSchnorrZKPbijs().get(jID).get(iID).get(0), rTwoResponse.getSchnorrZKPbijs().get(jID).get(iID).get(1),
+                    Long.toString(jID)));
+                exitWithError("Round 2 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + clientId + "," + jID + ")");
+        }
     }
 
     /**

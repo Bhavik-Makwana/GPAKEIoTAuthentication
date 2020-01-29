@@ -11,6 +11,8 @@ public class RoundTwo {
     //    BigInteger [][][] schnorrZKPbijs = new BigInteger [n][n][2];
     private ArrayList<ArrayList<BigInteger>> schnorrZKPbijs = new ArrayList<>();
 
+    private String signerID;
+
     RoundTwo() {};
     public ArrayList<BigInteger> getNewGen() {
         return newGen;
@@ -42,5 +44,13 @@ public class RoundTwo {
 
     public void setSchnorrZKPbijs(ArrayList<ArrayList<BigInteger>> schnorrZKPbijs) {
         this.schnorrZKPbijs = schnorrZKPbijs;
+    }
+
+    public String getSignerID() {
+        return signerID;
+    }
+
+    public void setSignerID(String signerID) {
+        this.signerID = signerID;
     }
 }

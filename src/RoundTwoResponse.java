@@ -16,6 +16,8 @@ public class RoundTwoResponse {
 //    ArrayList<ArrayList<BigInteger>> schnorrZKPbijs = new ArrayList<>();
     private HashMap<Long, ArrayList<ArrayList<BigInteger>>> schnorrZKPbijs = new HashMap<>();
 
+    private ArrayList<String> SignerID = new ArrayList<>();
+
     public HashMap<Long, ArrayList<BigInteger>> getNewGen() {
         return newGen;
     }
@@ -46,5 +48,13 @@ public class RoundTwoResponse {
 
     public void setSchnorrZKPbijs(HashMap<Long, ArrayList<ArrayList<BigInteger>>> schnorrZKPbijs) {
         this.schnorrZKPbijs = schnorrZKPbijs;
+    }
+
+    public ArrayList<String> getSignerID() {
+        return SignerID;
+    }
+
+    public void setSignerID(ArrayList<String> signerID) {
+        SignerID = signerID;
     }
 }
