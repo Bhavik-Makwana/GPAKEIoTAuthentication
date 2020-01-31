@@ -45,10 +45,10 @@ public class JPAKEPlusDemo {
 	// assume n participants
 	int n;
 
-	boolean DEBUG = true;
+	boolean DEBUG = false;
 
 	// For testing performance
-	int maxNumberOfIterations = 31; // at least 2
+	int maxNumberOfIterations = 2; // at least 2
 	int latency [][] = new int [maxNumberOfIterations][7];
 	int avgLatency [] = new int [7];
 
@@ -56,9 +56,9 @@ public class JPAKEPlusDemo {
 
     	JPAKEPlusDemo test = new JPAKEPlusDemo();
 
-    	int maxNoOfParticipants = 2;
+    	int maxNoOfParticipants = 3;
 
-    	for (int noOfParticiapnts = 2; noOfParticiapnts <= maxNoOfParticipants+1; noOfParticiapnts++){
+    	for (int noOfParticiapnts = 3; noOfParticiapnts <= maxNoOfParticipants+1; noOfParticiapnts++){
 
     		test.startTest(noOfParticiapnts);
     	}
@@ -493,8 +493,10 @@ public class JPAKEPlusDemo {
 
     				mac.update(gPowAij[i][j].toByteArray());
     				mac.update(gPowBij[i][j].toByteArray());
-
-    				if (new BigInteger(mac.doFinal()).compareTo(hMacsKC[j][i]) != 0) {
+ 					BigInteger temp = new BigInteger(mac.doFinal());
+    				System.out.println(temp);
+ 					System.out.println(hMacsKC[j][i]);
+    				if (temp.compareTo(hMacsKC[j][i]) != 0) {
     					exitWithError("Round 3 verification failed at checking KC for (i,j)=("+i+","+j+")");
     				}
     			}catch(Exception e){

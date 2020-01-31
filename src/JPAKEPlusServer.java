@@ -15,7 +15,7 @@ import org.json.simple.JsonObject;
  *
  *
  */
-public class ChatServer {
+public class JPAKEPlusServer {
     /**
      * The port that the server listens on.
      */
@@ -33,6 +33,8 @@ public class ChatServer {
     private static HashMap<Long, Boolean> roundOneVComplete = new HashMap<>();
     private static HashMap<Long, Boolean> roundTwoComplete = new HashMap<>();
     private static HashMap<Long, Boolean> roundTwoVComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> roundThreeComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> roundFourComplete = new HashMap<>();
     /**
      * The set of all the print writers for all the clients.  This
      * set is kept so we can easily broadcast messages.
@@ -94,7 +96,13 @@ public class ChatServer {
 //    ArrayList<ArrayList<BigInteger>> schnorrZKPbijs = new ArrayList<>();
     private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbijs = new HashMap<>();
 
-
+// ****************************** ROUND 3 ****************************************
+    private static HashMap<Long, BigInteger> gPowZiPowYi = new HashMap<>();
+    private static HashMap<Long, ArrayList<BigInteger>> chaumPedersonZKPi = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysMAC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysKC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsMAC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsKC = new HashMap<>();
 
     /**
      * The appplication main method, which just listens on a port and
@@ -155,6 +163,8 @@ public class ChatServer {
                 roundOneVComplete.put(id, false);
                 roundTwoComplete.put(id, false);
                 roundTwoVComplete.put(id, false);
+                roundThreeComplete.put(id, false);
+                roundFourComplete.put(id,false);
                 in = new BufferedReader(new InputStreamReader(
                         socket.getInputStream()));
                 out = new PrintWriter(socket.getOutputStream(), true);
@@ -257,7 +267,14 @@ public class ChatServer {
 
                         out.println("1"); // OK
 
-
+                        response = in.readLine();
+                        RoundThree roundThree = gson.fromJson(response, RoundThree.class);
+                        updateDataRoundThree(id, roundThree);
+                        roundThreeComplete.replace(id, true);
+                        while(roundThreeComplete.containsValue(false)) {}
+                        System.out.println("************ ROUND 4 ***********");
+                        RoundThreeResponse dataRoundThree = setDataRoundThreeResponse();
+                        out.println(gson.toJson(dataRoundThree));
                         break;
                     }
                     for (PrintWriter writer : writers) {
@@ -331,6 +348,26 @@ public class ChatServer {
             r.setNewGenPowBijs(newGenPowBijs);
             r.setSchnorrZKPbijs(schnorrZKPbijs);
             r.setSignerID(signerID);
+            return r;
+        }
+
+        public void updateDataRoundThree(Long id, RoundThree data) {
+            gPowZiPowYi.put(id, data.getgPowZiPowYi());
+            chaumPedersonZKPi.put(id, data.getChaumPedersonZKPi());
+            pairwiseKeysKC.put(id, data.getPairwiseKeysKC());
+            pairwiseKeysMAC.put(id, data.getPairwiseKeysMAC());
+            hMacsKC.put(id, data.gethMacsKC());
+            hMacsMAC.put(id, data.gethMacsMAC());
+        }
+
+        public RoundThreeResponse setDataRoundThreeResponse() {
+            RoundThreeResponse r = new RoundThreeResponse();
+            r.setChaumPedersonZKPi(chaumPedersonZKPi);
+            r.setgPowZiPowYi(gPowZiPowYi);
+            r.sethMacsKC(hMacsKC);
+            r.sethMacsMAC(hMacsMAC);
+            r.setPairwiseKeysKC(pairwiseKeysKC);
+            r.setPairwiseKeysMAC(pairwiseKeysMAC);
             return r;
         }
     }

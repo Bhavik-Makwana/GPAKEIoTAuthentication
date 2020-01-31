@@ -1,21 +1,17 @@
 
 import com.google.gson.Gson;
-import org.json.simple.JsonObject;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.math.BigInteger;
-import java.math.RoundingMode;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.security.Security;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -25,13 +21,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class ChatClient {
+public class JPAKEPlusClient {
 
     BufferedReader in;
     PrintWriter out;
     Gson gson = new Gson();
     ObjectInputStream objectInputStream;
-    JFrame frame = new JFrame("InstantMessenger");
+    JFrame frame = new JFrame("Client");
     JTextField textField = new JTextField(40);
     JTextArea messageArea = new JTextArea(8, 40);
     String clientName;
@@ -91,6 +87,8 @@ public class ChatClient {
     HashMap<Long, BigInteger> hMacsMAC = new HashMap<>();
 //    BigInteger [][] hMacsKC = new BigInteger [n][n];
     HashMap<Long, BigInteger> hMacsKC = new HashMap<>();
+//    *** KEYS ***
+    HashMap<Long, BigInteger> sessionKeys = new HashMap<>();
     /**
      * Constructs the client by laying out the GUI and registering a
      * listener with the textfield so that pressing Return in the
@@ -99,7 +97,7 @@ public class ChatClient {
      * only becomes editable AFTER the client receives the NAMEACCEPTED
      * message from the server.
      */
-    public ChatClient() {
+    public JPAKEPlusClient() {
 
         // Layout GUI
         textField.setEditable(false);
@@ -130,7 +128,7 @@ public class ChatClient {
         return JOptionPane.showInputDialog(
                 frame,
                 "Enter IP Address of the Server:",
-                "Welcome to the Chatter",
+                "JPAKEPlus Proof of Concept",
                 JOptionPane.QUESTION_MESSAGE);
     }
 
@@ -276,15 +274,10 @@ public class ChatClient {
         dataObject.setSchnorrZKPyi(schnorrZKPyi);
         dataObject.setYi(yi);
         dataObject.setSignerID(signerID);
-        System.out.println("A");
         data = gson.toJson(dataObject);
-        System.out.println("B");
         out.println(data);
-        System.out.println("C");
         response = in.readLine();
-        System.out.println("D");
         RoundOneResponse rOneResponse = gson.fromJson(response, RoundOneResponse.class);
-        System.out.println("E");
 
         // VERIFICATION
         System.out.println("************ VERIFY ROUND 1 ***********");
@@ -313,7 +306,6 @@ public class ChatClient {
 
         for (int j=0; j<n; j++) {
             long jID = Long.parseLong(rOneResponse.getSignerID().get(j));
-            int iID = rOneResponse.getSignerID().indexOf(Integer.toString(clientId));
             if (cID==jID) {
                 continue;
             }
@@ -361,15 +353,11 @@ public class ChatClient {
 
         // send confirmation to server
         out.println("1");
-        System.out.println("A");
         // server can issue go ahead of next stage
         response = in.readLine();
-        System.out.println("B");
         if (!response.equals("1")) {
             exitWithError("All participants failed to verify Round 1");
         }
-        System.out.println("C");
-        // ROUND 2
 
 //        for (int i=0; i<n; i++) {
         System.out.println("*************** ROUND 2 ***************");
@@ -377,7 +365,6 @@ public class ChatClient {
         for (int j=0; j<n; j++) {
 
             long jID = roundZero.getClientIDs().get(j);
-            int iID = rOneResponse.getSignerID().indexOf(Integer.toString(clientId));
             if (cID==jID){
                 continue;
             }
@@ -451,65 +438,186 @@ public class ChatClient {
 //        for (int i=0; i<n; i++){
 
 //            gPowZiPowYi[i] = gPowZi[i].modPow(yi[i], p);
-            gPowZiPowYi =rOneResponse.getgPowZi().get(cID).modPow(rOneResponse.getYi().get(cID), p);
+        gPowZiPowYi = rOneResponse.getgPowZi().get(cID).modPow(rOneResponse.getYi().get(cID), p);
 
-            ChaumPedersonZKP chaumPedersonZKP = new ChaumPedersonZKP();
+        ChaumPedersonZKP chaumPedersonZKP = new ChaumPedersonZKP();
 
 //            chaumPedersonZKP.generateZKP(p, q, g, gPowYi[i], yi[i], gPowZi[i], gPowZiPowYi[i], signerID[i]);
-            chaumPedersonZKP.generateZKP(p, q, g, rOneResponse.getgPowYi().get(cID), rOneResponse.getYi().get(cID),
-                    rOneResponse.getgPowZi().get(cID), gPowZiPowYi, signerID);
+        chaumPedersonZKP.generateZKP(p, q, g,
+                rOneResponse.getgPowYi().get(cID),
+                rOneResponse.getYi().get(cID),
+                rOneResponse.getgPowZi().get(cID),
+                gPowZiPowYi,
+                signerID);
 
 //        chaumPedersonZKPi[i][0] = chaumPedersonZKP.getGPowS();
 //        chaumPedersonZKPi[i][1] = chaumPedersonZKP.getGPowZPowS();
 //        chaumPedersonZKPi[i][2] = chaumPedersonZKP.getT();
-            chaumPedersonZKPi.add(chaumPedersonZKP.getGPowS());
-            chaumPedersonZKPi.add(chaumPedersonZKP.getGPowZPowS());
-            chaumPedersonZKPi.add(chaumPedersonZKP.getT());
+        chaumPedersonZKPi.add(chaumPedersonZKP.getGPowS());
+        chaumPedersonZKPi.add(chaumPedersonZKP.getGPowZPowS());
+        chaumPedersonZKPi.add(chaumPedersonZKP.getT());
 
             // Compute pairwise keys
-            for (int j=0; j<n; j++){
-                long jID = clients.get(j);
+        for (int j=0; j<n; j++) {
+            long jID = clients.get(j);
 //                if (i==j){
 //                    continue;
 //                }
-                if (cID==jID){
+            if (cID==jID){
+                continue;
+            }
+
+//                BigInteger rawKey = gPowBij[j][i].modPow(bijs[i][j], p).modInverse(p).multiply(newGenPowBijs[j][i]).modPow(bij[i][j], p);
+            BigInteger rawKey = rOneResponse.getgPowBij().get(jID).get(cID).modPow(rTwoResponse.getBijs().get(cID).get(jID), p)
+                    .modInverse(p).multiply(
+                            rTwoResponse.getNewGenPowBijs().get(jID).get(cID)).modPow(rOneResponse.getBij().get(cID).get(jID), p);
+//                pairwiseKeysMAC[i][j] = getSHA256( rawKey, "MAC");
+            pairwiseKeysMAC.put(jID, getSHA256(rawKey, "MAC"));
+//                pairwiseKeysKC[i][j] = getSHA256( rawKey, "KC");
+            pairwiseKeysKC.put(jID, getSHA256(rawKey, "KC"));
+            // Compute MAC
+            String hmacName = "HMac-SHA256";
+
+            try {
+//                    SecretKey key = new SecretKeySpec(pairwiseKeysMAC[i][j].toByteArray(), hmacName);
+                SecretKey key = new SecretKeySpec(pairwiseKeysMAC.get(jID).toByteArray(), hmacName);
+//                    Mac mac = Mac.getInstance(hmacName, "BC");
+                Mac mac = Mac.getInstance(hmacName, "BC");
+                mac.init(key);
+//                    mac.update(gPowYi[i].toByteArray());
+                mac.update(rOneResponse.getgPowYi().get(cID).toByteArray());
+//                    mac.update(schnorrZKPyi[i][0].toByteArray());
+                mac.update(rOneResponse.getSchnorrZKPyi().get(cID).get(0).toByteArray());
+//                    mac.update(schnorrZKPyi[i][1].toByteArray());
+                mac.update(rOneResponse.getSchnorrZKPyi().get(cID).get(1).toByteArray());
+//                    mac.update(gPowZiPowYi[i].toByteArray());
+                mac.update(gPowZiPowYi.toByteArray());
+//                    mac.update(chaumPedersonZKPi[i][0].toByteArray());
+                mac.update(chaumPedersonZKPi.get(0).toByteArray());
+//                    mac.update(chaumPedersonZKPi[i][1].toByteArray());
+                mac.update(chaumPedersonZKPi.get(1).toByteArray());
+//                    mac.update(chaumPedersonZKPi[i][2].toByteArray());
+                mac.update(chaumPedersonZKPi.get(2).toByteArray());
+
+//                    hMacsMAC[i][j] = new BigInteger(mac.doFinal());
+                hMacsMAC.put(jID, new BigInteger(mac.doFinal()));
+            }catch(Exception e){
+
+                e.printStackTrace();
+                System.exit(0);
+
+            }
+
+            // Compute HMAC for key confirmation
+            try{
+//                    SecretKey key = new SecretKeySpec(pairwiseKeysKC[i][j].toByteArray(), hmacName);
+                SecretKey key = new SecretKeySpec(pairwiseKeysKC.get(jID).toByteArray(), hmacName);
+                Mac mac = Mac.getInstance(hmacName, "BC");
+                mac.init(key);
+                mac.update("KC".getBytes());
+//                    mac.update(new BigInteger(""+i).toByteArray());
+//                    mac.update(new BigInteger(""+j).toByteArray());
+                mac.update(new BigInteger(""+cID).toByteArray());
+                mac.update(new BigInteger(""+jID).toByteArray());
+
+//                    mac.update(gPowAij[i][j].toByteArray());
+//                    mac.update(gPowBij[i][j].toByteArray());
+                mac.update(rOneResponse.getgPowAij().get(cID).get(jID).toByteArray());
+                mac.update(rOneResponse.getgPowBij().get(cID).get(jID).toByteArray());
+
+//                    mac.update(gPowAij[j][i].toByteArray());
+//                    mac.update(gPowBij[j][i].toByteArray());
+
+                mac.update(rOneResponse.getgPowAij().get(jID).get(cID).toByteArray());
+                mac.update(rOneResponse.getgPowBij().get(jID).get(cID).toByteArray());
+
+//                hMacsKC[i][j] = new BigInteger(mac.doFinal());
+                hMacsKC.put(jID, new BigInteger(mac.doFinal()));
+            } catch(Exception e){
+
+                e.printStackTrace();
+                System.exit(0);
+
+            }
+        }
+//        }
+
+        RoundThree roundThree = new RoundThree();
+        roundThree.setChaumPedersonZKPi(chaumPedersonZKPi);
+        roundThree.setgPowZiPowYi(gPowZiPowYi);
+        roundThree.sethMacsKC(hMacsKC);
+        roundThree.sethMacsMAC(hMacsMAC);
+        roundThree.setPairwiseKeysKC(pairwiseKeysKC);
+        roundThree.setPairwiseKeysMAC(pairwiseKeysMAC);
+        out.println(gson.toJson(roundThree));
+
+        response = in.readLine();
+        RoundThreeResponse rThreeResponse= gson.fromJson(response, RoundThreeResponse.class);
+
+
+        System.out.println("*************** ROUND 4 ***************");
+//        for (int i=0; i<n; i++) {
+
+            // ith participant
+            for (int j=0; j<n; j++) {
+                long jID = clients.get(j);
+                // check ZKP - except ith
+                if (cID==jID) {
+                    continue;
+                }
+//                if (!verifyChaumPedersonZKP(p, q, g, gPowYi[j], gPowZi[j], gPowZiPowYi[j],
+//                        chaumPedersonZKPi[j][0], chaumPedersonZKPi[j][1], chaumPedersonZKPi[j][2], signerID[j])) {
+//                    exitWithError("Round 2 verification failed at checking jth Chaum-Pederson for (i,j)=("+i+","+j+")");
+//                }
+
+//                System.out.println(rThreeResponse.getChaumPedersonZKPi().toString());
+
+                if (!verifyChaumPedersonZKP(p, q, g, rOneResponse.getgPowYi().get(jID), rOneResponse.getgPowZi().get(jID),
+                        rThreeResponse.getgPowZiPowYi().get(jID),
+                        rThreeResponse.getChaumPedersonZKPi().get(jID).get(0),
+                        rThreeResponse.getChaumPedersonZKPi().get(jID).get(1),
+                        rThreeResponse.getChaumPedersonZKPi().get(jID).get(2),
+                        Long.toString(jID))) {
+                    exitWithError("Round 2 verification failed at checking jth Chaum-Pederson for (i,j)=("+cID+","+jID+")");
+                }
+
+                // Check key confirmation - except ith
+                String hmacName = "HMac-SHA256";
+
+//                if (i==j) {
+                if (cID == jID) {
                     continue;
                 }
 
-//                BigInteger rawKey = gPowBij[j][i].modPow(bijs[i][j], p).modInverse(p).multiply(newGenPowBijs[j][i]).modPow(bij[i][j], p);
-                BigInteger rawKey = rOneResponse.getgPowBij().get(jID).get(cID).modPow(rTwoResponse.getBijs().get(cID).get(jID), p)
-                        .modInverse(p).multiply(
-                                rTwoResponse.getNewGenPowBijs().get(jID).get(cID).modPow(rOneResponse.getBij().get(cID).get(jID), p));
-//                pairwiseKeysMAC[i][j] = getSHA256( rawKey, "MAC");
-                pairwiseKeysMAC.put(jID, getSHA256(rawKey, "MAC"));
-//                pairwiseKeysKC[i][j] = getSHA256( rawKey, "KC");
-                pairwiseKeysKC.put(jID, getSHA256(rawKey, "MAC"));
-                // Compute MAC
-                String hmacName = "HMac-SHA256";
-
+//                SecretKey key = new SecretKeySpec(pairwiseKeysKC[i][j].toByteArray(), hmacName);
+                SecretKey key = new SecretKeySpec(rThreeResponse.getPairwiseKeysKC().get(cID).get(jID).toByteArray(), hmacName);
                 try {
-//                    SecretKey key = new SecretKeySpec(pairwiseKeysMAC[i][j].toByteArray(), hmacName);
-                    SecretKey key = new SecretKeySpec(pairwiseKeysMAC.get(jID).toByteArray(), hmacName);
-//                    Mac mac = Mac.getInstance(hmacName, "BC");
                     Mac mac = Mac.getInstance(hmacName, "BC");
                     mac.init(key);
-//                    mac.update(gPowYi[i].toByteArray());
-                    mac.update(rOneResponse.getgPowYi().get(cID).toByteArray());
-//                    mac.update(schnorrZKPyi[i][0].toByteArray());
-                    mac.update(rOneResponse.getSchnorrZKPyi().get(cID).get(0).toByteArray());
-//                    mac.update(schnorrZKPyi[i][1].toByteArray());
-                    mac.update(rOneResponse.getSchnorrZKPyi().get(cID).get(1).toByteArray());
-//                    mac.update(gPowZiPowYi[i].toByteArray());
-                    mac.update(gPowZiPowYi.toByteArray());
-//                    mac.update(chaumPedersonZKPi[i][0].toByteArray());
-                    mac.update(chaumPedersonZKPi.get(0).toByteArray());
-//                    mac.update(chaumPedersonZKPi[i][1].toByteArray());
-                    mac.update(chaumPedersonZKPi.get(1).toByteArray());
-//                    mac.update(chaumPedersonZKPi[i][2].toByteArray());
-                    mac.update(chaumPedersonZKPi.get(2).toByteArray());
 
-//                    hMacsMAC[i][j] = new BigInteger(mac.doFinal());
-                    hMacsMAC.put(jID, new BigInteger(mac.doFinal()));
+                    mac.update("KC".getBytes());
+//                    mac.update(new BigInteger(""+j).toByteArray());
+//                    mac.update(new BigInteger(""+i).toByteArray());
+                    mac.update(new BigInteger(""+jID).toByteArray());
+                    mac.update(new BigInteger(""+cID).toByteArray());
+
+//                    mac.update(gPowAij[j][i].toByteArray());
+//                    mac.update(gPowBij[j][i].toByteArray());
+                    mac.update(rOneResponse.getgPowAij().get(jID).get(cID).toByteArray());
+                    mac.update(rOneResponse.getgPowBij().get(jID).get(cID).toByteArray());
+
+//                    mac.update(gPowAij[i][j].toByteArray());
+//                    mac.update(gPowBij[i][j].toByteArray());
+                    mac.update(rOneResponse.getgPowAij().get(cID).get(jID).toByteArray());
+                    mac.update(rOneResponse.getgPowBij().get(cID).get(jID).toByteArray());
+                    BigInteger temp = new BigInteger(mac.doFinal());
+                    System.out.println(temp);
+                    System.out.println(rThreeResponse.gethMacsKC().get(jID).get(cID));
+//                    System.out.println(new BigInteger(mac.doFinal()).compareTo(rThreeResponse.gethMacsKC().get(jID).get(cID)));
+//                    if (new BigInteger(mac.doFinal()).compareTo(hMacsKC[j][i]) != 0) {
+                    if (temp.compareTo(rThreeResponse.gethMacsKC().get(jID).get(cID)) != 0) {
+                        exitWithError("Round 3 verification failed at checking KC for (i,j)=("+cID+","+jID+")");
+                    }
                 }catch(Exception e){
 
                     e.printStackTrace();
@@ -517,28 +625,40 @@ public class ChatClient {
 
                 }
 
-                // Compute HMAC for key confirmation
-                try{
-//                    SecretKey key = new SecretKeySpec(pairwiseKeysKC[i][j].toByteArray(), hmacName);
-                    SecretKey key = new SecretKeySpec(pairwiseKeysKC.get(jID).toByteArray(), hmacName);
+                // Check MACs - except ith
+//                if (i==j) {
+                if (cID == jID) {
+                    continue;
+                }
+//                key = new SecretKeySpec(pairwiseKeysMAC[i][j].toByteArray(), hmacName);
+                key = new SecretKeySpec(rThreeResponse.getPairwiseKeysMAC().get(cID).get(jID).toByteArray(), hmacName);
+
+                try {
                     Mac mac = Mac.getInstance(hmacName, "BC");
                     mac.init(key);
-                    mac.update("KC".getBytes());
-//                    mac.update(new BigInteger(""+i).toByteArray());
-//                    mac.update(new BigInteger(""+j).toByteArray());
-                    mac.update(new BigInteger(""+cID).toByteArray());
-                    mac.update(new BigInteger(""+jID).toByteArray());
+                    mac.reset();
 
-//                    mac.update(gPowAij[i][j].toByteArray());
-//                    mac.update(gPowBij[i][j].toByteArray());
-                    mac.update(rOneResponse.getgPowAij().get(cID).get(jID).toByteArray());
-                    mac.update(rOneResponse.getgPowBij().get(cID).get(jID).toByteArray());
+//                    mac.update(gPowYi[j].toByteArray());
+//                    mac.update(schnorrZKPyi[j][0].toByteArray());
+//                    mac.update(schnorrZKPyi[j][1].toByteArray());
+                    mac.update(rOneResponse.getgPowYi().get(jID).toByteArray());
+                    mac.update(rOneResponse.getSchnorrZKPyi().get(jID).get(0).toByteArray());
+                    mac.update(rOneResponse.getSchnorrZKPyi().get(jID).get(1).toByteArray());
 
-//                    mac.update(gPowAij[j][i].toByteArray());
-//                    mac.update(gPowBij[j][i].toByteArray());
+//                    mac.update(gPowZiPowYi[j].toByteArray());
+//                    mac.update(chaumPedersonZKPi[j][0].toByteArray());
+//                    mac.update(chaumPedersonZKPi[j][1].toByteArray());
+//                    mac.update(chaumPedersonZKPi[j][2].toByteArray());
+                    mac.update(rThreeResponse.getgPowZiPowYi().get(jID).toByteArray());
+                    mac.update(rThreeResponse.getChaumPedersonZKPi().get(jID).get(0).toByteArray());
+                    mac.update(rThreeResponse.getChaumPedersonZKPi().get(jID).get(1).toByteArray());
+                    mac.update(rThreeResponse.getChaumPedersonZKPi().get(jID).get(2).toByteArray());
 
-                    mac.update(rOneResponse.getgPowAij().get(jID).get(cID).toByteArray());
-                    mac.update(rOneResponse.getgPowBij().get(jID).get(cID).toByteArray());
+//                    if (new BigInteger(mac.doFinal()).compareTo(hMacsMAC[j][i]) != 0) {
+                    if (new BigInteger(mac.doFinal()).compareTo(rThreeResponse.gethMacsMAC().get(jID).get(cID)) != 0) {
+                        exitWithError("Round 2 verification failed at checking MACs for (i,j)=("+cID+","+jID+")");
+
+                    }
                 }catch(Exception e){
 
                     e.printStackTrace();
@@ -546,90 +666,34 @@ public class ChatClient {
 
                 }
             }
-//        }
-        System.out.println("ROUND 3 COMPLETE");
+            System.out.println("DONE ROUND 4");
+
+        // Finally, compute the keys
 
 
+        for (int i=0; i<n; i++) {
+            long jID = clients.get(i);
+            // ith participant
+//            BigInteger firstTerm = gPowYi[getCyclicIndex(i-1,n)].modPow( yi[i].multiply(BigInteger.valueOf(n)), p);
+            BigInteger firstTerm = rOneResponse.getgPowYi().get(clients.get(getCyclicIndex(i-1, n)))
+                    .modPow(rOneResponse.getYi().get(cID).multiply(BigInteger.valueOf(n)), p);
+            BigInteger finalTerm = firstTerm;
 
+            for (int j=0; j<(n-1) ; j++){
 
-//        for (int i=0; i<n; i++) {
-//
-//            // ith participant
-//            for (int j=0; j<n; j++) {
-//
-//                // check ZKP - except ith
-//                if (i==j) {
-//                    continue;
-//                }
-//                if (!verifyChaumPedersonZKP(p, q, g, gPowYi[j], gPowZi[j], gPowZiPowYi[j],
-//                        chaumPedersonZKPi[j][0], chaumPedersonZKPi[j][1], chaumPedersonZKPi[j][2], signerID[j])) {
-//                    exitWithError("Round 2 verification failed at checking jth Chaum-Pederson for (i,j)=("+i+","+j+")");
-//                }
-//
-//                // Check key confirmation - except ith
-//                String hmacName = "HMac-SHA256";
-//
-//                if (i==j) {
-//                    continue;
-//                }
-//
-//                SecretKey key = new SecretKeySpec(pairwiseKeysKC[i][j].toByteArray(), hmacName);
-//
-//                try {
-//                    Mac mac = Mac.getInstance(hmacName, "BC");
-//                    mac.init(key);
-//
-//                    mac.update("KC".getBytes());
-//                    mac.update(new BigInteger(""+j).toByteArray());
-//                    mac.update(new BigInteger(""+i).toByteArray());
-//
-//                    mac.update(gPowAij[j][i].toByteArray());
-//                    mac.update(gPowBij[j][i].toByteArray());
-//
-//                    mac.update(gPowAij[i][j].toByteArray());
-//                    mac.update(gPowBij[i][j].toByteArray());
-//
-//                    if (new BigInteger(mac.doFinal()).compareTo(hMacsKC[j][i]) != 0) {
-//                        exitWithError("Round 3 verification failed at checking KC for (i,j)=("+i+","+j+")");
-//                    }
-//                }catch(Exception e){
-//
-//                    e.printStackTrace();
-//                    System.exit(0);
-//
-//                }
-//
-//                // Check MACs - except ith
-//                if (i==j) {
-//                    continue;
-//                }
-//                key = new SecretKeySpec(pairwiseKeysMAC[i][j].toByteArray(), hmacName);
-//
-//                try {
-//                    Mac mac = Mac.getInstance(hmacName, "BC");
-//                    mac.init(key);
-//                    mac.reset();
-//
-//                    mac.update(gPowYi[j].toByteArray());
-//                    mac.update(schnorrZKPyi[j][0].toByteArray());
-//                    mac.update(schnorrZKPyi[j][1].toByteArray());
-//
-//                    mac.update(gPowZiPowYi[j].toByteArray());
-//                    mac.update(chaumPedersonZKPi[j][0].toByteArray());
-//                    mac.update(chaumPedersonZKPi[j][1].toByteArray());
-//                    mac.update(chaumPedersonZKPi[j][2].toByteArray());
-//
-//                    if (new BigInteger(mac.doFinal()).compareTo(hMacsMAC[j][i]) != 0) {
-//                        exitWithError("Round 2 verification failed at checking MACs for (i,j)=("+i+","+j+")");
-//
-//                    }
-//                }catch(Exception e){
-//
-//                    e.printStackTrace();
-//                    System.exit(0);
-//
-//                }
-//            }
+                BigInteger interTerm = gPowZiPowYi[getCyclicIndex(i+j, n)].modPow(BigInteger.valueOf(n-1-j), p);
+
+                finalTerm = finalTerm.multiply(interTerm).mod(p);
+            }
+
+            sessionKeys[i] = getSHA256(finalTerm);
+        }
+
+        for (int i=0; i<n; i++) {
+
+            System.out.println("Session key " + i + ": " + sessionKeys[i].toString(16));
+
+        }
 //        }
     }
 
@@ -637,10 +701,21 @@ public class ChatClient {
      * Runs the client as an application with a closeable frame.
      */
     public static void main(String[] args) throws Exception {
-        ChatClient client = new ChatClient();
+        JPAKEPlusClient client = new JPAKEPlusClient();
         client.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         client.frame.setVisible(true);
         client.run();
+    }
+
+    public int getCyclicIndex (int i, int n){
+
+        if (i<0){
+            return i+n;
+        }else if (i>=n){
+            return i-n;
+        }else {
+            return i;
+        }
     }
 
     public BigInteger getSHA256(BigInteger g, BigInteger gPowX, BigInteger gPowZ, BigInteger gPowZPowX,
@@ -797,6 +872,65 @@ public class ChatClient {
             return false;
         }
     }
+
+    /*
+     * Full checks:
+     * a) g^x in [1, q-1] and (g^x)^q = 1
+     * b) g^z in [2, q-1] and (g^z)^q = 1
+     * c) (g^z)^x in [1, q-1] and (g^z)^x = 1
+     * d) g^s = g^t (g^x)^h
+     * e) (g^z)^s = (g^z)^t ((g^z)^x)^h
+     *
+     * Notes:
+     *
+     * 1) The case of x = 0 is not excluded in this routine. Handle that in the upstream if you need to.
+     * 2) Only partial checks are implemented in this routine, since some overlap with the previous
+     *    checks in verifying the SchnorrZKP.
+     *
+     */
+    public boolean verifyChaumPedersonZKP(BigInteger p, BigInteger q, BigInteger g, BigInteger gPowX, BigInteger gPowZ,
+                                          BigInteger gPowZPowX, BigInteger gPowS, BigInteger gPowZPowS, BigInteger t, String signerID) {
+
+        // ZKP: {A=g^s, B=(g^z)^s, t}
+        BigInteger h = getSHA256(g,gPowX,gPowZ,gPowZPowX,gPowS,gPowZPowS,signerID);
+
+        // check a) - omitted as it's been done in round 1
+    	/*
+       	if (gPowX.compareTo(BigInteger.ONE) == -1 ||
+       			gPowX.compareTo(q.subtract(BigInteger.ONE)) == 1 ||
+       			gPowX.modPow(q, p).compareTo(BigInteger.ONE) != 0) {
+       		return false;
+       	}
+       	*/
+
+        // Check b) - only partial; redundant checks not repeated. e.g., the order of g^z implied by ZKP checks in round 1
+        if (gPowZ.compareTo(BigInteger.ONE) == 0){
+            return false;
+        }
+
+        // Check c) - full check
+        if (gPowZPowX.compareTo(BigInteger.ONE) == -1 ||
+                gPowZPowX.compareTo(p.subtract(BigInteger.ONE)) == 1 ||
+                gPowZPowX.modPow(q, p).compareTo(BigInteger.ONE) != 0) {
+
+            return false;
+        }
+
+        // Check d) - Use the straightforward way with 2 exp. Using a simultaneous computation technique only needs 1 exp.
+        // g^s = g^t (g^x)^h
+        if (g.modPow(t, p).multiply(gPowX.modPow(h, p)).mod(p).compareTo(gPowS) != 0) {
+            return false;
+        }
+
+        // Check e) - Use the same method as in d)
+        // (g^z)^s = (g^z)^t ((g^x)^z)^h
+        if (gPowZ.modPow(t, p).multiply(gPowZPowX.modPow(h, p)).mod(p).compareTo(gPowZPowS) != 0) {
+            return false;
+        }
+
+        return true;
+    }
+
 
     public void exitWithError(String s){
         System.out.println("Exit with ERROR: " + s);
