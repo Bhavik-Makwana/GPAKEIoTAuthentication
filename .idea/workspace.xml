@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9c1d043-d834-41f2-bb3f-99c43d026b18" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/JPAKE.txt" afterPath="$PROJECT_DIR$/JPAKE.txt" />
       <change beforePath="$PROJECT_DIR$/src/JPAKEPlusClient.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusClient.java" />
-      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusDemo.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusDemo.java" />
-      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusServer.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,8 +64,8 @@
           <file leaf-file-name="JPAKEPlusClient.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/JPAKEPlusClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="7151">
-                  <caret line="679" column="51" lean-forward="false" selection-start-line="679" selection-start-column="51" selection-end-line="679" selection-end-column="51" />
+                <state relative-caret-position="517">
+                  <caret line="631" column="0" lean-forward="false" selection-start-line="631" selection-start-column="0" selection-end-line="631" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -125,7 +122,7 @@
           <file leaf-file-name="JPAKEPlusDemo.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/JPAKEPlusDemo.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5285">
+                <state relative-caret-position="305">
                   <caret line="553" column="87" lean-forward="true" selection-start-line="553" selection-start-column="87" selection-end-line="553" selection-end-column="87" />
                   <folding />
                 </state>
@@ -164,6 +161,9 @@
       <find>verifySc</find>
       <find>hMacsMAC</find>
       <find>hMacsKC</find>
+      <find>yi</find>
+      <find>setyi</find>
+      <find>getyi</find>
       <find>id</find>
     </findStrings>
     <replaceStrings>
@@ -231,9 +231,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="151" />
+    <option name="x" value="145" />
     <option name="y" value="41" />
-    <option name="width" value="2486" />
+    <option name="width" value="2492" />
     <option name="height" value="1345" />
   </component>
   <component name="ProjectView">
@@ -302,7 +302,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.JPAKEPlusDemo">
+  <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -479,8 +479,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.JPAKEPlusServer" />
-        <item index="1" class="java.lang.String" itemvalue="Application.JPAKEPlusClient" />
+        <item index="0" class="java.lang.String" itemvalue="Application.JPAKEPlusClient" />
+        <item index="1" class="java.lang.String" itemvalue="Application.JPAKEPlusServer" />
         <item index="2" class="java.lang.String" itemvalue="Application.JPAKEPlusDemo" />
         <item index="3" class="java.lang.String" itemvalue="Application.ChatClient" />
         <item index="4" class="java.lang.String" itemvalue="Bash.mvnw.sh" />
@@ -504,7 +504,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="151" y="41" width="2486" height="1345" extended-state="0" />
+    <frame x="145" y="41" width="2492" height="1345" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -518,7 +518,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15946583" sideWeight="0.4609815" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3589945" sideWeight="0.46107545" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3880597" sideWeight="0.43604183" order="7" side_tool="false" content_ui="tabs" />
@@ -526,9 +526,9 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15946583" sideWeight="0.5390185" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3589945" sideWeight="0.5389246" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12711182" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12680578" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -571,27 +571,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusClient.java</url>
-          <line>705</line>
+          <line>631</line>
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusClient.java</url>
-          <line>694</line>
+          <line>619</line>
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusClient.java</url>
-          <line>688</line>
+          <line>613</line>
           <properties />
           <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusClient.java</url>
-          <line>647</line>
-          <properties />
-          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="42" />
@@ -1047,6 +1041,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7334">
+          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/JPAKEPlusServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-326">
@@ -1059,18 +1061,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7334">
-          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JPAKEPlusClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7151">
-          <caret line="679" column="51" lean-forward="false" selection-start-line="679" selection-start-column="51" selection-end-line="679" selection-end-column="51" />
+        <state relative-caret-position="517">
+          <caret line="631" column="0" lean-forward="false" selection-start-line="631" selection-start-column="0" selection-end-line="631" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
