@@ -45,7 +45,7 @@ public class JPAKEPlusDemo {
 	// assume n participants
 	int n;
 
-	boolean DEBUG = false;
+	boolean DEBUG = true;
 
 	// For testing performance
 	int maxNumberOfIterations = 2; // at least 2

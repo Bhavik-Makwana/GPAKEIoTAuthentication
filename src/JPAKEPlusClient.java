@@ -87,8 +87,8 @@ public class JPAKEPlusClient {
     HashMap<Long, BigInteger> hMacsMAC = new HashMap<>();
 //    BigInteger [][] hMacsKC = new BigInteger [n][n];
     HashMap<Long, BigInteger> hMacsKC = new HashMap<>();
-//    *** KEYS ***
-    HashMap<Long, BigInteger> sessionKeys = new HashMap<>();
+//   ************************************ KEYS ************************************
+    BigInteger sessionKeys;
     /**
      * Constructs the client by laying out the GUI and registering a
      * listener with the textfield so that pressing Return in the
@@ -666,34 +666,49 @@ public class JPAKEPlusClient {
 
                 }
             }
-            System.out.println("DONE ROUND 4");
-
-        // Finally, compute the keys
 
 
+        // send confirmation to server
+        out.println("1");
+        // server can issue go ahead of next stage
+        response = in.readLine();
+        if (!response.equals("1")) {
+            exitWithError("All participants failed to verify Round 1");
+        }
+        HashMap<Long, BigInteger> multipleSessionKeys = new HashMap<>();
+        System.out.println("*********** KEY COMPUTATION ***********");
+//        check yi, gPowYi, gPowZiPowYi generation and storage
         for (int i=0; i<n; i++) {
-            long jID = clients.get(i);
+//            long jID = clients.get(i);
             // ith participant
 //            BigInteger firstTerm = gPowYi[getCyclicIndex(i-1,n)].modPow( yi[i].multiply(BigInteger.valueOf(n)), p);
-            BigInteger firstTerm = rOneResponse.getgPowYi().get(clients.get(getCyclicIndex(i-1, n)))
-                    .modPow(rOneResponse.getYi().get(cID).multiply(BigInteger.valueOf(n)), p);
-            BigInteger finalTerm = firstTerm;
+        int clientIDIndex = rOneResponse.getSignerID().indexOf(Long.toString(cID));
+        int cyclicIndex = getCyclicIndex(i-1, n);
+        BigInteger firstTerm = rOneResponse.getgPowYi().get(clients.get(cyclicIndex))
+                .modPow(rOneResponse.getYi().get(cID).multiply(BigInteger.valueOf(n)), p);
+        BigInteger finalTerm = firstTerm;
 
-            for (int j=0; j<(n-1) ; j++){
+        for (int j=0; j<(n-1) ; j++) {
+//                int jIDIndex = rOneResponse.getSignerID().indexOf(Long.toString(cID));
+//                BigInteger interTerm = gPowZiPowYi[getCyclicIndex(i+j, n)].modPow(BigInteger.valueOf(n-1-j), p);
+            cyclicIndex = getCyclicIndex(i+j, n);
+            BigInteger interTerm = rThreeResponse.getgPowZiPowYi().get(clients.get(cyclicIndex))
+                    .modPow(BigInteger.valueOf(n-1-j), p);
+            finalTerm = finalTerm.multiply(interTerm).mod(p);
+        }
 
-                BigInteger interTerm = gPowZiPowYi[getCyclicIndex(i+j, n)].modPow(BigInteger.valueOf(n-1-j), p);
-
-                finalTerm = finalTerm.multiply(interTerm).mod(p);
-            }
-
-            sessionKeys[i] = getSHA256(finalTerm);
+        multipleSessionKeys.put(clients.get(i), getSHA256(finalTerm));
+        sessionKeys =  getSHA256(finalTerm);
         }
 
         for (int i=0; i<n; i++) {
 
-            System.out.println("Session key " + i + ": " + sessionKeys[i].toString(16));
+        System.out.println("Session key " + i + " for client " + clients.get(i) + ": " + multipleSessionKeys.get(clients.get(i)).toString(16));
+
+
 
         }
+        out.println("1");
 //        }
     }
 

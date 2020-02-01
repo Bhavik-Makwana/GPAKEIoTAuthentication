@@ -275,6 +275,23 @@ public class JPAKEPlusServer {
                         System.out.println("************ ROUND 4 ***********");
                         RoundThreeResponse dataRoundThree = setDataRoundThreeResponse();
                         out.println(gson.toJson(dataRoundThree));
+
+                        response = in.readLine();
+
+                        if (response.equals(0)) {
+                            break;
+                        }
+                        else {
+                            roundFourComplete.replace(id, true);
+                        }
+                        while (roundFourComplete.containsValue(false)) {}
+                        System.out.println("******* KEY COMPUTATION *******");
+                        out.println("1");
+
+                        response = in.readLine();
+                        if (response.equals("1")) {
+                            System.out.println("Session Keys Computed");
+                        }
                         break;
                     }
                     for (PrintWriter writer : writers) {
