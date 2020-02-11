@@ -48,55 +48,41 @@ public class JPAKEPlusServer {
 
     // ****************************** ROUND 1 ****************************************
     //    BigInteger [][] aij = new BigInteger [n][n];
-//        ArrayList<ArrayList<BigInteger>> aij = new ArrayList<>();
     private static HashMap<Long, HashMap<Long, BigInteger>> aij = new HashMap<>();
     //    BigInteger [][] gPowAij = new BigInteger [n][n];
-//        ArrayList<ArrayList<BigInteger>> gPowAij = new ArrayList<>();
     private static HashMap<Long, HashMap<Long, BigInteger>> gPowAij = new HashMap<>();
     //    BigInteger [][][] schnorrZKPaij = new BigInteger [n][n][2];
-//        ArrayList<ArrayList<ArrayList<BigInteger>>> schnorrZKPaij = new ArrayList<>();
     private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPaij = new HashMap<>();
     //    BigInteger [][] bij = new BigInteger [n][n];
-//        ArrayList<ArrayList<BigInteger>> bij = new ArrayList<>();
     private static HashMap<Long, HashMap<Long, BigInteger>> bij = new HashMap<>();
     //    BigInteger [][] gPowBij = new BigInteger [n][n];
     private static HashMap<Long, HashMap<Long, BigInteger>> gPowBij = new HashMap<>();
     //    BigInteger [][][] schnorrZKPbij = new BigInteger [n][n][2];
-//        ArrayList<ArrayList<ArrayList<BigInteger>>> schnorrZKPbij = new ArrayList<>();
     private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbij = new HashMap<>();
     //    BigInteger [] yi = new BigInteger [n];
-//        ArrayList<BigInteger> yi = new ArrayList<>();
     private static HashMap<Long, BigInteger> yi = new HashMap<>();
     //    BigInteger [] gPowYi = new BigInteger [n];
-//        ArrayList<BigInteger> gPowYi = new ArrayList<>();
     private static HashMap<Long, BigInteger> gPowYi = new HashMap<>();
     //    BigInteger [] gPowZi = new BigInteger [n];
-//        ArrayList<BigInteger> gPowZi = new ArrayList<>();
     private static HashMap<Long, BigInteger> gPowZi = new HashMap<>();
     //    BigInteger [][] schnorrZKPyi = new BigInteger [n][2]; // {g^v, r}
-//        ArrayList<ArrayList<BigInteger>> schnorrZKPyi = new ArrayList<>();
     private static HashMap<Long, ArrayList<BigInteger>> schnorrZKPyi = new HashMap<>();
     //    String [] signerID = new String [n];
-//        ArrayList<String> signerID = new ArrayList<>();
     private static ArrayList<String> signerID = new ArrayList<>();
 
 
 // ****************************** ROUND 2 ****************************************
 
     //    BigInteger [][] newGen = new BigInteger [n][n];
-//    ArrayList<BigInteger> newGen = new ArrayList<>();
     private static HashMap<Long, HashMap<Long, BigInteger>> newGen = new HashMap<>();
     //    BigInteger [][] bijs = new BigInteger [n][n];
-//    ArrayList<BigInteger> bijs = new ArrayList<>();
     private static HashMap<Long, HashMap<Long, BigInteger>> bijs = new HashMap<>();
     //    BigInteger [][] newGenPowBijs = new BigInteger [n][n];
-//    ArrayList<BigInteger> newGenPowBijs = new ArrayList<>();;
     private static HashMap<Long, HashMap<Long, BigInteger>> newGenPowBijs = new HashMap<>();
     //    BigInteger [][][] schnorrZKPbijs = new BigInteger [n][n][2];
-//    ArrayList<ArrayList<BigInteger>> schnorrZKPbijs = new ArrayList<>();
     private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbijs = new HashMap<>();
 
-// ****************************** ROUND 3 ****************************************
+    // ****************************** ROUND 3 ****************************************
     private static HashMap<Long, BigInteger> gPowZiPowYi = new HashMap<>();
     private static HashMap<Long, ArrayList<BigInteger>> chaumPedersonZKPi = new HashMap<>();
     private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysMAC = new HashMap<>();
@@ -114,6 +100,7 @@ public class JPAKEPlusServer {
         try {
             while (true) {
                 new Handler(listener.accept()).start();
+
             }
         } finally {
             listener.close();
@@ -215,6 +202,7 @@ public class JPAKEPlusServer {
                         out.println(gson.toJson(names));
                     }
                     else if (input.equals(":START")) {
+//                        resetKeys();
                         out.println(":START");
                         RoundZero roundZero = new RoundZero();
                         roundZero.setClientIDs(clientIDs);
@@ -292,7 +280,6 @@ public class JPAKEPlusServer {
                         if (response.equals("1")) {
                             System.out.println("Session Keys Computed");
                         }
-                        break;
                     }
                     for (PrintWriter writer : writers) {
                         writer.println("MESSAGE " + name + ": " + input);
@@ -302,21 +289,32 @@ public class JPAKEPlusServer {
             } catch (IOException e) {
                 System.out.println(e);
                 e.printStackTrace();
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 e.printStackTrace();
             } finally {
                 // This client is going down!  Remove its name and its print
                 // writer from the sets, and close its socket.
                 if (name != null) {
-                    names.remove(name);
+                    names.remove(idName);
                 }
                 if (out != null) {
                     writers.remove(out);
                 }
+                clientIDs.remove(id);
                 try {
                     socket.close();
                 } catch (IOException e) {
                 }
+                roundOneComplete.remove(id);
+                roundOneVComplete.remove(id);
+                roundTwoComplete.remove(id);
+                roundTwoVComplete.remove(id);
+                roundThreeComplete.remove(id);
+                roundFourComplete.remove(id);
+                System.out.println(names.toString());
+                System.out.println(clientIDs.toString());
+                System.out.println(writers.toString());
             }
         }
 
@@ -386,6 +384,40 @@ public class JPAKEPlusServer {
             r.setPairwiseKeysKC(pairwiseKeysKC);
             r.setPairwiseKeysMAC(pairwiseKeysMAC);
             return r;
+        }
+
+        public void resetKeys() {
+            roundOneComplete = new HashMap<>();
+            roundOneVComplete = new HashMap<>();
+            roundTwoComplete = new HashMap<>();
+            roundTwoVComplete = new HashMap<>();
+            roundThreeComplete = new HashMap<>();
+            roundFourComplete = new HashMap<>();
+            roundOneComplete.put(id, false);
+            roundOneVComplete.put(id, false);
+            roundTwoComplete.put(id, false);
+            roundTwoVComplete.put(id, false);
+            roundThreeComplete.put(id, false);
+            roundFourComplete.put(id,false);
+            aij = new HashMap<>();
+            gPowAij = new HashMap<>();
+            schnorrZKPaij = new HashMap<>();
+            bij = new HashMap<>();
+            gPowBij = new HashMap<>();
+            schnorrZKPbij = new HashMap<>();
+            yi = new HashMap<>();
+            gPowYi = new HashMap<>();
+            gPowZi = new HashMap<>();
+            schnorrZKPyi = new HashMap<>();
+            signerID = new ArrayList<>();
+            newGen = new HashMap<>();
+            bijs = new HashMap<>();
+            newGenPowBijs = new HashMap<>();
+            schnorrZKPbijs = new HashMap<>();
+            pairwiseKeysMAC = new HashMap<>();
+            pairwiseKeysKC = new HashMap<>();
+            hMacsMAC = new HashMap<>();
+            hMacsKC = new HashMap<>();
         }
     }
 }
