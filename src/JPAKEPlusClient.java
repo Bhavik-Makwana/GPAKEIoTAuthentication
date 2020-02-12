@@ -39,28 +39,17 @@ public class JPAKEPlusClient {
 
     int clientId;
 
-    // ROUND 1
-    //    BigInteger [][] aij = new BigInteger [n][n];
+    // *********************************** ROUND 1 ***********************************
     HashMap<Long, BigInteger> aij = new HashMap<>();
-    //    BigInteger [][] gPowAij = new BigInteger [n][n];
     HashMap<Long, BigInteger> gPowAij = new HashMap<>();
-    //    BigInteger [][][] schnorrZKPaij = new BigInteger [n][n][2];
     HashMap<Long, ArrayList<BigInteger>> schnorrZKPaij = new HashMap<>();
-    //    BigInteger [][] bij = new BigInteger [n][n];
     HashMap<Long, BigInteger> bij = new HashMap<>();
-    //    BigInteger [][] gPowBij = new BigInteger [n][n];
     HashMap<Long, BigInteger>  gPowBij = new HashMap<>();
-    //    BigInteger [][][] schnorrZKPbij = new BigInteger [n][n][2];
     HashMap<Long, ArrayList<BigInteger>> schnorrZKPbij = new HashMap<>();
-    //    BigInteger [] yi = new BigInteger [n];
     BigInteger yi;
-    //    BigInteger [] gPowYi = new BigInteger [n];
     BigInteger gPowYi;
-    //    BigInteger [] gPowZi = new BigInteger [n];
     BigInteger gPowZi;
-    //    BigInteger [][] schnorrZKPyi = new BigInteger [n][2]; // {g^v, r}
     ArrayList<BigInteger> schnorrZKPyi = new ArrayList<>();
-    //    String [] signerID = new String [n];
     String signerID;
     SchnorrZKP schnorrZKP = new SchnorrZKP();
 
@@ -149,7 +138,7 @@ public class JPAKEPlusClient {
                 JOptionPane.PLAIN_MESSAGE);
     }
 
-    private String spekePlus(BufferedReader in, PrintWriter out) {
+    private BigInteger spekePlus() {
         try {
             String json = in.readLine();
             RoundZero roundZero = gson.fromJson(json, RoundZero.class);
@@ -159,12 +148,43 @@ public class JPAKEPlusClient {
             out.println(data);
             response = in.readLine();
             SpekeRoundOneResponse rOneResponse = gson.fromJson(response, SpekeRoundOneResponse.class);
+
+            boolean r1v = speke.verifyRoundOne(rOneResponse);
+            if (!r1v) {
+                System.exit(0);
+            }
+            // send confirmation to server
+            out.println("1");
+            // server can issue go ahead of next stage
+            response = in.readLine();
+            if (!response.equals("1")) {
+                exitWithError("All participants failed to verify Round 1");
+            }
             SpekeRoundTwo sRoundTwo = speke.roundTwo(rOneResponse);
 
+            out.println(gson.toJson(sRoundTwo));
+            // get serialized json of all round 2 calculations
+            response = in.readLine();
+            SpekeRoundTwoResponse rTwoResponse = gson.fromJson(response, SpekeRoundTwoResponse.class);
+            System.out.println(response);
+            boolean r2v = speke.verifyRoundTwo(rOneResponse, rTwoResponse);
+            if (!r2v) {
+                System.out.println("FAILED");
+                System.exit(0);
+            }
+            out.println("1");
+            response = in.readLine();
+            if (!response.equals("1")) {
+                exitWithError("All participants failed to verify Round 1");
+            }
+            BigInteger key = speke.computeKeys(rOneResponse, rTwoResponse);
+
+            return key;
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
     /**
      * Connects to the server then enters the processing loop.
@@ -206,6 +226,10 @@ public class JPAKEPlusClient {
                 roundZero = gson.fromJson(json, RoundZero.class);
                 System.out.println(json);
                 break;
+            }
+            else if (line.startsWith(":SPEKE")) {
+                BigInteger key = spekePlus();
+                System.out.println(key.toString(16));
             }
         }
         // round 1
