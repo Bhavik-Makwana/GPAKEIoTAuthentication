@@ -193,7 +193,7 @@ public class JPAKEPlusClient {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
         // Make connection and initialize streams
         String serverAddress = getServerAddress();
-        Socket socket = new Socket(serverAddress, 9001);
+        Socket socket = new Socket(serverAddress, 8080);
         in = new BufferedReader(new InputStreamReader(
                 socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);

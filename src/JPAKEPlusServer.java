@@ -19,7 +19,7 @@ public class JPAKEPlusServer {
     /**
      * The port that the server listens on.
      */
-    private static final int PORT = 9001;
+    private static final int PORT = 8080;
 
     /**
      * The set of all names of clients in the chat room.  Maintained
