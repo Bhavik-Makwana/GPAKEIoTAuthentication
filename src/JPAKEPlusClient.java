@@ -26,7 +26,6 @@ public class JPAKEPlusClient {
     BufferedReader in;
     PrintWriter out;
     Gson gson = new Gson();
-    ObjectInputStream objectInputStream;
     JFrame frame = new JFrame("Client");
     JTextField textField = new JTextField(40);
     JTextArea messageArea = new JTextArea(8, 40);
@@ -34,51 +33,8 @@ public class JPAKEPlusClient {
     String data;
     String response;
     String sStr = "deadbeef";
-    BigInteger s = getSHA256(sStr);
-
 
     int clientId;
-
-    // *********************************** ROUND 1 ***********************************
-    HashMap<Long, BigInteger> aij = new HashMap<>();
-    HashMap<Long, BigInteger> gPowAij = new HashMap<>();
-    HashMap<Long, ArrayList<BigInteger>> schnorrZKPaij = new HashMap<>();
-    HashMap<Long, BigInteger> bij = new HashMap<>();
-    HashMap<Long, BigInteger>  gPowBij = new HashMap<>();
-    HashMap<Long, ArrayList<BigInteger>> schnorrZKPbij = new HashMap<>();
-    BigInteger yi;
-    BigInteger gPowYi;
-    BigInteger gPowZi;
-    ArrayList<BigInteger> schnorrZKPyi = new ArrayList<>();
-    String signerID;
-    SchnorrZKP schnorrZKP = new SchnorrZKP();
-
-// *********************************** ROUND 2 ***********************************
-//    BigInteger [][] newGen = new BigInteger [n][n];
-    HashMap<Long, BigInteger> newGen = new HashMap<>();
-//    BigInteger [][] bijs = new BigInteger [n][n];
-    HashMap<Long, BigInteger> bijs = new HashMap<>();
-//    BigInteger [][] newGenPowBijs = new BigInteger [n][n];
-    HashMap<Long, BigInteger> newGenPowBijs = new HashMap<>();;
-//    BigInteger [][][] schnorrZKPbijs = new BigInteger [n][n][2];
-    HashMap<Long, ArrayList<BigInteger>> schnorrZKPbijs = new HashMap<>();
-
-// *********************************** ROUND 3 ***********************************
-//    BigInteger [] gPowZiPowYi = new BigInteger [n];
-    BigInteger gPowZiPowYi;
-//    BigInteger [][] chaumPedersonZKPi = new BigInteger [n][3]; // {g^s, (g^z)^s, t}
-    ArrayList<BigInteger> chaumPedersonZKPi = new ArrayList<>();
-//    BigInteger [][] pairwiseKeysMAC = new BigInteger [n][n];
-    HashMap<Long, BigInteger> pairwiseKeysMAC = new HashMap<>();
-//    BigInteger [][] pairwiseKeysKC = new BigInteger [n][n];
-    HashMap<Long, BigInteger> pairwiseKeysKC = new HashMap<>();
-//    BigInteger [][] hMacsMAC = new BigInteger [n][n];
-    HashMap<Long, BigInteger> hMacsMAC = new HashMap<>();
-//    BigInteger [][] hMacsKC = new BigInteger [n][n];
-    HashMap<Long, BigInteger> hMacsKC = new HashMap<>();
-//   ************************************ KEYS ************************************
-    BigInteger sessionKeys;
-
 
     BigInteger p = new BigInteger("C196BA05AC29E1F9C3C72D56DFFC6154A033F1477AC88EC37F09BE6C5BB95F51C296DD20D1A28A067CCC4D4316A4BD1DCA55ED1066D438C35AEBAABF57E7DAE428782A95ECA1C143DB701FD48533A3C18F0FE23557EA7AE619ECACC7E0B51652A8776D02A425567DED36EABD90CA33A1E8D988F0BBB92D02D1D20290113BB562CE1FC856EEB7CDD92D33EEA6F410859B179E7E789A8F75F645FAE2E136D252BFFAFF89528945C1ABE705A38DBC2D364AADE99BE0D0AAD82E5320121496DC65B3930E38047294FF877831A16D5228418DE8AB275D7D75651CEFED65F78AFC3EA7FE4D79B35F62A0402A1117599ADAC7B269A59F353CF450E6982D3B1702D9CA83", 16);
     BigInteger q = new BigInteger("90EAF4D1AF0708B1B612FF35E0A2997EB9E9D263C9CE659528945C0D", 16);
@@ -143,14 +99,14 @@ public class JPAKEPlusClient {
             String json = in.readLine();
             RoundZero roundZero = gson.fromJson(json, RoundZero.class);
             SPEKEPlusNetwork speke = new SPEKEPlusNetwork("deadbeef", p, q, g, roundZero.getClientIDs().size(), Long.toString(clientId));
-            SpekeRoundOne sRoundOne = speke.roundOne();
-            data = gson.toJson(sRoundOne);
+            SpekeRoundOne roundOne = speke.roundOne();
+            data = gson.toJson(roundOne);
             out.println(data);
             response = in.readLine();
             SpekeRoundOneResponse rOneResponse = gson.fromJson(response, SpekeRoundOneResponse.class);
 
-            boolean r1v = speke.verifyRoundOne(rOneResponse);
-            if (!r1v) {
+            boolean passedRoundOne= speke.verifyRoundOne(rOneResponse);
+            if (!passedRoundOne) {
                 System.exit(0);
             }
             // send confirmation to server
@@ -160,15 +116,15 @@ public class JPAKEPlusClient {
             if (!response.equals("1")) {
                 exitWithError("All participants failed to verify Round 1");
             }
-            SpekeRoundTwo sRoundTwo = speke.roundTwo(rOneResponse);
+            SpekeRoundTwo roundTwo = speke.roundTwo(rOneResponse);
 
-            out.println(gson.toJson(sRoundTwo));
+            out.println(gson.toJson(roundTwo));
             // get serialized json of all round 2 calculations
             response = in.readLine();
             SpekeRoundTwoResponse rTwoResponse = gson.fromJson(response, SpekeRoundTwoResponse.class);
             System.out.println(response);
-            boolean r2v = speke.verifyRoundTwo(rOneResponse, rTwoResponse);
-            if (!r2v) {
+            boolean passedRoundTwo = speke.verifyRoundTwo(rOneResponse, rTwoResponse);
+            if (!passedRoundTwo) {
                 System.out.println("FAILED");
                 System.exit(0);
             }
@@ -194,14 +150,14 @@ public class JPAKEPlusClient {
             RoundZero roundZero = gson.fromJson(json, RoundZero.class);
             ArrayList<Long> clients =  roundZero.getClientIDs();
             JPAKEPlusNetwork jpake= new JPAKEPlusNetwork("deadbeef", p, q, g, roundZero.getClientIDs().size(), Long.toString(clientId), clients, clientId);
-            RoundOne jRoundOne = jpake.roundOne();
-            data = gson.toJson(jRoundOne);
+            RoundOne roundOne = jpake.roundOne();
+            data = gson.toJson(roundOne);
             out.println(data);
             response = in.readLine();
             RoundOneResponse rOneResponse = gson.fromJson(response, RoundOneResponse.class);
 
-            boolean r1v = jpake.verifyRoundOne(rOneResponse);
-            if (!r1v) {
+            boolean passedRoundOne = jpake.verifyRoundOne(rOneResponse);
+            if (!passedRoundOne) {
                 out.println("0");
                 System.exit(0);
             }
@@ -213,15 +169,15 @@ public class JPAKEPlusClient {
                 exitWithError("All participants failed to verify Round 1");
             }
 
-            RoundTwo jRoundTwo = jpake.roundTwo(rOneResponse);
+            RoundTwo roundTwo = jpake.roundTwo(rOneResponse);
             // send serialized round two data to server
-            out.println(gson.toJson(jRoundTwo));
+            out.println(gson.toJson(roundTwo));
             // get serialized json of all round 2 calculations
             response = in.readLine();
             RoundTwoResponse rTwoResponse = gson.fromJson(response, RoundTwoResponse.class);
 
-            boolean r2v = jpake.verifyRoundTwo(rTwoResponse);
-            if (!r2v) {
+            boolean passedRoundTwo = jpake.verifyRoundTwo(rTwoResponse);
+            if (!passedRoundTwo) {
                 System.out.println("FAILED");
                 System.exit(0);
             }
@@ -233,14 +189,14 @@ public class JPAKEPlusClient {
                 exitWithError("All participants failed to verify Round 1");
             }
 
-            RoundThree jroundThree = jpake.roundThree(rOneResponse, rTwoResponse);
-            out.println(gson.toJson(jroundThree));
+            RoundThree roundThree = jpake.roundThree(rOneResponse, rTwoResponse);
+            out.println(gson.toJson(roundThree));
 
             response = in.readLine();
             RoundThreeResponse rThreeResponse = gson.fromJson(response, RoundThreeResponse.class);
 
-            boolean r3v = jpake.roundFour(rOneResponse, rTwoResponse, rThreeResponse);
-            if (!r3v) {
+            boolean passedRoundThree = jpake.roundFour(rOneResponse, rTwoResponse, rThreeResponse);
+            if (!passedRoundThree) {
                 exitWithError("All paricipants failed to verify round 3");
             }
 
