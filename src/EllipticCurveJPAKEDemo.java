@@ -136,6 +136,8 @@ public class EllipticCurveJPAKEDemo {
         SchnorrZKP zkpX4 = new SchnorrZKP();
         zkpX4.generateZKP(G, n, x4, X4, BobID);
 
+
+
         System.out.println("************Step 1**************\n");
         System.out.println("Alice sends to Bob: ");
         System.out.println("G*x1="+new BigInteger(X1.getEncoded(false)).toString(16));
@@ -193,7 +195,7 @@ public class EllipticCurveJPAKEDemo {
             System.out.println("ERROR: invalid KP{x1, x2}.");
             System.exit(0);
         }
-        
+
         if (X2.equals(X4)) {
             System.out.println("FAILED");
             System.exit(0);

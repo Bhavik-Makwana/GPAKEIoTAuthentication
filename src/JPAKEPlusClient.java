@@ -1,4 +1,6 @@
 
+import JPAKEEllipticCurvePOJOs.ECRoundOne;
+import JPAKEEllipticCurvePOJOs.ECRoundOneResponse;
 import com.google.gson.Gson;
 
 import java.awt.event.ActionEvent;
@@ -219,6 +221,84 @@ public class JPAKEPlusClient {
         return null;
     }
 
+    private BigInteger jpakePlusEC() {
+        try {
+
+            String json = in.readLine();
+            RoundZero roundZero = gson.fromJson(json, RoundZero.class);
+            ArrayList<Long> clients =  roundZero.getClientIDs();
+            JPAKEPlusECNetwork jpake = new JPAKEPlusECNetwork("deadbeef", p, q, g, roundZero.getClientIDs().size(), Long.toString(clientId), clients, clientId);
+            ECRoundOne roundOne = jpake.roundOne();
+            data = gson.toJson(roundOne);
+            System.out.println("Ggg");
+            out.println(data);
+            response = in.readLine();
+            ECRoundOneResponse rOneResponse = gson.fromJson(response, ECRoundOneResponse.class);
+
+            boolean passedRoundOne = jpake.verifyRoundOne(rOneResponse);
+            if (!passedRoundOne) {
+                out.println("0");
+                System.exit(0);
+            }
+            // send confirmation to server
+            out.println("1");
+//            // server can issue go ahead of next stage
+//            response = in.readLine();
+//            if (!response.equals("1")) {
+//                exitWithError("All participants failed to verify Round 1");
+//            }
+//
+//            RoundTwo roundTwo = jpake.roundTwo(rOneResponse);
+//            // send serialized round two data to server
+//            out.println(gson.toJson(roundTwo));
+//            // get serialized json of all round 2 calculations
+//            response = in.readLine();
+//            RoundTwoResponse rTwoResponse = gson.fromJson(response, RoundTwoResponse.class);
+//
+//            boolean passedRoundTwo = jpake.verifyRoundTwo(rTwoResponse);
+//            if (!passedRoundTwo) {
+//                System.out.println("FAILED");
+//                System.exit(0);
+//            }
+//            // send confirmation to server
+//            out.println("1");
+//            // server can issue go ahead of next stage
+//            response = in.readLine();
+//            if (!response.equals("1")) {
+//                exitWithError("All participants failed to verify Round 1");
+//            }
+//
+//            RoundThree roundThree = jpake.roundThree(rOneResponse, rTwoResponse);
+//            out.println(gson.toJson(roundThree));
+//
+//            response = in.readLine();
+//            RoundThreeResponse rThreeResponse = gson.fromJson(response, RoundThreeResponse.class);
+//
+//            boolean passedRoundThree = jpake.roundFour(rOneResponse, rTwoResponse, rThreeResponse);
+//            if (!passedRoundThree) {
+//                exitWithError("All paricipants failed to verify round 3");
+//            }
+//
+//            // send confirmation to server
+//            out.println("1");
+//            // server can issue go ahead of next stage
+//            response = in.readLine();
+//            if (!response.equals("1")) {
+//                exitWithError("All participants failed to verify Round 1");
+//            }
+//
+//
+//            BigInteger key = jpake.computeKey(rOneResponse, rThreeResponse);
+//            out.println("1");
+//            return key;
+            return BigInteger.ONE;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /**
      * Connects to the server then enters the processing loop.
      */
@@ -251,6 +331,10 @@ public class JPAKEPlusClient {
             } else if (line.startsWith(":WHO")) {
                 String json = in.readLine();
 
+            } else if (line.startsWith(":EC")) {
+                BigInteger key = jpakePlusEC();
+                System.out.println(key.toString(16));
+                break;
             } else if (line.startsWith(":START")) {
                 BigInteger key = jpakePlus();
                 System.out.println(key.toString(16));
