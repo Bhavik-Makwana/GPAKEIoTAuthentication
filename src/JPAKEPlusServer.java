@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import JPAKEEllipticCurvePOJOs.ECRoundOne;
-import JPAKEEllipticCurvePOJOs.ECRoundOneResponse;
-import JPAKEEllipticCurvePOJOs.SchnorrZKP;
+import JPAKEEllipticCurvePOJOs.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import org.bouncycastle.math.ec.ECPoint;
@@ -127,6 +125,12 @@ public class JPAKEPlusServer {
     private  static HashMap<Long, byte[]> gPowZiEC = new HashMap<>();
     private  static HashMap<Long, SchnorrZKP> schnorrZKPyiEC = new HashMap<>();
 //    private  static ArrayList<String> signerID = new ArrayList<>();
+
+// ********************************** ROUND 2 EC ************************************
+    private static HashMap<Long, HashMap<Long, byte[]>> newGenEC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, BigInteger>> bijsEC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, byte[]>> newGenPowBijsEC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, SchnorrZKP>> schnorrZKPbijsEC = new HashMap<>();
 
     /**
      * The appplication main method, which just listens on a port and
@@ -623,24 +627,24 @@ public class JPAKEPlusServer {
             r.setSignerID(signerID);
             return r;
         }
-//
-//        public void updateDataRoundTwo(Long id, RoundTwo data) {
-//            newGen.put(id, data.getNewGen());
-//            bijs.put(id, data.getBijs());
-//            newGenPowBijs.put(id, data.getNewGenPowBijs());
-//            schnorrZKPbijs.put(id, data.getSchnorrZKPbijs());
-//            signerID.add(data.getSignerID());
-//        }
-//
-//        public RoundTwoResponse setDataRoundTwoResponse() {
-//            RoundTwoResponse r = new RoundTwoResponse();
-//            r.setNewGen(newGen);
-//            r.setBijs(bijs);
-//            r.setNewGenPowBijs(newGenPowBijs);
-//            r.setSchnorrZKPbijs(schnorrZKPbijs);
+
+        public void updateECDataRoundTwo(Long id, ECRoundTwo data) {
+            newGenEC.put(id, data.getNewGen());
+            bijsEC.put(id, data.getBijs());
+            newGenPowBijsEC.put(id, data.getNewGenPowBijs());
+            schnorrZKPbijsEC.put(id, data.getSchnorrZKPbijs());
+//            signerIDEC.add(data.getSignerID());
+        }
+
+        public ECRoundTwoResponse setECDataRoundTwoResponse() {
+            ECRoundTwoResponse r = new ECRoundTwoResponse();
+            r.setNewGen(newGenEC);
+            r.setBijs(bijsEC);
+            r.setNewGenPowBijs(newGenPowBijsEC);
+            r.setSchnorrZKPbijs(schnorrZKPbijsEC);
 //            r.setSignerID(signerID);
-//            return r;
-//        }
+            return r;
+        }
 //
 //        public void updateDataRoundThree(Long id, RoundThree data) {
 //            gPowZiPowYi.put(id, data.getgPowZiPowYi());
@@ -690,32 +694,32 @@ public class JPAKEPlusServer {
                     roundOneVComplete.replace(id, true);
                 }
                 System.out.println(roundOneVComplete.toString());
-//                while (roundOneVComplete.containsValue(false)) {
-//                }
-//                // round 2
-//                System.out.println("************ ROUND 2 ***********");
-//
-//                out.println("1"); // OK
-//
-//                // Take in users round two data
-//                response = in.readLine();
-//                RoundTwo roundTwo = gson.fromJson(response, RoundTwo.class);
-//                updateDataRoundTwo(id, roundTwo);
-//                roundTwoComplete.replace(id, true);
-//                while (roundTwoComplete.containsValue(false)) {
-//                }
-//                System.out.println("*********** ROUND 2V ***********");
-//                RoundTwoResponse dataRoundTwo = setDataRoundTwoResponse();
-//                out.println(gson.toJson(dataRoundTwo));
-//
-//                response = in.readLine();
-//                if (response.equals("0")) {
-//                    throw new Exception("All clients failed to verify successfully");
-//                } else {
-//                    roundTwoVComplete.replace(id, true);
-//                }
-//                while (roundTwoVComplete.containsValue(false)) {
-//                }
+                while (roundOneVComplete.containsValue(false)) {
+                }
+                // round 2
+                System.out.println("************ ROUND 2 ***********");
+
+                out.println("1"); // OK
+
+                // Take in users round two data
+                response = in.readLine();
+                ECRoundTwo roundTwo = gson.fromJson(response, ECRoundTwo.class);
+                updateECDataRoundTwo(id, roundTwo);
+                roundTwoComplete.replace(id, true);
+                while (roundTwoComplete.containsValue(false)) {
+                }
+                System.out.println("*********** ROUND 2V ***********");
+                ECRoundTwoResponse dataRoundTwo = setECDataRoundTwoResponse();
+                out.println(gson.toJson(dataRoundTwo));
+
+                response = in.readLine();
+                if (response.equals("0")) {
+                    throw new Exception("All clients failed to verify successfully");
+                } else {
+                    roundTwoVComplete.replace(id, true);
+                }
+                while (roundTwoVComplete.containsValue(false)) {
+                }
 //                System.out.println("************ ROUND 3 ***********");
 //
 //                out.println("1"); // OK

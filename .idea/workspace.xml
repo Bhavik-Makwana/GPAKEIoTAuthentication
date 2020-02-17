@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9c1d043-d834-41f2-bb3f-99c43d026b18" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOne.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOneResponse.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/SchnorrZKP.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPAKEPlusECNetwork.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundTwo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundTwoResponse.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/EllipticCurveJPAKEDemo.java" afterPath="$PROJECT_DIR$/src/EllipticCurveJPAKEDemo.java" />
       <change beforePath="$PROJECT_DIR$/src/JPAKEPlusClient.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusClient.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusECNetwork.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusECNetwork.java" />
       <change beforePath="$PROJECT_DIR$/src/JPAKEPlusServer.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,68 +19,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.5590406">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="JPAKEPlusServer.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/JPAKEPlusServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-153">
-                  <caret line="606" column="45" lean-forward="false" selection-start-line="606" selection-start-column="45" selection-end-line="606" selection-end-column="45" />
+                <state relative-caret-position="298">
+                  <caret line="638" column="34" lean-forward="false" selection-start-line="638" selection-start-column="34" selection-end-line="638" selection-end-column="34" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#9186#9187#0" expanded="true" />
-                    <element signature="e#9230#9231#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ECRoundOneResponse.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOneResponse.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="24" column="62" lean-forward="false" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
-                  <folding>
-                    <element signature="e#1178#1179#0" expanded="true" />
-                    <element signature="e#1250#1251#0" expanded="true" />
-                    <element signature="e#1280#1281#0" expanded="true" />
-                    <element signature="e#1344#1345#0" expanded="true" />
-                    <element signature="e#1374#1375#0" expanded="true" />
-                    <element signature="e#1450#1451#0" expanded="true" />
-                    <element signature="e#1488#1489#0" expanded="true" />
-                    <element signature="e#1562#1563#0" expanded="true" />
-                    <element signature="e#1598#1599#0" expanded="true" />
-                    <element signature="e#1804#1805#0" expanded="true" />
-                    <element signature="e#1830#1831#0" expanded="true" />
-                    <element signature="e#1902#1903#0" expanded="true" />
-                    <element signature="e#1932#1933#0" expanded="true" />
-                    <element signature="e#1996#1997#0" expanded="true" />
-                    <element signature="e#2026#2027#0" expanded="true" />
-                    <element signature="e#2102#2103#0" expanded="true" />
-                    <element signature="e#2140#2141#0" expanded="true" />
-                    <element signature="e#2214#2215#0" expanded="true" />
-                    <element signature="e#2250#2251#0" expanded="true" />
-                    <element signature="e#2440#2441#0" expanded="true" />
-                    <element signature="e#2465#2466#0" expanded="true" />
-                    <element signature="e#2520#2521#0" expanded="true" />
-                    <element signature="e#2548#2549#0" expanded="true" />
-                    <element signature="e#2596#2597#0" expanded="true" />
-                    <element signature="e#2625#2626#0" expanded="true" />
-                    <element signature="e#2684#2685#0" expanded="true" />
-                    <element signature="e#2720#2721#0" expanded="true" />
-                    <element signature="e#2768#2769#0" expanded="true" />
-                    <element signature="e#2797#2798#0" expanded="true" />
-                    <element signature="e#2856#2857#0" expanded="true" />
-                    <element signature="e#2892#2893#0" expanded="true" />
-                    <element signature="e#2950#2951#0" expanded="true" />
-                    <element signature="e#2985#2986#0" expanded="true" />
-                    <element signature="e#3060#3061#0" expanded="true" />
-                    <element signature="e#3108#3109#0" expanded="true" />
-                    <element signature="e#3154#3155#0" expanded="true" />
-                    <element signature="e#3185#3186#0" expanded="true" />
-                    <element signature="e#3244#3245#0" expanded="true" />
-                    <element signature="e#3284#3285#0" expanded="true" />
+                    <element signature="e#9527#9528#0" expanded="true" />
+                    <element signature="e#9571#9572#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -91,8 +39,8 @@
           <file leaf-file-name="JPAKEPlusNetwork.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/JPAKEPlusNetwork.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="11490">
-                  <caret line="772" column="36" lean-forward="false" selection-start-line="772" selection-start-column="36" selection-end-line="772" selection-end-column="36" />
+                <state relative-caret-position="2310">
+                  <caret line="165" column="29" lean-forward="false" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -103,8 +51,8 @@
           <file leaf-file-name="JPAKEPlusECNetwork.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-49">
-                  <caret line="233" column="18" lean-forward="false" selection-start-line="233" selection-start-column="18" selection-end-line="233" selection-end-column="18" />
+                <state relative-caret-position="284">
+                  <caret line="328" column="30" lean-forward="false" selection-start-line="328" selection-start-column="30" selection-end-line="328" selection-end-column="30" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -112,70 +60,31 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="JPAKEDemo.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/JPAKEDemo.java">
+          <file leaf-file-name="ECRoundTwo.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundTwo.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="661">
-                  <caret line="113" column="23" lean-forward="true" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
+                <state relative-caret-position="180">
+                  <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
                   <folding>
-                    <element signature="e#0#13285#0" expanded="true" />
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ECRoundOne.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOne.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-772">
-                  <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#973#974#0" expanded="true" />
-                    <element signature="e#999#1000#0" expanded="true" />
-                    <element signature="e#1056#1057#0" expanded="true" />
-                    <element signature="e#1086#1087#0" expanded="true" />
-                    <element signature="e#1135#1136#0" expanded="true" />
-                    <element signature="e#1165#1166#0" expanded="true" />
-                    <element signature="e#1226#1227#0" expanded="true" />
-                    <element signature="e#1264#1265#0" expanded="true" />
-                    <element signature="e#1323#1324#0" expanded="true" />
-                    <element signature="e#1359#1360#0" expanded="true" />
-                    <element signature="e#1436#1437#0" expanded="true" />
-                    <element signature="e#1486#1487#0" expanded="true" />
-                    <element signature="e#1535#1536#0" expanded="true" />
-                    <element signature="e#1561#1562#0" expanded="true" />
-                    <element signature="e#1618#1619#0" expanded="true" />
-                    <element signature="e#1648#1649#0" expanded="true" />
-                    <element signature="e#1697#1698#0" expanded="true" />
-                    <element signature="e#1727#1728#0" expanded="true" />
-                    <element signature="e#1788#1789#0" expanded="true" />
-                    <element signature="e#1826#1827#0" expanded="true" />
-                    <element signature="e#1885#1886#0" expanded="true" />
-                    <element signature="e#1921#1922#0" expanded="true" />
-                    <element signature="e#1998#1999#0" expanded="true" />
-                    <element signature="e#2048#2049#0" expanded="true" />
-                    <element signature="e#2081#2082#0" expanded="true" />
-                    <element signature="e#2106#2107#0" expanded="true" />
-                    <element signature="e#2146#2147#0" expanded="true" />
-                    <element signature="e#2174#2175#0" expanded="true" />
-                    <element signature="e#2207#2208#0" expanded="true" />
-                    <element signature="e#2236#2237#0" expanded="true" />
-                    <element signature="e#2280#2281#0" expanded="true" />
-                    <element signature="e#2316#2317#0" expanded="true" />
-                    <element signature="e#2349#2350#0" expanded="true" />
-                    <element signature="e#2378#2379#0" expanded="true" />
-                    <element signature="e#2422#2423#0" expanded="true" />
-                    <element signature="e#2458#2459#0" expanded="true" />
-                    <element signature="e#2501#2502#0" expanded="true" />
-                    <element signature="e#2536#2537#0" expanded="true" />
-                    <element signature="e#2596#2597#0" expanded="true" />
-                    <element signature="e#2644#2645#0" expanded="true" />
-                    <element signature="e#2679#2680#0" expanded="true" />
-                    <element signature="e#2710#2711#0" expanded="true" />
-                    <element signature="e#2758#2759#0" expanded="true" />
-                    <element signature="e#2798#2799#0" expanded="true" />
+                    <element signature="e#510#511#0" expanded="true" />
+                    <element signature="e#569#570#0" expanded="true" />
+                    <element signature="e#605#606#0" expanded="true" />
+                    <element signature="e#655#656#0" expanded="true" />
+                    <element signature="e#682#683#0" expanded="true" />
+                    <element signature="e#741#742#0" expanded="true" />
+                    <element signature="e#773#774#0" expanded="true" />
+                    <element signature="e#828#829#0" expanded="true" />
+                    <element signature="e#864#865#0" expanded="true" />
+                    <element signature="e#937#938#0" expanded="true" />
+                    <element signature="e#987#988#0" expanded="true" />
+                    <element signature="e#1047#1048#0" expanded="true" />
+                    <element signature="e#1084#1085#0" expanded="true" />
+                    <element signature="e#1163#1164#0" expanded="true" />
+                    <element signature="e#1215#1216#0" expanded="true" />
+                    <element signature="e#1250#1251#0" expanded="true" />
+                    <element signature="e#1281#1282#0" expanded="true" />
+                    <element signature="e#1329#1330#0" expanded="true" />
+                    <element signature="e#1369#1370#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -184,8 +93,8 @@
           <file leaf-file-name="SchnorrZKP.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/SchnorrZKP.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-66">
-                  <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="26" selection-end-column="0" />
+                <state relative-caret-position="60">
+                  <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#982#983#0" expanded="true" />
@@ -200,10 +109,34 @@
           <file leaf-file-name="JPAKEPlusClient.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/JPAKEPlusClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-6">
-                  <caret line="376" column="0" lean-forward="true" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+                <state relative-caret-position="-5">
+                  <caret line="215" column="27" lean-forward="false" selection-start-line="215" selection-start-column="27" selection-end-line="215" selection-end-column="27" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ECRoundTwoResponse.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundTwoResponse.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#534#535#0" expanded="true" />
+                    <element signature="e#563#564#0" expanded="true" />
+                    <element signature="e#637#638#0" expanded="true" />
+                    <element signature="e#673#674#0" expanded="true" />
+                    <element signature="e#738#739#0" expanded="true" />
+                    <element signature="e#765#766#0" expanded="true" />
+                    <element signature="e#839#840#0" expanded="true" />
+                    <element signature="e#871#872#0" expanded="true" />
+                    <element signature="e#941#942#0" expanded="true" />
+                    <element signature="e#977#978#0" expanded="true" />
+                    <element signature="e#1190#1191#0" expanded="true" />
+                    <element signature="e#1227#1228#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -212,8 +145,8 @@
           <file leaf-file-name="EllipticCurveJPAKEDemo.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/EllipticCurveJPAKEDemo.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="872">
-                  <caret line="174" column="35" lean-forward="true" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
+                <state relative-caret-position="863">
+                  <caret line="174" column="35" lean-forward="false" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
                   <folding>
                     <element signature="e#0#16184#0" expanded="true" />
                     <element signature="imports" expanded="true" />
@@ -229,12 +162,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="EllipticCurveJPAKEDemo.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/EllipticCurveJPAKEDemo.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-895">
-                  <caret line="129" column="0" lean-forward="true" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+                <state relative-caret-position="-2189">
+                  <caret line="50" column="8" lean-forward="false" selection-start-line="50" selection-start-column="8" selection-end-line="57" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#16184#0" expanded="true" />
                     <element signature="imports" expanded="true" />
@@ -260,7 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>id</find>
       <find>names</find>
       <find>gpowZi</find>
       <find>cid</find>
@@ -288,8 +220,9 @@
       <find>ECPoimt</find>
       <find>getEncoded(</find>
       <find>jPAKEPlusProtocol</find>
-      <find>gPowZi</find>
       <find>mod(neC)</find>
+      <find>gPowZi</find>
+      <find>generateZKP</find>
     </findStrings>
     <replaceStrings>
       <replace>cID</replace>
@@ -300,8 +233,8 @@
       <replace>getYCoord()</replace>
       <replace>getAffineXCoord()</replace>
       <replace>getEncoded(false</replace>
-      <replace>r1</replace>
       <replace>normalize().getXCoord()</replace>
+      <replace>r1</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -320,8 +253,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/com/IoTComissioning/PAKE/FirstTest.java" />
-        <option value="$PROJECT_DIR$/pom-JITPACK.xml" />
         <option value="$PROJECT_DIR$/pom-SNAPSHOT.xml" />
         <option value="$PROJECT_DIR$/mvnw.sh" />
         <option value="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" />
@@ -366,10 +297,12 @@
         <option value="$PROJECT_DIR$/src/JPAKEDemo.java" />
         <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOne.java" />
         <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOneResponse.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEPlusClient.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEPlusServer.java" />
         <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/SchnorrZKP.java" />
         <option value="$PROJECT_DIR$/src/EllipticCurveJPAKEDemo.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundTwo.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundTwoResponse.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusClient.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusServer.java" />
         <option value="$PROJECT_DIR$/src/JPAKEPlusECNetwork.java" />
       </list>
     </option>
@@ -395,8 +328,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -425,6 +356,8 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -628,8 +561,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.JPAKEPlusClient" />
-        <item index="1" class="java.lang.String" itemvalue="Application.JPAKEPlusServer" />
+        <item index="0" class="java.lang.String" itemvalue="Application.JPAKEPlusServer" />
+        <item index="1" class="java.lang.String" itemvalue="Application.JPAKEPlusClient" />
         <item index="2" class="java.lang.String" itemvalue="Application.EllipticCurveJPAKEDemo" />
         <item index="3" class="java.lang.String" itemvalue="Application.JPAKEDemo" />
         <item index="4" class="java.lang.String" itemvalue="Application.JPAKEPlusDemo" />
@@ -668,17 +601,17 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36444086" sideWeight="0.44492966" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.230893" sideWeight="0.44056284" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38777152" sideWeight="0.38039786" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38777152" sideWeight="0.37603104" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38777152" sideWeight="0.62396896" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38777152" sideWeight="0.61960214" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14750122" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2110626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -730,43 +663,43 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusServer.java</url>
-          <line>342</line>
+          <line>346</line>
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusServer.java</url>
-          <line>338</line>
+          <line>342</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusServer.java</url>
-          <line>571</line>
+          <line>575</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusServer.java</url>
-          <line>563</line>
+          <line>567</line>
           <properties />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusServer.java</url>
-          <line>503</line>
+          <line>507</line>
           <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusServer.java</url>
-          <line>504</line>
+          <line>508</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusServer.java</url>
-          <line>505</line>
+          <line>509</line>
           <properties />
           <option name="timeStamp" value="53" />
         </line-breakpoint>
@@ -783,73 +716,61 @@
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusClient.java</url>
-          <line>243</line>
-          <properties />
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusServer.java</url>
-          <line>672</line>
-          <properties />
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
-          <line>202</line>
-          <properties />
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
-          <line>805</line>
-          <properties />
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
-          <line>808</line>
-          <properties />
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
-          <line>815</line>
-          <properties />
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
-          <line>822</line>
-          <properties />
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
-          <line>825</line>
-          <properties />
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
-          <line>800</line>
-          <properties />
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
-          <line>793</line>
-          <properties />
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/EllipticCurveJPAKEDemo.java</url>
           <line>308</line>
           <properties />
           <option name="timeStamp" value="92" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JPAKEPlusClient.java</url>
+          <line>259</line>
+          <properties />
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JPAKEPlusServer.java</url>
+          <line>712</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
+          <line>853</line>
+          <properties />
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
+          <line>847</line>
+          <properties />
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
+          <line>838</line>
+          <properties />
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
+          <line>831</line>
+          <properties />
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
+          <line>328</line>
+          <properties />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java</url>
+          <line>288</line>
+          <properties />
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="93" />
+      <option name="time" value="111" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -859,17 +780,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPMultiServer.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/io/ObjectInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -961,14 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoundTwoResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RoundThree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -999,19 +901,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7334">
-          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/io/BufferedReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5535">
           <caret line="399" column="37" lean-forward="false" selection-start-line="399" selection-start-column="37" selection-end-line="399" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1051,14 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoundTwo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SPEKEPlusDemo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-79">
@@ -1093,27 +978,27 @@
         <state relative-caret-position="285">
           <caret line="19" column="27" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-            <element signature="e#603#604#0" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#766#767#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1276#1277#0" expanded="true" />
-            <element signature="e#1355#1356#0" expanded="true" />
-            <element signature="e#1407#1408#0" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-            <element signature="e#1492#1493#0" expanded="true" />
-            <element signature="e#1559#1560#0" expanded="true" />
-            <element signature="e#1599#1600#0" expanded="true" />
-            <element signature="e#1652#1653#0" expanded="true" />
-            <element signature="e#1682#1683#0" expanded="true" />
-            <element signature="e#1747#1748#0" expanded="true" />
-            <element signature="e#1785#1786#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#569#570#0" expanded="false" />
+            <element signature="e#603#604#0" expanded="false" />
+            <element signature="e#661#662#0" expanded="false" />
+            <element signature="e#707#708#0" expanded="false" />
+            <element signature="e#766#767#0" expanded="false" />
+            <element signature="e#806#807#0" expanded="false" />
+            <element signature="e#1006#1007#0" expanded="false" />
+            <element signature="e#1044#1045#0" expanded="false" />
+            <element signature="e#1239#1240#0" expanded="false" />
+            <element signature="e#1276#1277#0" expanded="false" />
+            <element signature="e#1355#1356#0" expanded="false" />
+            <element signature="e#1407#1408#0" expanded="false" />
+            <element signature="e#1461#1462#0" expanded="false" />
+            <element signature="e#1492#1493#0" expanded="false" />
+            <element signature="e#1559#1560#0" expanded="false" />
+            <element signature="e#1599#1600#0" expanded="false" />
+            <element signature="e#1652#1653#0" expanded="false" />
+            <element signature="e#1682#1683#0" expanded="false" />
+            <element signature="e#1747#1748#0" expanded="false" />
+            <element signature="e#1785#1786#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1133,25 +1018,25 @@
         <state relative-caret-position="105">
           <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-            <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#756#757#0" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#916#917#0" expanded="true" />
-            <element signature="e#1146#1147#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1409#1410#0" expanded="true" />
-            <element signature="e#1446#1447#0" expanded="true" />
-            <element signature="e#1661#1662#0" expanded="true" />
-            <element signature="e#1692#1693#0" expanded="true" />
-            <element signature="e#1774#1775#0" expanded="true" />
-            <element signature="e#1814#1815#0" expanded="true" />
-            <element signature="e#1882#1883#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2030#2031#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#649#650#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+            <element signature="e#756#757#0" expanded="false" />
+            <element signature="e#802#803#0" expanded="false" />
+            <element signature="e#876#877#0" expanded="false" />
+            <element signature="e#916#917#0" expanded="false" />
+            <element signature="e#1146#1147#0" expanded="false" />
+            <element signature="e#1184#1185#0" expanded="false" />
+            <element signature="e#1409#1410#0" expanded="false" />
+            <element signature="e#1446#1447#0" expanded="false" />
+            <element signature="e#1661#1662#0" expanded="false" />
+            <element signature="e#1692#1693#0" expanded="false" />
+            <element signature="e#1774#1775#0" expanded="false" />
+            <element signature="e#1814#1815#0" expanded="false" />
+            <element signature="e#1882#1883#0" expanded="false" />
+            <element signature="e#1912#1913#0" expanded="false" />
+            <element signature="e#1992#1993#0" expanded="false" />
+            <element signature="e#2030#2031#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1162,16 +1047,16 @@
           <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21061#21062#0" expanded="true" />
-            <element signature="e#21097#21098#0" expanded="true" />
-            <element signature="e#21142#21143#0" expanded="true" />
-            <element signature="e#21182#21183#0" expanded="true" />
-            <element signature="e#21219#21220#0" expanded="true" />
-            <element signature="e#21251#21252#0" expanded="true" />
-            <element signature="e#22077#22078#0" expanded="true" />
-            <element signature="e#22115#22116#0" expanded="true" />
-            <element signature="e#22152#22153#0" expanded="true" />
-            <element signature="e#22184#22185#0" expanded="true" />
+            <element signature="e#21061#21062#0" expanded="false" />
+            <element signature="e#21097#21098#0" expanded="false" />
+            <element signature="e#21142#21143#0" expanded="false" />
+            <element signature="e#21182#21183#0" expanded="false" />
+            <element signature="e#21219#21220#0" expanded="false" />
+            <element signature="e#21251#21252#0" expanded="false" />
+            <element signature="e#22077#22078#0" expanded="false" />
+            <element signature="e#22115#22116#0" expanded="false" />
+            <element signature="e#22152#22153#0" expanded="false" />
+            <element signature="e#22184#22185#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1180,7 +1065,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1188,7 +1072,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1196,7 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1204,15 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="1487" column="0" lean-forward="false" selection-start-line="1487" selection-start-column="0" selection-end-line="1487" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoundOneResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="38" column="39" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1220,7 +1093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="15" column="53" lean-forward="false" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1228,7 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1236,7 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="11" column="39" lean-forward="true" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1252,7 +1122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="491" column="0" lean-forward="false" selection-start-line="491" selection-start-column="0" selection-end-line="491" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1260,67 +1129,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOneResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="62" lean-forward="false" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
-          <folding>
-            <element signature="e#1178#1179#0" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1280#1281#0" expanded="true" />
-            <element signature="e#1344#1345#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1450#1451#0" expanded="true" />
-            <element signature="e#1488#1489#0" expanded="true" />
-            <element signature="e#1562#1563#0" expanded="true" />
-            <element signature="e#1598#1599#0" expanded="true" />
-            <element signature="e#1804#1805#0" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1902#1903#0" expanded="true" />
-            <element signature="e#1932#1933#0" expanded="true" />
-            <element signature="e#1996#1997#0" expanded="true" />
-            <element signature="e#2026#2027#0" expanded="true" />
-            <element signature="e#2102#2103#0" expanded="true" />
-            <element signature="e#2140#2141#0" expanded="true" />
-            <element signature="e#2214#2215#0" expanded="true" />
-            <element signature="e#2250#2251#0" expanded="true" />
-            <element signature="e#2440#2441#0" expanded="true" />
-            <element signature="e#2465#2466#0" expanded="true" />
-            <element signature="e#2520#2521#0" expanded="true" />
-            <element signature="e#2548#2549#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
-            <element signature="e#2625#2626#0" expanded="true" />
-            <element signature="e#2684#2685#0" expanded="true" />
-            <element signature="e#2720#2721#0" expanded="true" />
-            <element signature="e#2768#2769#0" expanded="true" />
-            <element signature="e#2797#2798#0" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2892#2893#0" expanded="true" />
-            <element signature="e#2950#2951#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3060#3061#0" expanded="true" />
-            <element signature="e#3108#3109#0" expanded="true" />
-            <element signature="e#3154#3155#0" expanded="true" />
-            <element signature="e#3185#3186#0" expanded="true" />
-            <element signature="e#3244#3245#0" expanded="true" />
-            <element signature="e#3284#3285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="606" column="45" lean-forward="false" selection-start-line="606" selection-start-column="45" selection-end-line="606" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#9186#9187#0" expanded="true" />
-            <element signature="e#9230#9231#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1328,9 +1136,78 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="179" column="26" lean-forward="false" selection-start-line="179" selection-start-column="26" selection-end-line="179" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3935">
+          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoundTwo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
-            <element signature="e#5648#5649#0" expanded="true" />
-            <element signature="e#5677#5678#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="false" />
+            <element signature="e#518#519#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-772">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#973#974#0" expanded="false" />
+            <element signature="e#999#1000#0" expanded="false" />
+            <element signature="e#1056#1057#0" expanded="false" />
+            <element signature="e#1086#1087#0" expanded="false" />
+            <element signature="e#1135#1136#0" expanded="false" />
+            <element signature="e#1165#1166#0" expanded="false" />
+            <element signature="e#1226#1227#0" expanded="false" />
+            <element signature="e#1264#1265#0" expanded="false" />
+            <element signature="e#1323#1324#0" expanded="false" />
+            <element signature="e#1359#1360#0" expanded="false" />
+            <element signature="e#1436#1437#0" expanded="false" />
+            <element signature="e#1486#1487#0" expanded="false" />
+            <element signature="e#1535#1536#0" expanded="false" />
+            <element signature="e#1561#1562#0" expanded="false" />
+            <element signature="e#1618#1619#0" expanded="false" />
+            <element signature="e#1648#1649#0" expanded="false" />
+            <element signature="e#1697#1698#0" expanded="false" />
+            <element signature="e#1727#1728#0" expanded="false" />
+            <element signature="e#1788#1789#0" expanded="false" />
+            <element signature="e#1826#1827#0" expanded="false" />
+            <element signature="e#1885#1886#0" expanded="false" />
+            <element signature="e#1921#1922#0" expanded="false" />
+            <element signature="e#1998#1999#0" expanded="false" />
+            <element signature="e#2048#2049#0" expanded="false" />
+            <element signature="e#2081#2082#0" expanded="false" />
+            <element signature="e#2106#2107#0" expanded="false" />
+            <element signature="e#2146#2147#0" expanded="false" />
+            <element signature="e#2174#2175#0" expanded="false" />
+            <element signature="e#2207#2208#0" expanded="false" />
+            <element signature="e#2236#2237#0" expanded="false" />
+            <element signature="e#2280#2281#0" expanded="false" />
+            <element signature="e#2316#2317#0" expanded="false" />
+            <element signature="e#2349#2350#0" expanded="false" />
+            <element signature="e#2378#2379#0" expanded="false" />
+            <element signature="e#2422#2423#0" expanded="false" />
+            <element signature="e#2458#2459#0" expanded="false" />
+            <element signature="e#2501#2502#0" expanded="false" />
+            <element signature="e#2536#2537#0" expanded="false" />
+            <element signature="e#2596#2597#0" expanded="false" />
+            <element signature="e#2644#2645#0" expanded="false" />
+            <element signature="e#2679#2680#0" expanded="false" />
+            <element signature="e#2710#2711#0" expanded="false" />
+            <element signature="e#2758#2759#0" expanded="false" />
+            <element signature="e#2798#2799#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1341,25 +1218,15 @@
           <caret line="113" column="23" lean-forward="true" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
           <folding>
             <element signature="e#0#13285#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11490">
-          <caret line="772" column="36" lean-forward="false" selection-start-line="772" selection-start-column="36" selection-end-line="772" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/SchnorrZKP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#982#983#0" expanded="true" />
@@ -1370,10 +1237,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoundOneResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding>
+            <element signature="e#1220#1221#0" expanded="false" />
+            <element signature="e#1250#1251#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOneResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="62" lean-forward="false" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+          <folding>
+            <element signature="e#1178#1179#0" expanded="false" />
+            <element signature="e#1250#1251#0" expanded="false" />
+            <element signature="e#1280#1281#0" expanded="false" />
+            <element signature="e#1344#1345#0" expanded="false" />
+            <element signature="e#1374#1375#0" expanded="false" />
+            <element signature="e#1450#1451#0" expanded="false" />
+            <element signature="e#1488#1489#0" expanded="false" />
+            <element signature="e#1562#1563#0" expanded="false" />
+            <element signature="e#1598#1599#0" expanded="false" />
+            <element signature="e#1804#1805#0" expanded="false" />
+            <element signature="e#1830#1831#0" expanded="false" />
+            <element signature="e#1902#1903#0" expanded="false" />
+            <element signature="e#1932#1933#0" expanded="false" />
+            <element signature="e#1996#1997#0" expanded="false" />
+            <element signature="e#2026#2027#0" expanded="false" />
+            <element signature="e#2102#2103#0" expanded="false" />
+            <element signature="e#2140#2141#0" expanded="false" />
+            <element signature="e#2214#2215#0" expanded="false" />
+            <element signature="e#2250#2251#0" expanded="false" />
+            <element signature="e#2440#2441#0" expanded="false" />
+            <element signature="e#2465#2466#0" expanded="false" />
+            <element signature="e#2520#2521#0" expanded="false" />
+            <element signature="e#2548#2549#0" expanded="false" />
+            <element signature="e#2596#2597#0" expanded="false" />
+            <element signature="e#2625#2626#0" expanded="false" />
+            <element signature="e#2684#2685#0" expanded="false" />
+            <element signature="e#2720#2721#0" expanded="false" />
+            <element signature="e#2768#2769#0" expanded="false" />
+            <element signature="e#2797#2798#0" expanded="false" />
+            <element signature="e#2856#2857#0" expanded="false" />
+            <element signature="e#2892#2893#0" expanded="false" />
+            <element signature="e#2950#2951#0" expanded="false" />
+            <element signature="e#2985#2986#0" expanded="false" />
+            <element signature="e#3060#3061#0" expanded="false" />
+            <element signature="e#3108#3109#0" expanded="false" />
+            <element signature="e#3154#3155#0" expanded="false" />
+            <element signature="e#3185#3186#0" expanded="false" />
+            <element signature="e#3244#3245#0" expanded="false" />
+            <element signature="e#3284#3285#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoundTwoResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2310">
+          <caret line="165" column="29" lean-forward="false" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/EllipticCurveJPAKEDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="872">
-          <caret line="174" column="35" lean-forward="true" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
+        <state relative-caret-position="863">
+          <caret line="174" column="35" lean-forward="false" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
           <folding>
             <element signature="e#0#16184#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -1385,74 +1329,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundOne.java">
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-772">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        <state relative-caret-position="298">
+          <caret line="638" column="34" lean-forward="false" selection-start-line="638" selection-start-column="34" selection-end-line="638" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#973#974#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1135#1136#0" expanded="true" />
-            <element signature="e#1165#1166#0" expanded="true" />
-            <element signature="e#1226#1227#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-            <element signature="e#1323#1324#0" expanded="true" />
-            <element signature="e#1359#1360#0" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1486#1487#0" expanded="true" />
-            <element signature="e#1535#1536#0" expanded="true" />
-            <element signature="e#1561#1562#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1648#1649#0" expanded="true" />
-            <element signature="e#1697#1698#0" expanded="true" />
-            <element signature="e#1727#1728#0" expanded="true" />
-            <element signature="e#1788#1789#0" expanded="true" />
-            <element signature="e#1826#1827#0" expanded="true" />
-            <element signature="e#1885#1886#0" expanded="true" />
-            <element signature="e#1921#1922#0" expanded="true" />
-            <element signature="e#1998#1999#0" expanded="true" />
-            <element signature="e#2048#2049#0" expanded="true" />
-            <element signature="e#2081#2082#0" expanded="true" />
-            <element signature="e#2106#2107#0" expanded="true" />
-            <element signature="e#2146#2147#0" expanded="true" />
-            <element signature="e#2174#2175#0" expanded="true" />
-            <element signature="e#2207#2208#0" expanded="true" />
-            <element signature="e#2236#2237#0" expanded="true" />
-            <element signature="e#2280#2281#0" expanded="true" />
-            <element signature="e#2316#2317#0" expanded="true" />
-            <element signature="e#2349#2350#0" expanded="true" />
-            <element signature="e#2378#2379#0" expanded="true" />
-            <element signature="e#2422#2423#0" expanded="true" />
-            <element signature="e#2458#2459#0" expanded="true" />
-            <element signature="e#2501#2502#0" expanded="true" />
-            <element signature="e#2536#2537#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
-            <element signature="e#2644#2645#0" expanded="true" />
-            <element signature="e#2679#2680#0" expanded="true" />
-            <element signature="e#2710#2711#0" expanded="true" />
-            <element signature="e#2758#2759#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
+            <element signature="e#9527#9528#0" expanded="true" />
+            <element signature="e#9571#9572#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JPAKEPlusClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="376" column="0" lean-forward="true" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+        <state relative-caret-position="-5">
+          <caret line="215" column="27" lean-forward="false" selection-start-line="215" selection-start-column="27" selection-end-line="215" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundTwo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding>
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#569#570#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#828#829#0" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+            <element signature="e#1047#1048#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1281#1282#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1369#1370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ECRoundTwoResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#1227#1228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/JPAKEPlusECNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="233" column="18" lean-forward="false" selection-start-line="233" selection-start-column="18" selection-end-line="233" selection-end-column="18" />
+        <state relative-caret-position="284">
+          <caret line="328" column="30" lean-forward="false" selection-start-line="328" selection-start-column="30" selection-end-line="328" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -58,13 +58,13 @@ public class JPAKEPlusECNetwork {
 
     // *********************************** ROUND 2 ***********************************
 //    BigInteger [][] newGen = new BigInteger [n][n];
-    HashMap<Long, BigInteger> newGen = new HashMap<>();
+    private HashMap<Long, byte[]> newGen = new HashMap<>();
     //    BigInteger [][] bijs = new BigInteger [n][n];
-    HashMap<Long, BigInteger> bijs = new HashMap<>();
+    private HashMap<Long, BigInteger> bijs = new HashMap<>();
     //    BigInteger [][] newGenPowBijs = new BigInteger [n][n];
-    HashMap<Long, BigInteger> newGenPowBijs = new HashMap<>();;
+    private HashMap<Long, byte[]> newGenPowBijs = new HashMap<>();;
     //    BigInteger [][][] schnorrZKPbijs = new BigInteger [n][n][2];
-    HashMap<Long, ArrayList<BigInteger>> schnorrZKPbijs = new HashMap<>();
+    private HashMap<Long, SchnorrZKP> schnorrZKPbijs = new HashMap<>();
 
     // *********************************** ROUND 3 ***********************************
 //    BigInteger [] gPowZiPowYi = new BigInteger [n];
@@ -245,7 +245,7 @@ public class JPAKEPlusECNetwork {
         return true;
     }
 
-    public RoundTwo roundTwo(RoundOneResponse r) {
+    public ECRoundTwo roundTwo(ECRoundOneResponse r) {
         System.out.println("*************** ROUND 2 ***************");
         long cID = (long) clientId;
         // Each participant sends newGen^{bij * s} and ZKP{bij * s}
@@ -255,25 +255,55 @@ public class JPAKEPlusECNetwork {
                 continue;
             }
             // g^{a_ij} * g^{a_ji} * g^{b_jj} mod p
-            newGen.put(jID,
-                    r.getgPowAij().get(cID).get(jID)
-                            .multiply(r.getgPowAij().get(jID).get(cID))
-                            .multiply(r.getgPowBij().get(jID).get(cID)).mod(p));
+//            newGen.put(jID,
+//                    r.getgPowAij().get(cID).get(jID)
+//                            .multiply(r.getgPowAij().get(jID).get(cID))
+//                            .multiply(r.getgPowBij().get(jID).get(cID)).mod(p));
+            ECPoint newGenAij = ecCurve.decodePoint(r.getgPowAij().get(cID).get(jID));
+            ECPoint newGenAji = ecCurve.decodePoint(r.getgPowAij().get(jID).get(cID));
+//            BigInteger newGenAji = new BigInteger(r.getgPowAij().get(jID).get(cID));
+            ECPoint newGenBji = ecCurve.decodePoint(r.getgPowBij().get(jID).get(cID));
+//            BigInteger newGenBji = new BigInteger(r.getgPowBij().get(jID).get(cID));
+            ECPoint newGenEC = newGenAij.add(newGenAji).add(newGenBji);
+            newGen.put(jID, newGenEC.getEncoded(false));
 
             // b_ij * s
-            bijs.put(jID, r.getBij().get(cID).get(jID).multiply(s).mod(q));
+//            bijs.put(jID, r.getBij().get(cID).get(jID).multiply(s).mod(q));
+            bijs.put(jID, r.getBij().get(cID).get(jID).multiply(s).mod(nEC));
 
             // (g^{a_ij} * g^{a_ji} * g^{b_jj} mod p)^{b_ij * s}
-            newGenPowBijs.put(jID, newGen.get(jID).modPow(bijs.get(jID), p));
+//            newGenPowBijs.put(jID, newGen.get(jID).modPow(bijs.get(jID), p));
+            ECPoint newGenPowBijsEC = newGenEC.multiply(bijs.get(jID));
+            newGenPowBijs.put(jID, newGenPowBijsEC.getEncoded(false));
 //
 //            schnorrZKP.generateZKP(p, q, newGen.get(jID), newGenPowBijs.get(jID), bijs.get(jID), signerID);
 //            schnorrZKPbijs.put(jID, new ArrayList<>());
 //            schnorrZKPbijs.get(jID).add(schnorrZKP.getGenPowV());
 //            schnorrZKPbijs.get(jID).add(schnorrZKP.getR());
+            SchnorrZKP zkpBijs = new SchnorrZKP();
+            zkpBijs.generateZKP(newGenEC, nEC, bijs.get(jID), newGenPowBijsEC, signerID);
+            schnorrZKPbijs.put(jID, zkpBijs);
+
+            newGenEC = ecCurve.decodePoint(newGen.get(jID));
+            newGenPowBijsEC = ecCurve.decodePoint(newGenPowBijs.get(jID));
+            ECPoint V = ecCurve.decodePoint(schnorrZKPbijs.get(jID).getV());
+//            ECPoint newGenPowBijEC = ecCurve.decodePoint(r.getNewGenPowBijs().get(jID).get(cID));
+
+            if(!verifyZKP(newGenEC,
+                    newGenPowBijsEC,
+                    V,
+                    schnorrZKPbijs.get(jID).getr(),
+                    signerID)) {
+                System.out.println("newGenEC Round 2 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + clientId + "," + jID + ")");
+                System.exit(0);
+            }
+            else {
+                System.out.println("ALL GOOD");
+            }
         }
 
 
-        RoundTwo data = new RoundTwo();
+        ECRoundTwo data = new ECRoundTwo();
         data.setBijs(bijs);
         data.setNewGen(newGen);
         data.setNewGenPowBijs(newGenPowBijs);
@@ -283,7 +313,7 @@ public class JPAKEPlusECNetwork {
         return data;
     }
 
-    public boolean verifyRoundTwo(RoundTwoResponse r) {
+    public boolean verifyRoundTwo(ECRoundTwoResponse r) {
         System.out.println("************ VERIFY ROUND 2 ***********");
         long cID = (long) clientId;
         //             each participant verifies ZKP{bijs}
@@ -294,15 +324,23 @@ public class JPAKEPlusECNetwork {
             }
 
             // Check ZKP{bji}
-            if(!verifySchnorrZKP(p, q,
-                    r.getNewGen().get(jID).get(cID),
-                    r.getNewGenPowBijs().get(jID).get(cID),
-                    r.getSchnorrZKPbijs().get(jID).get(cID).get(0),
-                    r.getSchnorrZKPbijs().get(jID).get(cID).get(1),
-                    Long.toString(jID))) {
-                System.out.println("Round 2 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + clientId + "," + jID + ")");
-                return false;
+            ECPoint newGenEC = ecCurve.decodePoint(r.getNewGen().get(jID).get(cID));
+            ECPoint newGenPowBijsEC = ecCurve.decodePoint(r.getNewGenPowBijs().get(jID).get(cID));
+            ECPoint V = ecCurve.decodePoint(r.getSchnorrZKPbijs().get(jID).get(cID).getV());
+            BigInteger zkpRVal = r.getSchnorrZKPbijs().get(jID).get(cID).getr();
+            if(!verifyZKP(newGenEC,
+                    newGenPowBijsEC,
+                    V,
+                    zkpRVal,
+                    Long.toString(clients.get(j)))) {
+                System.out.println("newGenEC Round 2 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + clientId + "," + jID + ")");
+                System.exit(0);
             }
+            else {
+                System.out.println("ALL GOOD");
+            }
+
+
         }
         return true;
     }

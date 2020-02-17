@@ -1,6 +1,8 @@
 
 import JPAKEEllipticCurvePOJOs.ECRoundOne;
 import JPAKEEllipticCurvePOJOs.ECRoundOneResponse;
+import JPAKEEllipticCurvePOJOs.ECRoundTwo;
+import JPAKEEllipticCurvePOJOs.ECRoundTwoResponse;
 import com.google.gson.Gson;
 
 import java.awt.event.ActionEvent;
@@ -242,27 +244,27 @@ public class JPAKEPlusClient {
             }
             // send confirmation to server
             out.println("1");
-//            // server can issue go ahead of next stage
-//            response = in.readLine();
-//            if (!response.equals("1")) {
-//                exitWithError("All participants failed to verify Round 1");
-//            }
-//
-//            RoundTwo roundTwo = jpake.roundTwo(rOneResponse);
-//            // send serialized round two data to server
-//            out.println(gson.toJson(roundTwo));
-//            // get serialized json of all round 2 calculations
-//            response = in.readLine();
-//            RoundTwoResponse rTwoResponse = gson.fromJson(response, RoundTwoResponse.class);
-//
-//            boolean passedRoundTwo = jpake.verifyRoundTwo(rTwoResponse);
-//            if (!passedRoundTwo) {
-//                System.out.println("FAILED");
-//                System.exit(0);
-//            }
-//            // send confirmation to server
-//            out.println("1");
-//            // server can issue go ahead of next stage
+            // server can issue go ahead of next stage
+            response = in.readLine();
+            if (!response.equals("1")) {
+                exitWithError("All participants failed to verify Round 1");
+            }
+
+            ECRoundTwo roundTwo = jpake.roundTwo(rOneResponse);
+            // send serialized round two data to server
+            out.println(gson.toJson(roundTwo));
+            // get serialized json of all round 2 calculations
+            response = in.readLine();
+            ECRoundTwoResponse rTwoResponse = gson.fromJson(response, ECRoundTwoResponse.class);
+
+            boolean passedRoundTwo = jpake.verifyRoundTwo(rTwoResponse);
+            if (!passedRoundTwo) {
+                System.out.println("FAILED");
+                System.exit(0);
+            }
+            // send confirmation to server
+            out.println("1");
+            // server can issue go ahead of next stage
 //            response = in.readLine();
 //            if (!response.equals("1")) {
 //                exitWithError("All participants failed to verify Round 1");
