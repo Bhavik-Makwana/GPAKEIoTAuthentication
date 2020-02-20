@@ -57,7 +57,6 @@ public class JPAKEDemo {
     }
 
     private void run () {
-
         System.out.println("Public parameters for the cyclic group:");
         System.out.println("p ("+p.bitLength()+" bits): " + p.toString(16));
         System.out.println("q ("+q.bitLength()+" bits): " + q.toString(16));

@@ -132,6 +132,13 @@ public class JPAKEPlusServer {
     private static HashMap<Long, HashMap<Long, byte[]>> newGenPowBijsEC = new HashMap<>();
     private static HashMap<Long, HashMap<Long, SchnorrZKP>> schnorrZKPbijsEC = new HashMap<>();
 
+// ********************************** ROUND 3 EC ************************************
+    private static HashMap<Long, byte[]> gPowZiPowYiEC = new HashMap<>();
+    private static HashMap<Long, ChaumPedersonZKP> chaumPedersonZKPiEC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysMACEC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysKCEC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsMACEC = new HashMap<>();
+    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsKCEC = new HashMap<>();
     /**
      * The appplication main method, which just listens on a port and
      * spawns handler threads.
@@ -645,26 +652,26 @@ public class JPAKEPlusServer {
 //            r.setSignerID(signerID);
             return r;
         }
-//
-//        public void updateDataRoundThree(Long id, RoundThree data) {
-//            gPowZiPowYi.put(id, data.getgPowZiPowYi());
-//            chaumPedersonZKPi.put(id, data.getChaumPedersonZKPi());
-//            pairwiseKeysKC.put(id, data.getPairwiseKeysKC());
-//            pairwiseKeysMAC.put(id, data.getPairwiseKeysMAC());
-//            hMacsKC.put(id, data.gethMacsKC());
-//            hMacsMAC.put(id, data.gethMacsMAC());
-//        }
-//
-//        public RoundThreeResponse setDataRoundThreeResponse() {
-//            RoundThreeResponse r = new RoundThreeResponse();
-//            r.setChaumPedersonZKPi(chaumPedersonZKPi);
-//            r.setgPowZiPowYi(gPowZiPowYi);
-//            r.sethMacsKC(hMacsKC);
-//            r.sethMacsMAC(hMacsMAC);
-//            r.setPairwiseKeysKC(pairwiseKeysKC);
-//            r.setPairwiseKeysMAC(pairwiseKeysMAC);
-//            return r;
-//        }
+
+        public void updateECDataRoundThree(Long id, ECRoundThree data) {
+            gPowZiPowYiEC.put(id, data.getgPowZiPowYi());
+            chaumPedersonZKPiEC.put(id, data.getChaumPedersonZKPi());
+            pairwiseKeysKCEC.put(id, data.getPairwiseKeysKC());
+            pairwiseKeysMACEC.put(id, data.getPairwiseKeysMAC());
+            hMacsKCEC.put(id, data.gethMacsKC());
+            hMacsMACEC.put(id, data.gethMacsMAC());
+        }
+
+        public ECRoundThreeResponse setECDataRoundThreeResponse() {
+            ECRoundThreeResponse r = new ECRoundThreeResponse();
+            r.setChaumPedersonZKPi(chaumPedersonZKPiEC);
+            r.setgPowZiPowYi(gPowZiPowYiEC);
+            r.sethMacsKC(hMacsKCEC);
+            r.sethMacsMAC(hMacsMACEC);
+            r.setPairwiseKeysKC(pairwiseKeysKCEC);
+            r.setPairwiseKeysMAC(pairwiseKeysMACEC);
+            return r;
+        }
 
         public void jPAKEPlusECProtocol() throws  Exception {
             try {
@@ -720,29 +727,29 @@ public class JPAKEPlusServer {
                 }
                 while (roundTwoVComplete.containsValue(false)) {
                 }
-//                System.out.println("************ ROUND 3 ***********");
-//
-//                out.println("1"); // OK
-//
-//                response = in.readLine();
-//                RoundThree roundThree = gson.fromJson(response, RoundThree.class);
-//                updateDataRoundThree(id, roundThree);
-//                roundThreeComplete.replace(id, true);
-//                while (roundThreeComplete.containsValue(false)) {
-//                }
-//                System.out.println("************ ROUND 4 ***********");
-//                RoundThreeResponse dataRoundThree = setDataRoundThreeResponse();
-//                out.println(gson.toJson(dataRoundThree));
-//
-//                response = in.readLine();
-//
-//                if (response.equals(0)) {
-//                    throw new Exception("All clients failed to verify successfully");
-//                } else {
-//                    roundFourComplete.replace(id, true);
-//                }
-//                while (roundFourComplete.containsValue(false)) {
-//                }
+                System.out.println("************ ROUND 3 ***********");
+
+                out.println("1"); // OK
+
+                response = in.readLine();
+                ECRoundThree roundThree = gson.fromJson(response, ECRoundThree.class);
+                updateECDataRoundThree(id, roundThree);
+                roundThreeComplete.replace(id, true);
+                while (roundThreeComplete.containsValue(false)) {
+                }
+                System.out.println("************ ROUND 4 ***********");
+                ECRoundThreeResponse dataRoundThree = setECDataRoundThreeResponse();
+                out.println(gson.toJson(dataRoundThree));
+
+                response = in.readLine();
+
+                if (response.equals(0)) {
+                    throw new Exception("All clients failed to verify successfully");
+                } else {
+                    roundFourComplete.replace(id, true);
+                }
+                while (roundFourComplete.containsValue(false)) {
+                }
 //                System.out.println("******* KEY COMPUTATION *******");
 //                out.println("1");
 //

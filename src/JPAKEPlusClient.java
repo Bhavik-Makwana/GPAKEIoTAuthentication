@@ -1,8 +1,5 @@
 
-import JPAKEEllipticCurvePOJOs.ECRoundOne;
-import JPAKEEllipticCurvePOJOs.ECRoundOneResponse;
-import JPAKEEllipticCurvePOJOs.ECRoundTwo;
-import JPAKEEllipticCurvePOJOs.ECRoundTwoResponse;
+import JPAKEEllipticCurvePOJOs.*;
 import com.google.gson.Gson;
 
 import java.awt.event.ActionEvent;
@@ -265,21 +262,21 @@ public class JPAKEPlusClient {
             // send confirmation to server
             out.println("1");
             // server can issue go ahead of next stage
-//            response = in.readLine();
-//            if (!response.equals("1")) {
-//                exitWithError("All participants failed to verify Round 1");
-//            }
-//
-//            RoundThree roundThree = jpake.roundThree(rOneResponse, rTwoResponse);
-//            out.println(gson.toJson(roundThree));
-//
-//            response = in.readLine();
-//            RoundThreeResponse rThreeResponse = gson.fromJson(response, RoundThreeResponse.class);
-//
-//            boolean passedRoundThree = jpake.roundFour(rOneResponse, rTwoResponse, rThreeResponse);
-//            if (!passedRoundThree) {
-//                exitWithError("All paricipants failed to verify round 3");
-//            }
+            response = in.readLine();
+            if (!response.equals("1")) {
+                exitWithError("All participants failed to verify Round 1");
+            }
+
+            ECRoundThree roundThree = jpake.roundThree(rOneResponse, rTwoResponse);
+            out.println(gson.toJson(roundThree));
+
+            response = in.readLine();
+            ECRoundThreeResponse rThreeResponse = gson.fromJson(response, ECRoundThreeResponse.class);
+
+            boolean passedRoundThree = jpake.roundFour(rOneResponse, rTwoResponse, rThreeResponse);
+            if (!passedRoundThree) {
+                exitWithError("All paricipants failed to verify round 3");
+            }
 //
 //            // send confirmation to server
 //            out.println("1");
