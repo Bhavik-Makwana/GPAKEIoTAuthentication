@@ -277,20 +277,20 @@ public class JPAKEPlusClient {
             if (!passedRoundThree) {
                 exitWithError("All paricipants failed to verify round 3");
             }
-//
-//            // send confirmation to server
-//            out.println("1");
-//            // server can issue go ahead of next stage
-//            response = in.readLine();
-//            if (!response.equals("1")) {
-//                exitWithError("All participants failed to verify Round 1");
-//            }
-//
-//
-//            BigInteger key = jpake.computeKey(rOneResponse, rThreeResponse);
-//            out.println("1");
-//            return key;
-            return BigInteger.ONE;
+
+            // send confirmation to server
+            out.println("1");
+            // server can issue go ahead of next stage
+            response = in.readLine();
+            if (!response.equals("1")) {
+                exitWithError("All participants failed to verify Round 1");
+            }
+
+
+            BigInteger key = jpake.computeKey(rOneResponse, rThreeResponse);
+            out.println("1");
+            return key;
+//            return BigInteger.ONE;
         }
         catch (IOException e) {
             e.printStackTrace();

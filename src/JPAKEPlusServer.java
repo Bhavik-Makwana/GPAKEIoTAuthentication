@@ -750,13 +750,13 @@ public class JPAKEPlusServer {
                 }
                 while (roundFourComplete.containsValue(false)) {
                 }
-//                System.out.println("******* KEY COMPUTATION *******");
-//                out.println("1");
-//
-//                response = in.readLine();
-//                if (response.equals("1")) {
-//                    System.out.println("Session Keys Computed");
-//                }
+                System.out.println("******* KEY COMPUTATION *******");
+                out.println("1");
+
+                response = in.readLine();
+                if (response.equals("1")) {
+                    System.out.println("Session Keys Computed");
+                }
 
             } catch (IOException e) {
                 e.printStackTrace();
