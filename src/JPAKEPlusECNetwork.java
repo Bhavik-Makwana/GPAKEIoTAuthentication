@@ -103,11 +103,10 @@ public class JPAKEPlusECNetwork {
         System.out.println("*************** ROUND 1 ***************");
         int n = clients.size();
 
-        // signerId[i] = i + ""
         signerID = clientId + "";
         HashMap<Long, ECPoint> temp = new HashMap<>();
-        // aij in [0, q-1], b_ij in [1, q-1]
 
+        // aij in [0, q-1], b_ij in [1, q-1]
         for (int j=0; j<n; j++) {
             System.out.println(clients.get(j) instanceof Long);
             long jID = clients.get(j);
@@ -119,7 +118,6 @@ public class JPAKEPlusECNetwork {
             aij.put(jID, org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
                     nEC.subtract(BigInteger.ONE), new SecureRandom()));
 
-//            gPowAij.put(jID, g.modPow(aij.get(jID), p));
             ECPoint AIJ = G.multiply(aij.get(jID));
             gPowAij.put(jID, AIJ.getEncoded(false));
             SchnorrZKP zkpAij = new SchnorrZKP();
@@ -180,7 +178,6 @@ public class JPAKEPlusECNetwork {
             long rightNeighbour = Long.parseLong(r.getSignerID().get(iPlusOne));
             long leftNeighbour = Long.parseLong(r.getSignerID().get(iMinusOne));
 
-//            r.getgPowZi().put(current, r.getgPowYi().get(leftNeighbour).modInverse(p).multiply(r.getgPowYi().get(rightNeighbour)).mod(p));
             ECPoint leftPoint = ecCurve.decodePoint(r.getgPowYi().get(leftNeighbour));
             ECPoint rightPoint = ecCurve.decodePoint(r.getgPowYi().get(rightNeighbour));
             r.getgPowZi().put(current, rightPoint.subtract(leftPoint).getEncoded(false));
@@ -256,31 +253,19 @@ public class JPAKEPlusECNetwork {
                 continue;
             }
             // g^{a_ij} * g^{a_ji} * g^{b_jj} mod p
-//            newGen.put(jID,
-//                    r.getgPowAij().get(cID).get(jID)
-//                            .multiply(r.getgPowAij().get(jID).get(cID))
-//                            .multiply(r.getgPowBij().get(jID).get(cID)).mod(p));
             ECPoint newGenAij = ecCurve.decodePoint(r.getgPowAij().get(cID).get(jID));
             ECPoint newGenAji = ecCurve.decodePoint(r.getgPowAij().get(jID).get(cID));
-//            BigInteger newGenAji = new BigInteger(r.getgPowAij().get(jID).get(cID));
             ECPoint newGenBji = ecCurve.decodePoint(r.getgPowBij().get(jID).get(cID));
-//            BigInteger newGenBji = new BigInteger(r.getgPowBij().get(jID).get(cID));
             ECPoint newGenEC = newGenAij.add(newGenAji).add(newGenBji);
             newGen.put(jID, newGenEC.getEncoded(false));
 
             // b_ij * s
-//            bijs.put(jID, r.getBij().get(cID).get(jID).multiply(s).mod(q));
             bijs.put(jID, r.getBij().get(cID).get(jID).multiply(s).mod(nEC));
 
             // (g^{a_ij} * g^{a_ji} * g^{b_jj} mod p)^{b_ij * s}
-//            newGenPowBijs.put(jID, newGen.get(jID).modPow(bijs.get(jID), p));
             ECPoint newGenPowBijsEC = newGenEC.multiply(bijs.get(jID));
             newGenPowBijs.put(jID, newGenPowBijsEC.getEncoded(false));
-//
-//            schnorrZKP.generateZKP(p, q, newGen.get(jID), newGenPowBijs.get(jID), bijs.get(jID), signerID);
-//            schnorrZKPbijs.put(jID, new ArrayList<>());
-//            schnorrZKPbijs.get(jID).add(schnorrZKP.getGenPowV());
-//            schnorrZKPbijs.get(jID).add(schnorrZKP.getR());
+
             SchnorrZKP zkpBijs = new SchnorrZKP();
             zkpBijs.generateZKP(newGenEC, nEC, bijs.get(jID), newGenPowBijsEC, signerID);
             schnorrZKPbijs.put(jID, zkpBijs);
@@ -288,7 +273,6 @@ public class JPAKEPlusECNetwork {
             newGenEC = ecCurve.decodePoint(newGen.get(jID));
             newGenPowBijsEC = ecCurve.decodePoint(newGenPowBijs.get(jID));
             ECPoint V = ecCurve.decodePoint(schnorrZKPbijs.get(jID).getV());
-//            ECPoint newGenPowBijEC = ecCurve.decodePoint(r.getNewGenPowBijs().get(jID).get(cID));
 
             if(!verifyZKP(newGenEC,
                     newGenPowBijsEC,
@@ -355,12 +339,6 @@ public class JPAKEPlusECNetwork {
         gPowZiPowYi = zi.multiply(yi).getEncoded(false);
         ChaumPedersonZKP chaumPedersonZKP = new ChaumPedersonZKP();
 
-//        chaumPedersonZKP.generateZKP(p, q, g,
-//                r1.getgPowYi().get(cID),
-//                r1.getYi().get(cID),
-//                r1.getgPowZi().get(cID),
-//                gPowZiPowYi,
-//                signerID);
 
         chaumPedersonZKP.generateZKP(G, nEC,
                 ecCurve.decodePoint(r1.getgPowYi().get(cID)),
@@ -379,11 +357,7 @@ public class JPAKEPlusECNetwork {
                 continue;
             }
 
-//            BigInteger rawKey = r1.getgPowBij().get(jID).get(cID)
-//                    .modPow(r2.getBijs().get(cID).get(jID), p)
-//                    .modInverse(p)
-//                    .multiply(r2.getNewGenPowBijs().get(jID).get(cID))
-//                    .modPow(r1.getBij().get(cID).get(jID), p);
+            // Kji = (Bji/g^(bij * bji * s))^bij
             ECPoint gPowBijEC = ecCurve.decodePoint(r1.getgPowBij().get(jID).get(cID));
             BigInteger bijsEC = r2.getBijs().get(cID).get(jID);
 
@@ -401,19 +375,12 @@ public class JPAKEPlusECNetwork {
                 SecretKey key = new SecretKeySpec(pairwiseKeysMAC.get(jID).toByteArray(), hmacName);
                 Mac mac = Mac.getInstance(hmacName, "BC");
                 mac.init(key);
-//                mac.update(r1.getgPowYi().get(cID).toByteArray());
                 mac.update(r1.getgPowYi().get(cID));
-//                mac.update(r1.getSchnorrZKPyi().get(cID).get(0).toByteArray());
                 mac.update(r1.getSchnorrZKPyi().get(cID).getV());
                 mac.update(r1.getSchnorrZKPyi().get(cID).getr().toByteArray());
-//                mac.update(r1.getSchnorrZKPyi().get(cID).get(1).toByteArray());
-//                mac.update(gPowZiPowYi.toByteArray());
                 mac.update(gPowZiPowYi);
-//                mac.update(chaumPedersonZKPi.get(0).toByteArray());
                 mac.update(chaumPedersonZKPi.getGPowS());
-//                mac.update(chaumPedersonZKPi.get(1).toByteArray());
                 mac.update(chaumPedersonZKPi.getGPowZPowS());
-//                mac.update(chaumPedersonZKPi.get(2).toByteArray());
                 mac.update(chaumPedersonZKPi.getT().toByteArray());
                 hMacsMAC.put(jID, new BigInteger(mac.doFinal()));
 
@@ -433,13 +400,9 @@ public class JPAKEPlusECNetwork {
                 mac.update(new BigInteger(""+cID).toByteArray());
                 mac.update(new BigInteger(""+jID).toByteArray());
 
-//                mac.update(r1.getgPowAij().get(cID).get(jID).toByteArray());
                 mac.update(r1.getgPowAij().get(cID).get(jID));
-//                mac.update(r1.getgPowBij().get(cID).get(jID).toByteArray());
                 mac.update(r1.getgPowBij().get(cID).get(jID));
-//                mac.update(r1.getgPowAij().get(jID).get(cID).toByteArray());
                 mac.update(r1.getgPowAij().get(jID).get(cID));
-//                mac.update(r1.getgPowBij().get(jID).get(cID).toByteArray());
                 mac.update(r1.getgPowBij().get(jID).get(cID));
 
                 hMacsKC.put(jID, new BigInteger(mac.doFinal()));
@@ -475,14 +438,6 @@ public class JPAKEPlusECNetwork {
                 continue;
             }
 
-//            if (!verifyChaumPedersonZKP(p, q, g,
-//                    r1.getgPowYi().get(jID),
-//                    r1.getgPowZi().get(jID),
-//                    r3.getgPowZiPowYi().get(jID),
-//                    r3.getChaumPedersonZKPi().get(jID).get(0),
-//                    r3.getChaumPedersonZKPi().get(jID).get(1),
-//                    r3.getChaumPedersonZKPi().get(jID).get(2),
-//                    Long.toString(jID))) {
             if (!verifyChaumPedersonZKP(G, nEC,
                     ecCurve.decodePoint(r1.getgPowYi().get(jID)),
                     ecCurve.decodePoint(r1.getgPowZi().get(jID)),
@@ -514,14 +469,9 @@ public class JPAKEPlusECNetwork {
                 mac.update(new BigInteger(""+jID).toByteArray());
                 mac.update(new BigInteger(""+cID).toByteArray());
 
-//                mac.update(r1.getgPowAij().get(jID).get(cID).toByteArray());
                 mac.update(r1.getgPowAij().get(jID).get(cID));
-//                mac.update(r1.getgPowBij().get(jID).get(cID).toByteArray());
                 mac.update(r1.getgPowBij().get(jID).get(cID));
-
-//                mac.update(r1.getgPowAij().get(cID).get(jID).toByteArray());
                 mac.update(r1.getgPowAij().get(cID).get(jID));
-//                mac.update(r1.getgPowBij().get(cID).get(jID).toByteArray());
                 mac.update(r1.getgPowBij().get(cID).get(jID));
                 BigInteger temp = new BigInteger(mac.doFinal());
                 System.out.println(temp);
@@ -547,17 +497,10 @@ public class JPAKEPlusECNetwork {
                 mac.init(key);
                 mac.reset();
 
-//                mac.update(r1.getgPowYi().get(jID).toByteArray());
                 mac.update(r1.getgPowYi().get(jID));
-//                mac.update(r1.getSchnorrZKPyi().get(jID).get(0).toByteArray());
-//                mac.update(r1.getSchnorrZKPyi().get(jID).get(1).toByteArray());
                 mac.update(r1.getSchnorrZKPyi().get(jID).getV());
                 mac.update(r1.getSchnorrZKPyi().get(jID).getr().toByteArray());
-//                mac.update(r3.getgPowZiPowYi().get(jID).toByteArray());
                 mac.update(r3.getgPowZiPowYi().get(jID));
-//                mac.update(r3.getChaumPedersonZKPi().get(jID).get(0).toByteArray());
-//                mac.update(r3.getChaumPedersonZKPi().get(jID).get(1).toByteArray());
-//                mac.update(r3.getChaumPedersonZKPi().get(jID).get(2).toByteArray());
                 mac.update(r3.getChaumPedersonZKPi().get(jID).getGPowS());
                 mac.update(r3.getChaumPedersonZKPi().get(jID).getGPowZPowS());
                 mac.update(r3.getChaumPedersonZKPi().get(jID).getT().toByteArray());
@@ -584,8 +527,6 @@ public class JPAKEPlusECNetwork {
             // ith participant
 
             int cyclicIndex = getCyclicIndex(i-1, n);
-//            BigInteger firstTerm = r1.getgPowYi().get(clients.get(cyclicIndex))
-//                    .modPow(r1.getYi().get(iID).multiply(BigInteger.valueOf(n)), p);
             ECPoint gPowYiEC = ecCurve.decodePoint(r1.getgPowYi().get(clients.get(cyclicIndex)));
             ECPoint firstTerm = gPowYiEC
                     .multiply(r1.getYi().get(iID).multiply(BigInteger.valueOf(n)));
@@ -593,11 +534,8 @@ public class JPAKEPlusECNetwork {
 
             for (int j=0; j<(n-1) ; j++) {
                 cyclicIndex = getCyclicIndex(i+j, n);
-//                BigInteger interTerm = r3.getgPowZiPowYi().get(clients.get(cyclicIndex))
-//                        .modPow(BigInteger.valueOf(n-1-j), p);
                 ECPoint gPowZiPowYiEC = ecCurve.decodePoint(r3.getgPowZiPowYi().get(clients.get(cyclicIndex)));
                 ECPoint interTerm = gPowZiPowYiEC.multiply(BigInteger.valueOf(n-1-j));
-//                finalTerm = finalTerm.multiply(interTerm).mod(p);
                 finalTerm = finalTerm.add(interTerm);
             }
 
@@ -614,7 +552,6 @@ public class JPAKEPlusECNetwork {
 
         }
         return multipleSessionKeys.get((long) clientId);
-//        return BigInteger.ONE;
     }
     public int getCyclicIndex (int i, int n){
 
@@ -852,40 +789,6 @@ public class JPAKEPlusECNetwork {
         return new BigInteger(sha256.digest());
     }
 
-    /*
-     * Check
-     * a) g^x in [1, q-1]
-     * b) (g^x)^q = 1
-     * c) g^v = g^r (g^x)^h
-     *
-     * Note: the case of x = 0 is not excluded in this routine. Handle that in the upstream if you need to.
-     */
-    public boolean verifySchnorrZKP(BigInteger p, BigInteger q, BigInteger gen, BigInteger genPowX, BigInteger genPowV, BigInteger r, String userID) {
-
-        // ZKP: {V=gen^v, r}
-        BigInteger h = getSHA256(gen, genPowV, genPowX, userID);
-//        System.out.println(genPowX.compareTo(BigInteger.ZERO) == 1 );
-//        System.out.println(genPowX.compareTo(p) == -1);
-//        System.out.println(genPowX.modPow(q, p).compareTo(BigInteger.ONE) == 0);
-//        System.out.println(gen.modPow(r,p).multiply(genPowX.modPow(h,p)).mod(p).compareTo(genPowV) == 0);
-//        System.out.println(genPowX.compareTo(BigInteger.ZERO) == 1 &&
-//                genPowX.compareTo(p) == -1 &&
-//                genPowX.modPow(q, p).compareTo(BigInteger.ONE) == 0 &&
-//                gen.modPow(r,p).multiply(genPowX.modPow(h,p)).mod(p).compareTo(genPowV) == 0);
-        if (genPowX.compareTo(BigInteger.ZERO) == 1 && // gen^x > 0
-                genPowX.compareTo(p) == -1 && // gen^x < p
-                genPowX.modPow(q, p).compareTo(BigInteger.ONE) == 0 && // gen^x^q = 1
-
-                /* A straightforward way to compute g^r * g^x^h needs 2 exp. Using
-                 * a simultaneous computation technique would only need 1 exp.
-                 */
-                gen.modPow(r,p).multiply(genPowX.modPow(h,p)).mod(p).compareTo(genPowV) == 0) { // gen^v=gen^r * gen^x^h
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 
     /*
      * Full checks:
@@ -902,55 +805,11 @@ public class JPAKEPlusECNetwork {
      *    checks in verifying the SchnorrZKP.
      *
      */
-//    public boolean verifyChaumPedersonZKP(BigInteger p, BigInteger q, BigInteger g, BigInteger gPowX, BigInteger gPowZ,
-//                                          BigInteger gPowZPowX, BigInteger gPowS, BigInteger gPowZPowS, BigInteger t, String signerID) {
-//
-//        // ZKP: {A=g^s, B=(g^z)^s, t}
-//        BigInteger h = getSHA256(g,gPowX,gPowZ,gPowZPowX,gPowS,gPowZPowS,signerID);
-//
-//        // check a) - omitted as it's been done in round 1
-//    	/*
-//       	if (gPowX.compareTo(BigInteger.ONE) == -1 ||
-//       			gPowX.compareTo(q.subtract(BigInteger.ONE)) == 1 ||
-//       			gPowX.modPow(q, p).compareTo(BigInteger.ONE) != 0) {
-//       		return false;
-//       	}
-//       	*/
-//
-//        // Check b) - only partial; redundant checks not repeated. e.g., the order of g^z implied by ZKP checks in round 1
-//        if (gPowZ.compareTo(BigInteger.ONE) == 0){
-//            return false;
-//        }
-//
-//        // Check c) - full check
-//        if (gPowZPowX.compareTo(BigInteger.ONE) == -1 ||
-//                gPowZPowX.compareTo(p.subtract(BigInteger.ONE)) == 1 ||
-//                gPowZPowX.modPow(q, p).compareTo(BigInteger.ONE) != 0) {
-//
-//            return false;
-//        }
-//
-//        // Check d) - Use the straightforward way with 2 exp. Using a simultaneous computation technique only needs 1 exp.
-//        // g^s = g^t (g^x)^h
-//        if (g.modPow(t, p).multiply(gPowX.modPow(h, p)).mod(p).compareTo(gPowS) != 0) {
-//            return false;
-//        }
-//
-//        // Check e) - Use the same method as in d)
-//        // (g^z)^s = (g^z)^t ((g^x)^z)^h
-//        if (gPowZ.modPow(t, p).multiply(gPowZPowX.modPow(h, p)).mod(p).compareTo(gPowZPowS) != 0) {
-//            return false;
-//        }
-//
-//        return true;
-//    }
-
 
     public boolean verifyChaumPedersonZKP(ECPoint G, BigInteger n, ECPoint gPowX, ECPoint gPowZ,
                                           ECPoint gPowZPowX, ECPoint gPowS, ECPoint gPowZPowS, BigInteger t, String signerID) {
 
         // ZKP: {A=g^s, B=(g^z)^s, t}
-//        BigInteger h = getSHA256(g,gPowX,gPowZ,gPowZPowX,gPowS,gPowZPowS,signerID);
         BigInteger h = getSHA256(G, gPowX, gPowZ, gPowZPowX, gPowS, gPowZPowS, signerID);
         // check a) - omitted as it's been done in round 1
     	/*
@@ -962,8 +821,6 @@ public class JPAKEPlusECNetwork {
        	*/
 
         // Check b) - only partial; redundant checks not repeated. e.g., the order of g^z implied by ZKP checks in round 1
-//        if (gPowZ.compareTo(BigInteger.ONE) == 0){
-//        if (new BigInteger(gPowZ.getEncoded(false)).compareTo(BigInteger.ONE) == 0)
         if (gPowZ.normalize().getXCoord().toBigInteger().compareTo(BigInteger.ONE) == 0 &&
                 gPowZ.normalize().getYCoord().toBigInteger().compareTo(BigInteger.ONE) == 0)
             return false;
@@ -971,9 +828,6 @@ public class JPAKEPlusECNetwork {
 
 
         // Check c) - full check
-//        if (gPowZPowX.compareTo(BigInteger.ONE) == -1 ||
-//                gPowZPowX.compareTo(p.subtract(BigInteger.ONE)) == 1 ||
-//                gPowZPowX.modPow(q, p).compareTo(BigInteger.ONE) != 0) {
         if (gPowZPowX.normalize().getXCoord().toBigInteger().compareTo(BigInteger.ZERO) == -1 ||
                 gPowZPowX.normalize().getXCoord().toBigInteger().compareTo(q.subtract(BigInteger.ONE)) == 1 ||
                 gPowZPowX.normalize().getYCoord().toBigInteger().compareTo(BigInteger.ZERO) == -1 ||
@@ -983,7 +837,6 @@ public class JPAKEPlusECNetwork {
 
         // Check d) - Use the straightforward way with 2 exp. Using a simultaneous computation technique only needs 1 exp.
         // g^s = g^t (g^x)^h
-//        if (g.modPow(t, p).multiply(gPowX.modPow(h, p)).mod(p).compareTo(gPowS) != 0) {
         ECPoint gPowt = G.multiply(t).add(gPowX.multiply(h));
         if (!gPowt.equals(gPowS)) {
             return false;
@@ -991,7 +844,6 @@ public class JPAKEPlusECNetwork {
 
         // Check e) - Use the same method as in d)
         // (g^z)^s = (g^z)^t ((g^x)^z)^h
-//        if (gPowZ.modPow(t, p).multiply(gPowZPowX.modPow(h, p)).mod(p).compareTo(gPowZPowS) != 0) {
         if (!gPowZ.multiply(t).add(gPowZPowX.multiply(h)).equals(gPowZPowS)) {
             return false;
         }
@@ -1050,44 +902,6 @@ public class JPAKEPlusECNetwork {
         System.out.println("Exit with ERROR: " + s);
         System.exit(0);
     }
-//
-//    private class ChaumPedersonZKP {
-//
-//        private BigInteger gPowS = null;
-//        private BigInteger gPowZPowS = null;
-//        private BigInteger t = null;
-//
-//        private ChaumPedersonZKP () {
-//            // Constructor
-//        }
-//
-//        private void generateZKP(BigInteger p, BigInteger q, BigInteger g, BigInteger gPowX, BigInteger x,
-//                                 BigInteger gPowZ, BigInteger gPowZPowX, String signerID) {
-//
-//            // Generate s from [1, q-1] and compute (A, B) = (gen^s, genPowZ^s)
-//            BigInteger s = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ONE,
-//                    q.subtract(BigInteger.ONE), new SecureRandom());
-//            gPowS = g.modPow(s, p);
-//            gPowZPowS = gPowZ.modPow(s, p);
-//
-//            BigInteger h = getSHA256(g,gPowX,gPowZ,gPowZPowX,gPowS,gPowZPowS,signerID); // challenge
-//
-//            t = s.subtract(x.multiply(h)).mod(q); // t = s-cr
-//        }
-//
-//        private BigInteger getGPowS() {
-//            return gPowS;
-//        }
-//
-//        private BigInteger getGPowZPowS() {
-//            return gPowZPowS;
-//        }
-//
-//        private BigInteger getT() {
-//            return t;
-//        }
-//    }
-
 
 
 }

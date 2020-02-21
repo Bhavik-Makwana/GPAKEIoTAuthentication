@@ -44,11 +44,6 @@ public class JPAKEPlusServer {
      */
     private static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();
 
-
-    private BigInteger p = new BigInteger("C196BA05AC29E1F9C3C72D56DFFC6154A033F1477AC88EC37F09BE6C5BB95F51C296DD20D1A28A067CCC4D4316A4BD1DCA55ED1066D438C35AEBAABF57E7DAE428782A95ECA1C143DB701FD48533A3C18F0FE23557EA7AE619ECACC7E0B51652A8776D02A425567DED36EABD90CA33A1E8D988F0BBB92D02D1D20290113BB562CE1FC856EEB7CDD92D33EEA6F410859B179E7E789A8F75F645FAE2E136D252BFFAFF89528945C1ABE705A38DBC2D364AADE99BE0D0AAD82E5320121496DC65B3930E38047294FF877831A16D5228418DE8AB275D7D75651CEFED65F78AFC3EA7FE4D79B35F62A0402A1117599ADAC7B269A59F353CF450E6982D3B1702D9CA83", 16);
-    private BigInteger q = new BigInteger("90EAF4D1AF0708B1B612FF35E0A2997EB9E9D263C9CE659528945C0D", 16);
-    private BigInteger g = new BigInteger("A59A749A11242C58C894E9E5A91804E8FA0AC64B56288F8D47D51B1EDC4D65444FECA0111D78F35FC9FDD4CB1F1B79A3BA9CBEE83A3F811012503C8117F98E5048B089E387AF6949BF8784EBD9EF45876F2E6A5A495BE64B6E770409494B7FEE1DBB1E4B2BC2A53D4F893D418B7159592E4FFFDF6969E91D770DAEBD0B5CB14C00AD68EC7DC1E5745EA55C706C4A1C5C88964E34D09DEB753AD418C1AD0F4FDFD049A955E5D78491C0B7A2F1575A008CCD727AB376DB6E695515B05BD412F5B8C2F4C77EE10DA48ABD53F5DD498927EE7B692BBBCDA2FB23A516C5B4533D73980B2A3B60E384ED200AE21B40D273651AD6060C13D97FD69AA13C5611A51B9085", 16);
-
     // ****************************** ROUND 1 ****************************************
     //    BigInteger [][] aij = new BigInteger [n][n];
     private static HashMap<Long, HashMap<Long, BigInteger>> aij = new HashMap<>();
@@ -168,14 +163,16 @@ public class JPAKEPlusServer {
         private Socket socket;
         private BufferedReader in;
         private PrintWriter out;
-        private ObjectOutputStream objectOutputStream;
         private Gson gson;
         private String response;
 
 
         /**
-         * Constructs a handler thread, squirreling away the socket.
-         * All the interesting work is done in the run method.
+         * Constructor, makes a handler thread establishing the socket
+         * to connect on. Allowing a thread to deal with each instance
+         * of a client.
+         *
+         * @param  socket  socket server will be listening on
          */
         public Handler(Socket socket) {
             this.socket = socket;
@@ -185,13 +182,11 @@ public class JPAKEPlusServer {
          * Services this thread's client by repeatedly requesting a
          * screen name until a unique one has been submitted, then
          * acknowledges the name and registers the output stream for
-         * the client in a global set, then repeatedly gets inputs and
-         * broadcasts them.
+         * the client in a global set. After this it listens on the
+         * port to either chat or start a key exchange protocol.
          */
         public void run() {
             try {
-
-                // Create character streams for the socket.
                 gson = new Gson();
                 idName = new HashMap<>();
                 id = currentThread().getId();
@@ -204,12 +199,11 @@ public class JPAKEPlusServer {
                 in = new BufferedReader(new InputStreamReader(
                         socket.getInputStream()));
                 out = new PrintWriter(socket.getOutputStream(), true);
-//                objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+
                 // Request a name from this client.  Keep requesting until
                 // a name is submitted that is not already used.  Note that
                 // checking for the existence of a name and adding the name
                 // must be done while locking the set of names.
-
                 while (true) {
                     out.println("SUBMITNAME");
                     name = in.readLine();
@@ -233,16 +227,12 @@ public class JPAKEPlusServer {
                 out.println("NAMEACCEPTED");
                 out.println(currentThread().getId());
                 writers.add(out);
-//                objectOutputStream.writeObject(names);
 
                 // Accept messages from this client and broadcast them.
                 // Ignore other clients that cannot be broadcasted to.
                 System.out.println(currentThread().getId());
                 while (true) {
                     String input = in.readLine();
-
-//                    System.out.println(input);
-//                    System.out.println(input.equals(":WHO"));
                     if (input == null) {
                         return;
                     } else if (input.equals(":WHO")) {
@@ -296,7 +286,14 @@ public class JPAKEPlusServer {
         }
 
 
-
+        /**
+         * Update the servers global bulletin board of data associated with
+         * each user with the data collected at round 1.
+         *
+         * @param  id   ID of the client
+         * @param  data Data collected from the first round of JPAKE+
+         * @return      the image at the specified URL
+         */
         public void updateDataRoundOne(Long id, RoundOne data) {
             aij.put(id, data.getAij());
             gPowAij.put(id, data.getgPowAij());
@@ -311,6 +308,11 @@ public class JPAKEPlusServer {
             signerID.add(data.getSignerID());
         }
 
+        /**
+         * Returns a POJO containing all the data gathered after round one.
+         *
+         * @return      the data generated by all clients in round 1
+         */
         public RoundOneResponse setDataRoundOneResponse() {
             RoundOneResponse r = new RoundOneResponse();
             r.setAij(aij);
@@ -327,6 +329,14 @@ public class JPAKEPlusServer {
             return r;
         }
 
+        /**
+         * Update the servers global bulletin board of data associated with
+         * each user with the data collected at round 2.
+         *
+         * @param  id   ID of the client
+         * @param  data Data collected from the first round of JPAKE+
+         * @return      the image at the specified URL
+         */
         public void updateDataRoundTwo(Long id, RoundTwo data) {
             newGen.put(id, data.getNewGen());
             bijs.put(id, data.getBijs());
@@ -335,6 +345,11 @@ public class JPAKEPlusServer {
             signerID.add(data.getSignerID());
         }
 
+        /**
+         * Returns a POJO containing all the data gathered after round 2.
+         *
+         * @return      the data generated by all clients in round one
+         */
         public RoundTwoResponse setDataRoundTwoResponse() {
             RoundTwoResponse r = new RoundTwoResponse();
             r.setNewGen(newGen);
@@ -345,6 +360,14 @@ public class JPAKEPlusServer {
             return r;
         }
 
+        /**
+         * Update the servers global bulletin board of data associated with
+         * each user with the data collected at round 3.
+         *
+         * @param  id   ID of the client
+         * @param  data Data collected from the first round of JPAKE+
+         * @return      the image at the specified URL
+         */
         public void updateDataRoundThree(Long id, RoundThree data) {
             gPowZiPowYi.put(id, data.getgPowZiPowYi());
             chaumPedersonZKPi.put(id, data.getChaumPedersonZKPi());
@@ -354,6 +377,11 @@ public class JPAKEPlusServer {
             hMacsMAC.put(id, data.gethMacsMAC());
         }
 
+        /**
+         * Returns a POJO containing all the data gathered after round one.
+         *
+         * @return      the data generated by all clients in round 3
+         */
         public RoundThreeResponse setDataRoundThreeResponse() {
             RoundThreeResponse r = new RoundThreeResponse();
             r.setChaumPedersonZKPi(chaumPedersonZKPi);
@@ -400,6 +428,13 @@ public class JPAKEPlusServer {
         }
 
 
+        /**
+         * Run the JPAKE+ Protocol server side code. Requires an established
+         * connection between the client and server to be set up prior to use.
+         *
+         * @exception  IOException Catches IOExceptions inside but throws
+         *             others.
+         */
         public void jPAKEPlusProtocol() throws Exception {
             //                        resetKeys();
             try {

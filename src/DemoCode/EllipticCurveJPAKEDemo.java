@@ -1,4 +1,4 @@
-/*
+package DemoCode;/*
  * @author: Feng Hao, haofeng66@gmail.com
  *
  * This is a simple demo program written in Java, just to show how J-PAKE can be implemented using
