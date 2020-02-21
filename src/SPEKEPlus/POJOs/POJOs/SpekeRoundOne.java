@@ -1,3 +1,5 @@
+package SPEKEPlus.POJOs.POJOs;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 

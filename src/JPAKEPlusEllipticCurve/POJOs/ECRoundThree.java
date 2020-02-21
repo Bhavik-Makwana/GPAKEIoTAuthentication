@@ -1,7 +1,8 @@
-package JPAKEEllipticCurvePOJOs;
+package JPAKEPlusEllipticCurve.POJOs;
+
+import JPAKEPlusEllipticCurve.ZKPs.ChaumPedersonZKP;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ECRoundThree {

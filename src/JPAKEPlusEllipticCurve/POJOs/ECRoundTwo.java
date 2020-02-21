@@ -1,22 +1,23 @@
+package JPAKEPlusEllipticCurve.POJOs;
+
+import JPAKEPlusEllipticCurve.ZKPs.SchnorrZKP;
+
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.HashMap;
 
-public class RoundTwo {
-    private HashMap<Long, BigInteger> newGen = new HashMap<>();
+public class ECRoundTwo {
+    private HashMap<Long, byte[]> newGen = new HashMap<>();
     private HashMap<Long, BigInteger> bijs = new HashMap<>();
-    private HashMap<Long, BigInteger> newGenPowBijs = new HashMap<>();;
-    private HashMap<Long, ArrayList<BigInteger>> schnorrZKPbijs = new HashMap<>();
+    private HashMap<Long, byte[]> newGenPowBijs = new HashMap<>();
+    private HashMap<Long, SchnorrZKP> schnorrZKPbijs = new HashMap<>();
 
     private String signerID;
 
-    RoundTwo() {};
-
-    public HashMap<Long, BigInteger> getNewGen() {
+    public HashMap<Long, byte[]> getNewGen() {
         return newGen;
     }
 
-    public void setNewGen(HashMap<Long, BigInteger> newGen) {
+    public void setNewGen(HashMap<Long, byte[]> newGen) {
         this.newGen = newGen;
     }
 
@@ -28,19 +29,19 @@ public class RoundTwo {
         this.bijs = bijs;
     }
 
-    public HashMap<Long, BigInteger> getNewGenPowBijs() {
+    public HashMap<Long, byte[]> getNewGenPowBijs() {
         return newGenPowBijs;
     }
 
-    public void setNewGenPowBijs(HashMap<Long, BigInteger> newGenPowBijs) {
+    public void setNewGenPowBijs(HashMap<Long, byte[]> newGenPowBijs) {
         this.newGenPowBijs = newGenPowBijs;
     }
 
-    public HashMap<Long, ArrayList<BigInteger>> getSchnorrZKPbijs() {
+    public HashMap<Long, SchnorrZKP> getSchnorrZKPbijs() {
         return schnorrZKPbijs;
     }
 
-    public void setSchnorrZKPbijs(HashMap<Long, ArrayList<BigInteger>> schnorrZKPbijs) {
+    public void setSchnorrZKPbijs(HashMap<Long, SchnorrZKP> schnorrZKPbijs) {
         this.schnorrZKPbijs = schnorrZKPbijs;
     }
 

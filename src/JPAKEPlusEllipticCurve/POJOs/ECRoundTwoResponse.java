@@ -1,7 +1,8 @@
-package JPAKEEllipticCurvePOJOs;
+package JPAKEPlusEllipticCurve.POJOs;
+
+import JPAKEPlusEllipticCurve.ZKPs.SchnorrZKP;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ECRoundTwoResponse {

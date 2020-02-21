@@ -1,12 +1,8 @@
-package JPAKEEllipticCurvePOJOs;
+package JPAKEPlusEllipticCurve.POJOs;
 
-import org.bouncycastle.math.ec.ECPoint;
+import JPAKEPlusEllipticCurve.ZKPs.SchnorrZKP;
 
 import java.math.BigInteger;
-import java.nio.ByteBuffer;
-import java.security.MessageDigest;
-import java.security.SecureRandom;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ECRoundOne {

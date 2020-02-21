@@ -1,4 +1,4 @@
-package JPAKEEllipticCurvePOJOs;
+package JPAKEPlusEllipticCurve.ZKPs;
 
 import org.bouncycastle.math.ec.ECPoint;
 

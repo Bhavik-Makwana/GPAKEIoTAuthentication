@@ -1,4 +1,5 @@
-import java.io.Serializable;
+package JPAKEPlusEllipticCurve;
+
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
@@ -6,9 +7,9 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import JPAKEEllipticCurvePOJOs.*;
-import JPAKEEllipticCurvePOJOs.SchnorrZKP;
-import com.google.gson.Gson;
+import JPAKEPlusEllipticCurve.POJOs.*;
+import JPAKEPlusEllipticCurve.ZKPs.ChaumPedersonZKP;
+import JPAKEPlusEllipticCurve.ZKPs.SchnorrZKP;
 //import org.bouncycastle.math.ec.ECPoint;
 
 import javax.crypto.Mac;
@@ -18,7 +19,6 @@ import javax.crypto.spec.SecretKeySpec;
 import org.bouncycastle.jce.ECNamedCurveTable;
 import org.bouncycastle.jce.spec.ECParameterSpec;
 import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
 import org.bouncycastle.math.ec.ECPoint;
 
 public class JPAKEPlusECNetwork {

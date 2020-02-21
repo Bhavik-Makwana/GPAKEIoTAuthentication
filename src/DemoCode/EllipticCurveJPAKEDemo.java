@@ -162,7 +162,7 @@ public class EllipticCurveJPAKEDemo {
         }
 
         /*
-         * Alice verifies Bob's ZKPs.
+         * Alice verifies Bob's aZdKPs.
          *
          * Note: in the DSA setting, Alice needs to check g^{x4} != 1 (i.e., not an identity element).
          * In the ECDSA setting, checking the infinity point (i.e., identity element) has been covered in the public key validation step,

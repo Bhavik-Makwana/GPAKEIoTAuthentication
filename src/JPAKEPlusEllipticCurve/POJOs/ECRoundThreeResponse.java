@@ -1,30 +1,31 @@
+package JPAKEPlusEllipticCurve.POJOs;
+
+import JPAKEPlusEllipticCurve.ZKPs.ChaumPedersonZKP;
+
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.HashMap;
 
-public class RoundThreeResponse {
-    private HashMap<Long, BigInteger> gPowZiPowYi;
-    private HashMap<Long, ArrayList<BigInteger>> chaumPedersonZKPi = new HashMap<>();
+public class ECRoundThreeResponse {
+    private HashMap<Long, byte[]> gPowZiPowYi = new HashMap<>();
+    private HashMap<Long, ChaumPedersonZKP> chaumPedersonZKPi = new HashMap<>();
     private HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysMAC = new HashMap<>();
     private HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysKC = new HashMap<>();
     private HashMap<Long, HashMap<Long, BigInteger>> hMacsMAC = new HashMap<>();
     private HashMap<Long, HashMap<Long, BigInteger>> hMacsKC = new HashMap<>();
 
-    public RoundThreeResponse() {};
-
-    public HashMap<Long, BigInteger> getgPowZiPowYi() {
+    public HashMap<Long, byte[]> getgPowZiPowYi() {
         return gPowZiPowYi;
     }
 
-    public void setgPowZiPowYi(HashMap<Long, BigInteger> gPowZiPowYi) {
+    public void setgPowZiPowYi(HashMap<Long, byte[]> gPowZiPowYi) {
         this.gPowZiPowYi = gPowZiPowYi;
     }
 
-    public HashMap<Long, ArrayList<BigInteger>> getChaumPedersonZKPi() {
+    public HashMap<Long, ChaumPedersonZKP> getChaumPedersonZKPi() {
         return chaumPedersonZKPi;
     }
 
-    public void setChaumPedersonZKPi(HashMap<Long, ArrayList<BigInteger>> chaumPedersonZKPi) {
+    public void setChaumPedersonZKPi(HashMap<Long, ChaumPedersonZKP> chaumPedersonZKPi) {
         this.chaumPedersonZKPi = chaumPedersonZKPi;
     }
 

@@ -1,7 +1,13 @@
+package SPEKEPlus.POJOs;
+
+import SPEKEPlus.POJOs.POJOs.SpekeRoundOne;
+import SPEKEPlus.POJOs.POJOs.SpekeRoundOneResponse;
+import SPEKEPlus.POJOs.POJOs.SpekeRoundTwo;
+import SPEKEPlus.POJOs.POJOs.SpekeRoundTwoResponse;
+
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import javax.naming.ldap.HasControls;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;

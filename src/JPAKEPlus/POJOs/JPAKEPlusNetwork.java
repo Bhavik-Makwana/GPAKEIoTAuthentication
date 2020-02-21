@@ -1,3 +1,5 @@
+package JPAKEPlus.POJOs;
+
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
@@ -5,7 +7,7 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.google.gson.Gson;
+import JPAKEPlus.POJOs.POJOs.*;
 
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
@@ -462,27 +464,24 @@ public class JPAKEPlusNetwork {
     }
 
     public BigInteger computeKey(RoundOneResponse r1, RoundThreeResponse r3) {
-        HashMap<Long, BigInteger> multipleSessionKeys = new HashMap<>();
         System.out.println("*********** KEY COMPUTATION ***********");
+        HashMap<Long, BigInteger> multipleSessionKeys = new HashMap<>();
         for (int i=0; i<n; i++) {
-            long iID = clients.get(i);
-            // ith participant
+            long iID = Long.parseLong(r1.getSignerID().get(i));
 
+            // ith participant
             int cyclicIndex = getCyclicIndex(i-1, n);
-            BigInteger firstTerm = r1.getgPowYi().get(clients.get(cyclicIndex))
+            BigInteger firstTerm = r1.getgPowYi().get(Long.parseLong(r1.getSignerID().get(cyclicIndex)))
                     .modPow(r1.getYi().get(iID).multiply(BigInteger.valueOf(n)), p);
             BigInteger finalTerm = firstTerm;
 
-            for (int j=0; j<(n-1) ; j++) {
+            for (int j=0; j<(n-1) ; j++){
                 cyclicIndex = getCyclicIndex(i+j, n);
-                BigInteger interTerm = r3.getgPowZiPowYi().get(clients.get(cyclicIndex))
+                BigInteger interTerm = r3.getgPowZiPowYi().get(Long.parseLong(r1.getSignerID().get(cyclicIndex)))
                         .modPow(BigInteger.valueOf(n-1-j), p);
                 finalTerm = finalTerm.multiply(interTerm).mod(p);
             }
-
-            multipleSessionKeys.put(clients.get(i), getSHA256(finalTerm));
-            sessionKeys =  getSHA256(finalTerm);
-
+            multipleSessionKeys.put(iID, getSHA256(finalTerm));
         }
 
         for (int i=0; i<n; i++) {

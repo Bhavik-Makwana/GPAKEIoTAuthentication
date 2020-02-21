@@ -108,7 +108,7 @@ public class JPAKEDemo {
         System.out.println("KP{x4}={"+sigX4[0].toString(16)+"};{"+sigX4[1].toString(16)+"}");
         System.out.println("");
 
-        /* Alice verifies Bob's ZKPs and also check g^{x4} != 1*/
+        /* Alice verifies Bob's aZdKPs and also check g^{x4} != 1*/
         if (gx4.equals(BigInteger.ONE) || !verifyZKP(p,q,g,gx3,sigX3,BobID) ||
                 !verifyZKP(p,q,g,gx4,sigX4,BobID)) {
             System.out.println("g^{x4} shouldn't be 1 or invalid KP{x3,x4}");
@@ -120,7 +120,7 @@ public class JPAKEDemo {
             System.out.println("");
         }
 
-        /* Bob verifies Alice's ZKPs */
+        /* Bob verifies Alice's aZKdPs */
         if (gx2.equals(BigInteger.ONE) || !verifyZKP(p,q,g,gx1,sigX1,AliceID) ||
                 !verifyZKP(p,q,g,gx2,sigX2,AliceID)) {
             System.out.println("g^{x2} shoudn't be 1 or invalid KP{x1,x2}");

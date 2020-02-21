@@ -1,14 +1,18 @@
+package JPAKEPlus.POJOs.POJOs;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SpekeRoundTwoResponse {
+public class RoundThreeResponse {
     private HashMap<Long, BigInteger> gPowZiPowYi;
     private HashMap<Long, ArrayList<BigInteger>> chaumPedersonZKPi = new HashMap<>();
     private HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysMAC = new HashMap<>();
     private HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysKC = new HashMap<>();
     private HashMap<Long, HashMap<Long, BigInteger>> hMacsMAC = new HashMap<>();
     private HashMap<Long, HashMap<Long, BigInteger>> hMacsKC = new HashMap<>();
+
+    public RoundThreeResponse() {};
 
     public HashMap<Long, BigInteger> getgPowZiPowYi() {
         return gPowZiPowYi;
