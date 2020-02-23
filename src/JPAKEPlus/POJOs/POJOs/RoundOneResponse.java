@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RoundOneResponse {
-    private  HashMap<Long, HashMap<Long, BigInteger>> aij = new HashMap<>();
-    private  HashMap<Long, HashMap<Long, BigInteger>> gPowAij = new HashMap<>();
-    private  HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPaij = new HashMap<>();
-    private  HashMap<Long, HashMap<Long, BigInteger>> bij = new HashMap<>();
-    private  HashMap<Long, HashMap<Long, BigInteger>> gPowBij = new HashMap<>();
-    private  HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbij = new HashMap<>();
-    private  HashMap<Long, BigInteger> yi = new HashMap<>();
-    private  HashMap<Long, BigInteger> gPowYi = new HashMap<>();
-    private  HashMap<Long, BigInteger> gPowZi = new HashMap<>();
-    private  HashMap<Long, ArrayList<BigInteger>> schnorrZKPyi = new HashMap<>();
-    private  ArrayList<String> signerID = new ArrayList<>();
+//    private  HashMap<Long, HashMap<Long, BigInteger>> aij = new HashMap<>();
+    private  HashMap<Long, HashMap<Long, BigInteger>> gPowAij = new HashMap<>();//
+    private  HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPaij = new HashMap<>();//
+    private  HashMap<Long, HashMap<Long, BigInteger>> bij = new HashMap<>(); //
+    private  HashMap<Long, HashMap<Long, BigInteger>> gPowBij = new HashMap<>();//
+    private  HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbij = new HashMap<>();//
+    private  HashMap<Long, BigInteger> yi = new HashMap<>();//
+    private  HashMap<Long, BigInteger> gPowYi = new HashMap<>();//
+    private  HashMap<Long, BigInteger> gPowZi = new HashMap<>();//
+    private  HashMap<Long, ArrayList<BigInteger>> schnorrZKPyi = new HashMap<>();//
+    private  ArrayList<String> signerID = new ArrayList<>();//
 
-    public HashMap<Long, HashMap<Long, BigInteger>> getAij() {
-        return aij;
-    }
-
-    public void setAij(HashMap<Long, HashMap<Long, BigInteger>> aij) {
-        this.aij = aij;
-    }
+//    public HashMap<Long, HashMap<Long, BigInteger>> getAij() {
+//        return aij;
+//    }
+//
+//    public void setAij(HashMap<Long, HashMap<Long, BigInteger>> aij) {
+//        this.aij = aij;
+//    }
 
     public HashMap<Long, HashMap<Long, BigInteger>> getgPowAij() {
         return gPowAij;

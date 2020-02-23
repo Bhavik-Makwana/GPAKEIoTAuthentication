@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RoundOne {
-    HashMap<Long, BigInteger> aij = new HashMap<>();
+//    HashMap<Long, BigInteger> aij = new HashMap<>();
     HashMap<Long, BigInteger> gPowAij = new HashMap<>();
     HashMap<Long, ArrayList<BigInteger>> schnorrZKPaij = new HashMap<>();
     HashMap<Long, BigInteger> bij = new HashMap<>();
@@ -20,13 +20,13 @@ public class RoundOne {
     public RoundOne() {
     }
 
-    public HashMap<Long, BigInteger> getAij() {
-        return aij;
-    }
-
-    public void setAij(HashMap<Long, BigInteger> aij) {
-        this.aij = aij;
-    }
+//    public HashMap<Long, BigInteger> getAij() {
+//        return aij;
+//    }
+//
+//    public void setAij(HashMap<Long, BigInteger> aij) {
+//        this.aij = aij;
+//    }
 
     public HashMap<Long, BigInteger> getgPowAij() {
         return gPowAij;

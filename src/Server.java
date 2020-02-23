@@ -48,39 +48,24 @@ public class Server {
     private static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();
 
     // ****************************** ROUND 1 ****************************************
-    //    BigInteger [][] aij = new BigInteger [n][n];
-    private static HashMap<Long, HashMap<Long, BigInteger>> aij = new HashMap<>();
-    //    BigInteger [][] gPowAij = new BigInteger [n][n];
+//    private static HashMap<Long, HashMap<Long, BigInteger>> aij = new HashMap<>();
     private static HashMap<Long, HashMap<Long, BigInteger>> gPowAij = new HashMap<>();
-    //    BigInteger [][][] schnorrZKPaij = new BigInteger [n][n][2];
     private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPaij = new HashMap<>();
-    //    BigInteger [][] bij = new BigInteger [n][n];
     private static HashMap<Long, HashMap<Long, BigInteger>> bij = new HashMap<>();
-    //    BigInteger [][] gPowBij = new BigInteger [n][n];
     private static HashMap<Long, HashMap<Long, BigInteger>> gPowBij = new HashMap<>();
-    //    BigInteger [][][] schnorrZKPbij = new BigInteger [n][n][2];
     private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbij = new HashMap<>();
-    //    BigInteger [] yi = new BigInteger [n];
     private static HashMap<Long, BigInteger> yi = new HashMap<>();
-    //    BigInteger [] gPowYi = new BigInteger [n];
     private static HashMap<Long, BigInteger> gPowYi = new HashMap<>();
-    //    BigInteger [] gPowZi = new BigInteger [n];
     private static HashMap<Long, BigInteger> gPowZi = new HashMap<>();
-    //    BigInteger [][] schnorrZKPyi = new BigInteger [n][2]; // {g^v, r}
     private static HashMap<Long, ArrayList<BigInteger>> schnorrZKPyi = new HashMap<>();
-    //    String [] signerID = new String [n];
     private static ArrayList<String> signerID = new ArrayList<>();
 
 
 // ****************************** ROUND 2 ****************************************
 
-    //    BigInteger [][] newGen = new BigInteger [n][n];
     private static HashMap<Long, HashMap<Long, BigInteger>> newGen = new HashMap<>();
-    //    BigInteger [][] bijs = new BigInteger [n][n];
     private static HashMap<Long, HashMap<Long, BigInteger>> bijs = new HashMap<>();
-    //    BigInteger [][] newGenPowBijs = new BigInteger [n][n];
     private static HashMap<Long, HashMap<Long, BigInteger>> newGenPowBijs = new HashMap<>();
-    //    BigInteger [][][] schnorrZKPbijs = new BigInteger [n][n][2];
     private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbijs = new HashMap<>();
 
     // ****************************** ROUND 3 ****************************************
@@ -298,7 +283,7 @@ public class Server {
          * @return      the image at the specified URL
          */
         public void updateDataRoundOne(Long id, RoundOne data) {
-            aij.put(id, data.getAij());
+//            aij.put(id, data.getAij());
             gPowAij.put(id, data.getgPowAij());
             schnorrZKPaij.put(id, data.getSchnorrZKPaij());
             bij.put(id, data.getBij());
@@ -318,7 +303,7 @@ public class Server {
          */
         public RoundOneResponse setDataRoundOneResponse() {
             RoundOneResponse r = new RoundOneResponse();
-            r.setAij(aij);
+//            r.setAij(aij);
             r.setgPowAij(gPowAij);
             r.setSchnorrZKPaij(schnorrZKPaij);
             r.setBij(bij);
@@ -409,7 +394,7 @@ public class Server {
             roundTwoVComplete.put(id, false);
             roundThreeComplete.put(id, false);
             roundFourComplete.put(id, false);
-            aij = new HashMap<>();
+//            aij = new HashMap<>();
             gPowAij = new HashMap<>();
             schnorrZKPaij = new HashMap<>();
             bij = new HashMap<>();

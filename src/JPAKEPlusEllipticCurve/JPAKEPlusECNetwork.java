@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 import JPAKEPlusEllipticCurve.POJOs.*;
 import JPAKEPlusEllipticCurve.ZKPs.ChaumPedersonZKP;
@@ -34,13 +35,15 @@ public class JPAKEPlusECNetwork {
 
 
     String sStr;
-//    BigInteger p;
-//    BigInteger q;
-    BigInteger g;
+
     int n;
     BigInteger s;
 
     int clientId;
+
+    long startTime;
+    long endTime;
+    TreeMap<String, Long> time = new TreeMap<>();
 
     // *********************************** ROUND 1 ***********************************
     private HashMap<Long, BigInteger> aij = new HashMap<>();
@@ -57,27 +60,17 @@ public class JPAKEPlusECNetwork {
     SchnorrZKP schnorrZKP = new SchnorrZKP();
 
     // *********************************** ROUND 2 ***********************************
-//    BigInteger [][] newGen = new BigInteger [n][n];
     private HashMap<Long, byte[]> newGen = new HashMap<>();
-    //    BigInteger [][] bijs = new BigInteger [n][n];
     private HashMap<Long, BigInteger> bijs = new HashMap<>();
-    //    BigInteger [][] newGenPowBijs = new BigInteger [n][n];
     private HashMap<Long, byte[]> newGenPowBijs = new HashMap<>();;
-    //    BigInteger [][][] schnorrZKPbijs = new BigInteger [n][n][2];
     private HashMap<Long, SchnorrZKP> schnorrZKPbijs = new HashMap<>();
 
     // *********************************** ROUND 3 ***********************************
-//    BigInteger [] gPowZiPowYi = new BigInteger [n];
     byte[] gPowZiPowYi;
-    //    BigInteger [][] chaumPedersonZKPi = new BigInteger [n][3]; // {g^s, (g^z)^s, t}
     ChaumPedersonZKP chaumPedersonZKPi = new ChaumPedersonZKP();
-    //    BigInteger [][] pairwiseKeysMAC = new BigInteger [n][n];
     HashMap<Long, BigInteger> pairwiseKeysMAC = new HashMap<>();
-    //    BigInteger [][] pairwiseKeysKC = new BigInteger [n][n];
     HashMap<Long, BigInteger> pairwiseKeysKC = new HashMap<>();
-    //    BigInteger [][] hMacsMAC = new BigInteger [n][n];
     HashMap<Long, BigInteger> hMacsMAC = new HashMap<>();
-    //    BigInteger [][] hMacsKC = new BigInteger [n][n];
     HashMap<Long, BigInteger> hMacsKC = new HashMap<>();
     //   ************************************ KEYS ************************************
     BigInteger sessionKeys;
@@ -85,11 +78,8 @@ public class JPAKEPlusECNetwork {
 
     ArrayList<Long> clients;
 
-    public JPAKEPlusECNetwork(String sStr, BigInteger p, BigInteger q, BigInteger g, int n, String id, ArrayList<Long> clients, int clientID) {
+    public JPAKEPlusECNetwork(String sStr, int n, String id, ArrayList<Long> clients, int clientID) {
         this.sStr = sStr;
-//        this.p = p;
-//        this.q = q;
-        this.g = g;
         this.n = n;
         this.signerID = id;
         this.clients = clients;
@@ -99,8 +89,10 @@ public class JPAKEPlusECNetwork {
 
 
     public ECRoundOne roundOne() {
-        long cID = (long) clientId;
         System.out.println("*************** ROUND 1 ***************");
+        startTime = System.currentTimeMillis();
+
+        long cID = (long) clientId;
         int n = clients.size();
 
         signerID = clientId + "";
@@ -108,7 +100,6 @@ public class JPAKEPlusECNetwork {
 
         // aij in [0, q-1], b_ij in [1, q-1]
         for (int j=0; j<n; j++) {
-            System.out.println(clients.get(j) instanceof Long);
             long jID = clients.get(j);
             if (cID==jID){
                 continue;
@@ -149,7 +140,7 @@ public class JPAKEPlusECNetwork {
         System.out.println("********** SEND ROUND 1 DATA **********");
 
         ECRoundOne dataObject = new ECRoundOne();
-        dataObject.setAij(aij);
+//        dataObject.setAij(aij);
         dataObject.setBij(bij);
         dataObject.setgPowAij(gPowAij);
         dataObject.setgPowBij(gPowBij);
@@ -161,14 +152,17 @@ public class JPAKEPlusECNetwork {
         dataObject.setSchnorrZKPyi(schnorrZKPyi);
         dataObject.setYi(yi);
         dataObject.setSignerID(signerID);
-
+        endTime = System.currentTimeMillis();
+        time.put("1) Latency of computing round 1 per participant (ms):", (endTime-startTime));
         return dataObject;
     }
 
     public boolean verifyRoundOne(ECRoundOneResponse r) {
         // VERIFICATION
-        long cID = (long) clientId;
         System.out.println("************ VERIFY ROUND 1 ***********");
+        startTime = System.currentTimeMillis();
+
+        long cID = (long) clientId;
         for (int i=0; i<n; i++) {
 
             int iPlusOne = (i==n-1) ? 0: i+1;
@@ -206,9 +200,6 @@ public class JPAKEPlusECNetwork {
                 System.out.println("Round 1 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + cID + "," +jID + ")");
                 System.exit(0);
             }
-            else {
-                System.out.println("ALL GOOD");
-            }
 
             // check g^{b_ji} != 1
             if (new BigInteger(r.getgPowBij().get(jID).get(cID)).compareTo(BigInteger.ONE) == 0) {
@@ -240,11 +231,15 @@ public class JPAKEPlusECNetwork {
                 return false;
             }
         }
+        endTime = System.currentTimeMillis();
+        time.put("2) Latency of verifying data in round 1 per participant (ms):", (endTime-startTime));
+
         return true;
     }
 
     public ECRoundTwo roundTwo(ECRoundOneResponse r) {
         System.out.println("*************** ROUND 2 ***************");
+        startTime = System.currentTimeMillis();
         long cID = (long) clientId;
         // Each participant sends newGen^{bij * s} and ZKP{bij * s}
         for (int j=0; j<n; j++) {
@@ -274,17 +269,6 @@ public class JPAKEPlusECNetwork {
             newGenPowBijsEC = ecCurve.decodePoint(newGenPowBijs.get(jID));
             ECPoint V = ecCurve.decodePoint(schnorrZKPbijs.get(jID).getV());
 
-            if(!verifyZKP(newGenEC,
-                    newGenPowBijsEC,
-                    V,
-                    schnorrZKPbijs.get(jID).getr(),
-                    signerID)) {
-                System.out.println("newGenEC Round 2 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + clientId + "," + jID + ")");
-                System.exit(0);
-            }
-            else {
-                System.out.println("ALL GOOD");
-            }
         }
 
 
@@ -295,11 +279,15 @@ public class JPAKEPlusECNetwork {
         data.setSchnorrZKPbijs(schnorrZKPbijs);
         data.setSignerID(signerID);
 
+        endTime = System.currentTimeMillis();
+        time.put("3) Latency of computing round 2 per participant (ms):", (endTime-startTime));
+
         return data;
     }
 
     public boolean verifyRoundTwo(ECRoundTwoResponse r) {
         System.out.println("************ VERIFY ROUND 2 ***********");
+        startTime = System.currentTimeMillis();
         long cID = (long) clientId;
         //             each participant verifies ZKP{bijs}
         for (int j=0; j<n; j++) {
@@ -321,17 +309,19 @@ public class JPAKEPlusECNetwork {
                 System.out.println("newGenEC Round 2 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + clientId + "," + jID + ")");
                 System.exit(0);
             }
-            else {
-                System.out.println("ALL GOOD");
-            }
+
 
 
         }
+
+        endTime = System.currentTimeMillis();
+        time.put("4) Latency of verifying round 2 per participant (ms):", (endTime-startTime));
         return true;
     }
 
     public ECRoundThree roundThree(ECRoundOneResponse r1, ECRoundTwoResponse r2) {
         System.out.println("*************** ROUND 3 ***************");
+        startTime = System.currentTimeMillis();
         long cID = (long) clientId;
 //        gPowZiPowYi = r1.getgPowZi().get(cID).modPow(r1.getYi().get(cID), p);
         ECPoint zi = ecCurve.decodePoint(r1.getgPowZi().get(cID));
@@ -424,11 +414,14 @@ public class JPAKEPlusECNetwork {
         data.setPairwiseKeysKC(pairwiseKeysKC);
         data.setPairwiseKeysMAC(pairwiseKeysMAC);
 
+        endTime = System.currentTimeMillis();
+        time.put("5) Latency of computing round 3 per participant (ms):", (endTime-startTime));
         return data;
     }
 
     public boolean roundFour(ECRoundOneResponse r1, ECRoundTwoResponse r2, ECRoundThreeResponse r3) {
         System.out.println("*************** ROUND 4 ***************");
+        startTime = System.currentTimeMillis();
         long cID = (long) clientId;
         // ith participant
         for (int j=0; j<n; j++) {
@@ -449,9 +442,7 @@ public class JPAKEPlusECNetwork {
                 System.out.println("Round 3 verification failed at checking jth Chaum-Pederson for (i,j)=("+cID+","+jID+")");
                 return false;
             }
-            else {
-                System.out.println("ALL GOOD");
-            }
+
             // Check key confirmation - except ith
             String hmacName = "HMac-SHA256";
 
@@ -516,14 +507,18 @@ public class JPAKEPlusECNetwork {
 
             }
         }
+        endTime = System.currentTimeMillis();
+        time.put("6) Latency of verifying round 3 for participant (ms):", (endTime-startTime));
         return true;
     }
 
     public BigInteger computeKey(ECRoundOneResponse r1, ECRoundThreeResponse r3) {
-        HashMap<Long, BigInteger> multipleSessionKeys = new HashMap<>();
         System.out.println("*********** KEY COMPUTATION ***********");
-        for (int i=0; i<n; i++) {
-            long iID = clients.get(i);
+        startTime = System.currentTimeMillis();
+
+        int i = r1.getSignerID().indexOf(signerID);
+        long iID = clients.get(i);
+
             // ith participant
 
             int cyclicIndex = getCyclicIndex(i-1, n);
@@ -539,20 +534,17 @@ public class JPAKEPlusECNetwork {
                 finalTerm = finalTerm.add(interTerm);
             }
 
-            multipleSessionKeys.put(clients.get(i), getSHA256(finalTerm));
-            sessionKeys =  getSHA256(finalTerm);
-
-        }
-
-        for (int i=0; i<n; i++) {
-
-            System.out.println("Session key " + i + " for client " + clients.get(i) + ": " + multipleSessionKeys.get(clients.get(i)).toString(16));
-
-
-
-        }
-        return multipleSessionKeys.get((long) clientId);
+        BigInteger key = getSHA256(finalTerm);
+        endTime = System.currentTimeMillis();
+        time.put("7) Latency of computing key for participant (ms):", (endTime-startTime));
+        return key;
     }
+
+    public void displayLatency() {
+        System.out.println("\nLatency of Each Round EC JPAKE+\n");
+        time.entrySet().stream().forEach(e -> System.out.println(e.getKey() + e.getValue()));
+    }
+
     public int getCyclicIndex (int i, int n){
 
         if (i<0){

@@ -27,7 +27,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Client {
-
+    long startTime = 0;
+    long endTime = 0;
     BufferedReader in;
     PrintWriter out;
     Gson gson = new Gson();
@@ -127,7 +128,6 @@ public class Client {
             // get serialized json of all round 2 calculations
             response = in.readLine();
             SpekeRoundTwoResponse rTwoResponse = gson.fromJson(response, SpekeRoundTwoResponse.class);
-            System.out.println(response);
             boolean passedRoundTwo = speke.verifyRoundTwo(rOneResponse, rTwoResponse);
             if (!passedRoundTwo) {
                 System.out.println("FAILED");
@@ -139,7 +139,7 @@ public class Client {
                 exitWithError("All participants failed to verify Round 1");
             }
             BigInteger key = speke.computeKeys(rOneResponse, rTwoResponse);
-
+            speke.displayLatency();
             return key;
         }
         catch (IOException e) {
@@ -157,8 +157,11 @@ public class Client {
             JPAKEPlusNetwork jpake= new JPAKEPlusNetwork("deadbeef", p, q, g, roundZero.getClientIDs().size(), Long.toString(clientId), clients, clientId);
             RoundOne roundOne = jpake.roundOne();
             data = gson.toJson(roundOne);
+            startTime = System.currentTimeMillis();
             out.println(data);
             response = in.readLine();
+            endTime = System.currentTimeMillis();
+            System.out.println("1) Latency of retrieving round one response from server (ms):" + (endTime-startTime));
             RoundOneResponse rOneResponse = gson.fromJson(response, RoundOneResponse.class);
 
             boolean passedRoundOne = jpake.verifyRoundOne(rOneResponse);
@@ -167,18 +170,26 @@ public class Client {
                 System.exit(0);
             }
             // send confirmation to server
+            startTime = System.currentTimeMillis();
             out.println("1");
             // server can issue go ahead of next stage
             response = in.readLine();
+            endTime = System.currentTimeMillis();
+            System.out.println("1) Latency of getting OK after round one verification from server (ms):" + (endTime-startTime));
+
             if (!response.equals("1")) {
                 exitWithError("All participants failed to verify Round 1");
             }
 
             RoundTwo roundTwo = jpake.roundTwo(rOneResponse);
+
+            startTime = System.currentTimeMillis();
             // send serialized round two data to server
             out.println(gson.toJson(roundTwo));
             // get serialized json of all round 2 calculations
             response = in.readLine();
+            endTime = System.currentTimeMillis();
+            System.out.println("1) Latency of retrieving round two response from server (ms):" + (endTime-startTime));
             RoundTwoResponse rTwoResponse = gson.fromJson(response, RoundTwoResponse.class);
 
             boolean passedRoundTwo = jpake.verifyRoundTwo(rTwoResponse);
@@ -186,29 +197,40 @@ public class Client {
                 System.out.println("FAILED");
                 System.exit(0);
             }
+
+            startTime = System.currentTimeMillis();
             // send confirmation to server
             out.println("1");
             // server can issue go ahead of next stage
             response = in.readLine();
+            endTime = System.currentTimeMillis();
+            System.out.println("1) Latency of getting OK after round two verification from server (ms):" + (endTime-startTime));
+
             if (!response.equals("1")) {
                 exitWithError("All participants failed to verify Round 1");
             }
 
             RoundThree roundThree = jpake.roundThree(rOneResponse, rTwoResponse);
-            out.println(gson.toJson(roundThree));
 
+            startTime = System.currentTimeMillis();
+            out.println(gson.toJson(roundThree));
             response = in.readLine();
             RoundThreeResponse rThreeResponse = gson.fromJson(response, RoundThreeResponse.class);
-
+            endTime = System.currentTimeMillis();
+            System.out.println("1) Latency of retrieving round three response from server (ms):" + (endTime-startTime));
             boolean passedRoundThree = jpake.roundFour(rOneResponse, rTwoResponse, rThreeResponse);
             if (!passedRoundThree) {
                 exitWithError("All paricipants failed to verify round 3");
             }
+            startTime = System.currentTimeMillis();
 
             // send confirmation to server
             out.println("1");
             // server can issue go ahead of next stage
             response = in.readLine();
+            endTime = System.currentTimeMillis();
+            System.out.println("1) Latency of retrieving OK after round 3 verificationfrom server (ms):" + (endTime-startTime));
+
             if (!response.equals("1")) {
                 exitWithError("All participants failed to verify Round 1");
             }
@@ -216,6 +238,8 @@ public class Client {
 
             BigInteger key = jpake.computeKey(rOneResponse, rThreeResponse);
             out.println("1");
+
+            jpake.displayLatency();
             return key;
         }
         catch (IOException e) {
@@ -230,7 +254,7 @@ public class Client {
             String json = in.readLine();
             RoundZero roundZero = gson.fromJson(json, RoundZero.class);
             ArrayList<Long> clients =  roundZero.getClientIDs();
-            JPAKEPlusECNetwork jpake = new JPAKEPlusECNetwork("deadbeef", p, q, g, roundZero.getClientIDs().size(), Long.toString(clientId), clients, clientId);
+            JPAKEPlusECNetwork jpake = new JPAKEPlusECNetwork("deadbeef", roundZero.getClientIDs().size(), Long.toString(clientId), clients, clientId);
             ECRoundOne roundOne = jpake.roundOne();
             data = gson.toJson(roundOne);
             System.out.println("Ggg");
@@ -293,8 +317,9 @@ public class Client {
 
             BigInteger key = jpake.computeKey(rOneResponse, rThreeResponse);
             out.println("1");
+
+            jpake.displayLatency();
             return key;
-//            return BigInteger.ONE;
         }
         catch (IOException e) {
             e.printStackTrace();
