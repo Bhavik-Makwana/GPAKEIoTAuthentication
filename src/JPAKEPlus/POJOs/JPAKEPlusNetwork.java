@@ -504,7 +504,7 @@ public class JPAKEPlusNetwork {
     }
 
     public void displayLatency() {
-        System.out.println("\nLatency of Each Round\n");
+        System.out.println("\nLatency of Each Round JPAKE+\n");
         time.entrySet().stream().forEach(e -> System.out.println(e.getKey() + e.getValue()));
     }
 

@@ -395,24 +395,52 @@ public class Server {
             roundThreeComplete.put(id, false);
             roundFourComplete.put(id, false);
 //            aij = new HashMap<>();
-            gPowAij = new HashMap<>();
-            schnorrZKPaij = new HashMap<>();
-            bij = new HashMap<>();
-            gPowBij = new HashMap<>();
-            schnorrZKPbij = new HashMap<>();
-            yi = new HashMap<>();
-            gPowYi = new HashMap<>();
-            gPowZi = new HashMap<>();
-            schnorrZKPyi = new HashMap<>();
-            signerID = new ArrayList<>();
-            newGen = new HashMap<>();
-            bijs = new HashMap<>();
-            newGenPowBijs = new HashMap<>();
-            schnorrZKPbijs = new HashMap<>();
-            pairwiseKeysMAC = new HashMap<>();
-            pairwiseKeysKC = new HashMap<>();
-            hMacsMAC = new HashMap<>();
-            hMacsKC = new HashMap<>();
+//            gPowAij = new HashMap<>();
+//            schnorrZKPaij = new HashMap<>();
+//            bij = new HashMap<>();
+//            gPowBij = new HashMap<>();
+//            schnorrZKPbij = new HashMap<>();
+//            yi = new HashMap<>();
+//            gPowYi = new HashMap<>();
+//            gPowZi = new HashMap<>();
+//            schnorrZKPyi = new HashMap<>();
+//            signerID = new ArrayList<>();
+//            newGen = new HashMap<>();
+//            bijs = new HashMap<>();
+//            newGenPowBijs = new HashMap<>();
+//            schnorrZKPbijs = new HashMap<>();
+//            pairwiseKeysMAC = new HashMap<>();
+//            pairwiseKeysKC = new HashMap<>();
+//            hMacsMAC = new HashMap<>();
+//            hMacsKC = new HashMap<>();
+
+
+             gPowAij = new HashMap<>();
+             schnorrZKPaij = new HashMap<>();
+             bij = new HashMap<>();
+             gPowBij = new HashMap<>();
+             schnorrZKPbij = new HashMap<>();
+             yi = new HashMap<>();
+             gPowYi = new HashMap<>();
+             gPowZi = new HashMap<>();
+             schnorrZKPyi = new HashMap<>();
+             signerID = new ArrayList<>();
+
+
+// ****************************** ROUND 2 ****************************************
+
+             newGen = new HashMap<>();
+             bijs = new HashMap<>();
+             newGenPowBijs = new HashMap<>();
+             schnorrZKPbijs = new HashMap<>();
+
+            // ****************************** ROUND 3 ****************************************
+             gPowZiPowYi = new HashMap<>();
+            chaumPedersonZKPi = new HashMap<>();
+             pairwiseKeysMAC = new HashMap<>();
+             pairwiseKeysKC = new HashMap<>();
+             hMacsMAC = new HashMap<>();
+             hMacsKC = new HashMap<>();
         }
 
 
@@ -424,7 +452,7 @@ public class Server {
          *             others.
          */
         public void jPAKEPlusProtocol() throws Exception {
-            //                        resetKeys();
+//                                    resetKeys();
             try {
                 out.println(":START");
                 RoundZero roundZero = new RoundZero();
