@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 import JPAKEPlus.POJOs.POJOs.*;
 import JPAKEPlusEllipticCurve.POJOs.*;
@@ -250,7 +251,13 @@ public class Server {
                         jPAKEPlusProtocol();
                         groupMade = true;
 
-                    } else if (input.equals(":EC")) {
+                    }
+                    else if (input.equals(":REMOVE")) {
+                        jPAKEPlusProtocol();
+                        groupMade = true;
+
+                    }
+                    else if (input.equals(":EC")) {
                         jPAKEPlusECProtocol();
                         groupMade = true;
 
@@ -298,6 +305,8 @@ public class Server {
                 roundTwoVComplete.remove(id);
                 roundThreeComplete.remove(id);
                 roundFourComplete.remove(id);
+                System.out.println("Remove User");
+                removeUser(id);
                 System.out.println(names.toString());
                 System.out.println(clientIDs.toString());
                 System.out.println(writers.toString());
@@ -351,7 +360,108 @@ public class Server {
         }
 
         public void removeUser(Long id) {
+            for (Long i :clientIDs) {
+                roundOneComplete.replace(i, false);
+                roundOneVComplete.replace(i, false);
+                roundTwoComplete.replace(i, false);
+                roundTwoVComplete.replace(i, false);
+                roundThreeComplete.replace(i, false);
+                roundFourComplete.replace(i, false);
+            }
 
+            JPAKEroundOneComplete = new HashMap<>();
+            JPAKEroundOneVComplete = new HashMap<>();
+            JPAKEroundTwoComplete = new HashMap<>();
+            JPAKEroundTwoVComplete = new HashMap<>();
+            JPAKEroundThreeComplete = new HashMap<>();
+            JPAKEroundFourComplete = new HashMap<>();
+
+            // ****************************** ROUND 1 ****************************************
+            gPowAij = new HashMap<>();
+            schnorrZKPaij = new HashMap<>();
+            bij = new HashMap<>();
+            gPowBij = new HashMap<>();
+            schnorrZKPbij = new HashMap<>();
+            yi = new HashMap<>();
+            gPowYi = new HashMap<>();
+            gPowZi = new HashMap<>();
+            schnorrZKPyi = new HashMap<>();
+            signerID = new ArrayList<>();
+
+
+// ****************************** ROUND 2 ****************************************
+
+             newGen = new HashMap<>();
+             bijs = new HashMap<>();
+             newGenPowBijs = new HashMap<>();
+             schnorrZKPbijs = new HashMap<>();
+
+            // ****************************** ROUND 3 ****************************************
+             gPowZiPowYi = new HashMap<>();
+            chaumPedersonZKPi = new HashMap<>();
+             pairwiseKeysMAC = new HashMap<>();
+             pairwiseKeysKC = new HashMap<>();
+             hMacsMAC = new HashMap<>();
+             hMacsKC = new HashMap<>();
+
+
+
+
+             xiSpeke = new HashMap<>();
+             yiSpeke = new HashMap<>();
+             gsPowXiSpeke = new HashMap<>();
+             gPowYiSpeke = new HashMap<>();
+             gPowZiSpeke = new HashMap<>();
+            schnorrZKPiSpeke = new HashMap<>();
+            signerIDSpeke = new ArrayList<>();
+
+
+             gPowZiPowYiSpeke = new HashMap<>();
+            chaumPedersonZKPiSpeke = new HashMap<>();
+             pairwiseKeysMACSpeke = new HashMap<>();
+             pairwiseKeysKCSpeke = new HashMap<>();
+             hMacsMACSpeke = new HashMap<>();
+             hMacsKCSpeke = new HashMap<>();
+
+
+            // ********************************* ROUND 1 EC **********************************
+            aijEC = new HashMap<>();
+             gPowAijEC = new HashMap<>();
+             schnorrZKPaijEC = new HashMap<>();
+            bijEC = new HashMap<>();
+            gPowBijEC = new HashMap<>();
+            schnorrZKPbijEC = new HashMap<>();
+            yiEC = new HashMap<>();
+            gPowYiEC = new HashMap<>();
+            gPowZiEC = new HashMap<>();
+            schnorrZKPyiEC = new HashMap<>();
+//    private  static ArrayList<String> signerID = new ArrayList<>();
+
+// ********************************** ROUND 2 EC ************************************
+            newGenEC = new HashMap<>();
+             bijsEC = new HashMap<>();
+            newGenPowBijsEC = new HashMap<>();
+            schnorrZKPbijsEC = new HashMap<>();
+
+// ********************************** ROUND 3 EC ************************************
+            gPowZiPowYiEC = new HashMap<>();
+             chaumPedersonZKPiEC = new HashMap<>();
+             pairwiseKeysMACEC = new HashMap<>();
+             pairwiseKeysKCEC = new HashMap<>();
+             hMacsMACEC = new HashMap<>();
+             hMacsKCEC = new HashMap<>();
+
+            // ********************************** JPAKE ************************************
+            jpakeRoundOne = new HashMap<>();
+            jpakeRoundTwo = new HashMap<>();
+            jpakeRoundThree = new HashMap<>();
+
+            groupMade = false;
+
+
+            for (Map.Entry<Long, PrintWriter> p : clients.entrySet()) {
+                p.getValue().println(":REMOVE");
+            }
         }
         /**
          * Update the servers global bulletin board of data associated with

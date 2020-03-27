@@ -498,6 +498,14 @@ public class Client {
                 System.out.println(key.toString(16));
                 break;
             } else if (line.startsWith(":START")) {
+                System.out.println("we start");
+                BigInteger key = jpakePlus();
+                groupKey = key;
+                System.out.println(key.toString(16));
+            } else if (line.startsWith(":REMOVE")) {
+                out.println(":REMOVE");
+                in.readLine();
+                System.out.println("we start");
                 BigInteger key = jpakePlus();
                 groupKey = key;
                 System.out.println(key.toString(16));
