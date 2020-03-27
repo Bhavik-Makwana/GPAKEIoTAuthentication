@@ -9,6 +9,9 @@ import SPEKEPlus.POJOs.POJOs.SpekeRoundOneResponse;
 import SPEKEPlus.POJOs.POJOs.SpekeRoundTwo;
 import SPEKEPlus.POJOs.POJOs.SpekeRoundTwoResponse;
 import com.google.gson.Gson;
+import org.bouncycastle.crypto.CryptoException;
+import org.bouncycastle.crypto.agreement.jpake.*;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,9 +20,13 @@ import java.math.BigInteger;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.Security;
 import java.util.ArrayList;
+import java.util.Base64;
+import java.util.HashMap;
+import javax.crypto.Cipher;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -39,6 +46,9 @@ public class Client {
     String data;
     String response;
     String sStr = "deadbeef";
+
+    BigInteger groupKey;
+    BigInteger pairKey;
 
     int clientId;
 
@@ -98,6 +108,129 @@ public class Client {
                 "Choose a screen name:",
                 "Screen name selection",
                 JOptionPane.PLAIN_MESSAGE);
+    }
+
+    private BigInteger jpake() {
+        System.out.println("hello");
+        try {
+            String json = in.readLine();
+            System.out.println("*************************** ROUND 0 ***************************");
+            RoundZero roundZero = gson.fromJson(json, RoundZero.class);
+            ArrayList<Long> clients =  roundZero.getClientIDs();
+
+            String s = "twopair";
+            JPAKEPrimeOrderGroup group = JPAKEPrimeOrderGroups.NIST_2048;
+
+            JPAKEParticipant client = new JPAKEParticipant(Integer.toString(clientId), s.toCharArray(), group);
+            /* Step 1: Alice sends g^{x1}, g^{x2}, and Bob sends g^{x3}, g^{x4} */
+            System.out.println("*************************** ROUND 1 ***************************");
+            JPAKERound1Payload round1 = client.createRound1PayloadToSend();
+
+            System.out.println("************************* SEND ROUND 1 ************************");
+            data = gson.toJson(round1);
+            out.println(data);
+            System.out.println("************************* RECI ROUND 1 ************************");
+            response = in.readLine();
+            JPAKE.RoundOne round1Response = gson.fromJson(response, JPAKE.RoundOne.class);
+            Long partnerID = 0l;
+            for (Long key : round1Response.getJpakeRoundOne().keySet()) {
+                if (key != (long) clientId) {
+                    partnerID = key;
+                }
+            }
+            System.out.println("*************************** ROUND 1V **************************");
+            /* Alice verifies Bob's ZKPs and also check g^{x4} != 1*/
+            try {
+                client.validateRound1PayloadReceived(round1Response.getJpakeRoundOne().get(partnerID));
+            } catch (CryptoException e) {
+                e.printStackTrace();
+                System.out.println("Invalid round 1 payload received. Exit.");
+                System.exit(0);
+            }
+            out.println("1");
+            response = in.readLine();
+            if (!response.equals("1")) {
+                exitWithError("All participants failed to verify Round 1");
+            }
+            System.out.println("*************************** ROUND 2 ***************************");
+            /* Step 2: Alice sends A and Bob sends B */
+            JPAKERound2Payload round2 = client.createRound2PayloadToSend();
+            data = gson.toJson(round2);
+            out.println(data);
+            response = in.readLine();
+            JPAKE.RoundTwo round2Response = gson.fromJson(response, JPAKE.RoundTwo.class);
+            /* Alice verifies Bob's ZKP in step 2*/
+            System.out.println("*************************** ROUND 2V **************************");
+            try {
+                client.validateRound2PayloadReceived(round2Response.getJpakeRoundTwo().get(partnerID));
+            } catch (CryptoException e) {
+                e.printStackTrace();
+                System.out.println("Invalid round 2 payload received. Exit.");
+                System.exit(0);
+            }
+
+            out.println("1");
+            response = in.readLine();
+            if (!response.equals("1")) {
+                exitWithError("All participants failed to verify Round 1");
+            }
+
+            /* After step 2, compute the common key material */
+            BigInteger keyingMaterial = client.calculateKeyingMaterial();
+//        BigInteger bobKeyingMaterial = bob.calculateKeyingMaterial();
+
+            System.out.println("*************************** ROUND 3 ***************************");
+            /* Step 3 (optional): Explicit key confirmation */
+            JPAKERound3Payload round3 = client.createRound3PayloadToSend(keyingMaterial);
+//        JPAKERound3Payload bobRound3 = bob.createRound3PayloadToSend(bobKeyingMaterial);
+            data = gson.toJson(round3);
+            out.println(data);
+            response = in.readLine();
+            JPAKE.RoundThree round3Response = gson.fromJson(response, JPAKE.RoundThree.class);
+            System.out.println("*************************** ROUND 3V ***************************");
+            try {
+                client.validateRound3PayloadReceived(round3Response.getJpakeRoundThree().get(partnerID), keyingMaterial);
+            } catch (CryptoException e) {
+                e.printStackTrace();
+                System.out.println("Key confirmation failed. Exit.");
+                System.exit(0);
+            }
+            out.println("1"); // OK
+
+            response = in.readLine();
+
+            if (response.equals("1")) {
+                out.println("1");
+            }
+            response = in.readLine();
+
+            AESEncryption aes = new AESEncryption();
+            byte[] k = new byte[32];
+            for(int i = 0; i< 32; i++)
+                k[i]= keyingMaterial.toByteArray()[i];
+
+            aes.createKey(k);
+            if (response.equals("1")) {
+
+                String encryptedString = aes.encrypt(groupKey.toString()) ;
+                out.println(encryptedString);
+
+            }
+            else {
+                System.out.println("Receiving key");
+//                response = in.readLine();
+                String akey = aes.decrypt(response);
+
+                groupKey = new BigInteger(akey);
+                System.out.println("Group key " + groupKey.toString(16));
+            }
+            return getSHA256(keyingMaterial);
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
+        return BigInteger.ZERO;
+
     }
 
     private BigInteger spekePlus() {
@@ -334,7 +467,7 @@ public class Client {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
         // Make connection and initialize streams
         String serverAddress = getServerAddress();
-        Socket socket = new Socket(serverAddress, 8080);
+        Socket socket = new Socket(serverAddress, 8002);
         in = new BufferedReader(new InputStreamReader(
                 socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
@@ -361,20 +494,40 @@ public class Client {
 
             } else if (line.startsWith(":EC")) {
                 BigInteger key = jpakePlusEC();
+                groupKey = key;
                 System.out.println(key.toString(16));
                 break;
             } else if (line.startsWith(":START")) {
                 BigInteger key = jpakePlus();
+                groupKey = key;
                 System.out.println(key.toString(16));
-                break;
+
             }
             else if (line.startsWith(":SPEKE")) {
                 BigInteger key = spekePlus();
+                groupKey = key;
                 System.out.println(key.toString(16));
             }
-            else {
-                break;
+            else if (line.startsWith(":PAIR")) {
+                BigInteger key = jpake();
+                pairKey = key;
+                System.out.println(key.toString(16));
             }
+            else if (line.startsWith(":PARTNER")) {
+                out.println(":PARTNER");
+                String temp = in.readLine();
+                System.out.println(temp);
+                Long pid = Long.parseLong(temp);
+                System.out.println("PID: " + pid);
+                out.println(pid);
+                in.readLine();
+                BigInteger key = jpake();
+                pairKey = key;
+                System.out.println(key.toString(16));
+            }
+//            else {
+//                break;
+//            }
         }
 
     }
@@ -397,4 +550,17 @@ public class Client {
         System.exit(0);
     }
 
+    public BigInteger getSHA256(BigInteger K) {
+
+        java.security.MessageDigest sha = null;
+
+        try {
+            sha = java.security.MessageDigest.getInstance("SHA-256");
+            sha.update(K.toByteArray());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new BigInteger(1, sha.digest()); // 1 for positive int
+    }
 }

@@ -16,6 +16,9 @@ import SPEKEPlus.POJOs.POJOs.SpekeRoundOneResponse;
 import SPEKEPlus.POJOs.POJOs.SpekeRoundTwo;
 import SPEKEPlus.POJOs.POJOs.SpekeRoundTwoResponse;
 import com.google.gson.Gson;
+import org.bouncycastle.crypto.agreement.jpake.JPAKERound1Payload;
+import org.bouncycastle.crypto.agreement.jpake.JPAKERound2Payload;
+import org.bouncycastle.crypto.agreement.jpake.JPAKERound3Payload;
 
 /**
  *
@@ -25,7 +28,7 @@ public class Server {
     /**
      * The port that the server listens on.
      */
-    private static final int PORT = 8080;
+    private static final int PORT = 8002;
 
     /**
      * The set of all names of clients in the chat room.  Maintained
@@ -34,6 +37,7 @@ public class Server {
      */
     private static HashSet<HashMap<Long, String>> names = new HashSet<>();
     private static ArrayList<Long> clientIDs = new ArrayList<>();
+    private static HashMap<Long, PrintWriter> clients = new HashMap<>();
 
     private static HashMap<Long, Boolean> roundOneComplete = new HashMap<>();
     private static HashMap<Long, Boolean> roundOneVComplete = new HashMap<>();
@@ -41,6 +45,13 @@ public class Server {
     private static HashMap<Long, Boolean> roundTwoVComplete = new HashMap<>();
     private static HashMap<Long, Boolean> roundThreeComplete = new HashMap<>();
     private static HashMap<Long, Boolean> roundFourComplete = new HashMap<>();
+
+    private static HashMap<Long, Boolean> JPAKEroundOneComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> JPAKEroundOneVComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> JPAKEroundTwoComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> JPAKEroundTwoVComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> JPAKEroundThreeComplete = new HashMap<>();
+    private static HashMap<Long, Boolean> JPAKEroundFourComplete = new HashMap<>();
     /**
      * The set of all the print writers for all the clients.  This
      * set is kept so we can easily broadcast messages.
@@ -122,6 +133,13 @@ public class Server {
     private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysKCEC = new HashMap<>();
     private static HashMap<Long, HashMap<Long, BigInteger>> hMacsMACEC = new HashMap<>();
     private static HashMap<Long, HashMap<Long, BigInteger>> hMacsKCEC = new HashMap<>();
+
+    // ********************************** JPAKE ************************************
+    private static HashMap<Long, JPAKERound1Payload> jpakeRoundOne = new HashMap<>();
+    private static HashMap<Long, JPAKERound2Payload> jpakeRoundTwo = new HashMap<>();
+    private static HashMap<Long, JPAKERound3Payload> jpakeRoundThree = new HashMap<>();
+
+    private static boolean groupMade = false;
     /**
      * The appplication main method, which just listens on a port and
      * spawns handler threads.
@@ -203,6 +221,7 @@ public class Server {
                         if (!names.contains(idName)) {
                             names.add(idName);
                             clientIDs.add(currentThread().getId());
+                            clients.put(currentThread().getId(), out);
                             break;
                         }
                     }
@@ -221,6 +240,7 @@ public class Server {
                 System.out.println(currentThread().getId());
                 while (true) {
                     String input = in.readLine();
+                    System.out.println("input " + input);
                     if (input == null) {
                         return;
                     } else if (input.equals(":WHO")) {
@@ -228,19 +248,30 @@ public class Server {
                         out.println(gson.toJson(names));
                     } else if (input.equals(":START")) {
                         jPAKEPlusProtocol();
-                        break;
+                        groupMade = true;
+
                     } else if (input.equals(":EC")) {
                         jPAKEPlusECProtocol();
-                        break;
+                        groupMade = true;
+
                     }
                     else if (input.equals(":SPEKE")) {
                         sPEKEPlusProtocol();
+                        groupMade = true;
                     }
-                    for (PrintWriter writer : writers) {
-                        writer.println("MESSAGE " + name + ": " + input);
+                    else if (input.equals(":PAIR")) {
+                        System.out.println(":PAIR");
+                        addNewClient(false);
                     }
+                    else if (input.equals(":PARTNER")) {
+                        System.out.println(":PARTNER");
+                        addNewClient(true);
+                    }
+//                    for (PrintWriter writer : writers) {
+//                        writer.println("MESSAGE " + name + ": " + input);
+//                    }
                 }
-                System.out.println("DONE PAIRING");
+//                System.out.println("DONE PAIRING");
 
             } catch (IOException e) {
                 System.out.println(e);
@@ -272,6 +303,191 @@ public class Server {
                 System.out.println(writers.toString());
             }
         }
+
+        public void addNewClient(boolean partner) {
+            try {
+                if (groupMade) {
+                    //  pick random client in group
+                    if (partner) {
+                        ArrayList<Long> pairwiseClients = new ArrayList<>();
+                        Long joiningClient = Long.parseLong(in.readLine());
+                        pairwiseClients.add(joiningClient);
+                        pairwiseClients.add(currentThread().getId());
+                        System.out.println(pairwiseClients.toString());
+                        jPAKEProtocol(pairwiseClients);
+                        System.out.println("Sending 1 to: " + pairwiseClients.get(1));
+                        clients.get(pairwiseClients.get(1)).println("1");
+                        System.out.println("Got key");
+                        response = in.readLine();
+                        System.out.println("response " + response);
+                        while (response == null) {
+                            response = in.readLine();
+                            System.out.println("response " + response);
+                        }
+                        System.out.println("Sending key to requester "+ pairwiseClients.get(0) + ": " + response);
+                        clients.get(pairwiseClients.get(0)).println(response);
+                    }
+                    else {
+                        ArrayList<Long> pairwiseClients = new ArrayList<>();
+                        pairwiseClients.add(currentThread().getId());
+                        pairwiseClients.add(clientIDs.get(0));
+                        clients.get(pairwiseClients.get(1)).println(":PARTNER");
+                        clients.get(pairwiseClients.get(1)).println(currentThread().getId());
+                        jPAKEProtocol(pairwiseClients);
+//                        clients.get(currentThread().getId()).println(gro);
+                    }
+
+                    //  perform jpake protocol
+                    //  send group key
+
+                } else {
+//                    jPAKEPlusECProtocol();
+                    System.out.println("No pre-existing group established, please set up first");
+                }
+            }
+            catch (Exception e) {
+                e.printStackTrace();;
+            }
+        }
+
+        public void removeUser(Long id) {
+
+        }
+        /**
+         * Update the servers global bulletin board of data associated with
+         * each user with the data collected at round 1.
+         *
+         * @param  id   ID of the client
+         * @param  data Data collected from the first round of JPAKE+
+         */
+        public void updatePairDataRoundOne(Long id, JPAKERound1Payload data) {
+            jpakeRoundOne.put(id, data);
+        }
+
+        public void updatePairDataRoundTwo(Long id, JPAKERound2Payload data) {
+            jpakeRoundTwo.put(id, data);
+        }
+
+        public void updatePairDataRoundThree(Long id, JPAKERound3Payload data) {
+            jpakeRoundThree.put(id, data);
+        }
+
+        public void jPAKEProtocol(ArrayList<Long> pairwiseClients) throws Exception {
+
+            JPAKEroundOneComplete.put(pairwiseClients.get(0), false);
+            JPAKEroundOneComplete.put(pairwiseClients.get(1), false);
+
+            JPAKEroundOneVComplete.put(pairwiseClients.get(0), false);
+            JPAKEroundOneVComplete.put(pairwiseClients.get(1), false);
+
+            JPAKEroundTwoComplete.put(pairwiseClients.get(0), false);
+            JPAKEroundTwoComplete.put(pairwiseClients.get(1), false);
+
+            JPAKEroundTwoVComplete.put(pairwiseClients.get(0), false);
+            JPAKEroundTwoVComplete.put(pairwiseClients.get(1), false);
+
+            JPAKEroundThreeComplete.put(pairwiseClients.get(0), false);
+            JPAKEroundThreeComplete.put(pairwiseClients.get(1), false);
+
+            JPAKEroundFourComplete.put(pairwiseClients.get(0), false);
+            JPAKEroundFourComplete.put(pairwiseClients.get(1), false);
+
+            try {
+
+                out.println(":PAIR");
+                RoundZero roundZero = new RoundZero();
+
+
+                roundZero.setClientIDs(pairwiseClients);
+                out.println(gson.toJson(roundZero));
+                // round 1
+                response = in.readLine();
+                System.out.println(response);
+                JPAKERound1Payload roundOne = gson.fromJson(response, JPAKERound1Payload.class);
+                updatePairDataRoundOne(id, roundOne);
+                JPAKEroundOneComplete.replace(id, true);
+
+
+                System.out.println(JPAKEroundOneComplete.toString());
+                while (JPAKEroundOneComplete.containsValue(false)) {
+                } // busy wait
+                System.out.println("************ ROUND 1V **********");
+                JPAKE.RoundOne roundOneResponse = new JPAKE.RoundOne();
+                roundOneResponse.setJpakeRoundOne(jpakeRoundOne);
+                out.println(gson.toJson(roundOneResponse));
+
+                response = in.readLine();
+                if (response.equals("0")) {
+                    throw new Exception("All clients failed to verify successfully");
+                } else {
+                    JPAKEroundOneVComplete.replace(id, true);
+                }
+                System.out.println(JPAKEroundOneVComplete.toString());
+                while (JPAKEroundOneVComplete.containsValue(false)) {
+                }
+                // round 2
+                System.out.println("************ ROUND 2 ***********");
+
+                out.println("1"); // OK
+
+                // Take in users round two data
+                response = in.readLine();
+                JPAKERound2Payload roundTwo = gson.fromJson(response, JPAKERound2Payload.class);
+                updatePairDataRoundTwo(id, roundTwo);
+                JPAKEroundTwoComplete.replace(id, true);
+                while (JPAKEroundTwoComplete.containsValue(false)) {
+                }
+                System.out.println("*********** ROUND 2V ***********");
+                JPAKE.RoundTwo roundTwoResponse = new JPAKE.RoundTwo();
+                roundTwoResponse.setJpakeRoundTwo(jpakeRoundTwo);
+                out.println(gson.toJson(roundTwoResponse));
+
+
+                response = in.readLine();
+                if (response.equals("0")) {
+                    throw new Exception("All clients failed to verify successfully");
+                } else {
+                    JPAKEroundTwoVComplete.replace(id, true);
+                }
+                while (JPAKEroundTwoVComplete.containsValue(false)) {
+                }
+                System.out.println("************ ROUND 3 ***********");
+
+                out.println("1"); // OK
+
+                response = in.readLine();
+                JPAKERound3Payload roundThree = gson.fromJson(response, JPAKERound3Payload.class);
+                updatePairDataRoundThree(id, roundThree);
+                JPAKEroundThreeComplete.replace(id, true);
+                while (JPAKEroundThreeComplete.containsValue(false)) {
+                }
+                System.out.println("************ ROUND 4 ***********");
+                JPAKE.RoundThree roundThreeResponse = new JPAKE.RoundThree();
+                roundThreeResponse.setJpakeRoundThree(jpakeRoundThree);
+                out.println(gson.toJson(roundThreeResponse));
+
+                response = in.readLine();
+
+                if (response.equals(0)) {
+                    throw new Exception("All clients failed to verify successfully");
+                } else {
+                    JPAKEroundFourComplete.replace(id, true);
+                }
+                while (JPAKEroundFourComplete.containsValue(false)) {
+                }
+                System.out.println("******* KEY COMPUTATION *******");
+                out.println("1");
+
+                response = in.readLine();
+                System.out.println("confirmation response: " + response);
+                if (response.equals("1")) {
+                    System.out.println("Session Keys Computed");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
 
         /**
@@ -442,6 +658,7 @@ public class Server {
              hMacsMAC = new HashMap<>();
              hMacsKC = new HashMap<>();
         }
+
 
 
         /**
