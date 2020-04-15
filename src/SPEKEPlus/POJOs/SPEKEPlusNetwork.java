@@ -13,8 +13,9 @@ import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SPEKEPlusNetwork {
     String sStr;
@@ -41,10 +42,10 @@ public class SPEKEPlusNetwork {
     // **************************** ROUND 2 ****************************
     BigInteger gPowZiPowYi;
     ArrayList<BigInteger> chaumPedersonZKPi = new ArrayList<>();
-    HashMap<Long, BigInteger> pairwiseKeysMAC = new HashMap<>();
-    HashMap<Long, BigInteger> pairwiseKeysKC = new HashMap<>();
-    HashMap<Long, BigInteger> hMacsMAC = new HashMap<>();
-    HashMap<Long, BigInteger> hMacsKC = new HashMap<>();
+    ConcurrentHashMap<Long, BigInteger> pairwiseKeysMAC = new ConcurrentHashMap<>();
+    ConcurrentHashMap<Long, BigInteger> pairwiseKeysKC = new ConcurrentHashMap<>();
+    ConcurrentHashMap<Long, BigInteger> hMacsMAC = new ConcurrentHashMap<>();
+    ConcurrentHashMap<Long, BigInteger> hMacsKC = new ConcurrentHashMap<>();
 
     // **************************** ROUND 3 ****************************
 
@@ -56,6 +57,8 @@ public class SPEKEPlusNetwork {
         this.n = n;
         this.signerID = id;
     }
+
+
 
     public SpekeRoundOne roundOne() {
         System.out.println("*************** ROUND 1 ***************");

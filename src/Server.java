@@ -4,9 +4,10 @@ import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import JPAKEPlus.POJOs.POJOs.*;
 import JPAKEPlusEllipticCurve.POJOs.*;
@@ -36,23 +37,23 @@ public class Server {
      * so that we can check that new clients are not registering name
      * already in use.
      */
-    private static HashSet<HashMap<Long, String>> names = new HashSet<>();
+    private static HashSet<ConcurrentHashMap<Long, String>> names = new HashSet<>();
     private static ArrayList<Long> clientIDs = new ArrayList<>();
-    private static HashMap<Long, PrintWriter> clients = new HashMap<>();
+    private static ConcurrentHashMap<Long, PrintWriter> clients = new ConcurrentHashMap<>();
 
-    private static HashMap<Long, Boolean> roundOneComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> roundOneVComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> roundTwoComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> roundTwoVComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> roundThreeComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> roundFourComplete = new HashMap<>();
+    private static Map<Long, Boolean> roundOneComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> roundOneVComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> roundTwoComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> roundTwoVComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> roundThreeComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> roundFourComplete = new ConcurrentHashMap<>();
 
-    private static HashMap<Long, Boolean> JPAKEroundOneComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> JPAKEroundOneVComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> JPAKEroundTwoComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> JPAKEroundTwoVComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> JPAKEroundThreeComplete = new HashMap<>();
-    private static HashMap<Long, Boolean> JPAKEroundFourComplete = new HashMap<>();
+    private static Map<Long, Boolean> JPAKEroundOneComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> JPAKEroundOneVComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> JPAKEroundTwoComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> JPAKEroundTwoVComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> JPAKEroundThreeComplete = new ConcurrentHashMap<>();
+    private static Map<Long, Boolean> JPAKEroundFourComplete = new ConcurrentHashMap<>();
     /**
      * The set of all the print writers for all the clients.  This
      * set is kept so we can easily broadcast messages.
@@ -60,85 +61,85 @@ public class Server {
     private static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();
 
     // ****************************** ROUND 1 ****************************************
-//    private static HashMap<Long, HashMap<Long, BigInteger>> aij = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> gPowAij = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPaij = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> bij = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> gPowBij = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbij = new HashMap<>();
-    private static HashMap<Long, BigInteger> yi = new HashMap<>();
-    private static HashMap<Long, BigInteger> gPowYi = new HashMap<>();
-    private static HashMap<Long, BigInteger> gPowZi = new HashMap<>();
-    private static HashMap<Long, ArrayList<BigInteger>> schnorrZKPyi = new HashMap<>();
+//    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> aij = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> gPowAij = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, ArrayList<BigInteger>>> schnorrZKPaij = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> bij = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> gPowBij = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, ArrayList<BigInteger>>> schnorrZKPbij = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> yi = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> gPowYi = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> gPowZi = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ArrayList<BigInteger>> schnorrZKPyi = new ConcurrentHashMap<>();
     private static ArrayList<String> signerID = new ArrayList<>();
 
 
 // ****************************** ROUND 2 ****************************************
 
-    private static HashMap<Long, HashMap<Long, BigInteger>> newGen = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> bijs = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> newGenPowBijs = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, ArrayList<BigInteger>>> schnorrZKPbijs = new HashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> newGen = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> bijs = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> newGenPowBijs = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, ArrayList<BigInteger>>> schnorrZKPbijs = new ConcurrentHashMap<>();
 
     // ****************************** ROUND 3 ****************************************
-    private static HashMap<Long, BigInteger> gPowZiPowYi = new HashMap<>();
-    private static HashMap<Long, ArrayList<BigInteger>> chaumPedersonZKPi = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysMAC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysKC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsMAC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsKC = new HashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> gPowZiPowYi = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ArrayList<BigInteger>> chaumPedersonZKPi = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> pairwiseKeysMAC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> pairwiseKeysKC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> hMacsMAC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> hMacsKC = new ConcurrentHashMap<>();
 
 
 
 
-    private static HashMap<Long, BigInteger> xiSpeke = new HashMap<>();
-    private static HashMap<Long, BigInteger> yiSpeke = new HashMap<>();
-    private static HashMap<Long, BigInteger> gsPowXiSpeke = new HashMap<>();
-    private static HashMap<Long, BigInteger> gPowYiSpeke = new HashMap<>();
-    private static HashMap<Long, BigInteger> gPowZiSpeke = new HashMap<>();
-    private static HashMap<Long, ArrayList<BigInteger>> schnorrZKPiSpeke = new HashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> xiSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> yiSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> gsPowXiSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> gPowYiSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> gPowZiSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ArrayList<BigInteger>> schnorrZKPiSpeke = new ConcurrentHashMap<>();
     private static ArrayList<String> signerIDSpeke = new ArrayList<>();
 
 
-    private static HashMap<Long, BigInteger> gPowZiPowYiSpeke = new HashMap<>();
-    private static HashMap<Long, ArrayList<BigInteger>> chaumPedersonZKPiSpeke = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysMACSpeke = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysKCSpeke = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsMACSpeke = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsKCSpeke = new HashMap<>();
+    private static ConcurrentHashMap<Long, BigInteger> gPowZiPowYiSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ArrayList<BigInteger>> chaumPedersonZKPiSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> pairwiseKeysMACSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> pairwiseKeysKCSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> hMacsMACSpeke = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> hMacsKCSpeke = new ConcurrentHashMap<>();
 
 
     // ********************************* ROUND 1 EC **********************************
-    private  static HashMap<Long, HashMap<Long, BigInteger>> aijEC = new HashMap<>();
-    private  static HashMap<Long, HashMap<Long, byte[]>> gPowAijEC = new HashMap<>();
-    private  static HashMap<Long, HashMap<Long, SchnorrZKP>> schnorrZKPaijEC = new HashMap<>();
-    private  static HashMap<Long, HashMap<Long, BigInteger>> bijEC = new HashMap<>();
-    private  static HashMap<Long, HashMap<Long, byte[]>> gPowBijEC = new HashMap<>();
-    private  static HashMap<Long, HashMap<Long, SchnorrZKP>> schnorrZKPbijEC = new HashMap<>();
-    private  static HashMap<Long, BigInteger> yiEC = new HashMap<>();
-    private  static HashMap<Long, byte[]> gPowYiEC = new HashMap<>();
-    private  static HashMap<Long, byte[]> gPowZiEC = new HashMap<>();
-    private  static HashMap<Long, SchnorrZKP> schnorrZKPyiEC = new HashMap<>();
+    private  static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> aijEC = new ConcurrentHashMap<>();
+    private  static ConcurrentHashMap<Long, ConcurrentHashMap<Long, byte[]>> gPowAijEC = new ConcurrentHashMap<>();
+    private  static ConcurrentHashMap<Long, ConcurrentHashMap<Long, SchnorrZKP>> schnorrZKPaijEC = new ConcurrentHashMap<>();
+    private  static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> bijEC = new ConcurrentHashMap<>();
+    private  static ConcurrentHashMap<Long, ConcurrentHashMap<Long, byte[]>> gPowBijEC = new ConcurrentHashMap<>();
+    private  static ConcurrentHashMap<Long, ConcurrentHashMap<Long, SchnorrZKP>> schnorrZKPbijEC = new ConcurrentHashMap<>();
+    private  static ConcurrentHashMap<Long, BigInteger> yiEC = new ConcurrentHashMap<>();
+    private  static ConcurrentHashMap<Long, byte[]> gPowYiEC = new ConcurrentHashMap<>();
+    private  static ConcurrentHashMap<Long, byte[]> gPowZiEC = new ConcurrentHashMap<>();
+    private  static ConcurrentHashMap<Long, SchnorrZKP> schnorrZKPyiEC = new ConcurrentHashMap<>();
 //    private  static ArrayList<String> signerID = new ArrayList<>();
 
 // ********************************** ROUND 2 EC ************************************
-    private static HashMap<Long, HashMap<Long, byte[]>> newGenEC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> bijsEC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, byte[]>> newGenPowBijsEC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, SchnorrZKP>> schnorrZKPbijsEC = new HashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, byte[]>> newGenEC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> bijsEC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, byte[]>> newGenPowBijsEC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, SchnorrZKP>> schnorrZKPbijsEC = new ConcurrentHashMap<>();
 
 // ********************************** ROUND 3 EC ************************************
-    private static HashMap<Long, byte[]> gPowZiPowYiEC = new HashMap<>();
-    private static HashMap<Long, ChaumPedersonZKP> chaumPedersonZKPiEC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysMACEC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> pairwiseKeysKCEC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsMACEC = new HashMap<>();
-    private static HashMap<Long, HashMap<Long, BigInteger>> hMacsKCEC = new HashMap<>();
+    private static ConcurrentHashMap<Long, byte[]> gPowZiPowYiEC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ChaumPedersonZKP> chaumPedersonZKPiEC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> pairwiseKeysMACEC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> pairwiseKeysKCEC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> hMacsMACEC = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> hMacsKCEC = new ConcurrentHashMap<>();
 
     // ********************************** JPAKE ************************************
-    private static HashMap<Long, JPAKERound1Payload> jpakeRoundOne = new HashMap<>();
-    private static HashMap<Long, JPAKERound2Payload> jpakeRoundTwo = new HashMap<>();
-    private static HashMap<Long, JPAKERound3Payload> jpakeRoundThree = new HashMap<>();
+    private static ConcurrentHashMap<Long, JPAKERound1Payload> jpakeRoundOne = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, JPAKERound2Payload> jpakeRoundTwo = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Long, JPAKERound3Payload> jpakeRoundThree = new ConcurrentHashMap<>();
 
     private static boolean groupMade = false;
     /**
@@ -166,7 +167,7 @@ public class Server {
     private static class Handler extends Thread {
         private String name;
         private long id;
-        private HashMap<Long, String> idName;
+        private ConcurrentHashMap<Long, String> idName;
         private Socket socket;
         private BufferedReader in;
         private PrintWriter out;
@@ -195,7 +196,7 @@ public class Server {
         public void run() {
             try {
                 gson = new Gson();
-                idName = new HashMap<>();
+                idName = new ConcurrentHashMap<>();
                 id = currentThread().getId();
                 roundOneComplete.put(id, false);
                 roundOneVComplete.put(id, false);
@@ -369,92 +370,92 @@ public class Server {
                 roundFourComplete.replace(i, false);
             }
 
-            JPAKEroundOneComplete = new HashMap<>();
-            JPAKEroundOneVComplete = new HashMap<>();
-            JPAKEroundTwoComplete = new HashMap<>();
-            JPAKEroundTwoVComplete = new HashMap<>();
-            JPAKEroundThreeComplete = new HashMap<>();
-            JPAKEroundFourComplete = new HashMap<>();
+            JPAKEroundOneComplete = new ConcurrentHashMap<>();
+            JPAKEroundOneVComplete = new ConcurrentHashMap<>();
+            JPAKEroundTwoComplete = new ConcurrentHashMap<>();
+            JPAKEroundTwoVComplete = new ConcurrentHashMap<>();
+            JPAKEroundThreeComplete = new ConcurrentHashMap<>();
+            JPAKEroundFourComplete = new ConcurrentHashMap<>();
 
             // ****************************** ROUND 1 ****************************************
-            gPowAij = new HashMap<>();
-            schnorrZKPaij = new HashMap<>();
-            bij = new HashMap<>();
-            gPowBij = new HashMap<>();
-            schnorrZKPbij = new HashMap<>();
-            yi = new HashMap<>();
-            gPowYi = new HashMap<>();
-            gPowZi = new HashMap<>();
-            schnorrZKPyi = new HashMap<>();
+            gPowAij = new ConcurrentHashMap<>();
+            schnorrZKPaij = new ConcurrentHashMap<>();
+            bij = new ConcurrentHashMap<>();
+            gPowBij = new ConcurrentHashMap<>();
+            schnorrZKPbij = new ConcurrentHashMap<>();
+            yi = new ConcurrentHashMap<>();
+            gPowYi = new ConcurrentHashMap<>();
+            gPowZi = new ConcurrentHashMap<>();
+            schnorrZKPyi = new ConcurrentHashMap<>();
             signerID = new ArrayList<>();
 
 
 // ****************************** ROUND 2 ****************************************
 
-             newGen = new HashMap<>();
-             bijs = new HashMap<>();
-             newGenPowBijs = new HashMap<>();
-             schnorrZKPbijs = new HashMap<>();
+             newGen = new ConcurrentHashMap<>();
+             bijs = new ConcurrentHashMap<>();
+             newGenPowBijs = new ConcurrentHashMap<>();
+             schnorrZKPbijs = new ConcurrentHashMap<>();
 
             // ****************************** ROUND 3 ****************************************
-             gPowZiPowYi = new HashMap<>();
-            chaumPedersonZKPi = new HashMap<>();
-             pairwiseKeysMAC = new HashMap<>();
-             pairwiseKeysKC = new HashMap<>();
-             hMacsMAC = new HashMap<>();
-             hMacsKC = new HashMap<>();
+             gPowZiPowYi = new ConcurrentHashMap<>();
+            chaumPedersonZKPi = new ConcurrentHashMap<>();
+             pairwiseKeysMAC = new ConcurrentHashMap<>();
+             pairwiseKeysKC = new ConcurrentHashMap<>();
+             hMacsMAC = new ConcurrentHashMap<>();
+             hMacsKC = new ConcurrentHashMap<>();
 
 
 
 
-             xiSpeke = new HashMap<>();
-             yiSpeke = new HashMap<>();
-             gsPowXiSpeke = new HashMap<>();
-             gPowYiSpeke = new HashMap<>();
-             gPowZiSpeke = new HashMap<>();
-            schnorrZKPiSpeke = new HashMap<>();
+             xiSpeke = new ConcurrentHashMap<>();
+             yiSpeke = new ConcurrentHashMap<>();
+             gsPowXiSpeke = new ConcurrentHashMap<>();
+             gPowYiSpeke = new ConcurrentHashMap<>();
+             gPowZiSpeke = new ConcurrentHashMap<>();
+            schnorrZKPiSpeke = new ConcurrentHashMap<>();
             signerIDSpeke = new ArrayList<>();
 
 
-             gPowZiPowYiSpeke = new HashMap<>();
-            chaumPedersonZKPiSpeke = new HashMap<>();
-             pairwiseKeysMACSpeke = new HashMap<>();
-             pairwiseKeysKCSpeke = new HashMap<>();
-             hMacsMACSpeke = new HashMap<>();
-             hMacsKCSpeke = new HashMap<>();
+             gPowZiPowYiSpeke = new ConcurrentHashMap<>();
+            chaumPedersonZKPiSpeke = new ConcurrentHashMap<>();
+             pairwiseKeysMACSpeke = new ConcurrentHashMap<>();
+             pairwiseKeysKCSpeke = new ConcurrentHashMap<>();
+             hMacsMACSpeke = new ConcurrentHashMap<>();
+             hMacsKCSpeke = new ConcurrentHashMap<>();
 
 
             // ********************************* ROUND 1 EC **********************************
-            aijEC = new HashMap<>();
-             gPowAijEC = new HashMap<>();
-             schnorrZKPaijEC = new HashMap<>();
-            bijEC = new HashMap<>();
-            gPowBijEC = new HashMap<>();
-            schnorrZKPbijEC = new HashMap<>();
-            yiEC = new HashMap<>();
-            gPowYiEC = new HashMap<>();
-            gPowZiEC = new HashMap<>();
-            schnorrZKPyiEC = new HashMap<>();
+            aijEC = new ConcurrentHashMap<>();
+             gPowAijEC = new ConcurrentHashMap<>();
+             schnorrZKPaijEC = new ConcurrentHashMap<>();
+            bijEC = new ConcurrentHashMap<>();
+            gPowBijEC = new ConcurrentHashMap<>();
+            schnorrZKPbijEC = new ConcurrentHashMap<>();
+            yiEC = new ConcurrentHashMap<>();
+            gPowYiEC = new ConcurrentHashMap<>();
+            gPowZiEC = new ConcurrentHashMap<>();
+            schnorrZKPyiEC = new ConcurrentHashMap<>();
 //    private  static ArrayList<String> signerID = new ArrayList<>();
 
 // ********************************** ROUND 2 EC ************************************
-            newGenEC = new HashMap<>();
-             bijsEC = new HashMap<>();
-            newGenPowBijsEC = new HashMap<>();
-            schnorrZKPbijsEC = new HashMap<>();
+            newGenEC = new ConcurrentHashMap<>();
+             bijsEC = new ConcurrentHashMap<>();
+            newGenPowBijsEC = new ConcurrentHashMap<>();
+            schnorrZKPbijsEC = new ConcurrentHashMap<>();
 
 // ********************************** ROUND 3 EC ************************************
-            gPowZiPowYiEC = new HashMap<>();
-             chaumPedersonZKPiEC = new HashMap<>();
-             pairwiseKeysMACEC = new HashMap<>();
-             pairwiseKeysKCEC = new HashMap<>();
-             hMacsMACEC = new HashMap<>();
-             hMacsKCEC = new HashMap<>();
+            gPowZiPowYiEC = new ConcurrentHashMap<>();
+             chaumPedersonZKPiEC = new ConcurrentHashMap<>();
+             pairwiseKeysMACEC = new ConcurrentHashMap<>();
+             pairwiseKeysKCEC = new ConcurrentHashMap<>();
+             hMacsMACEC = new ConcurrentHashMap<>();
+             hMacsKCEC = new ConcurrentHashMap<>();
 
             // ********************************** JPAKE ************************************
-            jpakeRoundOne = new HashMap<>();
-            jpakeRoundTwo = new HashMap<>();
-            jpakeRoundThree = new HashMap<>();
+            jpakeRoundOne = new ConcurrentHashMap<>();
+            jpakeRoundTwo = new ConcurrentHashMap<>();
+            jpakeRoundThree = new ConcurrentHashMap<>();
 
             groupMade = false;
 
@@ -617,7 +618,7 @@ public class Server {
             schnorrZKPbij.put(id, data.getSchnorrZKPbij());
             yi.put(id, data.getYi());
             gPowYi.put(id, data.getgPowYi());
-            gPowZi.put(id, data.getgPowZi());
+//            gPowZi.put(id, data.getgPowZi());
             schnorrZKPyi.put(id, data.getSchnorrZKPyi());
             signerID.add(data.getSignerID());
         }
@@ -708,65 +709,65 @@ public class Server {
         }
 
         public void resetKeys() {
-            roundOneComplete = new HashMap<>();
-            roundOneVComplete = new HashMap<>();
-            roundTwoComplete = new HashMap<>();
-            roundTwoVComplete = new HashMap<>();
-            roundThreeComplete = new HashMap<>();
-            roundFourComplete = new HashMap<>();
+            roundOneComplete = new ConcurrentHashMap<>();
+            roundOneVComplete = new ConcurrentHashMap<>();
+            roundTwoComplete = new ConcurrentHashMap<>();
+            roundTwoVComplete = new ConcurrentHashMap<>();
+            roundThreeComplete = new ConcurrentHashMap<>();
+            roundFourComplete = new ConcurrentHashMap<>();
             roundOneComplete.put(id, false);
             roundOneVComplete.put(id, false);
             roundTwoComplete.put(id, false);
             roundTwoVComplete.put(id, false);
             roundThreeComplete.put(id, false);
             roundFourComplete.put(id, false);
-//            aij = new HashMap<>();
-//            gPowAij = new HashMap<>();
-//            schnorrZKPaij = new HashMap<>();
-//            bij = new HashMap<>();
-//            gPowBij = new HashMap<>();
-//            schnorrZKPbij = new HashMap<>();
-//            yi = new HashMap<>();
-//            gPowYi = new HashMap<>();
-//            gPowZi = new HashMap<>();
-//            schnorrZKPyi = new HashMap<>();
+//            aij = new ConcurrentHashMap<>();
+//            gPowAij = new ConcurrentHashMap<>();
+//            schnorrZKPaij = new ConcurrentHashMap<>();
+//            bij = new ConcurrentHashMap<>();
+//            gPowBij = new ConcurrentHashMap<>();
+//            schnorrZKPbij = new ConcurrentHashMap<>();
+//            yi = new ConcurrentHashMap<>();
+//            gPowYi = new ConcurrentHashMap<>();
+//            gPowZi = new ConcurrentHashMap<>();
+//            schnorrZKPyi = new ConcurrentHashMap<>();
 //            signerID = new ArrayList<>();
-//            newGen = new HashMap<>();
-//            bijs = new HashMap<>();
-//            newGenPowBijs = new HashMap<>();
-//            schnorrZKPbijs = new HashMap<>();
-//            pairwiseKeysMAC = new HashMap<>();
-//            pairwiseKeysKC = new HashMap<>();
-//            hMacsMAC = new HashMap<>();
-//            hMacsKC = new HashMap<>();
+//            newGen = new ConcurrentHashMap<>();
+//            bijs = new ConcurrentHashMap<>();
+//            newGenPowBijs = new ConcurrentHashMap<>();
+//            schnorrZKPbijs = new ConcurrentHashMap<>();
+//            pairwiseKeysMAC = new ConcurrentHashMap<>();
+//            pairwiseKeysKC = new ConcurrentHashMap<>();
+//            hMacsMAC = new ConcurrentHashMap<>();
+//            hMacsKC = new ConcurrentHashMap<>();
 
 
-             gPowAij = new HashMap<>();
-             schnorrZKPaij = new HashMap<>();
-             bij = new HashMap<>();
-             gPowBij = new HashMap<>();
-             schnorrZKPbij = new HashMap<>();
-             yi = new HashMap<>();
-             gPowYi = new HashMap<>();
-             gPowZi = new HashMap<>();
-             schnorrZKPyi = new HashMap<>();
+             gPowAij = new ConcurrentHashMap<>();
+             schnorrZKPaij = new ConcurrentHashMap<>();
+             bij = new ConcurrentHashMap<>();
+             gPowBij = new ConcurrentHashMap<>();
+             schnorrZKPbij = new ConcurrentHashMap<>();
+             yi = new ConcurrentHashMap<>();
+             gPowYi = new ConcurrentHashMap<>();
+             gPowZi = new ConcurrentHashMap<>();
+             schnorrZKPyi = new ConcurrentHashMap<>();
              signerID = new ArrayList<>();
 
 
 // ****************************** ROUND 2 ****************************************
 
-             newGen = new HashMap<>();
-             bijs = new HashMap<>();
-             newGenPowBijs = new HashMap<>();
-             schnorrZKPbijs = new HashMap<>();
+             newGen = new ConcurrentHashMap<>();
+             bijs = new ConcurrentHashMap<>();
+             newGenPowBijs = new ConcurrentHashMap<>();
+             schnorrZKPbijs = new ConcurrentHashMap<>();
 
             // ****************************** ROUND 3 ****************************************
-             gPowZiPowYi = new HashMap<>();
-            chaumPedersonZKPi = new HashMap<>();
-             pairwiseKeysMAC = new HashMap<>();
-             pairwiseKeysKC = new HashMap<>();
-             hMacsMAC = new HashMap<>();
-             hMacsKC = new HashMap<>();
+             gPowZiPowYi = new ConcurrentHashMap<>();
+            chaumPedersonZKPi = new ConcurrentHashMap<>();
+             pairwiseKeysMAC = new ConcurrentHashMap<>();
+             pairwiseKeysKC = new ConcurrentHashMap<>();
+             hMacsMAC = new ConcurrentHashMap<>();
+             hMacsKC = new ConcurrentHashMap<>();
         }
 
 
@@ -790,14 +791,16 @@ public class Server {
                 RoundOne roundOne = gson.fromJson(response, RoundOne.class);
                 System.out.println(roundOne.getSignerID());
                 updateDataRoundOne(id, roundOne);
+                System.out.println("RoundOne Data Updated");
                 roundOneComplete.replace(id, true);
+                System.out.println(id + " Updated to true");
                 System.out.println(roundOneComplete.toString());
                 while (roundOneComplete.containsValue(false)) {
                 } // busy wait
                 System.out.println("************ ROUND 1V **********");
                 RoundOneResponse dataRoundOne = setDataRoundOneResponse();
                 out.println(gson.toJson(dataRoundOne));
-
+                System.out.println("Sent Round One Response back");
                 response = in.readLine();
                 if (response.equals("0")) {
                     throw new Exception("All clients failed to verify successfully");
@@ -869,7 +872,7 @@ public class Server {
 
         public void updateSpekeDataRoundOne(long id, SpekeRoundOne data) {
             gPowYiSpeke.put(id, data.getgPowYi());
-            gPowZiSpeke.put(id, data.getgPowZi());
+//            gPowZiSpeke.put(id, data.getgPowZi());
             gsPowXiSpeke.put(id, data.getGsPowXi());
             schnorrZKPiSpeke.put(id, data.getSchnorrZKPi());
             xiSpeke.put(id, data.getXi());
@@ -992,7 +995,7 @@ public class Server {
             schnorrZKPbijEC.put(id, data.getSchnorrZKPbij());
             yiEC.put(id, data.getYi());
             gPowYiEC.put(id, data.getgPowYi());
-            gPowZiEC.put(id, data.getgPowZi());
+//            gPowZiEC.put(id, data.getgPowZi());
             schnorrZKPyiEC.put(id, data.getSchnorrZKPyi());
             signerID.add(data.getSignerID());
         }

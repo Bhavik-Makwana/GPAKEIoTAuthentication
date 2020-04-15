@@ -2,16 +2,16 @@ package JPAKE;
 
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound3Payload;
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class RoundThree {
-    private HashMap<Long, JPAKERound3Payload> jpakeRoundThree = new HashMap<>();
+    private ConcurrentHashMap<Long, JPAKERound3Payload> jpakeRoundThree = new ConcurrentHashMap<>();
 
-    public HashMap<Long, JPAKERound3Payload> getJpakeRoundThree() {
+    public ConcurrentHashMap<Long, JPAKERound3Payload> getJpakeRoundThree() {
         return jpakeRoundThree;
     }
 
-    public void setJpakeRoundThree(HashMap<Long, JPAKERound3Payload> jpakeRoundThree) {
+    public void setJpakeRoundThree(ConcurrentHashMap<Long, JPAKERound3Payload> jpakeRoundThree) {
         this.jpakeRoundThree = jpakeRoundThree;
     }
 }

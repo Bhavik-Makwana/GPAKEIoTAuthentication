@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.TreeMap;
 
 import JPAKEPlusEllipticCurve.POJOs.*;
@@ -46,12 +46,12 @@ public class JPAKEPlusECNetwork {
     TreeMap<String, Long> time = new TreeMap<>();
 
     // *********************************** ROUND 1 ***********************************
-    private HashMap<Long, BigInteger> aij = new HashMap<>();
-    private HashMap<Long, byte[]> gPowAij = new HashMap<>();
-    private HashMap<Long, SchnorrZKP> schnorrZKPaij = new HashMap<>();
-    private HashMap<Long, BigInteger> bij = new HashMap<>();
-    private HashMap<Long, byte[]>  gPowBij = new HashMap<>();
-    private HashMap<Long, SchnorrZKP> schnorrZKPbij = new HashMap<>();
+    private ConcurrentHashMap<Long, BigInteger> aij = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, byte[]> gPowAij = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, SchnorrZKP> schnorrZKPaij = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, BigInteger> bij = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, byte[]>  gPowBij = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, SchnorrZKP> schnorrZKPbij = new ConcurrentHashMap<>();
     private BigInteger yi;
     private byte[] gPowYi;
     private byte[] gPowZi;
@@ -60,18 +60,18 @@ public class JPAKEPlusECNetwork {
     SchnorrZKP schnorrZKP = new SchnorrZKP();
 
     // *********************************** ROUND 2 ***********************************
-    private HashMap<Long, byte[]> newGen = new HashMap<>();
-    private HashMap<Long, BigInteger> bijs = new HashMap<>();
-    private HashMap<Long, byte[]> newGenPowBijs = new HashMap<>();;
-    private HashMap<Long, SchnorrZKP> schnorrZKPbijs = new HashMap<>();
+    private ConcurrentHashMap<Long, byte[]> newGen = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, BigInteger> bijs = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, byte[]> newGenPowBijs = new ConcurrentHashMap<>();;
+    private ConcurrentHashMap<Long, SchnorrZKP> schnorrZKPbijs = new ConcurrentHashMap<>();
 
     // *********************************** ROUND 3 ***********************************
     byte[] gPowZiPowYi;
     ChaumPedersonZKP chaumPedersonZKPi = new ChaumPedersonZKP();
-    HashMap<Long, BigInteger> pairwiseKeysMAC = new HashMap<>();
-    HashMap<Long, BigInteger> pairwiseKeysKC = new HashMap<>();
-    HashMap<Long, BigInteger> hMacsMAC = new HashMap<>();
-    HashMap<Long, BigInteger> hMacsKC = new HashMap<>();
+    ConcurrentHashMap<Long, BigInteger> pairwiseKeysMAC = new ConcurrentHashMap<>();
+    ConcurrentHashMap<Long, BigInteger> pairwiseKeysKC = new ConcurrentHashMap<>();
+    ConcurrentHashMap<Long, BigInteger> hMacsMAC = new ConcurrentHashMap<>();
+    ConcurrentHashMap<Long, BigInteger> hMacsKC = new ConcurrentHashMap<>();
     //   ************************************ KEYS ************************************
     BigInteger sessionKeys;
 
@@ -96,7 +96,7 @@ public class JPAKEPlusECNetwork {
         int n = clients.size();
 
         signerID = clientId + "";
-        HashMap<Long, ECPoint> temp = new HashMap<>();
+        ConcurrentHashMap<Long, ECPoint> temp = new ConcurrentHashMap<>();
 
         // aij in [0, q-1], b_ij in [1, q-1]
         for (int j=0; j<n; j++) {

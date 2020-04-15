@@ -9,6 +9,7 @@ import java.nio.ByteBuffer;
 import java.security.SecureRandom;
 import java.security.MessageDigest;
 import java.security.Security;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.crypto.SecretKey;
 import javax.crypto.Mac;
@@ -45,10 +46,10 @@ public class JPAKEPlusDemo {
 	// assume n participants
 	int n;
 
-	boolean DEBUG = true;
+	boolean DEBUG = false;
 
 	// For testing performance
-	int maxNumberOfIterations = 2; // at least 2
+	int maxNumberOfIterations = 5; // at least 2
 	int latency [][] = new int [maxNumberOfIterations][7];
 	int avgLatency [] = new int [7];
 
@@ -56,9 +57,9 @@ public class JPAKEPlusDemo {
 
     	JPAKEPlusDemo test = new JPAKEPlusDemo();
 
-    	int maxNoOfParticipants = 3;
+    	int maxNoOfParticipants = 10;
 
-    	for (int noOfParticiapnts = 3; noOfParticiapnts <= maxNoOfParticipants+1; noOfParticiapnts++){
+    	for (int noOfParticiapnts = 10; noOfParticiapnts <= maxNoOfParticipants+1; noOfParticiapnts++){
 
     		test.startTest(noOfParticiapnts);
     	}
@@ -178,7 +179,7 @@ public class JPAKEPlusDemo {
 	private void run (int numberOfIteration) {
 
     	BigInteger [][] aij = new BigInteger [n][n];
-    	BigInteger [][] gPowAij = new BigInteger [n][n];
+		BigInteger [][] gPowAij = new BigInteger [n][n];
     	BigInteger [][][] schnorrZKPaij = new BigInteger [n][n][2];
 
     	BigInteger [][] bij = new BigInteger [n][n];
@@ -201,7 +202,6 @@ public class JPAKEPlusDemo {
     	for (int i=0; i<n; i++) {
 
     		signerID[i] = i + "";
-
     		// aij in [0, q-1], b_ij in [1, q-1]
     		for (int j=0; j<n; j++) {
 
@@ -278,19 +278,19 @@ public class JPAKEPlusDemo {
     			}
 
     			// Check ZKP{bji}
-    			if(!verifySchnorrZKP(p, q, g, gPowBij[j][i], schnorrZKPbij[j][i][0], schnorrZKPbij[j][i][1], signerID[j])) {
-    				exitWithError("Round 1 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + i + "," +j + ")");
-    			}
+//    			if(!verifySchnorrZKP(p, q, g, gPowBij[j][i], schnorrZKPbij[j][i][0], schnorrZKPbij[j][i][1], signerID[j])) {
+//    				exitWithError("Round 1 verification failed at checking SchnorrZKP for bij. (i,j)="+"(" + i + "," +j + ")");
+//    			}
 
     			// check g^{b_ji} != 1
     			if (gPowBij[j][i].compareTo(BigInteger.ONE) == 0){
     				exitWithError("Round 1 verification failed at checking g^{ji} !=1");
     			}
-
-    			// Check ZKP{aji}
-    			if(!verifySchnorrZKP(p, q, g, gPowAij[j][i], schnorrZKPaij[j][i][0], schnorrZKPaij[j][i][1], signerID[j])) {
-    				exitWithError("Round 1 verification failed at checking SchnorrZKP for aij. (i,j)="+"(" + i + "," +j + ")");
-    			}
+//
+//    			// Check ZKP{aji}
+//    			if(!verifySchnorrZKP(p, q, g, gPowAij[j][i], schnorrZKPaij[j][i][0], schnorrZKPaij[j][i][1], signerID[j])) {
+//    				exitWithError("Round 1 verification failed at checking SchnorrZKP for aij. (i,j)="+"(" + i + "," +j + ")");
+//    			}
 
     			// Check ZKP{yi}
     			if (!verifySchnorrZKP(p, q, g, gPowYi[j], schnorrZKPyi[j][0], schnorrZKPyi[j][1], signerID[j])) {
@@ -494,8 +494,6 @@ public class JPAKEPlusDemo {
     				mac.update(gPowAij[i][j].toByteArray());
     				mac.update(gPowBij[i][j].toByteArray());
  					BigInteger temp = new BigInteger(mac.doFinal());
-    				System.out.println(temp);
- 					System.out.println(hMacsKC[j][i]);
     				if (temp.compareTo(hMacsKC[j][i]) != 0) {
     					exitWithError("Round 3 verification failed at checking KC for (i,j)=("+i+","+j+")");
     				}

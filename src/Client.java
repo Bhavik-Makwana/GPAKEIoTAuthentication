@@ -25,7 +25,7 @@ import java.security.SecureRandom;
 import java.security.Security;
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import javax.crypto.Cipher;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -112,12 +112,16 @@ public class Client {
 
     private BigInteger jpake() {
         System.out.println("hello");
+        long startTime = 0;
+        long endTime = 0;
+        long total = 0;
         try {
             String json = in.readLine();
             System.out.println("*************************** ROUND 0 ***************************");
             RoundZero roundZero = gson.fromJson(json, RoundZero.class);
             ArrayList<Long> clients =  roundZero.getClientIDs();
 
+            startTime = System.currentTimeMillis();
             String s = "twopair";
             JPAKEPrimeOrderGroup group = JPAKEPrimeOrderGroups.NIST_2048;
 
@@ -126,6 +130,8 @@ public class Client {
             System.out.println("*************************** ROUND 1 ***************************");
             JPAKERound1Payload round1 = client.createRound1PayloadToSend();
 
+            endTime = System.currentTimeMillis();
+            total += endTime-startTime;
             System.out.println("************************* SEND ROUND 1 ************************");
             data = gson.toJson(round1);
             out.println(data);
@@ -138,8 +144,10 @@ public class Client {
                     partnerID = key;
                 }
             }
+
             System.out.println("*************************** ROUND 1V **************************");
             /* Alice verifies Bob's ZKPs and also check g^{x4} != 1*/
+            startTime = System.currentTimeMillis();
             try {
                 client.validateRound1PayloadReceived(round1Response.getJpakeRoundOne().get(partnerID));
             } catch (CryptoException e) {
@@ -147,6 +155,8 @@ public class Client {
                 System.out.println("Invalid round 1 payload received. Exit.");
                 System.exit(0);
             }
+            endTime = System.currentTimeMillis();
+            total += endTime-startTime;
             out.println("1");
             response = in.readLine();
             if (!response.equals("1")) {
@@ -154,13 +164,20 @@ public class Client {
             }
             System.out.println("*************************** ROUND 2 ***************************");
             /* Step 2: Alice sends A and Bob sends B */
+            startTime = System.currentTimeMillis();
+
             JPAKERound2Payload round2 = client.createRound2PayloadToSend();
             data = gson.toJson(round2);
+
+            endTime = System.currentTimeMillis();
+            total += endTime-startTime;
             out.println(data);
             response = in.readLine();
+
             JPAKE.RoundTwo round2Response = gson.fromJson(response, JPAKE.RoundTwo.class);
             /* Alice verifies Bob's ZKP in step 2*/
             System.out.println("*************************** ROUND 2V **************************");
+            startTime = System.currentTimeMillis();
             try {
                 client.validateRound2PayloadReceived(round2Response.getJpakeRoundTwo().get(partnerID));
             } catch (CryptoException e) {
@@ -168,7 +185,8 @@ public class Client {
                 System.out.println("Invalid round 2 payload received. Exit.");
                 System.exit(0);
             }
-
+            endTime = System.currentTimeMillis();
+            total += endTime-startTime;
             out.println("1");
             response = in.readLine();
             if (!response.equals("1")) {
@@ -176,18 +194,22 @@ public class Client {
             }
 
             /* After step 2, compute the common key material */
-            BigInteger keyingMaterial = client.calculateKeyingMaterial();
 //        BigInteger bobKeyingMaterial = bob.calculateKeyingMaterial();
 
             System.out.println("*************************** ROUND 3 ***************************");
+            startTime = System.currentTimeMillis();
+            BigInteger keyingMaterial = client.calculateKeyingMaterial();
             /* Step 3 (optional): Explicit key confirmation */
             JPAKERound3Payload round3 = client.createRound3PayloadToSend(keyingMaterial);
 //        JPAKERound3Payload bobRound3 = bob.createRound3PayloadToSend(bobKeyingMaterial);
+            endTime = System.currentTimeMillis();
+            total += endTime-startTime;
             data = gson.toJson(round3);
             out.println(data);
             response = in.readLine();
             JPAKE.RoundThree round3Response = gson.fromJson(response, JPAKE.RoundThree.class);
             System.out.println("*************************** ROUND 3V ***************************");
+            startTime = System.currentTimeMillis();
             try {
                 client.validateRound3PayloadReceived(round3Response.getJpakeRoundThree().get(partnerID), keyingMaterial);
             } catch (CryptoException e) {
@@ -195,35 +217,43 @@ public class Client {
                 System.out.println("Key confirmation failed. Exit.");
                 System.exit(0);
             }
+            endTime = System.currentTimeMillis();
+            total += endTime-startTime;
             out.println("1"); // OK
 
             response = in.readLine();
+
 
             if (response.equals("1")) {
                 out.println("1");
             }
             response = in.readLine();
-
+            System.out.println("JPAKE TIME: " + total);
+            total = 0;
+            startTime = System.currentTimeMillis();
             AESEncryption aes = new AESEncryption();
-            byte[] k = new byte[32];
-            for(int i = 0; i< 32; i++)
+            byte[] k = new byte[16];
+            for(int i = 0; i< 16; i++)
                 k[i]= keyingMaterial.toByteArray()[i];
 
             aes.createKey(k);
             if (response.equals("1")) {
-
                 String encryptedString = aes.encrypt(groupKey.toString()) ;
-                out.println(encryptedString);
+                AESPOJO aesPojo = new AESPOJO(encryptedString, aes.getIvParameterSpec());
+                data = gson.toJson(aesPojo);
+                out.println(data);
 
             }
             else {
-                System.out.println("Receiving key");
-//                response = in.readLine();
-                String akey = aes.decrypt(response);
-
+                AESPOJO aesPojo = gson.fromJson(response, AESPOJO.class);
+                aes.setIvParameterSpec(aesPojo.getIvParameterSpec());
+                String akey = aes.decrypt(aesPojo.getEncryptedString());
                 groupKey = new BigInteger(akey);
                 System.out.println("Group key " + groupKey.toString(16));
             }
+            endTime = System.currentTimeMillis();
+            total += endTime-startTime;
+            System.out.println("Total time to dynamically add a client: " + total);
             return getSHA256(keyingMaterial);
         }
         catch(IOException e) {
