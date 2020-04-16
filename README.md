@@ -14,3 +14,18 @@ To connect using the Android client find the host systems ipv4 address and make 
 
 Ensure a minimum of 3 devices are connected to the network before an algorithm is run otherwise it will raise an exception.
 
+### JPAKE+
+To test JPAKE+ enter `:START` into the dialog box on the desktop client once three users are connected, each clients latency will be output to the console. On the Android client, press the JPAKE+. After pressed on the first device, you will have 5s left to connect the other devices to perform the group authentication.
+
+### SPEKE+
+To test SPEKE+ enter `:SPEKE` into the dialog box on the desktop client once three users are connected, each clients latency will be output to the console. On the Android client, press the JPAKE+. After pressed on the first device, you will have 5s left to connect the other devices to perform the group authentication.
+
+### JPAKE+ EC
+To test JPAKE+ enter `:EC` into the dialog box on the desktop client once three users are connected, each clients latency will be output to the console. On the Android client, press the JPAKE+. After pressed on the first device, you will have 5s left to connect the other devices to perform the group authentication.
+
+### JPAKE Dynamic Pairing
+To test JPAKE+ enter `:PAIR` into the dialog box on the desktop client after a group has already been established. This must be done with a new user not part of the group. This feature is not currently available on the android implementation
+
+### JPAKE Dynamic Removal
+This feature is only available on the desktop version. Create a group with greater than 3 participants then disconnect a user, a group should be reestablished with the remaining users. 
+
