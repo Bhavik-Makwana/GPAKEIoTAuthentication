@@ -41,7 +41,7 @@ public class SPEKEPlusDemo {
 	boolean DEBUG = false;
 
 	// For testing performance
-	int maxNumberOfIterations = 31; // at least 2
+	int maxNumberOfIterations = 5; // at least 2
 	int latency [][] = new int [maxNumberOfIterations][5];
 	int avgLatency [] = new int [latency[0].length];
 
@@ -49,9 +49,9 @@ public class SPEKEPlusDemo {
 
     	SPEKEPlusDemo test = new SPEKEPlusDemo();
 
-    	int maxNoOfParticipants = 20;
+    	int maxNoOfParticipants = 10;
 
-    	for (int noOfParticiapnts = 3; noOfParticiapnts < maxNoOfParticipants+1; noOfParticiapnts++){
+    	for (int noOfParticiapnts = 10; noOfParticiapnts < maxNoOfParticipants+1; noOfParticiapnts++){
 
     		test.startTest(noOfParticiapnts);
     	}
@@ -163,31 +163,36 @@ public class SPEKEPlusDemo {
     	BigInteger [] gPowZi = new BigInteger [n];
     	BigInteger [][] schnorrZKPi = new BigInteger [n][2]; // {g^v, r}
     	String [] signerID = new String [n];
-
+		SchnorrZKP schnorrZKP = new SchnorrZKP();
     	// Round 1: P_i sends g_s^{x_i}, g^{y_i}, zkp{y_i}
 
     	startTime = System.currentTimeMillis();
 
     	for (int i=0; i<n; i++) {
-
+			signerID[i] = i + "";
+//			long inner = System.currentTimeMillis();
     		// x_i in [1, q-1]
     		xi[i] = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ONE,
         			q.subtract(BigInteger.ONE), new SecureRandom());
 
-    		// y_i in [0, q-1]
-    		yi[i] = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
-        			q.subtract(BigInteger.ONE), new SecureRandom());
+			gsPowXi[i] = gs.modPow(xi[i], p);
 
-    		gsPowXi[i] = gs.modPow(xi[i], p);
+
+    		// y_i in [0, q-1]
+
+			yi[i] = org.bouncycastle.util.BigIntegers.createRandomInRange(BigInteger.ZERO,
+        			q.subtract(BigInteger.ONE), new SecureRandom());
 
     		gPowYi[i] = g.modPow(yi[i], p);
 
-    		signerID[i] = i + "";
 
-    		SchnorrZKP schnorrZKP = new SchnorrZKP();
+
+
     		schnorrZKP.generateZKP(p, q, g, gPowYi[i], yi[i], signerID[i]);
     		schnorrZKPi[i][0] = schnorrZKP.getGenPowV();
     		schnorrZKPi[i][1] = schnorrZKP.getR();
+//    		endTime = System.currentTimeMillis();
+//			System.out.println("each client: " + (endTime-inner));
     	}
 
     	endTime = System.currentTimeMillis();
@@ -230,9 +235,9 @@ public class SPEKEPlusDemo {
     			}
 
     			// ZKP - except ith
-    			if (i==j) {
-    				continue;
-    			}
+//    			if (i==j) {
+//    				continue;
+//    			}
     			if (!verifySchnorrZKP(p, q, g, gPowYi[j], schnorrZKPi[j][0], schnorrZKPi[j][1], signerID[j])) {
     				exitWithError("Round 1 verification failed at checking jth SchnorrZKP for j="+j);
     			}
@@ -461,25 +466,25 @@ public class SPEKEPlusDemo {
      *
      * Note: the case of x = 0 is not excluded in this routine. Handle that in the upstream if you need to.
      */
-    public boolean verifySchnorrZKP(BigInteger p, BigInteger q, BigInteger gen, BigInteger genPowX, BigInteger genPowV, BigInteger r, String userID) {
+	public boolean verifySchnorrZKP(BigInteger p, BigInteger q, BigInteger gen, BigInteger genPowX, BigInteger genPowV, BigInteger r, String userID) {
 
-    	// ZKP: {V=gen^v, r}
-    	BigInteger h = getSHA256(gen, genPowV, genPowX, userID);
+		// ZKP: {V=gen^v, r}
+		BigInteger h = getSHA256(gen, genPowV, genPowX, userID);
 
-    	if (genPowX.compareTo(BigInteger.ZERO) == 1 && // gen^x > 0
-    			genPowX.compareTo(p) == -1 && // gen^x < p
-    			genPowX.modPow(q, p).compareTo(BigInteger.ONE) == 0 && // gen^x^q = 1
+		if (genPowX.compareTo(BigInteger.ZERO) == 1 && // gen^x > 0
+				genPowX.compareTo(p) == -1 && // gen^x < p
+				genPowX.modPow(q, p).compareTo(BigInteger.ONE) == 0 && // gen^x^q = 1
 
-    			/* A straightforward way to compute g^r * g^x^h needs 2 exp. Using
-    			 * a simultaneous computation technique would only need 1 exp.
-    			 */
-    			gen.modPow(r,p).multiply(genPowX.modPow(h,p)).mod(p).compareTo(genPowV) == 0) { // gen^v=gen^r * gen^x^h
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
-    }
+				/* A straightforward way to compute g^r * g^x^h needs 2 exp. Using
+				 * a simultaneous computation technique would only need 1 exp.
+				 */
+				gen.modPow(r,p).multiply(genPowX.modPow(h,p)).mod(p).compareTo(genPowV) == 0) { // gen^v=gen^r * gen^x^h
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
     /*
      * Full checks:
