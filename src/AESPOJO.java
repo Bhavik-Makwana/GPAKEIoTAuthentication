@@ -1,12 +1,13 @@
+import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
 
 public class AESPOJO {
     private String encryptedString;
-    private IvParameterSpec ivParameterSpec;
+    private GCMParameterSpec gcmParameterSpec;
 
-    public AESPOJO(String encryptedString, IvParameterSpec ivParameterSpec) {
+    public AESPOJO(String encryptedString, GCMParameterSpec gcmParameterSpec) {
         this.encryptedString = encryptedString;
-        this.ivParameterSpec = ivParameterSpec;
+        this.gcmParameterSpec = gcmParameterSpec;
     }
 
     public String getEncryptedString() {
@@ -17,11 +18,11 @@ public class AESPOJO {
         this.encryptedString = encryptedString;
     }
 
-    public IvParameterSpec getIvParameterSpec() {
-        return ivParameterSpec;
+    public GCMParameterSpec getGcmParameterSpec() {
+        return gcmParameterSpec;
     }
 
-    public void setIvParameterSpec(IvParameterSpec ivParameterSpec) {
-        this.ivParameterSpec = ivParameterSpec;
+    public void setGcmParameterSpec(GCMParameterSpec gcmParameterSpec) {
+        this.gcmParameterSpec = gcmParameterSpec;
     }
 }

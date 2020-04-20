@@ -239,14 +239,14 @@ public class Client {
             aes.createKey(k);
             if (response.equals("1")) {
                 String encryptedString = aes.encrypt(groupKey.toString()) ;
-                AESPOJO aesPojo = new AESPOJO(encryptedString, aes.getIvParameterSpec());
+                AESPOJO aesPojo = new AESPOJO(encryptedString, aes.getGcmParameterSpec());
                 data = gson.toJson(aesPojo);
                 out.println(data);
 
             }
             else {
                 AESPOJO aesPojo = gson.fromJson(response, AESPOJO.class);
-                aes.setIvParameterSpec(aesPojo.getIvParameterSpec());
+                aes.setGcmParameterSpec(aesPojo.getGcmParameterSpec());
                 String akey = aes.decrypt(aesPojo.getEncryptedString());
                 groupKey = new BigInteger(akey);
                 System.out.println("Group key " + groupKey.toString(16));
