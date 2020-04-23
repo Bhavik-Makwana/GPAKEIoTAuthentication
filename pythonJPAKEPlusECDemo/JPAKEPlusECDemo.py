@@ -661,15 +661,20 @@ class JPAKEPlusECDemo:
         self.verify_round_three(r, r2, r3, n)
         self.compute_key(r, r3, n)
         for i in self.times:
-            print(round(i*100, 3), " ", end=" ")
+            print(round(i*1000, 3), " ", end=" ")
         self.times = []
     def print_debug(self, str, flag):
         if flag:
             print(str)
-
+    def mod_test(self):
+        t1 = time.time()
+        self.G.mul(random.randint(1, self.Q-1))
+        t2 = time.time()
+        print((t2-t1)*1000)
 jppec = JPAKEPlusECDemo()
 print("1       1v      2       2v      3       3v      KC   (ms)")
-for i in range(3, 7):
-    jppec.test(i)
-    print("")
+# for i in range(3, 7):
+#     jppec.test(i)
+#     print("")
+jppec.mod_test()
     

@@ -1,0 +1,181 @@
+2020-04-07 20:48:58.212 26960-26960/? I/e.myapplicatio: Late-enabling -Xcheck:jni
+2020-04-07 20:48:58.245 26960-26960/? E/e.myapplicatio: Unknown bits set in runtime_flags: 0x8000
+2020-04-07 20:48:58.692 26960-26960/? D/button: print test 1
+2020-04-07 20:48:58.758 26960-26960/? W/e.myapplicatio: Accessing hidden method Landroid/view/View;->computeFitSystemWindows(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z (greylist, reflection, allowed)
+2020-04-07 20:48:58.759 26960-26960/? W/e.myapplicatio: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (greylist, reflection, allowed)
+2020-04-07 20:48:58.827 26960-26960/? I/FloatingActionButton: Setting a custom background is not supported.
+2020-04-07 20:48:58.925 26960-26983/? I/Adreno: QUALCOMM build                   : 4a00b69, I4e7e888065
+    Build Date                       : 04/09/19
+    OpenGL ES Shader Compiler Version: EV031.26.06.00
+    Local Branch                     : 
+    Remote Branch                    : 
+    Remote Branch                    : 
+    Reconstruct Branch               : 
+2020-04-07 20:48:58.925 26960-26983/? I/Adreno: Build Config                     : S P 8.0.6 AArch64
+2020-04-07 20:48:58.931 26960-26983/? I/Adreno: PFP: 0x016ee183, ME: 0x00000000
+2020-04-07 20:48:58.958 26960-26983/? W/Gralloc3: mapper 3.x is not supported
+2020-04-07 20:49:07.617 26960-26960/com.example.myapplication D/button: print test 2
+2020-04-07 20:49:07.618 26960-26960/com.example.myapplication D/button: connect button pressed
+2020-04-07 20:49:08.246 26960-26988/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-07 20:49:08.252 26960-26988/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-07 20:49:11.523 26960-26988/com.example.myapplication D/ec: eeee
+2020-04-07 20:49:11.614 26960-26988/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-07 20:49:11.614 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:49:11.861 26960-26988/com.example.myapplication I/chatty: uid=10346(com.example.myapplication) AsyncTask #1 identical 3 lines
+2020-04-07 20:49:11.954 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:49:12.096 26960-26988/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-07 20:49:12.127 26960-26988/com.example.myapplication I/System.out: Ggg
+2020-04-07 20:49:12.230 26960-26975/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 625544(16MB) AllocSpace objects, 0(0B) LOS objects, 49% free, 13MB/26MB, paused 44us total 207.506ms
+2020-04-07 20:49:15.065 26960-26988/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-07 20:49:15.117 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:15.257 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:15.382 26960-26975/com.example.myapplication I/e.myapplicatio: Background young concurrent copying GC freed 331778(8714KB) AllocSpace objects, 5(208KB) LOS objects, 9% free, 24MB/26MB, paused 36us total 113.876ms
+2020-04-07 20:49:15.407 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:15.521 26960-26975/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 735311(21MB) AllocSpace objects, 0(0B) LOS objects, 49% free, 11MB/22MB, paused 32us total 104.447ms
+2020-04-07 20:49:15.558 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:15.832 26960-26988/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-07 20:49:15.960 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:16.000 26960-26975/com.example.myapplication I/e.myapplicatio: Background young concurrent copying GC freed 355371(9144KB) AllocSpace objects, 0(0B) LOS objects, 15% free, 18MB/22MB, paused 40us total 104.092ms
+2020-04-07 20:49:16.067 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:16.173 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:16.274 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:16.365 26960-26988/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-07 20:49:16.432 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:16.488 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:16.515 26960-26975/com.example.myapplication I/e.myapplicatio: Background young concurrent copying GC freed 337357(8781KB) AllocSpace objects, 3(116KB) LOS objects, 15% free, 18MB/21MB, paused 34us total 105.426ms
+2020-04-07 20:49:16.542 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:16.596 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:16.719 26960-26988/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-07 20:49:17.272 26960-26988/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-07 20:49:17.381 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:17.382 26960-26988/com.example.myapplication I/System.out: 50298089150728546711149583894085297317075858111944533847667318478984852756414
+2020-04-07 20:49:17.382 26960-26988/com.example.myapplication I/System.out: 50298089150728546711149583894085297317075858111944533847667318478984852756414
+2020-04-07 20:49:17.484 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:17.485 26960-26988/com.example.myapplication I/System.out: -10404203045548372314392200193499912702597915610397822928075592484647823170731
+2020-04-07 20:49:17.485 26960-26988/com.example.myapplication I/System.out: -10404203045548372314392200193499912702597915610397822928075592484647823170731
+2020-04-07 20:49:17.589 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:17.590 26960-26988/com.example.myapplication I/System.out: -6930842414888189573612432279239858075492184268488509628430487416914098181560
+2020-04-07 20:49:17.590 26960-26988/com.example.myapplication I/System.out: -6930842414888189573612432279239858075492184268488509628430487416914098181560
+2020-04-07 20:49:17.687 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:17.688 26960-26988/com.example.myapplication I/System.out: 47061626818642925993523615973461621659282784896526509926584028589160709537887
+2020-04-07 20:49:17.688 26960-26988/com.example.myapplication I/System.out: 47061626818642925993523615973461621659282784896526509926584028589160709537887
+2020-04-07 20:49:17.965 26960-26988/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-07 20:49:18.012 26960-26988/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-07 20:49:18.012 26960-26988/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):482
+2020-04-07 20:49:18.012 26960-26988/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):589
+2020-04-07 20:49:18.012 26960-26988/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):441
+2020-04-07 20:49:18.012 26960-26988/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):231
+2020-04-07 20:49:18.012 26960-26988/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):342
+2020-04-07 20:49:18.012 26960-26988/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):416
+2020-04-07 20:49:18.012 26960-26988/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):47
+2020-04-07 20:49:18.013 26960-26960/com.example.myapplication D/speke: DONE
+2020-04-07 20:49:33.451 26960-26960/com.example.myapplication D/button: print test 2
+2020-04-07 20:49:33.451 26960-26960/com.example.myapplication D/button: connect button pressed
+2020-04-07 20:49:33.634 26960-26988/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-07 20:49:33.638 26960-26988/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-07 20:49:36.977 26960-26988/com.example.myapplication D/ec: eeee
+2020-04-07 20:49:37.014 26960-26988/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-07 20:49:37.014 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:49:37.014 26960-26988/com.example.myapplication I/chatty: uid=10346(com.example.myapplication) AsyncTask #1 identical 1 line
+2020-04-07 20:49:37.132 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:49:37.225 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:49:37.259 26960-26977/com.example.myapplication W/System: A resource failed to call close. 
+2020-04-07 20:49:37.320 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:49:37.468 26960-26988/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-07 20:49:37.481 26960-26988/com.example.myapplication I/System.out: Ggg
+2020-04-07 20:49:39.623 26960-26988/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-07 20:49:39.681 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:39.827 26960-26988/com.example.myapplication I/chatty: uid=10346(com.example.myapplication) AsyncTask #1 identical 1 line
+2020-04-07 20:49:39.974 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:40.124 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:40.288 26960-26988/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-07 20:49:40.390 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:40.609 26960-26988/com.example.myapplication I/chatty: uid=10346(com.example.myapplication) AsyncTask #1 identical 2 lines
+2020-04-07 20:49:40.727 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:41.021 26960-26988/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-07 20:49:41.072 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:41.123 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:41.197 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:41.250 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:41.266 26960-26988/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-07 20:49:41.857 26960-26988/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-07 20:49:41.961 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:41.962 26960-26988/com.example.myapplication I/System.out: 31576984903956327899283347821552766431287579462730621832440302869198558406701
+2020-04-07 20:49:41.962 26960-26988/com.example.myapplication I/System.out: 31576984903956327899283347821552766431287579462730621832440302869198558406701
+2020-04-07 20:49:42.059 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:42.060 26960-26988/com.example.myapplication I/System.out: 51043254279519165391791875756805574631995596161301170435659134642595328604930
+2020-04-07 20:49:42.060 26960-26988/com.example.myapplication I/System.out: 51043254279519165391791875756805574631995596161301170435659134642595328604930
+2020-04-07 20:49:42.167 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:42.168 26960-26988/com.example.myapplication I/System.out: 28767030050735017069182651780941815278290223794204626998007556781559511266033
+2020-04-07 20:49:42.168 26960-26988/com.example.myapplication I/System.out: 28767030050735017069182651780941815278290223794204626998007556781559511266033
+2020-04-07 20:49:42.268 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:42.268 26960-26988/com.example.myapplication I/System.out: 25358913254027713510943701168608849794280797615886886510030548301834132205349
+2020-04-07 20:49:42.269 26960-26988/com.example.myapplication I/System.out: 25358913254027713510943701168608849794280797615886886510030548301834132205349
+2020-04-07 20:49:42.547 26960-26988/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-07 20:49:42.577 26960-26988/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-07 20:49:42.577 26960-26988/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):454
+2020-04-07 20:49:42.577 26960-26988/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):606
+2020-04-07 20:49:42.577 26960-26988/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):439
+2020-04-07 20:49:42.577 26960-26988/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):229
+2020-04-07 20:49:42.577 26960-26988/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):313
+2020-04-07 20:49:42.577 26960-26988/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):412
+2020-04-07 20:49:42.577 26960-26988/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):30
+2020-04-07 20:49:42.578 26960-26960/com.example.myapplication D/speke: DONE
+2020-04-07 20:51:09.559 26960-26960/com.example.myapplication D/button: print test 2
+2020-04-07 20:51:09.559 26960-26960/com.example.myapplication D/button: connect button pressed
+2020-04-07 20:51:09.797 26960-26988/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-07 20:51:09.800 26960-26988/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-07 20:51:12.934 26960-26988/com.example.myapplication D/ec: eeee
+2020-04-07 20:51:13.044 26960-26988/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-07 20:51:13.044 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:51:13.044 26960-26988/com.example.myapplication I/chatty: uid=10346(com.example.myapplication) AsyncTask #1 identical 1 line
+2020-04-07 20:51:13.156 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:51:13.205 26960-26977/com.example.myapplication W/System: A resource failed to call close. 
+2020-04-07 20:51:13.250 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:51:13.347 26960-26988/com.example.myapplication I/System.out: true
+2020-04-07 20:51:13.491 26960-26988/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-07 20:51:13.502 26960-26988/com.example.myapplication I/System.out: Ggg
+2020-04-07 20:51:15.968 26960-26988/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-07 20:51:16.028 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:16.176 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:16.326 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:16.492 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:16.576 26960-26975/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 365332(10MB) AllocSpace objects, 0(0B) LOS objects, 49% free, 11MB/22MB, paused 107us total 101.401ms
+2020-04-07 20:51:16.861 26960-26988/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-07 20:51:16.985 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:17.089 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:17.148 26960-26975/com.example.myapplication I/e.myapplicatio: Background young concurrent copying GC freed 341574(8796KB) AllocSpace objects, 0(0B) LOS objects, 12% free, 19MB/22MB, paused 30us total 109.623ms
+2020-04-07 20:51:17.195 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:17.303 26960-26975/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 554877(15MB) AllocSpace objects, 1(32KB) LOS objects, 49% free, 13MB/26MB, paused 40us total 117.365ms
+2020-04-07 20:51:17.303 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:17.423 26960-26988/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-07 20:51:17.493 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:17.596 26960-26988/com.example.myapplication I/chatty: uid=10346(com.example.myapplication) AsyncTask #1 identical 2 lines
+2020-04-07 20:51:17.647 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:17.774 26960-26975/com.example.myapplication I/e.myapplicatio: Background young concurrent copying GC freed 418828(10MB) AllocSpace objects, 4(160KB) LOS objects, 42% free, 15MB/26MB, paused 39us total 127.643ms
+2020-04-07 20:51:18.089 26960-26988/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-07 20:51:18.409 26960-26975/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 723334(20MB) AllocSpace objects, 1(20KB) LOS objects, 49% free, 12MB/24MB, paused 34us total 109.894ms
+2020-04-07 20:51:18.718 26960-26988/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-07 20:51:18.830 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:18.831 26960-26988/com.example.myapplication I/System.out: 55947032476276097451643551028980276656642410158219807458119079787234070154198
+2020-04-07 20:51:18.831 26960-26988/com.example.myapplication I/System.out: 55947032476276097451643551028980276656642410158219807458119079787234070154198
+2020-04-07 20:51:18.932 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:18.933 26960-26988/com.example.myapplication I/System.out: 46365566576218392930146560088787597912531488733276408117195095586807830815104
+2020-04-07 20:51:18.933 26960-26988/com.example.myapplication I/System.out: 46365566576218392930146560088787597912531488733276408117195095586807830815104
+2020-04-07 20:51:19.035 26960-26975/com.example.myapplication I/e.myapplicatio: Background young concurrent copying GC freed 399645(10MB) AllocSpace objects, 2(48KB) LOS objects, 14% free, 21MB/24MB, paused 39us total 123.386ms
+2020-04-07 20:51:19.035 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:19.036 26960-26988/com.example.myapplication I/System.out: -18018693928566519021889029191096575111924109997433597629220143329262080659842
+2020-04-07 20:51:19.036 26960-26988/com.example.myapplication I/System.out: -18018693928566519021889029191096575111924109997433597629220143329262080659842
+2020-04-07 20:51:19.142 26960-26988/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:51:19.143 26960-26988/com.example.myapplication I/System.out: -21303241654495050844160964056239011304986095953436272714657814665773838300444
+2020-04-07 20:51:19.143 26960-26988/com.example.myapplication I/System.out: -21303241654495050844160964056239011304986095953436272714657814665773838300444
+2020-04-07 20:51:19.160 26960-26988/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-07 20:51:19.190 26960-26988/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-07 20:51:19.190 26960-26988/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):447
+2020-04-07 20:51:19.190 26960-26988/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):634
+2020-04-07 20:51:19.190 26960-26988/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):442
+2020-04-07 20:51:19.190 26960-26988/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):225
+2020-04-07 20:51:19.191 26960-26988/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):334
+2020-04-07 20:51:19.191 26960-26988/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):426
+2020-04-07 20:51:19.191 26960-26988/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):30
+2020-04-07 20:51:19.191 26960-26960/com.example.myapplication D/speke: DONE

@@ -1,0 +1,180 @@
+2020-03-02 21:02:05.555 12973-12973/com.example.myapplication D/button: print test 2
+2020-03-02 21:02:05.555 12973-12973/com.example.myapplication D/button: connect button pressed
+2020-03-02 21:02:05.652 12973-13043/com.example.myapplication D/connect: SERVER
+2020-03-02 21:02:05.691 12973-13043/com.example.myapplication D/connect: 1
+2020-03-02 21:02:05.831 12973-13043/com.example.myapplication I/System.out:  LINE: SUBMITNAME
+2020-03-02 21:02:05.831 12973-13043/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-03-02 21:02:05.838 12973-13043/com.example.myapplication I/System.out:  LINE: NAMEACCEPTED
+2020-03-02 21:02:05.838 12973-13043/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-03-02 21:02:08.849 12973-13043/com.example.myapplication D/JPAKE: eeee
+2020-03-02 21:02:09.018 12973-13043/com.example.myapplication I/System.out: {"clientIDs":[12,13,14]}
+2020-03-02 21:02:09.019 12973-13043/com.example.myapplication D/JPAKE: *************** ROUND 1 ***************
+2020-03-02 21:02:09.019 12973-13043/com.example.myapplication I/System.out: true
+2020-03-02 21:02:09.019 12973-13043/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #3 identical 1 line
+2020-03-02 21:02:09.032 12973-13043/com.example.myapplication I/System.out: true
+2020-03-02 21:02:09.050 12973-13043/com.example.myapplication D/JPAKE: ********** SEND ROUND 1 DATA **********
+2020-03-02 21:02:10.423 12973-13043/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 1 ***********
+2020-03-02 21:02:10.535 12973-13043/com.example.myapplication D/JPAKE: *************** ROUND 2 ***************
+2020-03-02 21:02:10.674 12973-13043/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 2 ***********
+2020-03-02 21:02:10.892 12973-13043/com.example.myapplication D/JPAKE: *************** ROUND 3 ***************
+2020-03-02 21:02:10.998 12973-13043/com.example.myapplication D/JPAKE: *************** ROUND 4 ***************
+2020-03-02 21:02:11.016 12973-13043/com.example.myapplication I/System.out: 4238135322824263245432708547757784201568956512107301399050616545939191764959
+2020-03-02 21:02:11.016 12973-13043/com.example.myapplication I/System.out: 4238135322824263245432708547757784201568956512107301399050616545939191764959
+2020-03-02 21:02:11.032 12973-13043/com.example.myapplication I/System.out: 33027665397402360934928867282255325572168150189443124884493553202180161124782
+2020-03-02 21:02:11.032 12973-13043/com.example.myapplication I/System.out: 33027665397402360934928867282255325572168150189443124884493553202180161124782
+2020-03-02 21:02:11.147 12973-13043/com.example.myapplication D/JPAKE: *********** KEY COMPUTATION ***********
+2020-03-02 21:02:11.154 12973-13043/com.example.myapplication I/System.out: Latency of Each Round JPAKE+
+2020-03-02 21:02:11.154 12973-13043/com.example.myapplication D/jpake: 1) Latency of computing round 1 per participant (ms):32
+2020-03-02 21:02:11.155 12973-13043/com.example.myapplication D/jpake: 2) Latency of verifying data in round 1 per participant (ms):64
+2020-03-02 21:02:11.155 12973-13043/com.example.myapplication D/jpake: 3) Latency of computing round 2 per participant (ms):104
+2020-03-02 21:02:11.155 12973-13043/com.example.myapplication D/jpake: 4) Latency of verifying round 2 per participant (ms):28
+2020-03-02 21:02:11.155 12973-13043/com.example.myapplication D/jpake: 5) Latency of computing round 3 per participant (ms):244
+2020-03-02 21:02:11.155 12973-13043/com.example.myapplication D/jpake: 6) Latency of verifying round 3 for participant (ms):34
+2020-03-02 21:02:11.155 12973-13043/com.example.myapplication D/jpake: 7) Latency of computing key for participant (ms):6
+2020-03-02 21:02:11.155 12973-13043/com.example.myapplication D/jpake: -6e899df59b5e35d58091234f58fda72730d5e60d09976e25a6f44a42d1f29381
+2020-03-02 21:02:11.156 12973-12973/com.example.myapplication D/jpake: DONE
+2020-03-02 21:02:17.879 12973-12973/com.example.myapplication D/button: print test 2
+2020-03-02 21:02:17.879 12973-12973/com.example.myapplication D/button: connect button pressed
+2020-03-02 21:02:17.898 12973-13045/com.example.myapplication D/connect: SERVER
+2020-03-02 21:02:17.911 12973-13045/com.example.myapplication D/connect: 1
+2020-03-02 21:02:18.036 12973-13045/com.example.myapplication I/System.out:  LINE: SUBMITNAME
+2020-03-02 21:02:18.036 12973-13045/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-03-02 21:02:18.045 12973-13045/com.example.myapplication I/System.out:  LINE: NAMEACCEPTED
+2020-03-02 21:02:18.045 12973-13045/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-03-02 21:02:21.056 12973-13045/com.example.myapplication D/JPAKE: eeee
+2020-03-02 21:02:21.099 12973-12988/com.example.myapplication W/System: A resource failed to call close. 
+2020-03-02 21:02:21.121 12973-13045/com.example.myapplication I/System.out: {"clientIDs":[12,13,14]}
+2020-03-02 21:02:21.121 12973-13045/com.example.myapplication D/JPAKE: *************** ROUND 1 ***************
+2020-03-02 21:02:21.121 12973-13045/com.example.myapplication I/System.out: true
+2020-03-02 21:02:21.121 12973-13045/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #4 identical 1 line
+2020-03-02 21:02:21.135 12973-13045/com.example.myapplication I/System.out: true
+2020-03-02 21:02:21.152 12973-13045/com.example.myapplication D/JPAKE: ********** SEND ROUND 1 DATA **********
+2020-03-02 21:02:23.347 12973-13045/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 1 ***********
+2020-03-02 21:02:25.249 12973-13045/com.example.myapplication D/JPAKE: *************** ROUND 2 ***************
+2020-03-02 21:02:25.407 12973-13045/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 2 ***********
+2020-03-02 21:02:25.537 12973-13045/com.example.myapplication D/JPAKE: *************** ROUND 3 ***************
+2020-03-02 21:02:25.663 12973-13045/com.example.myapplication D/JPAKE: *************** ROUND 4 ***************
+2020-03-02 21:02:25.688 12973-13045/com.example.myapplication I/System.out: -2502047256642438679220434208996201166950061735790092645225923371013634474621
+2020-03-02 21:02:25.688 12973-13045/com.example.myapplication I/System.out: -2502047256642438679220434208996201166950061735790092645225923371013634474621
+2020-03-02 21:02:25.707 12973-13045/com.example.myapplication I/System.out: 30875930540537984483266306961282323103243719089327355903055647761674417539211
+2020-03-02 21:02:25.708 12973-13045/com.example.myapplication I/System.out: 30875930540537984483266306961282323103243719089327355903055647761674417539211
+2020-03-02 21:02:25.746 12973-13045/com.example.myapplication D/JPAKE: *********** KEY COMPUTATION ***********
+2020-03-02 21:02:25.752 12973-13045/com.example.myapplication I/System.out: Latency of Each Round JPAKE+
+2020-03-02 21:02:25.753 12973-13045/com.example.myapplication D/jpake: 1) Latency of computing round 1 per participant (ms):31
+2020-03-02 21:02:25.753 12973-13045/com.example.myapplication D/jpake: 2) Latency of verifying data in round 1 per participant (ms):62
+2020-03-02 21:02:25.754 12973-13045/com.example.myapplication D/jpake: 3) Latency of computing round 2 per participant (ms):14
+2020-03-02 21:02:25.754 12973-13045/com.example.myapplication D/jpake: 4) Latency of verifying round 2 per participant (ms):18
+2020-03-02 21:02:25.754 12973-13045/com.example.myapplication D/jpake: 5) Latency of computing round 3 per participant (ms):153
+2020-03-02 21:02:25.754 12973-13045/com.example.myapplication D/jpake: 6) Latency of verifying round 3 for participant (ms):45
+2020-03-02 21:02:25.754 12973-13045/com.example.myapplication D/jpake: 7) Latency of computing key for participant (ms):5
+2020-03-02 21:02:25.754 12973-13045/com.example.myapplication D/jpake: -b35b1880e04ebb336f2200b3f461dad8777de2c4d4db0199c2c04e5efd494ea
+2020-03-02 21:02:25.754 12973-12973/com.example.myapplication D/jpake: DONE
+2020-03-02 21:02:53.317 12973-12973/com.example.myapplication D/button: print test 2
+2020-03-02 21:02:53.317 12973-12973/com.example.myapplication D/button: connect button pressed
+2020-03-02 21:02:53.320 12973-13048/com.example.myapplication D/connect: SERVER
+2020-03-02 21:02:53.327 12973-13048/com.example.myapplication D/connect: 1
+2020-03-02 21:02:53.460 12973-13048/com.example.myapplication I/System.out:  LINE: SUBMITNAME
+2020-03-02 21:02:53.460 12973-13048/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-03-02 21:02:53.465 12973-13048/com.example.myapplication I/System.out:  LINE: NAMEACCEPTED
+2020-03-02 21:02:53.465 12973-13048/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-03-02 21:02:56.503 12973-13048/com.example.myapplication D/JPAKE: eeee
+2020-03-02 21:02:56.541 12973-12988/com.example.myapplication W/System: A resource failed to call close. 
+2020-03-02 21:02:56.565 12973-13048/com.example.myapplication I/System.out: {"clientIDs":[12,13,14]}
+2020-03-02 21:02:56.565 12973-13048/com.example.myapplication D/JPAKE: *************** ROUND 1 ***************
+2020-03-02 21:02:56.565 12973-13048/com.example.myapplication I/System.out: true
+2020-03-02 21:02:56.565 12973-13048/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #5 identical 1 line
+2020-03-02 21:02:56.578 12973-13048/com.example.myapplication I/System.out: true
+2020-03-02 21:02:56.595 12973-13048/com.example.myapplication D/JPAKE: ********** SEND ROUND 1 DATA **********
+2020-03-02 21:02:58.187 12973-13048/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 1 ***********
+2020-03-02 21:02:58.726 12973-13048/com.example.myapplication D/JPAKE: *************** ROUND 2 ***************
+2020-03-02 21:02:58.798 12973-13048/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 2 ***********
+2020-03-02 21:02:58.903 12973-13048/com.example.myapplication D/JPAKE: *************** ROUND 3 ***************
+2020-03-02 21:02:58.993 12973-13048/com.example.myapplication D/JPAKE: *************** ROUND 4 ***************
+2020-03-02 21:02:59.075 12973-13048/com.example.myapplication I/System.out: -43558432595922167581750201825232753494949574596737033387297942032099603427148
+2020-03-02 21:02:59.075 12973-13048/com.example.myapplication I/System.out: -43558432595922167581750201825232753494949574596737033387297942032099603427148
+2020-03-02 21:02:59.098 12973-12983/com.example.myapplication I/e.myapplicatio: Compiler allocated 4MB to compile java.lang.Long com.example.myapplication.JPAKEPlus.JPAKEPlus.doInBackground(android.widget.Button[])
+2020-03-02 21:02:59.109 12973-13048/com.example.myapplication I/System.out: 34748555326918521564712552859668229048847343417037246397253436622244832755150
+2020-03-02 21:02:59.109 12973-13048/com.example.myapplication I/System.out: 34748555326918521564712552859668229048847343417037246397253436622244832755150
+2020-03-02 21:02:59.112 12973-13048/com.example.myapplication D/JPAKE: *********** KEY COMPUTATION ***********
+2020-03-02 21:02:59.118 12973-13048/com.example.myapplication I/System.out: Latency of Each Round JPAKE+
+2020-03-02 21:02:59.118 12973-13048/com.example.myapplication D/jpake: 1) Latency of computing round 1 per participant (ms):30
+2020-03-02 21:02:59.118 12973-13048/com.example.myapplication D/jpake: 2) Latency of verifying data in round 1 per participant (ms):61
+2020-03-02 21:02:59.118 12973-13048/com.example.myapplication D/jpake: 3) Latency of computing round 2 per participant (ms):15
+2020-03-02 21:02:59.118 12973-13048/com.example.myapplication D/jpake: 4) Latency of verifying round 2 per participant (ms):19
+2020-03-02 21:02:59.118 12973-13048/com.example.myapplication D/jpake: 5) Latency of computing round 3 per participant (ms):128
+2020-03-02 21:02:59.118 12973-13048/com.example.myapplication D/jpake: 6) Latency of verifying round 3 for participant (ms):117
+2020-03-02 21:02:59.118 12973-13048/com.example.myapplication D/jpake: 7) Latency of computing key for participant (ms):6
+2020-03-02 21:02:59.118 12973-13048/com.example.myapplication D/jpake: 22e4d79feb89dc04f88e56bfa23825ae16fa897c2fb195504ef1e796ae2a75b3
+2020-03-02 21:02:59.119 12973-12973/com.example.myapplication D/jpake: DONE
+2020-03-02 21:03:07.549 12973-12973/com.example.myapplication D/button: print test 2
+2020-03-02 21:03:07.550 12973-12973/com.example.myapplication D/button: connect button pressed
+2020-03-02 21:03:07.564 12973-13050/com.example.myapplication D/connect: SERVER
+2020-03-02 21:03:07.575 12973-13050/com.example.myapplication D/connect: 1
+2020-03-02 21:03:07.713 12973-13050/com.example.myapplication I/System.out:  LINE: SUBMITNAME
+2020-03-02 21:03:07.713 12973-13050/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-03-02 21:03:07.716 12973-13050/com.example.myapplication I/System.out:  LINE: NAMEACCEPTED
+2020-03-02 21:03:07.716 12973-13050/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-03-02 21:03:10.740 12973-13050/com.example.myapplication D/JPAKE: eeee
+2020-03-02 21:03:10.772 12973-12988/com.example.myapplication W/System: A resource failed to call close. 
+2020-03-02 21:03:10.803 12973-13050/com.example.myapplication I/System.out: {"clientIDs":[12,13,14]}
+2020-03-02 21:03:10.803 12973-13050/com.example.myapplication D/JPAKE: *************** ROUND 1 ***************
+2020-03-02 21:03:10.803 12973-13050/com.example.myapplication I/System.out: true
+2020-03-02 21:03:10.803 12973-13050/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #6 identical 1 line
+2020-03-02 21:03:10.817 12973-13050/com.example.myapplication I/System.out: true
+2020-03-02 21:03:10.834 12973-13050/com.example.myapplication D/JPAKE: ********** SEND ROUND 1 DATA **********
+2020-03-02 21:03:13.008 12973-13050/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 1 ***********
+2020-03-02 21:03:13.517 12973-13050/com.example.myapplication D/JPAKE: *************** ROUND 2 ***************
+2020-03-02 21:03:13.802 12973-13050/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 2 ***********
+2020-03-02 21:03:13.999 12973-13050/com.example.myapplication D/JPAKE: *************** ROUND 3 ***************
+2020-03-02 21:03:14.190 12973-13050/com.example.myapplication D/JPAKE: *************** ROUND 4 ***************
+2020-03-02 21:03:14.207 12973-13050/com.example.myapplication I/System.out: -44422565261715258581294067709363305614950306176313641051265596701606883498304
+2020-03-02 21:03:14.207 12973-13050/com.example.myapplication I/System.out: -44422565261715258581294067709363305614950306176313641051265596701606883498304
+2020-03-02 21:03:14.224 12973-13050/com.example.myapplication I/System.out: 39855368178809301657479535455143059986492656164390437878474627215524570384654
+2020-03-02 21:03:14.225 12973-13050/com.example.myapplication I/System.out: 39855368178809301657479535455143059986492656164390437878474627215524570384654
+2020-03-02 21:03:14.408 12973-13050/com.example.myapplication D/JPAKE: *********** KEY COMPUTATION ***********
+2020-03-02 21:03:14.413 12973-13050/com.example.myapplication I/System.out: Latency of Each Round JPAKE+
+2020-03-02 21:03:14.414 12973-13050/com.example.myapplication D/jpake: 1) Latency of computing round 1 per participant (ms):31
+2020-03-02 21:03:14.414 12973-13050/com.example.myapplication D/jpake: 2) Latency of verifying data in round 1 per participant (ms):59
+2020-03-02 21:03:14.414 12973-13050/com.example.myapplication D/jpake: 3) Latency of computing round 2 per participant (ms):13
+2020-03-02 21:03:14.414 12973-13050/com.example.myapplication D/jpake: 4) Latency of verifying round 2 per participant (ms):20
+2020-03-02 21:03:14.414 12973-13050/com.example.myapplication D/jpake: 5) Latency of computing round 3 per participant (ms):221
+2020-03-02 21:03:14.414 12973-13050/com.example.myapplication D/jpake: 6) Latency of verifying round 3 for participant (ms):36
+2020-03-02 21:03:14.414 12973-13050/com.example.myapplication D/jpake: 7) Latency of computing key for participant (ms):5
+2020-03-02 21:03:14.414 12973-13050/com.example.myapplication D/jpake: -12a39b022163b067b4cb116cebcba76bceb05f089118d533518efa709c70ef77
+2020-03-02 21:03:14.414 12973-12973/com.example.myapplication D/jpake: DONE
+2020-03-02 21:03:23.286 12973-12973/com.example.myapplication D/button: print test 2
+2020-03-02 21:03:23.286 12973-12973/com.example.myapplication D/button: connect button pressed
+2020-03-02 21:03:23.292 12973-13048/com.example.myapplication D/connect: SERVER
+2020-03-02 21:03:23.297 12973-13048/com.example.myapplication D/connect: 1
+2020-03-02 21:03:23.430 12973-13048/com.example.myapplication I/System.out:  LINE: SUBMITNAME
+2020-03-02 21:03:23.432 12973-13048/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-03-02 21:03:23.441 12973-13048/com.example.myapplication I/System.out:  LINE: NAMEACCEPTED
+2020-03-02 21:03:23.441 12973-13048/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-03-02 21:03:26.460 12973-13048/com.example.myapplication D/JPAKE: eeee
+2020-03-02 21:03:26.496 12973-12988/com.example.myapplication W/System: A resource failed to call close. 
+2020-03-02 21:03:26.522 12973-13048/com.example.myapplication I/System.out: {"clientIDs":[12,13,14]}
+2020-03-02 21:03:26.522 12973-13048/com.example.myapplication D/JPAKE: *************** ROUND 1 ***************
+2020-03-02 21:03:26.522 12973-13048/com.example.myapplication I/System.out: true
+2020-03-02 21:03:26.522 12973-13048/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #5 identical 1 line
+2020-03-02 21:03:26.535 12973-13048/com.example.myapplication I/System.out: true
+2020-03-02 21:03:26.553 12973-13048/com.example.myapplication D/JPAKE: ********** SEND ROUND 1 DATA **********
+2020-03-02 21:03:28.189 12973-13048/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 1 ***********
+2020-03-02 21:03:28.375 12973-13048/com.example.myapplication D/JPAKE: *************** ROUND 2 ***************
+2020-03-02 21:03:28.445 12973-13048/com.example.myapplication D/JPAKE: ************ VERIFY ROUND 2 ***********
+2020-03-02 21:03:28.524 12973-13048/com.example.myapplication D/JPAKE: *************** ROUND 3 ***************
+2020-03-02 21:03:28.778 12973-13048/com.example.myapplication D/JPAKE: *************** ROUND 4 ***************
+2020-03-02 21:03:28.798 12973-13048/com.example.myapplication I/System.out: -1638483488313343499338254743056359660994708556426581259165011855985395238498
+2020-03-02 21:03:28.798 12973-13048/com.example.myapplication I/System.out: -1638483488313343499338254743056359660994708556426581259165011855985395238498
+2020-03-02 21:03:28.815 12973-13048/com.example.myapplication I/System.out: -42218459836000178581096916435416066609365661194202674356444190658464002712631
+2020-03-02 21:03:28.815 12973-13048/com.example.myapplication I/System.out: -42218459836000178581096916435416066609365661194202674356444190658464002712631
+2020-03-02 21:03:29.117 12973-13048/com.example.myapplication D/JPAKE: *********** KEY COMPUTATION ***********
+2020-03-02 21:03:29.122 12973-13048/com.example.myapplication I/System.out: Latency of Each Round JPAKE+
+2020-03-02 21:03:29.123 12973-13048/com.example.myapplication D/jpake: 1) Latency of computing round 1 per participant (ms):31
+2020-03-02 21:03:29.123 12973-13048/com.example.myapplication D/jpake: 2) Latency of verifying data in round 1 per participant (ms):58
+2020-03-02 21:03:29.123 12973-13048/com.example.myapplication D/jpake: 3) Latency of computing round 2 per participant (ms):13
+2020-03-02 21:03:29.123 12973-13048/com.example.myapplication D/jpake: 4) Latency of verifying round 2 per participant (ms):20
+2020-03-02 21:03:29.123 12973-13048/com.example.myapplication D/jpake: 5) Latency of computing round 3 per participant (ms):100
+2020-03-02 21:03:29.123 12973-13048/com.example.myapplication D/jpake: 6) Latency of verifying round 3 for participant (ms):38
+2020-03-02 21:03:29.123 12973-13048/com.example.myapplication D/jpake: 7) Latency of computing key for participant (ms):5
+2020-03-02 21:03:29.123 12973-13048/com.example.myapplication D/jpake: -5e17af6104ea4dc150f396b741521580a9bb3d6f4aca8fa87de1bd2861e477cf
+2020-03-02 21:03:29.123 12973-12973/com.example.myapplication D/jpake: DONE

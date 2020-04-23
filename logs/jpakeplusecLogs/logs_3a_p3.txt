@@ -1,0 +1,121 @@
+2020-04-06 22:16:45.891 14591-14591/com.example.myapplication D/button: print test 2
+2020-04-06 22:16:45.891 14591-14591/com.example.myapplication D/button: connect button pressed
+2020-04-06 22:16:46.356 14591-14648/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-06 22:16:46.363 14591-14648/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-06 22:16:49.421 14591-14648/com.example.myapplication D/ec: eeee
+2020-04-06 22:16:49.446 14591-14648/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-06 22:16:49.447 14591-14648/com.example.myapplication I/System.out: true
+2020-04-06 22:16:49.628 14591-14648/com.example.myapplication I/chatty: uid=10346(com.example.myapplication) AsyncTask #2 identical 1 line
+2020-04-06 22:16:49.628 14591-14648/com.example.myapplication I/System.out: true
+2020-04-06 22:16:49.821 14591-14648/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-06 22:16:49.834 14591-14648/com.example.myapplication I/System.out: Ggg
+2020-04-06 22:16:50.061 14591-14648/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-06 22:16:50.120 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:16:50.442 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:16:50.667 14591-14648/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-06 22:16:50.791 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:16:50.892 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:16:51.210 14591-14648/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-06 22:16:51.330 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:16:51.460 14591-14613/com.example.myapplication I/e.myapplicatio: Background young concurrent copying GC freed 170148(4446KB) AllocSpace objects, 0(0B) LOS objects, 25% free, 8956KB/11MB, paused 50us total 105.003ms
+2020-04-06 22:16:51.508 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:16:51.881 14591-14648/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-06 22:16:52.501 14591-14648/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-06 22:16:52.608 14591-14613/com.example.myapplication I/e.myapplicatio: Background young concurrent copying GC freed 232002(6015KB) AllocSpace objects, 0(0B) LOS objects, 7% free, 13MB/14MB, paused 35us total 103.743ms
+2020-04-06 22:16:52.636 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:16:52.638 14591-14648/com.example.myapplication I/System.out: -20619241063065296708392188829717042451930709701107741367949009839271118153971
+2020-04-06 22:16:52.638 14591-14648/com.example.myapplication I/System.out: -20619241063065296708392188829717042451930709701107741367949009839271118153971
+2020-04-06 22:16:52.743 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:16:52.744 14591-14648/com.example.myapplication I/System.out: 9733038937930555373355481695170222160596212225583103918173773449255189373247
+2020-04-06 22:16:52.744 14591-14648/com.example.myapplication I/System.out: 9733038937930555373355481695170222160596212225583103918173773449255189373247
+2020-04-06 22:16:53.109 14591-14648/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-06 22:16:53.137 14591-14648/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-06 22:16:53.137 14591-14648/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):376
+2020-04-06 22:16:53.137 14591-14648/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):581
+2020-04-06 22:16:53.137 14591-14648/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):226
+2020-04-06 22:16:53.137 14591-14648/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):298
+2020-04-06 22:16:53.137 14591-14648/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):235
+2020-04-06 22:16:53.137 14591-14648/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):243
+2020-04-06 22:16:53.137 14591-14648/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):27
+2020-04-06 22:16:53.138 14591-14591/com.example.myapplication D/speke: DONE
+2020-04-06 22:17:12.392 14591-14591/com.example.myapplication D/button: print test 2
+2020-04-06 22:17:12.392 14591-14591/com.example.myapplication D/button: connect button pressed
+2020-04-06 22:17:13.077 14591-14648/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-06 22:17:13.384 14591-14648/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-06 22:17:16.608 14591-14648/com.example.myapplication D/ec: eeee
+2020-04-06 22:17:16.611 14591-14648/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-06 22:17:16.612 14591-14648/com.example.myapplication I/System.out: true
+2020-04-06 22:17:16.766 14591-14648/com.example.myapplication I/System.out: true
+2020-04-06 22:17:16.766 14591-14648/com.example.myapplication I/System.out: true
+2020-04-06 22:17:16.934 14591-14648/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-06 22:17:16.943 14591-14615/com.example.myapplication W/System: A resource failed to call close. 
+2020-04-06 22:17:16.945 14591-14648/com.example.myapplication I/System.out: Ggg
+2020-04-06 22:17:17.611 14591-14648/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-06 22:17:17.669 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:17.829 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:18.300 14591-14648/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-06 22:17:18.430 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:18.546 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:18.618 14591-14648/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-06 22:17:18.675 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:18.734 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:18.738 14591-14648/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-06 22:17:19.227 14591-14648/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-06 22:17:19.344 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:19.345 14591-14648/com.example.myapplication I/System.out: 29401907898198221064916918860685315462009552958335321157960799352735949201228
+2020-04-06 22:17:19.345 14591-14648/com.example.myapplication I/System.out: 29401907898198221064916918860685315462009552958335321157960799352735949201228
+2020-04-06 22:17:19.469 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:19.470 14591-14648/com.example.myapplication I/System.out: 48703293234924766020768235820020469199226348646707938387624022297199334033198
+2020-04-06 22:17:19.470 14591-14648/com.example.myapplication I/System.out: 48703293234924766020768235820020469199226348646707938387624022297199334033198
+2020-04-06 22:17:19.480 14591-14648/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-06 22:17:19.517 14591-14648/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-06 22:17:19.517 14591-14648/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):323
+2020-04-06 22:17:19.517 14591-14648/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):332
+2020-04-06 22:17:19.517 14591-14648/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):246
+2020-04-06 22:17:19.517 14591-14648/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):115
+2020-04-06 22:17:19.517 14591-14648/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):224
+2020-04-06 22:17:19.517 14591-14648/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):243
+2020-04-06 22:17:19.517 14591-14648/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):36
+2020-04-06 22:17:19.518 14591-14591/com.example.myapplication D/speke: DONE
+2020-04-06 22:17:27.202 14591-14591/com.example.myapplication I/Choreographer: Skipped 34 frames!  The application may be doing too much work on its main thread.
+2020-04-06 22:17:27.205 14591-14591/com.example.myapplication D/button: print test 2
+2020-04-06 22:17:27.205 14591-14591/com.example.myapplication D/button: connect button pressed
+2020-04-06 22:17:27.254 14591-14648/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-06 22:17:27.258 14591-14648/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-06 22:17:30.371 14591-14648/com.example.myapplication D/ec: eeee
+2020-04-06 22:17:30.382 14591-14648/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-06 22:17:30.382 14591-14648/com.example.myapplication I/System.out: true
+2020-04-06 22:17:30.507 14591-14648/com.example.myapplication I/chatty: uid=10346(com.example.myapplication) AsyncTask #2 identical 1 line
+2020-04-06 22:17:30.507 14591-14648/com.example.myapplication I/System.out: true
+2020-04-06 22:17:30.514 14591-14615/com.example.myapplication W/System: A resource failed to call close. 
+2020-04-06 22:17:30.665 14591-14648/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-06 22:17:30.683 14591-14648/com.example.myapplication I/System.out: Ggg
+2020-04-06 22:17:32.245 14591-14648/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-06 22:17:32.312 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:32.473 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:32.630 14591-14648/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-06 22:17:32.747 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:32.875 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:33.050 14591-14648/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-06 22:17:33.122 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:33.185 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:33.243 14591-14648/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-06 22:17:33.347 14591-14638/com.example.myapplication I/e.myapplicatio: Waiting for a blocking GC ProfileSaver
+2020-04-06 22:17:33.357 14591-14638/com.example.myapplication I/e.myapplicatio: WaitForGcToComplete blocked ProfileSaver on HeapTrim for 10.471ms
+2020-04-06 22:17:33.574 14591-14648/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-06 22:17:33.683 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:33.684 14591-14648/com.example.myapplication I/System.out: -52807846615478371746020672650656437383693288766902551302553819519906422371068
+2020-04-06 22:17:33.684 14591-14648/com.example.myapplication I/System.out: -52807846615478371746020672650656437383693288766902551302553819519906422371068
+2020-04-06 22:17:33.798 14591-14648/com.example.myapplication D/ec: ALL GOOD
+2020-04-06 22:17:33.799 14591-14648/com.example.myapplication I/System.out: -5742891612462036139983745166393581632295438437448868292295468077736694784705
+2020-04-06 22:17:33.799 14591-14648/com.example.myapplication I/System.out: -5742891612462036139983745166393581632295438437448868292295468077736694784705
+2020-04-06 22:17:33.861 14591-14648/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-06 22:17:33.910 14591-14648/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-06 22:17:33.911 14591-14648/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):283
+2020-04-06 22:17:33.911 14591-14648/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):339
+2020-04-06 22:17:33.911 14591-14648/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):245
+2020-04-06 22:17:33.911 14591-14648/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):135
+2020-04-06 22:17:33.911 14591-14648/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):252
+2020-04-06 22:17:33.911 14591-14648/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):225
+2020-04-06 22:17:33.911 14591-14648/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):49
+2020-04-06 22:17:33.912 14591-14591/com.example.myapplication D/speke: DONE
