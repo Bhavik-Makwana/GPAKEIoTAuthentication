@@ -1,4 +1,4 @@
-# GPAKEIoTAuthentication
+# GPAKE IoT Authentication
 Comparing the performance of JPAKE+, SPEKE+, JPAKE, and SPEKE implemented over a network to see if there is any benefit in GPAKE algorithms.
 
 ## Setup the project
