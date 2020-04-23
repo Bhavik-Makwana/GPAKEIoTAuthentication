@@ -29,3 +29,6 @@ To test JPAKE+ enter `:PAIR` into the dialog box on the desktop client after a g
 ### JPAKE Dynamic Removal
 This feature is only available on the desktop version. Create a group with greater than 3 participants then disconnect a user, a group should be reestablished with the remaining users. 
 
+# Results
+The results gathered so far can be viewed in the logs folder. This contains the logs output from each of the testing devices and the Jupyter Notebook file used to perform the data analytics. The graphs evaluating performance can be viewed here.
+Run using `jupyter notebook` in the logs folder.
