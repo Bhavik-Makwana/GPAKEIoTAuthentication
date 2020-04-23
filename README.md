@@ -5,9 +5,9 @@ Comparing the performance of JPAKE+, SPEKE+, JPAKE, and SPEKE implemented over a
 Two libraries will need to be added to the repository to run on your own machine. <br/>
 gson library <br/>
 bcprov-jdk15on <br/>
-These should be able to be installed by using the Maven Script. If the script fails to install the jar files can be downloaded from the following links then add as a dependency, this can be done easily using IntelliJ. If running the code in the command line, compile using the following setup 
-`javac -cp ".../.../*.jar;" Client.java`
-`javac -cp ".../.../*.jar;" Server.java`
+These should be able to be installed by using the Maven Script. If the script fails to install the jar files can be downloaded from the following links then add as a dependency, this can be done easily using IntelliJ. If running the code in the command line, compile using the following setup <br />
+`javac -cp ".../.../*.jar;" Client.java` <br />
+`javac -cp ".../.../*.jar;" Server.java` <br />
 https://github.com/google/gson <br/>
 https://www.bouncycastle.org/latest_releases.html <br/>
 
