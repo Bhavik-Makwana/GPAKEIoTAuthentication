@@ -2,10 +2,14 @@
 Comparing the performance of JPAKE+, SPEKE+, JPAKE, and SPEKE implemented over a network to see if there is any benefit in GPAKE algorithms.
 
 ## Setup the project
-Two libraries will need to be added to the repository to run on your own machine.
-gson library
-bcprov-jdk15on
-These should be able to be installed by usinng the Maven Script.
+Two libraries will need to be added to the repository to run on your own machine. <br/>
+gson library <br/>
+bcprov-jdk15on <br/>
+These should be able to be installed by using the Maven Script. If the script fails to install the jar files can be downloaded from the following links then add as a dependency, this can be done easily using IntelliJ. If running the code in the command line, compile using the following setup 
+`javac -cp ".../.../*.jar;" Client.java`
+`javac -cp ".../.../*.jar;" Server.java`
+https://github.com/google/gson <br/>
+https://www.bouncycastle.org/latest_releases.html <br/>
 
 ## Run the code
 Run the server file. This server is compatible with the GPAKEAndroidClient project or can be used with the in-built client in this repository.
