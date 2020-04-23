@@ -1,0 +1,179 @@
+2020-04-07 21:22:06.048 7243-7243/com.example.myapplication D/button: print test 2
+2020-04-07 21:22:06.048 7243-7243/com.example.myapplication D/button: connect button pressed
+2020-04-07 21:22:06.198 7243-7407/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-07 21:22:06.203 7243-7252/com.example.myapplication W/System: A resource failed to call close. 
+2020-04-07 21:22:06.203 7243-7407/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-07 21:22:09.568 7243-7407/com.example.myapplication D/ec: eeee
+2020-04-07 21:22:09.667 7243-7407/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-07 21:22:09.667 7243-7407/com.example.myapplication I/System.out: true
+2020-04-07 21:22:09.875 7243-7407/com.example.myapplication I/System.out: true
+2020-04-07 21:22:10.130 7243-7407/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 3 lines
+2020-04-07 21:22:10.232 7243-7407/com.example.myapplication I/System.out: true
+2020-04-07 21:22:10.429 7243-7407/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-07 21:22:10.492 7243-7407/com.example.myapplication I/System.out: Ggg
+2020-04-07 21:22:12.281 7243-7407/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-07 21:22:12.338 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:12.611 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:12.814 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:13.023 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:13.107 7243-7254/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 304836(8MB) AllocSpace objects, 0(0B) LOS objects, 36% free, 10MB/16MB, paused 434us total 104.200ms
+2020-04-07 21:22:13.216 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:13.571 7243-7407/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-07 21:22:13.763 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:13.939 7243-7407/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 1 line
+2020-04-07 21:22:14.129 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:14.173 7243-7254/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 266671(7MB) AllocSpace objects, 0(0B) LOS objects, 38% free, 9MB/15MB, paused 491us total 144.977ms
+2020-04-07 21:22:14.275 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:14.393 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:14.866 7243-7407/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-07 21:22:14.932 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:15.155 7243-7407/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 3 lines
+2020-04-07 21:22:15.239 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:15.462 7243-7407/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-07 21:22:16.059 7243-7407/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-07 21:22:16.230 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:16.230 7243-7407/com.example.myapplication I/System.out: 55776363586145764287982653982491727316118593936464633424414141828349771642183
+2020-04-07 21:22:16.230 7243-7407/com.example.myapplication I/System.out: 55776363586145764287982653982491727316118593936464633424414141828349771642183
+2020-04-07 21:22:16.386 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:16.386 7243-7407/com.example.myapplication I/System.out: -54043128218482114436432407780254837373283675609158958904513358734215041084142
+2020-04-07 21:22:16.386 7243-7407/com.example.myapplication I/System.out: -54043128218482114436432407780254837373283675609158958904513358734215041084142
+2020-04-07 21:22:16.519 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:16.522 7243-7407/com.example.myapplication I/System.out: -44325698663514647880893982534787924953931451817914540946976325737678819186575
+2020-04-07 21:22:16.522 7243-7407/com.example.myapplication I/System.out: -44325698663514647880893982534787924953931451817914540946976325737678819186575
+2020-04-07 21:22:16.641 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:16.641 7243-7407/com.example.myapplication I/System.out: -44646533929386405869046367870067830811767886046460216648433748575194184315124
+2020-04-07 21:22:16.642 7243-7407/com.example.myapplication I/System.out: -44646533929386405869046367870067830811767886046460216648433748575194184315124
+2020-04-07 21:22:16.777 7243-7407/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:16.778 7243-7407/com.example.myapplication I/System.out: -30086989854564319575606360100433156699282714882635758118726836044928271193106
+2020-04-07 21:22:16.778 7243-7407/com.example.myapplication I/System.out: -30086989854564319575606360100433156699282714882635758118726836044928271193106
+2020-04-07 21:22:16.887 7243-7407/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-07 21:22:16.923 7243-7407/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-07 21:22:16.923 7243-7407/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):763
+2020-04-07 21:22:16.923 7243-7407/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):1073
+2020-04-07 21:22:16.923 7243-7407/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):823
+2020-04-07 21:22:16.923 7243-7407/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):373
+2020-04-07 21:22:16.923 7243-7407/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):526
+2020-04-07 21:22:16.923 7243-7407/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):719
+2020-04-07 21:22:16.923 7243-7407/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):35
+2020-04-07 21:22:16.924 7243-7243/com.example.myapplication D/speke: DONE
+2020-04-07 21:22:28.674 7243-7243/com.example.myapplication D/button: print test 2
+2020-04-07 21:22:28.674 7243-7243/com.example.myapplication D/button: connect button pressed
+2020-04-07 21:22:28.934 7243-7409/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-07 21:22:28.939 7243-7409/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-07 21:22:32.036 7243-7409/com.example.myapplication D/ec: eeee
+2020-04-07 21:22:32.082 7243-7409/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-07 21:22:32.082 7243-7409/com.example.myapplication I/System.out: true
+2020-04-07 21:22:32.191 7243-7409/com.example.myapplication I/System.out: true
+2020-04-07 21:22:32.226 7243-7252/com.example.myapplication W/System: A resource failed to call close. 
+2020-04-07 21:22:32.293 7243-7409/com.example.myapplication I/System.out: true
+2020-04-07 21:22:32.401 7243-7409/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 2 lines
+2020-04-07 21:22:32.511 7243-7409/com.example.myapplication I/System.out: true
+2020-04-07 21:22:32.651 7243-7409/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-07 21:22:32.683 7243-7409/com.example.myapplication I/System.out: Ggg
+2020-04-07 21:22:34.411 7243-7409/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-07 21:22:34.462 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:34.728 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:34.923 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:34.999 7243-7254/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 262878(7MB) AllocSpace objects, 0(0B) LOS objects, 36% free, 10MB/16MB, paused 414us total 105.733ms
+2020-04-07 21:22:35.128 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:35.325 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:35.469 7243-7409/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-07 21:22:35.620 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:35.745 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:36.057 7243-7409/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 2 lines
+2020-04-07 21:22:36.172 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:36.286 7243-7254/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 315097(8MB) AllocSpace objects, 0(0B) LOS objects, 35% free, 10MB/16MB, paused 418us total 181.210ms
+2020-04-07 21:22:36.365 7243-7409/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-07 21:22:36.418 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:36.633 7243-7409/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 2 lines
+2020-04-07 21:22:36.689 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:36.781 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:36.918 7243-7409/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-07 21:22:37.391 7243-7254/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 333283(9MB) AllocSpace objects, 0(0B) LOS objects, 35% free, 11MB/17MB, paused 663us total 133.537ms
+2020-04-07 21:22:37.885 7243-7409/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-07 21:22:38.019 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:38.019 7243-7409/com.example.myapplication I/System.out: -46710303150429652368775112339691598726518677559728858329124611646407731669863
+2020-04-07 21:22:38.020 7243-7409/com.example.myapplication I/System.out: -46710303150429652368775112339691598726518677559728858329124611646407731669863
+2020-04-07 21:22:38.142 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:38.142 7243-7409/com.example.myapplication I/System.out: 37477904207336871854488291336124399599316672783913441288473359537053073745585
+2020-04-07 21:22:38.143 7243-7409/com.example.myapplication I/System.out: 37477904207336871854488291336124399599316672783913441288473359537053073745585
+2020-04-07 21:22:38.268 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:38.274 7243-7409/com.example.myapplication I/System.out: 3172962137746322489353799504596607410525689724441473203891953221556427089154
+2020-04-07 21:22:38.274 7243-7409/com.example.myapplication I/System.out: 3172962137746322489353799504596607410525689724441473203891953221556427089154
+2020-04-07 21:22:38.394 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:38.395 7243-7409/com.example.myapplication I/System.out: -7195595047179130340030967143001238682240472742962782310161646742776494954644
+2020-04-07 21:22:38.395 7243-7409/com.example.myapplication I/System.out: -7195595047179130340030967143001238682240472742962782310161646742776494954644
+2020-04-07 21:22:38.534 7243-7409/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:38.535 7243-7409/com.example.myapplication I/System.out: -21752278029926071640162341097537079738482006858519840105964841208034961326520
+2020-04-07 21:22:38.535 7243-7409/com.example.myapplication I/System.out: -21752278029926071640162341097537079738482006858519840105964841208034961326520
+2020-04-07 21:22:38.765 7243-7409/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-07 21:22:38.795 7243-7409/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-07 21:22:38.795 7243-7409/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):569
+2020-04-07 21:22:38.795 7243-7409/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):1052
+2020-04-07 21:22:38.795 7243-7409/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):703
+2020-04-07 21:22:38.795 7243-7409/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):416
+2020-04-07 21:22:38.795 7243-7409/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):510
+2020-04-07 21:22:38.795 7243-7409/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):649
+2020-04-07 21:22:38.795 7243-7409/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):29
+2020-04-07 21:22:38.796 7243-7243/com.example.myapplication D/speke: DONE
+2020-04-07 21:22:48.832 7243-7243/com.example.myapplication D/button: print test 2
+2020-04-07 21:22:48.832 7243-7243/com.example.myapplication D/button: connect button pressed
+2020-04-07 21:22:48.897 7243-7410/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-07 21:22:48.905 7243-7410/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-07 21:22:51.994 7243-7410/com.example.myapplication D/ec: eeee
+2020-04-07 21:22:52.041 7243-7410/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-07 21:22:52.042 7243-7410/com.example.myapplication I/System.out: true
+2020-04-07 21:22:52.154 7243-7252/com.example.myapplication W/System: A resource failed to call close. 
+2020-04-07 21:22:52.155 7243-7410/com.example.myapplication I/System.out: true
+2020-04-07 21:22:52.346 7243-7410/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 3 lines
+2020-04-07 21:22:52.447 7243-7410/com.example.myapplication I/System.out: true
+2020-04-07 21:22:52.600 7243-7410/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-07 21:22:52.622 7243-7410/com.example.myapplication I/System.out: Ggg
+2020-04-07 21:22:54.231 7243-7410/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-07 21:22:54.289 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:54.489 7243-7410/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 1 line
+2020-04-07 21:22:54.734 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:54.911 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:55.094 7243-7254/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 266941(7MB) AllocSpace objects, 0(0B) LOS objects, 30% free, 13MB/19MB, paused 448us total 132.925ms
+2020-04-07 21:22:55.134 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:55.357 7243-7410/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-07 21:22:55.494 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:55.565 7243-7254/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 305662(8MB) AllocSpace objects, 1(44KB) LOS objects, 35% free, 10MB/16MB, paused 529us total 110.255ms
+2020-04-07 21:22:55.626 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:55.808 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:55.988 7243-7410/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 1 line
+2020-04-07 21:22:56.129 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:56.170 7243-7410/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-07 21:22:56.232 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:56.408 7243-7410/com.example.myapplication I/chatty: uid=10086(com.example.myapplication) identical 2 lines
+2020-04-07 21:22:56.495 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:56.510 7243-7254/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 290674(7MB) AllocSpace objects, 0(0B) LOS objects, 36% free, 10MB/16MB, paused 414us total 109.641ms
+2020-04-07 21:22:56.572 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:56.582 7243-7410/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-07 21:22:56.738 7243-7254/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 350724(9MB) AllocSpace objects, 1(28KB) LOS objects, 36% free, 10MB/16MB, paused 457us total 104.919ms
+2020-04-07 21:22:57.174 7243-7410/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-07 21:22:57.354 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:57.354 7243-7410/com.example.myapplication I/System.out: -55727887504468288311268363260622942706653683325996338271936640161958322951112
+2020-04-07 21:22:57.354 7243-7410/com.example.myapplication I/System.out: -55727887504468288311268363260622942706653683325996338271936640161958322951112
+2020-04-07 21:22:57.535 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:57.535 7243-7410/com.example.myapplication I/System.out: -51961473057622825505016624351267234546606063989168950562518421861650388090947
+2020-04-07 21:22:57.535 7243-7410/com.example.myapplication I/System.out: -51961473057622825505016624351267234546606063989168950562518421861650388090947
+2020-04-07 21:22:57.685 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:57.686 7243-7410/com.example.myapplication I/System.out: -21320391124952981192490175297981518610469611484461896659480121185144699187587
+2020-04-07 21:22:57.686 7243-7410/com.example.myapplication I/System.out: -21320391124952981192490175297981518610469611484461896659480121185144699187587
+2020-04-07 21:22:57.833 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:57.833 7243-7410/com.example.myapplication I/System.out: 14143661920838350971417753297785662448446535109772289114785886056869420767668
+2020-04-07 21:22:57.833 7243-7410/com.example.myapplication I/System.out: 14143661920838350971417753297785662448446535109772289114785886056869420767668
+2020-04-07 21:22:57.961 7243-7410/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 21:22:57.962 7243-7410/com.example.myapplication I/System.out: 32226053170245757276684427563630353051328069914794150283805431096065943690048
+2020-04-07 21:22:57.962 7243-7410/com.example.myapplication I/System.out: 32226053170245757276684427563630353051328069914794150283805431096065943690048
+2020-04-07 21:22:58.131 7243-7410/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-07 21:22:58.165 7243-7410/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-07 21:22:58.165 7243-7410/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):559
+2020-04-07 21:22:58.165 7243-7410/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):1031
+2020-04-07 21:22:58.165 7243-7410/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):772
+2020-04-07 21:22:58.165 7243-7410/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):402
+2020-04-07 21:22:58.165 7243-7410/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):554
+2020-04-07 21:22:58.165 7243-7410/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):788
+2020-04-07 21:22:58.165 7243-7410/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):34
+2020-04-07 21:22:58.168 7243-7243/com.example.myapplication D/speke: DONE

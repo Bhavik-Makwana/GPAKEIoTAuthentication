@@ -1,0 +1,853 @@
+2020-04-07 20:47:11.362 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@87b29f5)
+2020-04-07 20:47:11.362 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@87b29f5)
+2020-04-07 20:47:12.365 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@bb7b38a)
+2020-04-07 20:47:12.368 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@bb7b38a)
+2020-04-07 20:47:13.365 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ca7adfb)
+2020-04-07 20:47:13.366 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ca7adfb)
+2020-04-07 20:47:14.368 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@589be18)
+2020-04-07 20:47:14.368 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@589be18)
+2020-04-07 20:47:14.438 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: #startMicroDetector [speakerMode: 0]
+2020-04-07 20:47:14.441 2639-2639/com.google.android.googlequicksearchbox:search I/AudioController: Using mInputStreamFactoryBuilder
+2020-04-07 20:47:14.441 2639-2639/com.google.android.googlequicksearchbox:search I/AudioController: Created new AudioSource
+2020-04-07 20:47:14.442 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: onReady
+2020-04-07 20:47:14.457 2639-7474/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Starting detection.
+2020-04-07 20:47:14.458 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_starting  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:14.460 1839-2083/? E/AudioPolicyIntefaceImpl: getInputForAttr permission denied: recording not allowed for uid 10021 pid 2639
+2020-04-07 20:47:14.460 1839-2083/? E/AudioFlinger: createRecord() checkRecordThread_l failed
+2020-04-07 20:47:14.460 2639-7466/com.google.android.googlequicksearchbox:search E/IAudioFlinger: createRecord returned error -22
+2020-04-07 20:47:14.460 2639-7466/com.google.android.googlequicksearchbox:search E/AudioRecord: AudioFlinger could not create record track, status: -22
+2020-04-07 20:47:14.461 2639-7466/com.google.android.googlequicksearchbox:search E/AudioRecord-JNI: Error creating AudioRecord instance: initialization check failed with status -22.
+2020-04-07 20:47:14.462 2639-7466/com.google.android.googlequicksearchbox:search E/android.media.AudioRecord: Error code -20 when initializing native AudioRecord object.
+2020-04-07 20:47:14.462 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_started  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:14.466 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: onReady
+2020-04-07 20:47:14.467 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_close  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:14.468 2639-7474/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Detection finished
+2020-04-07 20:47:14.468 2639-7474/com.google.android.googlequicksearchbox:search W/ErrorReporter: reportError [type: 211, code: 524300]: Error reading from input stream
+2020-04-07 20:47:14.470 2639-7474/com.google.android.googlequicksearchbox:search W/ErrorProcessor: onFatalError, processing error from engine(4)
+    com.google.android.apps.gsa.shared.speech.b.g: Error reading from input stream
+        at com.google.android.apps.gsa.staticplugins.microdetection.d.k.a(SourceFile:91)
+        at com.google.android.apps.gsa.staticplugins.microdetection.d.l.run(Unknown Source:14)
+        at com.google.android.libraries.gsa.runner.a.a.b(SourceFile:32)
+        at com.google.android.libraries.gsa.runner.a.c.call(Unknown Source:4)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.g.run(Unknown Source:4)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+        at java.lang.Thread.run(Thread.java:764)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.i.run(SourceFile:6)
+     Caused by: com.google.android.apps.gsa.shared.exception.GsaIOException: Error code: 393238 | Buffer overflow, no available space.
+        at com.google.android.apps.gsa.speech.audio.Tee.j(SourceFile:103)
+        at com.google.android.apps.gsa.speech.audio.au.read(SourceFile:2)
+        at java.io.InputStream.read(InputStream.java:101)
+        at com.google.android.apps.gsa.speech.audio.ao.run(SourceFile:17)
+        at com.google.android.apps.gsa.speech.audio.an.run(SourceFile:2)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266) 
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458) 
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.g.run(Unknown Source:4) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4) 
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167) 
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641) 
+        at java.lang.Thread.run(Thread.java:764) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.i.run(SourceFile:6) 
+2020-04-07 20:47:14.470 2639-7474/com.google.android.googlequicksearchbox:search I/AudioController: internalShutdown
+2020-04-07 20:47:14.470 2639-3151/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Stopping hotword detection.
+2020-04-07 20:47:14.474 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetector: Keeping mic open: false
+2020-04-07 20:47:14.474 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: #onError(false)
+2020-04-07 20:47:14.474 2639-7476/com.google.android.googlequicksearchbox:search I/DeviceStateChecker: DeviceStateChecker cancelled
+2020-04-07 20:47:15.372 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2217071)
+2020-04-07 20:47:15.372 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2217071)
+2020-04-07 20:47:16.375 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e57e56)
+2020-04-07 20:47:16.376 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e57e56)
+2020-04-07 20:47:17.377 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ab92ed7)
+2020-04-07 20:47:17.377 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ab92ed7)
+2020-04-07 20:47:18.381 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e68a3c4)
+2020-04-07 20:47:18.382 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e68a3c4)
+2020-04-07 20:47:19.384 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@20ba2ad)
+2020-04-07 20:47:19.385 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@20ba2ad)
+2020-04-07 20:47:19.480 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: #startMicroDetector [speakerMode: 0]
+2020-04-07 20:47:19.481 2639-2639/com.google.android.googlequicksearchbox:search I/AudioController: Using mInputStreamFactoryBuilder
+2020-04-07 20:47:19.481 2639-2639/com.google.android.googlequicksearchbox:search I/AudioController: Created new AudioSource
+2020-04-07 20:47:19.482 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: onReady
+2020-04-07 20:47:19.490 2639-7476/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Starting detection.
+2020-04-07 20:47:19.490 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_starting  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:19.492 1839-2083/? E/AudioPolicyIntefaceImpl: getInputForAttr permission denied: recording not allowed for uid 10021 pid 2639
+2020-04-07 20:47:19.492 1839-2083/? E/AudioFlinger: createRecord() checkRecordThread_l failed
+2020-04-07 20:47:19.492 2639-7466/com.google.android.googlequicksearchbox:search E/IAudioFlinger: createRecord returned error -22
+2020-04-07 20:47:19.492 2639-7466/com.google.android.googlequicksearchbox:search E/AudioRecord: AudioFlinger could not create record track, status: -22
+2020-04-07 20:47:19.492 2639-7466/com.google.android.googlequicksearchbox:search E/AudioRecord-JNI: Error creating AudioRecord instance: initialization check failed with status -22.
+2020-04-07 20:47:19.492 2639-7466/com.google.android.googlequicksearchbox:search E/android.media.AudioRecord: Error code -20 when initializing native AudioRecord object.
+2020-04-07 20:47:19.492 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_started  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:19.493 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: onReady
+2020-04-07 20:47:19.502 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_close  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:19.503 2639-7476/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Detection finished
+2020-04-07 20:47:19.503 2639-7476/com.google.android.googlequicksearchbox:search W/ErrorReporter: reportError [type: 211, code: 524300]: Error reading from input stream
+2020-04-07 20:47:19.503 2639-3151/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Stopping hotword detection.
+2020-04-07 20:47:19.504 2639-7476/com.google.android.googlequicksearchbox:search W/ErrorProcessor: onFatalError, processing error from engine(4)
+    com.google.android.apps.gsa.shared.speech.b.g: Error reading from input stream
+        at com.google.android.apps.gsa.staticplugins.microdetection.d.k.a(SourceFile:91)
+        at com.google.android.apps.gsa.staticplugins.microdetection.d.l.run(Unknown Source:14)
+        at com.google.android.libraries.gsa.runner.a.a.b(SourceFile:32)
+        at com.google.android.libraries.gsa.runner.a.c.call(Unknown Source:4)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.g.run(Unknown Source:4)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+        at java.lang.Thread.run(Thread.java:764)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.i.run(SourceFile:6)
+     Caused by: com.google.android.apps.gsa.shared.exception.GsaIOException: Error code: 393238 | Buffer overflow, no available space.
+        at com.google.android.apps.gsa.speech.audio.Tee.j(SourceFile:103)
+        at com.google.android.apps.gsa.speech.audio.au.read(SourceFile:2)
+        at java.io.InputStream.read(InputStream.java:101)
+        at com.google.android.apps.gsa.speech.audio.ao.run(SourceFile:17)
+        at com.google.android.apps.gsa.speech.audio.an.run(SourceFile:2)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266) 
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458) 
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.g.run(Unknown Source:4) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4) 
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167) 
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641) 
+        at java.lang.Thread.run(Thread.java:764) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.i.run(SourceFile:6) 
+2020-04-07 20:47:19.504 2639-7476/com.google.android.googlequicksearchbox:search I/AudioController: internalShutdown
+2020-04-07 20:47:19.505 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetector: Keeping mic open: false
+2020-04-07 20:47:19.505 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: #onError(false)
+2020-04-07 20:47:19.506 2639-7474/com.google.android.googlequicksearchbox:search I/DeviceStateChecker: DeviceStateChecker cancelled
+2020-04-07 20:47:20.389 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5f7e173)
+2020-04-07 20:47:20.390 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5f7e173)
+    
+    --------- beginning of system
+2020-04-07 20:47:14.462 2639-7466/com.google.android.googlequicksearchbox:search I/chatty: uid=10021(com.google.android.googlequicksearchbox) UserFacing56 expire 2 lines
+2020-04-07 20:47:19.493 2639-7466/com.google.android.googlequicksearchbox:search E/ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+2020-04-07 20:47:21.139 1967-1989/system_process E/BatteryExternalStatsWorker: no controller energy info supplied for wifi
+2020-04-07 20:47:21.390 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@32e3830)
+2020-04-07 20:47:21.391 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@32e3830)
+2020-04-07 20:47:22.393 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@4ecbca9)
+2020-04-07 20:47:22.394 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@4ecbca9)
+2020-04-07 20:47:23.402 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dfe022e)
+2020-04-07 20:47:23.403 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dfe022e)
+2020-04-07 20:47:24.401 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@76521cf)
+2020-04-07 20:47:24.402 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@76521cf)
+2020-04-07 20:47:24.512 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: #startMicroDetector [speakerMode: 0]
+2020-04-07 20:47:24.513 2639-2639/com.google.android.googlequicksearchbox:search I/AudioController: Using mInputStreamFactoryBuilder
+2020-04-07 20:47:24.513 2639-2639/com.google.android.googlequicksearchbox:search I/AudioController: Created new AudioSource
+2020-04-07 20:47:24.514 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: onReady
+2020-04-07 20:47:24.589 2639-7474/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Starting detection.
+2020-04-07 20:47:24.591 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_starting  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:24.604 1839-2083/? E/AudioPolicyIntefaceImpl: getInputForAttr permission denied: recording not allowed for uid 10021 pid 2639
+2020-04-07 20:47:24.604 1839-2083/? E/AudioFlinger: createRecord() checkRecordThread_l failed
+2020-04-07 20:47:24.605 2639-7466/com.google.android.googlequicksearchbox:search E/IAudioFlinger: createRecord returned error -22
+2020-04-07 20:47:24.605 2639-7466/com.google.android.googlequicksearchbox:search E/AudioRecord: AudioFlinger could not create record track, status: -22
+2020-04-07 20:47:24.605 2639-7466/com.google.android.googlequicksearchbox:search E/AudioRecord-JNI: Error creating AudioRecord instance: initialization check failed with status -22.
+2020-04-07 20:47:24.607 2639-7466/com.google.android.googlequicksearchbox:search E/android.media.AudioRecord: Error code -20 when initializing native AudioRecord object.
+2020-04-07 20:47:24.607 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_started  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:24.609 2639-7466/com.google.android.googlequicksearchbox:search E/ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+2020-04-07 20:47:24.610 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: onReady
+2020-04-07 20:47:24.616 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_close  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:24.619 2639-7474/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Detection finished
+2020-04-07 20:47:24.619 2639-7474/com.google.android.googlequicksearchbox:search W/ErrorReporter: reportError [type: 211, code: 524300]: Error reading from input stream
+2020-04-07 20:47:24.620 2639-3151/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Stopping hotword detection.
+2020-04-07 20:47:24.620 2639-7474/com.google.android.googlequicksearchbox:search W/ErrorProcessor: onFatalError, processing error from engine(4)
+    com.google.android.apps.gsa.shared.speech.b.g: Error reading from input stream
+        at com.google.android.apps.gsa.staticplugins.microdetection.d.k.a(SourceFile:91)
+        at com.google.android.apps.gsa.staticplugins.microdetection.d.l.run(Unknown Source:14)
+        at com.google.android.libraries.gsa.runner.a.a.b(SourceFile:32)
+        at com.google.android.libraries.gsa.runner.a.c.call(Unknown Source:4)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.g.run(Unknown Source:4)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+        at java.lang.Thread.run(Thread.java:764)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.i.run(SourceFile:6)
+     Caused by: com.google.android.apps.gsa.shared.exception.GsaIOException: Error code: 393238 | Buffer overflow, no available space.
+        at com.google.android.apps.gsa.speech.audio.Tee.j(SourceFile:103)
+        at com.google.android.apps.gsa.speech.audio.au.read(SourceFile:2)
+        at java.io.InputStream.read(InputStream.java:101)
+        at com.google.android.apps.gsa.speech.audio.ao.run(SourceFile:17)
+        at com.google.android.apps.gsa.speech.audio.an.run(SourceFile:2)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266) 
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458) 
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.g.run(Unknown Source:4) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4) 
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167) 
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641) 
+        at java.lang.Thread.run(Thread.java:764) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.i.run(SourceFile:6) 
+2020-04-07 20:47:24.620 2639-7474/com.google.android.googlequicksearchbox:search I/AudioController: internalShutdown
+2020-04-07 20:47:24.622 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetector: Keeping mic open: false
+2020-04-07 20:47:24.622 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: #onError(false)
+2020-04-07 20:47:24.623 2639-7476/com.google.android.googlequicksearchbox:search I/DeviceStateChecker: DeviceStateChecker cancelled
+2020-04-07 20:47:25.402 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b76a75c)
+2020-04-07 20:47:25.402 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b76a75c)
+2020-04-07 20:47:26.405 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5ab7a65)
+2020-04-07 20:47:26.405 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5ab7a65)
+2020-04-07 20:47:27.406 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@86c133a)
+2020-04-07 20:47:27.407 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@86c133a)
+2020-04-07 20:47:28.408 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cbc0beb)
+2020-04-07 20:47:28.411 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cbc0beb)
+2020-04-07 20:47:29.409 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a74dd48)
+2020-04-07 20:47:29.410 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a74dd48)
+2020-04-07 20:47:29.631 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: #startMicroDetector [speakerMode: 0]
+2020-04-07 20:47:29.631 2639-2639/com.google.android.googlequicksearchbox:search I/AudioController: Using mInputStreamFactoryBuilder
+2020-04-07 20:47:29.631 2639-2639/com.google.android.googlequicksearchbox:search I/AudioController: Created new AudioSource
+2020-04-07 20:47:29.632 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: onReady
+2020-04-07 20:47:29.643 2639-7476/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Starting detection.
+2020-04-07 20:47:29.643 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_starting  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:29.644 1839-2083/? E/AudioPolicyIntefaceImpl: getInputForAttr permission denied: recording not allowed for uid 10021 pid 2639
+2020-04-07 20:47:29.644 1839-2083/? E/AudioFlinger: createRecord() checkRecordThread_l failed
+2020-04-07 20:47:29.644 2639-7466/com.google.android.googlequicksearchbox:search E/IAudioFlinger: createRecord returned error -22
+2020-04-07 20:47:29.644 2639-7466/com.google.android.googlequicksearchbox:search E/AudioRecord: AudioFlinger could not create record track, status: -22
+2020-04-07 20:47:29.644 2639-7466/com.google.android.googlequicksearchbox:search E/AudioRecord-JNI: Error creating AudioRecord instance: initialization check failed with status -22.
+2020-04-07 20:47:29.645 2639-7466/com.google.android.googlequicksearchbox:search E/android.media.AudioRecord: Error code -20 when initializing native AudioRecord object.
+2020-04-07 20:47:29.645 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_started  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:29.646 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: onReady
+2020-04-07 20:47:29.656 2639-7466/com.google.android.googlequicksearchbox:search I/MicrophoneInputStream: mic_close  SR : 16000 CC : 16 SO : 6
+2020-04-07 20:47:29.656 2639-7476/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Detection finished
+2020-04-07 20:47:29.656 2639-7476/com.google.android.googlequicksearchbox:search W/ErrorReporter: reportError [type: 211, code: 524300]: Error reading from input stream
+2020-04-07 20:47:29.657 2639-3151/com.google.android.googlequicksearchbox:search I/MicroRecognitionRunner: Stopping hotword detection.
+2020-04-07 20:47:29.657 2639-7476/com.google.android.googlequicksearchbox:search W/ErrorProcessor: onFatalError, processing error from engine(4)
+    com.google.android.apps.gsa.shared.speech.b.g: Error reading from input stream
+        at com.google.android.apps.gsa.staticplugins.microdetection.d.k.a(SourceFile:91)
+        at com.google.android.apps.gsa.staticplugins.microdetection.d.l.run(Unknown Source:14)
+        at com.google.android.libraries.gsa.runner.a.a.b(SourceFile:32)
+        at com.google.android.libraries.gsa.runner.a.c.call(Unknown Source:4)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.g.run(Unknown Source:4)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+        at java.lang.Thread.run(Thread.java:764)
+        at com.google.android.apps.gsa.shared.util.concurrent.b.i.run(SourceFile:6)
+     Caused by: com.google.android.apps.gsa.shared.exception.GsaIOException: Error code: 393238 | Buffer overflow, no available space.
+        at com.google.android.apps.gsa.speech.audio.Tee.j(SourceFile:103)
+        at com.google.android.apps.gsa.speech.audio.au.read(SourceFile:2)
+        at java.io.InputStream.read(InputStream.java:101)
+        at com.google.android.apps.gsa.speech.audio.ao.run(SourceFile:17)
+        at com.google.android.apps.gsa.speech.audio.an.run(SourceFile:2)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266) 
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:458) 
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.g.run(Unknown Source:4) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.aw.run(SourceFile:4) 
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167) 
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641) 
+        at java.lang.Thread.run(Thread.java:764) 
+        at com.google.android.apps.gsa.shared.util.concurrent.b.i.run(SourceFile:6) 
+2020-04-07 20:47:29.657 2639-7476/com.google.android.googlequicksearchbox:search I/AudioController: internalShutdown
+2020-04-07 20:47:29.658 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetector: Keeping mic open: false
+2020-04-07 20:47:29.658 2639-2639/com.google.android.googlequicksearchbox:search I/MicroDetectionWorker: #onError(false)
+2020-04-07 20:47:29.658 2639-7474/com.google.android.googlequicksearchbox:search I/DeviceStateChecker: DeviceStateChecker cancelled
+2020-04-07 20:47:30.412 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cde57e1)
+2020-04-07 20:47:30.412 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cde57e1)
+2020-04-07 20:47:31.413 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2782906)
+2020-04-07 20:47:31.413 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2782906)
+2020-04-07 20:47:32.418 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a4d7bc7)
+2020-04-07 20:47:32.419 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a4d7bc7)
+2020-04-07 20:47:32.873 1841-4326/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 9426360 , only wrote 9426240
+2020-04-07 20:47:32.873 2123-2384/com.android.systemui D/EGL_emulation: eglMakeCurrent: 0xe5305540: ver 3 0 (tinfo 0xe5303640)
+2020-04-07 20:47:29.645 2639-7466/com.google.android.googlequicksearchbox:search E/ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+2020-04-07 20:47:33.013 1967-1993/system_process D/AutofillManagerService: Close system dialogs
+2020-04-07 20:47:33.014 2123-2123/com.android.systemui I/vol.Events: writeEvent dismiss_dialog volume_controller
+2020-04-07 20:47:33.052 1967-4278/system_process W/ActivityManager: Unable to start service Intent { act=com.google.android.apps.miphone.aiai.matchmaker.api.IScreenMatchmaker cmp=com.google.android.as/com.google.android.apps.miphone.aiai.matchmaker.MatchmakerService2 } U=0: not found
+2020-04-07 20:47:33.070 1603-1681/? D/gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 9334784
+2020-04-07 20:47:33.193 1967-1993/system_process D/AutofillManagerService: Close system dialogs
+2020-04-07 20:47:33.223 2123-2123/com.android.systemui I/vol.Events: writeEvent dismiss_dialog volume_controller
+2020-04-07 20:47:33.298 1967-4278/system_process I/ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10100000 cmp=com.example.myapplication/.MainActivity} from uid 2000
+2020-04-07 20:47:33.424 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@31bfb51)
+2020-04-07 20:47:33.494 1603-1681/? D/gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 9334784
+2020-04-07 20:47:33.616 1967-1987/system_process W/ActivityManager: Slow operation: 233ms so far, now at startProcess: returned from zygote!
+2020-04-07 20:47:33.616 1967-1987/system_process W/ActivityManager: Slow operation: 233ms so far, now at startProcess: done updating battery stats
+2020-04-07 20:47:33.616 1967-1987/system_process W/ActivityManager: Slow operation: 233ms so far, now at startProcess: building log message
+2020-04-07 20:47:33.616 1967-1987/system_process I/ActivityManager: Start proc 7511:com.example.myapplication/u0a85 for activity com.example.myapplication/.MainActivity
+2020-04-07 20:47:33.616 1967-1987/system_process W/ActivityManager: Slow operation: 233ms so far, now at startProcess: starting to update pids map
+2020-04-07 20:47:33.616 1967-1987/system_process W/ActivityManager: Slow operation: 233ms so far, now at startProcess: done updating pids map
+2020-04-07 20:47:33.653 7511-7511/com.example.myapplication I/e.myapplicatio: Not late-enabling -Xcheck:jni (already on)
+2020-04-07 20:47:33.677 1967-1984/system_process I/UsageStatsService: User[0] Rolling over usage stats
+2020-04-07 20:47:33.722 7511-7511/com.example.myapplication W/e.myapplicatio: Unexpected CPU variant for X86 using defaults: x86
+2020-04-07 20:47:33.744 1967-1984/system_process I/UsageStatsService: User[0] Flushing usage stats to disk
+2020-04-07 20:47:33.997 1967-1984/system_process I/UsageStatsService: User[0] Rollover scheduled @ 2020-04-08 20:47:33(1586375253339)
+2020-04-07 20:47:33.997 1967-1984/system_process I/UsageStatsService: User[0] Flushing usage stats to disk
+2020-04-07 20:47:34.021 1967-1977/system_process I/system_server: NativeAlloc concurrent copying GC freed 33332(1511KB) AllocSpace objects, 14(616KB) LOS objects, 35% free, 10MB/16MB, paused 814us total 274.932ms
+2020-04-07 20:47:34.092 1967-1984/system_process I/UsageStatsService: User[0] Rolling over usage stats complete. Took 624 milliseconds
+2020-04-07 20:47:34.094 2705-2741/com.google.android.apps.nexuslauncher I/s.nexuslaunche: NativeAlloc concurrent copying GC freed 1488(185KB) AllocSpace objects, 0(0B) LOS objects, 41% free, 8MB/14MB, paused 548us total 349.031ms
+2020-04-07 20:47:34.132 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@31bfb51)
+2020-04-07 20:47:34.163 1744-1819/? E/storaged: getDiskStats failed with result NOT_SUPPORTED and size 0
+2020-04-07 20:47:34.201 1603-1681/? D/gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2334720
+2020-04-07 20:47:34.226 1909-1910/? W/SurfaceFlinger: Attempting to set client state on removed layer: Surface(name=AppWindowToken{e9c0d63 token=Token{6ddcf92 ActivityRecord{c07911d u0 com.example.myapplication/.MainActivity t85}}})/@0xb22dfb6 - animation-leash#0
+2020-04-07 20:47:34.226 1909-1910/? W/SurfaceFlinger: Attempting to set client state on removed layer: Surface(name=AppWindowToken{de30cdd token=Token{58f98b4 ActivityRecord{1602187 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t2}}})/@0x402d3dd - animation-leash#0
+2020-04-07 20:47:34.226 1909-1910/? W/SurfaceFlinger: Attempting to destroy on removed layer: Surface(name=AppWindowToken{e9c0d63 token=Token{6ddcf92 ActivityRecord{c07911d u0 com.example.myapplication/.MainActivity t85}}})/@0xb22dfb6 - animation-leash#0
+2020-04-07 20:47:34.226 1909-1910/? W/SurfaceFlinger: Attempting to destroy on removed layer: Surface(name=AppWindowToken{de30cdd token=Token{58f98b4 ActivityRecord{1602187 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t2}}})/@0x402d3dd - animation-leash#0
+2020-04-07 20:47:34.235 2639-2914/com.google.android.googlequicksearchbox:search D/EGL_emulation: eglMakeCurrent: 0xe3a6e7a0: ver 3 0 (tinfo 0xe3638a90)
+2020-04-07 20:47:34.256 2705-2822/com.google.android.apps.nexuslauncher D/EGL_emulation: eglMakeCurrent: 0xcfdcce60: ver 3 0 (tinfo 0xcfdc3a10)
+2020-04-07 20:47:34.256 2123-2384/com.android.systemui D/EGL_emulation: eglMakeCurrent: 0xe5305540: ver 3 0 (tinfo 0xe5303640)
+2020-04-07 20:47:34.418 7511-7511/com.example.myapplication D/button: print test 1
+2020-04-07 20:47:34.419 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ed3fb8d)
+2020-04-07 20:47:34.421 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ed3fb8d)
+2020-04-07 20:47:34.429 7511-7511/com.example.myapplication W/e.myapplicatio: Accessing hidden method Landroid/graphics/drawable/Drawable;->getOpticalInsets()Landroid/graphics/Insets; (light greylist, linking)
+2020-04-07 20:47:34.429 7511-7511/com.example.myapplication W/e.myapplicatio: Accessing hidden field Landroid/graphics/Insets;->left:I (light greylist, linking)
+2020-04-07 20:47:34.429 7511-7511/com.example.myapplication W/e.myapplicatio: Accessing hidden field Landroid/graphics/Insets;->right:I (light greylist, linking)
+2020-04-07 20:47:34.430 7511-7511/com.example.myapplication W/e.myapplicatio: Accessing hidden field Landroid/graphics/Insets;->top:I (light greylist, linking)
+2020-04-07 20:47:34.430 7511-7511/com.example.myapplication W/e.myapplicatio: Accessing hidden field Landroid/graphics/Insets;->bottom:I (light greylist, linking)
+2020-04-07 20:47:34.533 7511-7511/com.example.myapplication W/e.myapplicatio: Accessing hidden method Landroid/view/View;->computeFitSystemWindows(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z (light greylist, reflection)
+2020-04-07 20:47:34.535 7511-7511/com.example.myapplication W/e.myapplicatio: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (light greylist, reflection)
+2020-04-07 20:47:34.554 7511-7511/com.example.myapplication W/e.myapplicatio: Accessing hidden method Landroid/widget/TextView;->getTextDirectionHeuristic()Landroid/text/TextDirectionHeuristic; (light greylist, linking)
+2020-04-07 20:47:34.653 7511-7511/com.example.myapplication I/FloatingActionButton: Setting a custom background is not supported.
+2020-04-07 20:47:34.724 7511-7511/com.example.myapplication D/OpenGLRenderer: Skia GL Pipeline
+2020-04-07 20:47:34.732 1909-1910/? E/SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+2020-04-07 20:47:34.809 7511-7534/com.example.myapplication D/HostConnection: HostConnection::get() New Host Connection established 0xe532a230, tid 7534
+2020-04-07 20:47:34.809 7511-7534/com.example.myapplication D/HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_native_sync_v3 ANDROID_EMU_native_sync_v4 ANDROID_EMU_dma_v1 ANDROID_EMU_YUV420_888_to_NV21 ANDROID_EMU_YUV_Cache ANDROID_EMU_async_unmap_buffer GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_gles_max_version_3_0 
+2020-04-07 20:47:34.810 1603-1681/? D/gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 9334784
+2020-04-07 20:47:34.838 7511-7534/com.example.myapplication I/ConfigStore: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+2020-04-07 20:47:34.838 7511-7534/com.example.myapplication I/ConfigStore: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasHDRDisplay retrieved: 0
+2020-04-07 20:47:34.838 7511-7534/com.example.myapplication I/OpenGLRenderer: Initialized EGL, version 1.4
+2020-04-07 20:47:34.838 7511-7534/com.example.myapplication D/OpenGLRenderer: Swap behavior 1
+2020-04-07 20:47:34.838 7511-7534/com.example.myapplication W/OpenGLRenderer: Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+2020-04-07 20:47:34.838 7511-7534/com.example.myapplication D/OpenGLRenderer: Swap behavior 0
+2020-04-07 20:47:34.843 7511-7534/com.example.myapplication D/eglCodecCommon: setVertexArrayObject: set vao to 0 (0) 0 0
+2020-04-07 20:47:34.844 7511-7534/com.example.myapplication D/EGL_emulation: eglCreateContext: 0xe53053c0: maj 3 min 0 rcv 3
+2020-04-07 20:47:34.859 7511-7534/com.example.myapplication D/EGL_emulation: eglMakeCurrent: 0xe53053c0: ver 3 0 (tinfo 0xe53036b0)
+2020-04-07 20:47:34.860 1603-1681/? D/gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 9334784
+2020-04-07 20:47:34.867 1909-2311/? E/SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+2020-04-07 20:47:34.881 1603-1682/? D/gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 9334784
+2020-04-07 20:47:34.954 7511-7534/com.example.myapplication D/HostConnection: createUnique: call
+2020-04-07 20:47:34.954 7511-7534/com.example.myapplication D/HostConnection: HostConnection::get() New Host Connection established 0xe532a550, tid 7534
+2020-04-07 20:47:34.989 7511-7534/com.example.myapplication D/HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_native_sync_v3 ANDROID_EMU_native_sync_v4 ANDROID_EMU_dma_v1 ANDROID_EMU_YUV420_888_to_NV21 ANDROID_EMU_YUV_Cache ANDROID_EMU_async_unmap_buffer GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_gles_max_version_3_0 
+2020-04-07 20:47:34.989 7511-7534/com.example.myapplication E/eglCodecCommon: GoldfishAddressSpaceHostMemoryAllocator: ioctl_ping failed for device_type=5, ret=-1
+2020-04-07 20:47:35.036 7511-7534/com.example.myapplication D/EGL_emulation: eglMakeCurrent: 0xe53053c0: ver 3 0 (tinfo 0xe53036b0)
+2020-04-07 20:47:35.040 7511-7534/com.example.myapplication D/eglCodecCommon: setVertexArrayObject: set vao to 0 (0) 1 2
+2020-04-07 20:47:35.192 1967-1995/system_process I/ActivityManager: Displayed com.example.myapplication/.MainActivity: +1s793ms
+2020-04-07 20:47:35.250 2101-2101/com.google.android.inputmethod.latin I/GoogleInputMethod: onFinishInput() : Dummy InputConnection bound
+2020-04-07 20:47:35.257 2101-2101/com.google.android.inputmethod.latin I/GoogleInputMethod: onStartInput() : Dummy InputConnection bound
+2020-04-07 20:47:35.263 1909-1909/? W/SurfaceFlinger: couldn't log to binary event log: overflow.
+2020-04-07 20:47:35.263 1909-1909/? W/SurfaceFlinger: couldn't log to binary event log: overflow.
+2020-04-07 20:47:35.290 1851-1851/? E/netmgr: Failed to open QEMU pipe 'qemud:network': Invalid argument
+2020-04-07 20:47:35.290 1851-1851/? E/netmgr: WifiForwarder unable to open QEMU pipe: Invalid argument
+2020-04-07 20:47:35.300 2123-2384/com.android.systemui D/EGL_emulation: eglMakeCurrent: 0xe5305540: ver 3 0 (tinfo 0xe5303640)
+2020-04-07 20:47:35.344 1909-2311/? W/SurfaceFlinger: Attempting to set client state on removed layer: Splash Screen com.example.myapplication#0
+2020-04-07 20:47:35.344 1909-2311/? W/SurfaceFlinger: Attempting to destroy on removed layer: Splash Screen com.example.myapplication#0
+2020-04-07 20:47:35.507 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@da469a7)
+2020-04-07 20:47:35.514 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@da469a7)
+2020-04-07 20:47:35.532 2639-7460/com.google.android.googlequicksearchbox:search I/PBSessionCacheImpl: Deleted sessionId[290740794726] from persistence.
+2020-04-07 20:47:35.560 2639-2639/com.google.android.googlequicksearchbox:search W/SearchService: Abort, client detached.
+2020-04-07 20:47:35.694 2639-7463/com.google.android.googlequicksearchbox:search I/WorkController: WorkProxy is not enqueued because WorkController is disposed: WorkProxy{Name=context::j, WorkerId=context, id=be1dd00}
+2020-04-07 20:47:35.715 2639-7463/com.google.android.googlequicksearchbox:search I/WorkController: WorkProxy is not enqueued because WorkController is disposed: WorkProxy{Name=context::m, WorkerId=context, id=e814939}
+2020-04-07 20:47:35.716 2639-7463/com.google.android.googlequicksearchbox:search I/WorkController: WorkProxy is not enqueued because WorkController is disposed: WorkProxy{Name=context::n, WorkerId=context, id=c71bb7e}
+2020-04-07 20:47:35.726 2639-7463/com.google.android.googlequicksearchbox:search I/WorkController: WorkProxy is not enqueued because WorkController is disposed: WorkProxy{Name=context::p, WorkerId=context, id=50168df}
+2020-04-07 20:47:35.808 1841-4326/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 9567090 , only wrote 9566640
+2020-04-07 20:47:35.823 1841-4326/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 9567379 , only wrote 9566640
+2020-04-07 20:47:36.169 1841-1875/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 9599029 , only wrote 9583200
+2020-04-07 20:47:36.183 1967-1989/system_process E/BatteryExternalStatsWorker: no controller energy info supplied for wifi
+2020-04-07 20:47:36.429 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@3e653b5)
+2020-04-07 20:47:36.432 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@3e653b5)
+2020-04-07 20:47:36.912 1967-2096/system_process E/TaskPersister: File error accessing recents directory (directory doesn't exist?).
+2020-04-07 20:47:37.433 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@990fa4a)
+2020-04-07 20:47:37.434 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@990fa4a)
+2020-04-07 20:47:38.436 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e394dbb)
+2020-04-07 20:47:38.437 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e394dbb)
+2020-04-07 20:47:39.441 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@db742d8)
+2020-04-07 20:47:39.443 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@db742d8)
+2020-04-07 20:47:40.445 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8757631)
+2020-04-07 20:47:40.446 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8757631)
+2020-04-07 20:47:41.448 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@eec7116)
+2020-04-07 20:47:41.450 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@eec7116)
+2020-04-07 20:47:42.449 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2250a97)
+2020-04-07 20:47:42.450 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2250a97)
+2020-04-07 20:47:43.452 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ac9b484)
+2020-04-07 20:47:43.453 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ac9b484)
+2020-04-07 20:47:43.917 1967-4228/system_process E/memtrack: Couldn't load memtrack module
+2020-04-07 20:47:43.917 1967-4228/system_process W/android.os.Debug: failed to get memory consumption info: -1
+2020-04-07 20:47:44.457 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@efa446d)
+2020-04-07 20:47:44.459 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@efa446d)
+2020-04-07 20:47:45.455 7511-7511/com.example.myapplication D/button: print test 2
+2020-04-07 20:47:45.455 7511-7511/com.example.myapplication D/button: connect button pressed
+2020-04-07 20:47:45.465 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@16f94f0)
+2020-04-07 20:47:45.465 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@16f94f0)
+2020-04-07 20:47:45.466 1841-4326/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 9583376 , only wrote 9583200
+2020-04-07 20:47:45.637 1841-4326/? W/audio_hw_generic: Hardware backing HAL too slow, could only write 0 of 720 frames
+2020-04-07 20:47:45.874 1967-1989/system_process E/BatteryExternalStatsWorker: no controller energy info supplied for wifi
+2020-04-07 20:47:45.878 7511-7535/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-07 20:47:45.880 7511-7535/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-07 20:47:46.463 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@d83ba69)
+2020-04-07 20:47:46.464 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@d83ba69)
+2020-04-07 20:47:47.468 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a188cee)
+2020-04-07 20:47:47.468 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a188cee)
+2020-04-07 20:47:48.472 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@578b58f)
+2020-04-07 20:47:48.472 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@578b58f)
+2020-04-07 20:47:48.677 1841-1875/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 9889859 , only wrote 9737280
+2020-04-07 20:47:48.888 7511-7535/com.example.myapplication D/ec: eeee
+2020-04-07 20:47:48.937 7511-7535/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-07 20:47:48.937 7511-7535/com.example.myapplication I/System.out: true
+2020-04-07 20:47:49.328 7511-7535/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #1 identical 3 lines
+2020-04-07 20:47:49.424 7511-7535/com.example.myapplication I/System.out: true
+2020-04-07 20:47:49.475 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@751101c)
+2020-04-07 20:47:49.479 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@751101c)
+2020-04-07 20:47:49.601 7511-7535/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-07 20:47:49.696 7511-7535/com.example.myapplication I/System.out: Ggg
+2020-04-07 20:47:50.477 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2149425)
+2020-04-07 20:47:50.477 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2149425)
+2020-04-07 20:47:50.817 1967-1984/system_process E/memtrack: Couldn't load memtrack module
+2020-04-07 20:47:50.817 1967-1984/system_process W/android.os.Debug: failed to get memory consumption info: -1
+2020-04-07 20:47:51.353 7511-7535/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-07 20:47:51.419 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:51.479 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@18489fa)
+2020-04-07 20:47:51.480 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@18489fa)
+2020-04-07 20:47:51.564 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:51.677 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:51.809 7511-7522/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 370495(10MB) AllocSpace objects, 0(0B) LOS objects, 33% free, 11MB/17MB, paused 549us total 103.854ms
+2020-04-07 20:47:51.835 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:52.245 7511-7535/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-07 20:47:52.298 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:52.382 7511-7535/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #1 identical 1 line
+2020-04-07 20:47:52.453 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:52.481 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8d51bab)
+2020-04-07 20:47:52.483 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8d51bab)
+2020-04-07 20:47:52.528 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:52.668 7511-7522/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 346259(9MB) AllocSpace objects, 0(0B) LOS objects, 43% free, 7MB/13MB, paused 633us total 126.528ms
+2020-04-07 20:47:52.855 7511-7535/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-07 20:47:52.881 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:52.957 7511-7535/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #1 identical 2 lines
+2020-04-07 20:47:52.979 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:53.162 7511-7535/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-07 20:47:53.486 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@26d1208)
+2020-04-07 20:47:53.487 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@26d1208)
+2020-04-07 20:47:53.763 7511-7535/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-07 20:47:53.856 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:53.857 7511-7535/com.example.myapplication I/System.out: -14324035344961163825159771048133304086870627332424637710670249497540930528701
+2020-04-07 20:47:53.857 7511-7535/com.example.myapplication I/System.out: -14324035344961163825159771048133304086870627332424637710670249497540930528701
+2020-04-07 20:47:53.923 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:53.923 7511-7535/com.example.myapplication I/System.out: 20560311071839117904890211933243453761521049311036887300210797713616745481445
+2020-04-07 20:47:53.923 7511-7535/com.example.myapplication I/System.out: 20560311071839117904890211933243453761521049311036887300210797713616745481445
+2020-04-07 20:47:54.004 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:54.005 7511-7535/com.example.myapplication I/System.out: -55889360439268828772358373231577397481522434400942618362303949472800927220611
+2020-04-07 20:47:54.005 7511-7535/com.example.myapplication I/System.out: -55889360439268828772358373231577397481522434400942618362303949472800927220611
+2020-04-07 20:47:54.070 7511-7535/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:47:54.070 7511-7535/com.example.myapplication I/System.out: -52689742442869429628298172911666525039148214618483540857619182773407106001391
+2020-04-07 20:47:54.070 7511-7535/com.example.myapplication I/System.out: -52689742442869429628298172911666525039148214618483540857619182773407106001391
+2020-04-07 20:47:54.350 7511-7535/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-07 20:47:54.363 7511-7535/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-07 20:47:54.363 7511-7535/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):665
+2020-04-07 20:47:54.363 7511-7535/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):540
+2020-04-07 20:47:54.363 7511-7535/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):283
+2020-04-07 20:47:54.363 7511-7535/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):124
+2020-04-07 20:47:54.363 7511-7535/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):226
+2020-04-07 20:47:54.363 7511-7535/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):307
+2020-04-07 20:47:54.363 7511-7535/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):13
+2020-04-07 20:47:54.364 7511-7511/com.example.myapplication D/speke: DONE
+2020-04-07 20:47:54.383 1764-1801/? D/hwcomposer: hw_composer sent 24 syncs in 65s
+2020-04-07 20:47:54.487 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e1f4da1)
+2020-04-07 20:47:54.488 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e1f4da1)
+2020-04-07 20:47:55.491 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8814bc6)
+2020-04-07 20:47:55.492 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8814bc6)
+2020-04-07 20:47:56.494 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@547c787)
+2020-04-07 20:47:56.495 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@547c787)
+2020-04-07 20:47:57.499 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7c546b4)
+2020-04-07 20:47:57.500 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7c546b4)
+2020-04-07 20:47:58.500 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dc222dd)
+2020-04-07 20:47:58.501 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dc222dd)
+2020-04-07 20:47:59.503 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6365e52)
+2020-04-07 20:47:59.504 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6365e52)
+2020-04-07 20:48:00.007 2123-2384/com.android.systemui D/EGL_emulation: eglMakeCurrent: 0xe5305540: ver 3 0 (tinfo 0xe5303640)
+2020-04-07 20:48:00.507 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8ca1a20)
+2020-04-07 20:48:00.508 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8ca1a20)
+2020-04-07 20:48:01.511 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6c30fd9)
+2020-04-07 20:48:01.512 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6c30fd9)
+2020-04-07 20:48:02.515 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ab80d9e)
+2020-04-07 20:48:02.516 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ab80d9e)
+2020-04-07 20:48:03.519 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ab8207f)
+2020-04-07 20:48:03.520 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ab8207f)
+2020-04-07 20:48:04.523 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b86b84c)
+2020-04-07 20:48:04.524 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b86b84c)
+2020-04-07 20:48:05.525 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b4bd095)
+2020-04-07 20:48:05.526 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b4bd095)
+2020-04-07 20:48:05.668 2639-7474/com.google.android.googlequicksearchbox:search W/GmsLocationProvider: Error removing location updates: 16
+2020-04-07 20:48:06.527 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@11365aa)
+2020-04-07 20:48:06.528 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@11365aa)
+2020-04-07 20:48:07.531 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@9b8459b)
+2020-04-07 20:48:07.531 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@9b8459b)
+2020-04-07 20:48:08.534 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@98d0d38)
+2020-04-07 20:48:08.535 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@98d0d38)
+2020-04-07 20:48:09.535 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c65e111)
+2020-04-07 20:48:09.536 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c65e111)
+2020-04-07 20:48:10.538 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@61a3276)
+2020-04-07 20:48:10.538 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@61a3276)
+2020-04-07 20:48:10.699 1967-1984/system_process E/memtrack: Couldn't load memtrack module
+2020-04-07 20:48:10.699 1967-1984/system_process W/android.os.Debug: failed to get memory consumption info: -1
+2020-04-07 20:48:11.067 7511-7511/com.example.myapplication D/button: print test 2
+2020-04-07 20:48:11.067 7511-7511/com.example.myapplication D/button: connect button pressed
+2020-04-07 20:48:11.073 1841-4326/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 9737382 , only wrote 9737280
+2020-04-07 20:48:11.140 7511-7540/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-07 20:48:11.143 7511-7540/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-07 20:48:11.227 1841-4326/? W/audio_hw_generic: Hardware backing HAL too slow, could only write 0 of 720 frames
+2020-04-07 20:48:11.545 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1cba077)
+2020-04-07 20:48:11.546 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1cba077)
+2020-04-07 20:48:11.991 1841-4326/? W/audio_hw_generic: Hardware backing HAL too slow, could only write 0 of 720 frames
+2020-04-07 20:48:12.543 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1a1c4e4)
+2020-04-07 20:48:12.543 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1a1c4e4)
+2020-04-07 20:48:13.545 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8367d4d)
+2020-04-07 20:48:13.548 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8367d4d)
+2020-04-07 20:48:14.151 7511-7540/com.example.myapplication D/ec: eeee
+2020-04-07 20:48:14.155 7511-7540/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-07 20:48:14.155 7511-7540/com.example.myapplication I/System.out: true
+2020-04-07 20:48:14.269 1841-1875/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 10043255 , only wrote 9890640
+2020-04-07 20:48:14.283 7511-7540/com.example.myapplication I/System.out: true
+2020-04-07 20:48:14.294 7511-7520/com.example.myapplication W/System: A resource failed to call close. 
+2020-04-07 20:48:14.397 7511-7540/com.example.myapplication I/System.out: true
+2020-04-07 20:48:14.509 7511-7540/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #3 identical 1 line
+2020-04-07 20:48:14.510 7511-7540/com.example.myapplication I/System.out: true
+2020-04-07 20:48:14.553 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@fef0002)
+2020-04-07 20:48:14.554 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@fef0002)
+2020-04-07 20:48:14.730 7511-7522/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 288236(7MB) AllocSpace objects, 0(0B) LOS objects, 32% free, 12MB/18MB, paused 643us total 182.588ms
+2020-04-07 20:48:14.806 7511-7540/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-07 20:48:14.834 7511-7540/com.example.myapplication I/System.out: Ggg
+2020-04-07 20:48:15.552 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e4fcd13)
+2020-04-07 20:48:15.554 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e4fcd13)
+2020-04-07 20:48:15.930 7511-7540/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-07 20:48:15.965 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:16.097 7511-7540/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #3 identical 1 line
+2020-04-07 20:48:16.201 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:16.333 7511-7522/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 378001(10MB) AllocSpace objects, 0(0B) LOS objects, 31% free, 12MB/18MB, paused 786us total 100.546ms
+2020-04-07 20:48:16.352 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:16.556 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8284b50)
+2020-04-07 20:48:16.558 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8284b50)
+2020-04-07 20:48:16.772 7511-7540/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-07 20:48:16.836 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:16.990 7511-7540/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #3 identical 2 lines
+2020-04-07 20:48:17.081 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:17.422 7511-7540/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-07 20:48:17.465 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:17.499 7511-7540/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #3 identical 1 line
+2020-04-07 20:48:17.525 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:17.560 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ffaa149)
+2020-04-07 20:48:17.561 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ffaa149)
+2020-04-07 20:48:17.565 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:17.752 7511-7540/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-07 20:48:18.356 7511-7540/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-07 20:48:18.412 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:18.413 7511-7540/com.example.myapplication I/System.out: 21570204868541428306125224240257707299769974867212412907036635359768164004454
+2020-04-07 20:48:18.413 7511-7540/com.example.myapplication I/System.out: 21570204868541428306125224240257707299769974867212412907036635359768164004454
+2020-04-07 20:48:18.494 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:18.495 7511-7540/com.example.myapplication I/System.out: 34328672871100771766992701629323246800588206586574984767547996186001156404013
+2020-04-07 20:48:18.495 7511-7540/com.example.myapplication I/System.out: 34328672871100771766992701629323246800588206586574984767547996186001156404013
+2020-04-07 20:48:18.560 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2511a4e)
+2020-04-07 20:48:18.561 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2511a4e)
+2020-04-07 20:48:18.579 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:18.580 7511-7540/com.example.myapplication I/System.out: 25080430617581075831018415427466882817543754016337126820201384737768582116043
+2020-04-07 20:48:18.580 7511-7540/com.example.myapplication I/System.out: 25080430617581075831018415427466882817543754016337126820201384737768582116043
+2020-04-07 20:48:18.652 7511-7540/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:48:18.653 7511-7540/com.example.myapplication I/System.out: -19479348718294430601309561058578844644384828859788104755939773747447638827532
+2020-04-07 20:48:18.653 7511-7540/com.example.myapplication I/System.out: -19479348718294430601309561058578844644384828859788104755939773747447638827532
+2020-04-07 20:48:18.923 7511-7540/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-07 20:48:18.946 7511-7540/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-07 20:48:18.946 7511-7540/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):652
+2020-04-07 20:48:18.946 7511-7540/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):482
+2020-04-07 20:48:18.946 7511-7540/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):309
+2020-04-07 20:48:18.946 7511-7540/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):141
+2020-04-07 20:48:18.946 7511-7540/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):180
+2020-04-07 20:48:18.946 7511-7540/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):297
+2020-04-07 20:48:18.946 7511-7540/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):23
+2020-04-07 20:48:18.952 7511-7511/com.example.myapplication D/speke: DONE
+2020-04-07 20:48:19.407 1967-4276/system_process I/ActivityManager: Killing 6750:com.google.android.deskclock/u0a71 (adj 904): empty for 1805s
+2020-04-07 20:48:19.414 1967-4276/system_process I/ActivityManager: Killing 6703:com.google.android.calendar/u0a69 (adj 904): empty for 1805s
+2020-04-07 20:48:19.417 1967-1988/system_process W/libprocessgroup: kill(-6750, 9) failed: No such process
+2020-04-07 20:48:19.426 1967-4276/system_process I/ActivityManager: Killing 6710:com.android.providers.calendar/u0a27 (adj 904): empty for 1806s
+2020-04-07 20:48:19.461 1967-1988/system_process W/libprocessgroup: kill(-6750, 9) failed: No such process
+2020-04-07 20:48:19.462 1915-1915/? I/Zygote: Process 6703 exited due to signal (9)
+2020-04-07 20:48:19.462 1915-1915/? I/Zygote: Process 6750 exited due to signal (9)
+2020-04-07 20:48:19.467 1915-1915/? I/Zygote: Process 6710 exited due to signal (9)
+2020-04-07 20:48:19.507 1967-1988/system_process W/libprocessgroup: kill(-6750, 9) failed: No such process
+2020-04-07 20:48:19.507 1967-1988/system_process I/libprocessgroup: Successfully killed process cgroup uid 10071 pid 6750 in 90ms
+2020-04-07 20:48:19.507 1967-1988/system_process W/libprocessgroup: kill(-6703, 9) failed: No such process
+2020-04-07 20:48:19.507 1967-1988/system_process I/libprocessgroup: Successfully killed process cgroup uid 10069 pid 6703 in 0ms
+2020-04-07 20:48:19.508 1967-1988/system_process W/libprocessgroup: kill(-6710, 9) failed: No such process
+2020-04-07 20:48:19.508 1967-1988/system_process I/libprocessgroup: Successfully killed process cgroup uid 10027 pid 6710 in 0ms
+2020-04-07 20:48:19.561 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@24ecc7c)
+2020-04-07 20:48:19.562 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@24ecc7c)
+2020-04-07 20:48:20.566 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1c30905)
+2020-04-07 20:48:20.567 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1c30905)
+2020-04-07 20:48:21.568 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ba88d5a)
+2020-04-07 20:48:21.570 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ba88d5a)
+2020-04-07 20:48:22.569 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@f71cb8b)
+2020-04-07 20:48:22.570 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@f71cb8b)
+2020-04-07 20:48:23.569 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7fa3468)
+2020-04-07 20:48:23.570 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7fa3468)
+2020-04-07 20:48:24.569 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1f03081)
+2020-04-07 20:48:24.570 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1f03081)
+2020-04-07 20:48:25.574 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6d22526)
+2020-04-07 20:48:25.575 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6d22526)
+2020-04-07 20:48:26.576 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2f9567)
+2020-04-07 20:48:26.577 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2f9567)
+2020-04-07 20:48:27.580 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8722f14)
+2020-04-07 20:48:27.580 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8722f14)
+2020-04-07 20:48:28.584 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6e53bd)
+2020-04-07 20:48:28.585 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6e53bd)
+2020-04-07 20:48:29.585 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dab6db2)
+2020-04-07 20:48:29.586 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dab6db2)
+2020-04-07 20:48:30.589 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7162103)
+2020-04-07 20:48:30.590 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7162103)
+2020-04-07 20:48:31.590 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dcd2880)
+2020-04-07 20:48:31.592 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dcd2880)
+2020-04-07 20:48:32.593 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5b16eb9)
+2020-04-07 20:48:32.594 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5b16eb9)
+2020-04-07 20:48:33.597 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@85eb2fe)
+2020-04-07 20:48:33.598 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@85eb2fe)
+2020-04-07 20:48:33.985 1967-1989/system_process E/BatteryExternalStatsWorker: no controller energy info supplied for wifi
+2020-04-07 20:48:34.169 1744-1819/? E/storaged: getDiskStats failed with result NOT_SUPPORTED and size 0
+2020-04-07 20:48:34.601 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@94fca5f)
+2020-04-07 20:48:34.602 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@94fca5f)
+2020-04-07 20:48:35.298 1851-1851/? E/netmgr: Failed to open QEMU pipe 'qemud:network': Invalid argument
+2020-04-07 20:48:35.298 1851-1851/? E/netmgr: WifiForwarder unable to open QEMU pipe: Invalid argument
+2020-04-07 20:48:35.606 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b1c4cac)
+2020-04-07 20:48:35.606 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b1c4cac)
+2020-04-07 20:48:36.609 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@3713d75)
+2020-04-07 20:48:36.614 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@3713d75)
+2020-04-07 20:48:37.615 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@56f010a)
+2020-04-07 20:48:37.616 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@56f010a)
+2020-04-07 20:48:38.618 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a50ad7b)
+2020-04-07 20:48:38.618 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a50ad7b)
+2020-04-07 20:48:39.622 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1578798)
+2020-04-07 20:48:39.623 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1578798)
+2020-04-07 20:48:40.627 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5253bf1)
+2020-04-07 20:48:40.630 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5253bf1)
+2020-04-07 20:48:41.626 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@68423d6)
+2020-04-07 20:48:41.627 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@68423d6)
+2020-04-07 20:48:42.627 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6b2a657)
+2020-04-07 20:48:42.628 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6b2a657)
+2020-04-07 20:48:43.627 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7098544)
+2020-04-07 20:48:43.628 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7098544)
+2020-04-07 20:48:43.951 1967-4367/system_process E/memtrack: Couldn't load memtrack module
+2020-04-07 20:48:43.951 1967-4367/system_process W/android.os.Debug: failed to get memory consumption info: -1
+2020-04-07 20:48:44.628 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c40a62d)
+2020-04-07 20:48:44.632 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c40a62d)
+2020-04-07 20:48:45.629 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@df6a762)
+2020-04-07 20:48:45.631 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@df6a762)
+2020-04-07 20:48:46.630 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@d150f3)
+2020-04-07 20:48:46.633 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@d150f3)
+2020-04-07 20:48:47.633 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ebbb1b0)
+2020-04-07 20:48:47.634 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ebbb1b0)
+2020-04-07 20:48:48.634 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@42e7829)
+2020-04-07 20:48:48.634 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@42e7829)
+2020-04-07 20:48:49.636 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@91bd7ae)
+2020-04-07 20:48:49.636 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@91bd7ae)
+2020-04-07 20:48:50.641 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b26094f)
+2020-04-07 20:48:50.641 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b26094f)
+2020-04-07 20:48:51.644 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@82238dc)
+2020-04-07 20:48:51.646 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@82238dc)
+2020-04-07 20:48:52.649 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a0d6de5)
+2020-04-07 20:48:52.650 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@a0d6de5)
+2020-04-07 20:48:53.654 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@351c0ba)
+2020-04-07 20:48:53.655 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@351c0ba)
+2020-04-07 20:48:54.658 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c63eb6b)
+2020-04-07 20:48:54.659 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c63eb6b)
+2020-04-07 20:48:55.661 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@80806c8)
+2020-04-07 20:48:55.662 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@80806c8)
+2020-04-07 20:48:56.665 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@42c0361)
+2020-04-07 20:48:56.666 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@42c0361)
+2020-04-07 20:48:57.668 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@544749d)
+2020-04-07 20:48:57.668 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@544749d)
+2020-04-07 20:48:58.672 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@81bad12)
+2020-04-07 20:48:58.674 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@81bad12)
+2020-04-07 20:48:59.675 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@705ce3)
+2020-04-07 20:48:59.677 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@705ce3)
+2020-04-07 20:49:00.002 1967-1984/system_process E/memtrack: Couldn't load memtrack module
+2020-04-07 20:49:00.002 1967-1984/system_process W/android.os.Debug: failed to get memory consumption info: -1
+2020-04-07 20:49:00.007 1764-1801/? D/hwcomposer: hw_composer sent 24 syncs in 66s
+2020-04-07 20:49:00.677 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@778bd99)
+2020-04-07 20:49:00.678 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@778bd99)
+2020-04-07 20:49:01.681 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@583885e)
+2020-04-07 20:49:01.682 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@583885e)
+2020-04-07 20:49:02.685 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@341e43f)
+2020-04-07 20:49:02.687 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@341e43f)
+2020-04-07 20:49:03.689 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e53910c)
+2020-04-07 20:49:03.690 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@e53910c)
+2020-04-07 20:49:04.340 1967-1989/system_process E/BatteryExternalStatsWorker: no controller energy info supplied for wifi
+2020-04-07 20:49:04.691 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b0e9a55)
+2020-04-07 20:49:04.692 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b0e9a55)
+2020-04-07 20:49:05.695 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@afbcc6a)
+2020-04-07 20:49:05.697 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@afbcc6a)
+2020-04-07 20:49:06.699 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@97a855b)
+2020-04-07 20:49:06.700 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@97a855b)
+2020-04-07 20:49:07.700 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@d2eb1f8)
+2020-04-07 20:49:07.701 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@d2eb1f8)
+2020-04-07 20:49:08.705 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@4eb86d1)
+2020-04-07 20:49:08.707 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@4eb86d1)
+2020-04-07 20:49:09.709 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2024536)
+2020-04-07 20:49:09.710 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2024536)
+2020-04-07 20:49:10.714 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@9d21c37)
+2020-04-07 20:49:10.715 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@9d21c37)
+2020-04-07 20:49:11.716 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c98f5a4)
+2020-04-07 20:49:11.717 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c98f5a4)
+2020-04-07 20:49:12.716 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8d0bf0d)
+2020-04-07 20:49:12.717 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@8d0bf0d)
+2020-04-07 20:49:13.716 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c257ec2)
+2020-04-07 20:49:13.717 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c257ec2)
+2020-04-07 20:49:14.716 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@4a244d3)
+2020-04-07 20:49:14.717 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@4a244d3)
+2020-04-07 20:49:15.716 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@841c810)
+2020-04-07 20:49:15.717 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@841c810)
+2020-04-07 20:49:16.718 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b573f09)
+2020-04-07 20:49:16.719 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b573f09)
+2020-04-07 20:49:17.720 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@350c50e)
+2020-04-07 20:49:17.721 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@350c50e)
+2020-04-07 20:49:18.720 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c425b2f)
+2020-04-07 20:49:18.722 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c425b2f)
+2020-04-07 20:49:19.432 1967-1984/system_process E/memtrack: Couldn't load memtrack module
+2020-04-07 20:49:19.432 1967-1984/system_process W/android.os.Debug: failed to get memory consumption info: -1
+2020-04-07 20:49:19.724 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7abc2c5)
+2020-04-07 20:49:19.724 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7abc2c5)
+2020-04-07 20:49:20.727 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2d8241a)
+2020-04-07 20:49:20.729 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2d8241a)
+2020-04-07 20:49:21.728 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7237b4b)
+2020-04-07 20:49:21.730 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7237b4b)
+2020-04-07 20:49:22.731 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ae8928)
+2020-04-07 20:49:22.731 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ae8928)
+2020-04-07 20:49:23.732 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@50ac641)
+2020-04-07 20:49:23.734 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@50ac641)
+2020-04-07 20:49:24.733 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@54467e6)
+2020-04-07 20:49:24.734 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@54467e6)
+2020-04-07 20:49:25.733 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7ac8127)
+2020-04-07 20:49:25.734 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7ac8127)
+2020-04-07 20:49:26.736 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ef70fd4)
+2020-04-07 20:49:26.737 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@ef70fd4)
+2020-04-07 20:49:27.739 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7fc857d)
+2020-04-07 20:49:27.739 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7fc857d)
+2020-04-07 20:49:28.740 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2df1c72)
+2020-04-07 20:49:28.741 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2df1c72)
+2020-04-07 20:49:29.741 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5d608c3)
+2020-04-07 20:49:29.743 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@5d608c3)
+2020-04-07 20:49:30.747 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c9f5540)
+2020-04-07 20:49:30.749 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c9f5540)
+2020-04-07 20:49:31.750 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b50fc79)
+2020-04-07 20:49:31.751 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@b50fc79)
+2020-04-07 20:49:32.751 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cfe8dbe)
+2020-04-07 20:49:32.751 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cfe8dbe)
+2020-04-07 20:49:33.753 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6866e1f)
+2020-04-07 20:49:33.755 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@6866e1f)
+2020-04-07 20:49:25.907 1967-1989/system_process I/chatty: uid=1000(system) batterystats-wo identical 1 line
+2020-04-07 20:49:34.113 1967-1989/system_process E/BatteryExternalStatsWorker: no controller energy info supplied for wifi
+2020-04-07 20:49:34.171 1744-1819/? E/storaged: getDiskStats failed with result NOT_SUPPORTED and size 0
+2020-04-07 20:49:34.754 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7c4856c)
+2020-04-07 20:49:34.754 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@7c4856c)
+2020-04-07 20:49:35.309 1851-1851/? E/netmgr: Failed to open QEMU pipe 'qemud:network': Invalid argument
+2020-04-07 20:49:35.310 1851-1851/? E/netmgr: WifiForwarder unable to open QEMU pipe: Invalid argument
+2020-04-07 20:49:35.756 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cdbe735)
+2020-04-07 20:49:35.756 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cdbe735)
+2020-04-07 20:49:36.760 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@211c7ca)
+2020-04-07 20:49:36.762 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@211c7ca)
+2020-04-07 20:49:37.766 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cadcd3b)
+2020-04-07 20:49:37.766 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@cadcd3b)
+2020-04-07 20:49:38.769 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@12a8c58)
+2020-04-07 20:49:38.769 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@12a8c58)
+2020-04-07 20:49:39.772 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@9f0c1b1)
+2020-04-07 20:49:39.772 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@9f0c1b1)
+2020-04-07 20:49:40.773 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@66c9696)
+2020-04-07 20:49:40.774 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@66c9696)
+2020-04-07 20:49:41.775 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@220217)
+2020-04-07 20:49:41.776 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@220217)
+2020-04-07 20:49:42.778 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@fe81604)
+2020-04-07 20:49:42.779 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@fe81604)
+2020-04-07 20:49:43.780 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@79ec7ed)
+2020-04-07 20:49:43.780 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@79ec7ed)
+2020-04-07 20:49:44.008 1967-4278/system_process E/memtrack: Couldn't load memtrack module
+2020-04-07 20:49:44.008 1967-4278/system_process W/android.os.Debug: failed to get memory consumption info: -1
+2020-04-07 20:49:44.780 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dd38622)
+2020-04-07 20:49:44.782 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@dd38622)
+2020-04-07 20:49:45.782 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@63aa8b3)
+2020-04-07 20:49:45.783 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@63aa8b3)
+2020-04-07 20:49:46.784 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@3d28e70)
+2020-04-07 20:49:46.785 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@3d28e70)
+2020-04-07 20:49:47.223 7511-7511/com.example.myapplication D/button: print test 2
+2020-04-07 20:49:47.223 7511-7511/com.example.myapplication D/button: connect button pressed
+2020-04-07 20:49:47.229 1841-4326/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 9890898 , only wrote 9890640
+2020-04-07 20:49:47.276 7511-7546/com.example.myapplication D/connect:  LINE: SUBMITNAME
+2020-04-07 20:49:47.283 7511-7546/com.example.myapplication D/connect:  LINE: NAMEACCEPTED
+2020-04-07 20:49:47.472 1841-4326/? W/audio_hw_generic: Hardware backing HAL too slow, could only write 0 of 720 frames
+2020-04-07 20:49:47.785 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2acf5e9)
+2020-04-07 20:49:47.785 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2acf5e9)
+2020-04-07 20:49:48.789 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1c7e26e)
+2020-04-07 20:49:48.789 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1c7e26e)
+2020-04-07 20:49:49.793 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@82d1d0f)
+2020-04-07 20:49:49.794 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@82d1d0f)
+2020-04-07 20:49:50.288 7511-7546/com.example.myapplication D/ec: eeee
+2020-04-07 20:49:50.289 7511-7546/com.example.myapplication D/ec: *************** ROUND 1 ***************
+2020-04-07 20:49:50.289 7511-7546/com.example.myapplication I/System.out: true
+2020-04-07 20:49:50.414 7511-7546/com.example.myapplication I/System.out: true
+2020-04-07 20:49:50.439 7511-7520/com.example.myapplication W/System: A resource failed to call close. 
+2020-04-07 20:49:50.440 1841-1875/? W/audio_hw_generic: Not supplying enough data to HAL, expected position 10196942 , only wrote 10044720
+2020-04-07 20:49:50.473 7511-7546/com.example.myapplication I/System.out: true
+2020-04-07 20:49:50.473 7511-7546/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #4 identical 1 line
+2020-04-07 20:49:50.549 7511-7546/com.example.myapplication I/System.out: true
+2020-04-07 20:49:50.661 7511-7546/com.example.myapplication D/ec: ********** SEND ROUND 1 DATA **********
+2020-04-07 20:49:50.678 7511-7546/com.example.myapplication I/System.out: Ggg
+2020-04-07 20:49:50.795 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2aa219c)
+2020-04-07 20:49:50.797 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@2aa219c)
+2020-04-07 20:49:51.799 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@35607a5)
+2020-04-07 20:49:51.800 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@35607a5)
+2020-04-07 20:49:52.406 7511-7546/com.example.myapplication D/ec: ************ VERIFY ROUND 1 ***********
+2020-04-07 20:49:52.440 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:52.570 7511-7522/com.example.myapplication I/e.myapplicatio: Background concurrent copying GC freed 352405(9MB) AllocSpace objects, 5(208KB) LOS objects, 30% free, 13MB/19MB, paused 839us total 107.552ms
+2020-04-07 20:49:52.592 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:52.702 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:52.800 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@93b77a)
+2020-04-07 20:49:52.801 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@93b77a)
+2020-04-07 20:49:52.804 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:53.238 7511-7546/com.example.myapplication D/ec: *************** ROUND 2 ***************
+2020-04-07 20:49:53.292 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:53.415 7511-7546/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #4 identical 2 lines
+2020-04-07 20:49:53.490 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:53.805 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@3287b2b)
+2020-04-07 20:49:53.806 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@3287b2b)
+2020-04-07 20:49:53.917 7511-7546/com.example.myapplication D/ec: ************ VERIFY ROUND 2 ***********
+2020-04-07 20:49:53.960 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:54.024 7511-7546/com.example.myapplication I/chatty: uid=10085(com.example.myapplication) AsyncTask #4 identical 2 lines
+2020-04-07 20:49:54.053 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:54.464 7511-7546/com.example.myapplication D/ec: *************** ROUND 3 ***************
+2020-04-07 20:49:54.809 1967-2180/system_process I/GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c05bb88)
+2020-04-07 20:49:54.809 1967-1984/system_process I/GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@c05bb88)
+2020-04-07 20:49:55.099 7511-7546/com.example.myapplication D/ec: *************** ROUND 4 ***************
+2020-04-07 20:49:55.165 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:55.166 7511-7546/com.example.myapplication I/System.out: 13055192287947228985283091373879294438958984399779715962197326803987431057510
+2020-04-07 20:49:55.166 7511-7546/com.example.myapplication I/System.out: 13055192287947228985283091373879294438958984399779715962197326803987431057510
+2020-04-07 20:49:55.235 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:55.235 7511-7546/com.example.myapplication I/System.out: -50506383351016652483391426049329378667928816308932201742673763279386262810435
+2020-04-07 20:49:55.235 7511-7546/com.example.myapplication I/System.out: -50506383351016652483391426049329378667928816308932201742673763279386262810435
+2020-04-07 20:49:55.298 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:55.299 7511-7546/com.example.myapplication I/System.out: -21774141606311074621800841935932525906310567792801943614668063471533613226232
+2020-04-07 20:49:55.299 7511-7546/com.example.myapplication I/System.out: -21774141606311074621800841935932525906310567792801943614668063471533613226232
+2020-04-07 20:49:55.374 7511-7546/com.example.myapplication D/ec: ALL GOOD
+2020-04-07 20:49:55.377 7511-7546/com.example.myapplication I/System.out: 18761085695360034690649816457737810445538546506670635365078015789533260166793
+2020-04-07 20:49:55.377 7511-7546/com.example.myapplication I/System.out: 18761085695360034690649816457737810445538546506670635365078015789533260166793
+2020-04-07 20:49:55.646 7511-7546/com.example.myapplication D/ec: *********** KEY COMPUTATION ***********
+2020-04-07 20:49:55.662 7511-7546/com.example.myapplication I/System.out: Latency of Each Round JPAKEPairing+
+2020-04-07 20:49:55.662 7511-7546/com.example.myapplication D/EC_LATENCY: 1) Latency of computing round 1 per participant (ms):372
+2020-04-07 20:49:55.662 7511-7546/com.example.myapplication D/EC_LATENCY: 2) Latency of verifying data in round 1 per participant (ms):468
+2020-04-07 20:49:55.662 7511-7546/com.example.myapplication D/EC_LATENCY: 3) Latency of computing round 2 per participant (ms):252
+2020-04-07 20:49:55.662 7511-7546/com.example.myapplication D/EC_LATENCY: 4) Latency of verifying round 2 per participant (ms):136
+2020-04-07 20:49:55.662 7511-7546/com.example.myapplication D/EC_LATENCY: 5) Latency of computing round 3 per participant (ms):174
+2020-04-07 20:49:55.662 7511-7546/com.example.myapplication D/EC_LATENCY: 6) Latency of verifying round 3 for participant (ms):279
+2020-04-07 20:49:55.662 7511-7546/com.example.myapplication D/EC_LATENCY: 7) Latency of computing key for participant (ms):16
+2020-04-07 20:49:55.663 7511-7511/com.example.myapplication D/speke: DONE

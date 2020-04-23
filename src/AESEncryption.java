@@ -4,6 +4,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.math.BigInteger;
@@ -16,6 +17,9 @@ public class AESEncryption {
     Cipher cipher;
     SecretKeySpec key;
     IvParameterSpec ivParameterSpec;
+    GCMParameterSpec gcmParameterSpec;
+    public static final int GCM_IV_LENGTH = 12;
+    public static final int GCM_TAG_LENGTH = 16;
     byte[] iv;
 
     public static void main(String[] args) {
@@ -37,16 +41,17 @@ public class AESEncryption {
     public AESEncryption() {
 
         try {
-            cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING", "BC");
+            cipher = Cipher.getInstance("AES/GCM/NoPadding", "BC");
         } catch (NoSuchAlgorithmException | NoSuchProviderException | NoSuchPaddingException e) {
             System.out.println(e.getMessage());
         }
-        this.iv = new byte[16];
+        this.iv = new byte[GCM_IV_LENGTH];
         SecureRandom random = new SecureRandom();
         random.nextBytes(iv);
 
 
         ivParameterSpec = new IvParameterSpec(iv);
+        gcmParameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH * 8, iv);
     }
 
     public void createKey(byte[] keyBytes) {
@@ -61,7 +66,8 @@ public class AESEncryption {
 
     public String encrypt(String plainText) {
         try {
-            cipher.init(Cipher.ENCRYPT_MODE, key, ivParameterSpec);
+
+            cipher.init(Cipher.ENCRYPT_MODE, key, gcmParameterSpec);
             return Base64.getEncoder().encodeToString(cipher.doFinal(plainText.getBytes("UTF-8")));
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -70,7 +76,7 @@ public class AESEncryption {
     }
     public String decrypt(String cipherText) {
         try {
-            cipher.init(Cipher.DECRYPT_MODE, key, ivParameterSpec);
+            cipher.init(Cipher.DECRYPT_MODE, key, gcmParameterSpec);
             return new String(cipher.doFinal(Base64.getDecoder().decode(cipherText)));
         } catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
             System.out.println(e.getMessage());
@@ -78,11 +84,11 @@ public class AESEncryption {
         }
     }
 
-    public IvParameterSpec getIvParameterSpec() {
-        return ivParameterSpec;
+    public GCMParameterSpec getGcmParameterSpec() {
+        return gcmParameterSpec;
     }
 
-    public void setIvParameterSpec(IvParameterSpec ivParameterSpec) {
-        this.ivParameterSpec = ivParameterSpec;
+    public void setGcmParameterSpec(GCMParameterSpec gcmParameterSpec) {
+        this.gcmParameterSpec = gcmParameterSpec;
     }
 }
