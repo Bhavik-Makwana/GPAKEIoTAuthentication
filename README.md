@@ -8,9 +8,11 @@ bcprov-jdk15on <br/>
 These should be able to be installed by using the Maven Script. If the script fails to install the jar files can be downloaded from the following links then add as a dependency, this can be done easily using IntelliJ. If running the code in the command line, compile using the following setup <br />
 `javac -cp ".../.../*.jar;" Client.java` <br />
 `javac -cp ".../.../*.jar;" Server.java` <br />
+If doing it through IntelliJ (STRONGLY RECOMMENDED) the mvn.sh script can be run by right clicking on the file. To add the jars
+manually go to file->Project Structure->Modules `cmd +;` and click add jars.
 https://github.com/google/gson <br/>
 https://www.bouncycastle.org/latest_releases.html <br/>
-
+The jar files have also been included in this repo for convienience. Note that code was tested and developed using the IntelliJ IDE.
 ## Run the code
 Run the server file. This server is compatible with the GPAKEAndroidClient project or can be used with the in-built client in this repository.
 Run the client and connect to localhost if using the desktop client.
@@ -27,6 +29,8 @@ To test SPEKE+ enter `:SPEKE` into the dialog box on the desktop client once thr
 ### JPAKE+ EC
 To test JPAKE+ enter `:EC` into the dialog box on the desktop client once three users are connected, each clients latency will be output to the console. On the Android client, press the JPAKE+. After pressed on the first device, you will have 5s left to connect the other devices to perform the group authentication.
 
+To run the python implementation first install the EcPy module by running `pip3 install EcPy`<br/>
+To run the program enter the following into the command line `python3 JpakePlusECDemo.py`.
 ### JPAKE Dynamic Pairing
 To test JPAKE+ enter `:PAIR` into the dialog box on the desktop client after a group has already been established. This must be done with a new user not part of the group. This feature is not currently available on the android implementation
 
