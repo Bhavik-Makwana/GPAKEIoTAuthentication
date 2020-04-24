@@ -1,4 +1,4 @@
-from ecpy.curves     import Curve,Point
+from ecpy.curves import Curve,Point
 import random
 import time
 import numpy as np
@@ -10,8 +10,15 @@ import hmac
 import traceback
 
 class JPAKEPlusECDemo:
-
+    ''' JPAKEPlusECDemo
+        Local demo of JPAKE+ using ecc. Default curve established is 
+        the NIST 256 prime curve over Fp.
+    '''
     def __init__(self):
+        '''
+            constructor establishing curve properties, low entropy password,
+            debug settings and timing storage.
+        '''
         self.cv = Curve.get_curve('NIST-P256')
         self.sStr = "deadbeef"
         self.s = self.getSHA256_s(self.sStr)
@@ -24,6 +31,13 @@ class JPAKEPlusECDemo:
 
 
     def round_one(self, n):
+        '''
+            function: round_one
+            This function performs the first round of jpake+
+            params: @n number of participants
+            return: dict{} 
+        '''
+
         aij = [[]]
         bij = [[]]
         gPowBij = [[]]
@@ -35,6 +49,8 @@ class JPAKEPlusECDemo:
         schnorrZKPbij = [[]]
         schnorrZKPyi = [[]]
         signerID = []
+        # have to manually create 2D array in python as numpy cannot handle the
+        # required int sizes
         for i in range(n):
             signerID.append(0)
             schnorrZKPyi.append(0)
@@ -80,7 +96,7 @@ class JPAKEPlusECDemo:
             schnorrZKP = SchnorrZKP()   
             schnorrZKP.generateZKP(self.cv, self.G, self.N, yi[i], gPowYi[i], signerID[i])
             schnorrZKPyi[i] = schnorrZKP
-            # schnorrZKPyi[i][1] = schnorrZKP.getR()    
+            
         data = {}
         data["aij"] = aij
         data["bij"] = bij
@@ -100,6 +116,14 @@ class JPAKEPlusECDemo:
         return data
 
     def verify_round_one(self, r1, n):
+        '''
+            function: verify_round_one
+            This function verifies the results from round one
+            params: @r1 dict{} containing round one results
+                    @n number of participants
+            return: boolean
+        '''
+
         startTime = time.time()
         for i in range(n):
             if i == n-1:
@@ -167,9 +191,18 @@ class JPAKEPlusECDemo:
         out = "Round 1v: ", (duration + (endTime-startTime)/n)
         self.print_debug(out, self.DEBUG)
         self.times.append(duration + (endTime-startTime)/n)
+        return True
 
 
     def round_two(self, r1, n):
+        '''
+            function: verify_round_one
+            This function generates the values for round two
+            params: @r1 dict{} containing round one results
+                    @n number of participants
+            return: dict{}
+        '''
+
         self.print_debug("ROUND 2", self.DEBUG)
         startTime = time.time()
 
@@ -223,6 +256,15 @@ class JPAKEPlusECDemo:
         return data
 
     def verify_round_two(self, r1, r2, n):
+        '''
+            function: verify_round_two
+            This function verifies the results from round one
+            params: @r1 dict{} containing round one results
+                    @r2 dict{} containing round two results
+                    @n number of participants
+            return: boolean
+        '''
+
         self.print_debug("************ VERIFY ROUND 2 ***********", False)
         startTime = time.time()
         for i in range(n):
@@ -246,6 +288,16 @@ class JPAKEPlusECDemo:
 
 
     def round_three(self, r1, r2, n):
+        '''
+            function: round three
+            This function generates the values for jpake+ round
+            three
+            params: @r1 dict{} containing round one results
+                    @r2 dict{} containing round two results
+                    @n number of participants
+            return: dict{}
+        '''
+
         self.print_debug("ROUND 3", False)
         startTime = time.time()
 
@@ -302,7 +354,7 @@ class JPAKEPlusECDemo:
 
                 try:      
                     key = pairwiseKeysMAC[i][j].to_bytes(32, 'big')
-                    mac = hmac.new(key)
+                    mac = hmac.new(key, digestmod="sha256")
                     mac.update(bytearray(self.cv.encode_point(r1["gPowYi"][i])))
                     mac.update(bytearray(self.cv.encode_point(r1["schnorrZKPyi"][i].getV())))
                     mac.update(r1["schnorrZKPyi"][i].getR().to_bytes(32, byteorder='big'))
@@ -320,7 +372,7 @@ class JPAKEPlusECDemo:
                 # Compute HMAC for key confirmation
                 try:
                     key = pairwiseKeysKC[i][j].to_bytes(32, 'big')
-                    mac = hmac.new(key)
+                    mac = hmac.new(key, digestmod="sha256")
                     mac.update(b"KC")
                     mac.update(i.to_bytes(32, byteorder='big'))
                     mac.update(j.to_bytes(32, byteorder='big'))
@@ -351,6 +403,16 @@ class JPAKEPlusECDemo:
         return data
 
     def verify_round_three(self, r1, r2, r3, n):
+        '''
+            function: verify_round_three
+            This function verifies the results from round three
+            params: @r1 dict{} containing round one results
+                    @r2 dict{} containing round two results
+                    @r3 dict{} containing round three results
+                    @n number of participants
+            return: boolean
+        '''
+
         startTime = time.time()
         
         for i in range(n):
@@ -379,7 +441,7 @@ class JPAKEPlusECDemo:
                 key = r3["pairwiseKeysKC"][i][j]
 
                 try:
-                    mac = hmac.new(key.to_bytes(32, 'big'))
+                    mac = hmac.new(key.to_bytes(32, 'big'), digestmod="sha256")
                     
                     mac.update(b"KC")
                     mac.update(j.to_bytes(32, byteorder='big'))
@@ -405,7 +467,7 @@ class JPAKEPlusECDemo:
 
                 key = r3["pairwiseKeysMAC"][i][j]
                 try:
-                    mac = hmac.new(key.to_bytes(32, 'big'))
+                    mac = hmac.new(key.to_bytes(32, 'big'), digestmod="sha256")
                     
 
                     mac.update(bytearray(self.cv.encode_point(r1["gPowYi"][j])))
@@ -432,6 +494,15 @@ class JPAKEPlusECDemo:
         return True
 
     def compute_key(self, r1, r3, n):
+        '''
+            function: compute_key
+            This function computes the group key
+            params: @r1 dict{} containing round one results
+                    @r3 dict{} containing round three results
+                    @n number of participants
+            return: int
+        '''
+
         self.print_debug("*********** KEY COMPUTATION ***********", self.DEBUG)
         startTime = time.time()
         sessionKeys = []
@@ -454,11 +525,33 @@ class JPAKEPlusECDemo:
         out = "Key:", (endTime-startTime)/n
         self.print_debug(out, self.DEBUG)
         self.times.append((endTime-startTime)/n)
-        # for i in sessionKeys:
-        #     print(i)
-        return key
+        for i in sessionKeys:
+            self.print_debug(i, self.DEBUG)
+        return sessionKeys
+
+    def getCyclicIndex(self, i, n):
+        '''
+            function: getCyclicIndex
+            This function the cyclic index of an index given the size
+            of the ds.
+            params: @i index
+                    @n size of data structure
+            return: int
+        '''
+        if i<0:
+            return i+n
+        elif i>=n:
+            return i-n
+        else:
+            return i
 
     def getSHA256_ec(self, s):
+        '''
+            function: getSHA256_ec
+            This function hashes an ec point using sha256.
+            params: @s Point ec point
+            return: int
+        '''
         m = hashlib.sha256()
         try:
             sBytes = bytearray(self.cv.encode_point(s))
@@ -471,15 +564,16 @@ class JPAKEPlusECDemo:
         as_int = int(b, 16)
         return as_int
 
-    def getCyclicIndex(self, i, n):
-        if i<0:
-            return i+n
-        elif i>=n:
-            return i-n
-        else:
-            return i
-
+    
     def getSHA256s (self, s, strn):
+        '''
+            function: getSHA256s
+            This function hashes an ec point with a string 
+            using sha256.
+            params: @s Point ec point
+                    @strn string
+            return: int
+        '''
         m = hashlib.sha256()
         try:
             sBytes = bytearray(self.cv.encode_point(s))
@@ -497,6 +591,17 @@ class JPAKEPlusECDemo:
         return as_int
 
     def getSHA256(self, cv, generator, V, X, userID):
+        '''
+            function: getSHA256_ec
+            This function hashes multiple ec points with a 
+            string using sha256.
+            params: @cv curve elliptic curve
+                    @generator Point ec point
+                    @V Point ec point
+                    @X Point ec point
+                    @userID string user id
+            return: int
+        '''
         m = hashlib.sha256()
         try:
             GBytes = bytearray(self.cv.encode_point(generator))
@@ -524,7 +629,20 @@ class JPAKEPlusECDemo:
         return as_int
 
     def verifyChaumPedersonZKP(self, G, gPowX, gPowZ, gPowZPowX, gPowS, gPowZPowS, t, signerID):
-
+        '''
+            function: verifyChaumPedersonZKP
+            This function providers a verification mechanism for 
+            chaum pederson zkps created using ecc.
+            params: @G Point
+                    @gPowX Point 
+                    @gPowZ Point
+                    @gPowZPowX Point
+                    @gPowS Point
+                    @gPowZPowS Point
+                    @t int
+                    @signerID string
+            return: int
+        '''
         # ZKP: {A=g^s, B=(g^z)^s, t}
         self.h = self.getSHA256_cp(self.cv, G, gPowX, gPowZ, gPowZPowX, gPowS, gPowZPowS, signerID)
         # check a) - omitted as it's been done in round 1
@@ -597,6 +715,20 @@ class JPAKEPlusECDemo:
         
 
     def getSHA256_cp(self, cv, generator, gPowX, gPowZ, gPowZPowX, gPowS, gPowXPowS, userID):
+        '''
+            function: getSHA256_cp
+            This function hashes multiple ec points with a 
+            string using sha256.
+            params: @cv Curve
+                    @generator Point
+                    @gPowX Point Point
+                    @gPowZ Point Point
+                    @gPowZPowX Point
+                    @gPowS Point
+                    @gPowXPowS Point
+                    @userID string
+            return: int
+        '''
         m = hashlib.sha256()
         try:
             GBytes = bytearray(self.cv.encode_point(generator))
@@ -637,6 +769,12 @@ class JPAKEPlusECDemo:
         return as_int
 
     def getSHA256_s(self, s):
+        '''
+            function: getSHA256s
+            This function hashes a string using sha256.
+            params: @s string
+            return: int
+        '''
         m = hashlib.sha256()
 
         try:
@@ -653,6 +791,13 @@ class JPAKEPlusECDemo:
         return as_int
 
     def test(self, n):
+        '''
+            function: test
+            Testing block to see if keys generated are the same
+            params: @s Point ec point
+                    @strn string
+            return: int
+        '''
         r = self.round_one(n)
         self.verify_round_one(r, n)
         r2 = self.round_two(r, n)
@@ -663,6 +808,7 @@ class JPAKEPlusECDemo:
         for i in self.times:
             print(round(i*1000, 3), " ", end=" ")
         self.times = []
+        
     def print_debug(self, str, flag):
         if flag:
             print(str)
@@ -670,11 +816,14 @@ class JPAKEPlusECDemo:
         t1 = time.time()
         self.G.mul(random.randint(1, self.Q-1))
         t2 = time.time()
-        print((t2-t1)*1000)
+        print((t2-t1)*1000, "(s)")
+
+
 jppec = JPAKEPlusECDemo()
 print("1       1v      2       2v      3       3v      KC   (ms)")
-# for i in range(3, 7):
-#     jppec.test(i)
-#     print("")
-jppec.mod_test()
+min_participants = 3
+max_participants = 7
+for i in range(min_participants, max_participants):
+    jppec.test(i)
+    print("")
     

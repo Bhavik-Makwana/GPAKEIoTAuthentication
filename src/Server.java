@@ -1,3 +1,6 @@
+/**
+ * @author Bhavik Makwana
+ */
 
 import java.io.*;
 import java.math.BigInteger;
@@ -22,21 +25,14 @@ import org.bouncycastle.crypto.agreement.jpake.JPAKERound1Payload;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound2Payload;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound3Payload;
 
-/**
- *
- *
- */
+
 public class Server {
     /**
      * The port that the server listens on.
      */
     private static final int PORT = 8002;
 
-    /**
-     * The set of all names of clients in the chat room.  Maintained
-     * so that we can check that new clients are not registering name
-     * already in use.
-     */
+
     private static HashSet<ConcurrentHashMap<Long, String>> names = new HashSet<>();
     private static ArrayList<Long> clientIDs = new ArrayList<>();
     private static ConcurrentHashMap<Long, PrintWriter> clients = new ConcurrentHashMap<>();
@@ -54,10 +50,7 @@ public class Server {
     private static Map<Long, Boolean> JPAKEroundTwoVComplete = new ConcurrentHashMap<>();
     private static Map<Long, Boolean> JPAKEroundThreeComplete = new ConcurrentHashMap<>();
     private static Map<Long, Boolean> JPAKEroundFourComplete = new ConcurrentHashMap<>();
-    /**
-     * The set of all the print writers for all the clients.  This
-     * set is kept so we can easily broadcast messages.
-     */
+
     private static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();
 
     // ****************************** ROUND 1 ****************************************
@@ -74,7 +67,7 @@ public class Server {
     private static ArrayList<String> signerID = new ArrayList<>();
 
 
-// ****************************** ROUND 2 ****************************************
+    // ****************************** ROUND 2 ****************************************
 
     private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> newGen = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> bijs = new ConcurrentHashMap<>();
@@ -122,13 +115,13 @@ public class Server {
     private  static ConcurrentHashMap<Long, SchnorrZKP> schnorrZKPyiEC = new ConcurrentHashMap<>();
 //    private  static ArrayList<String> signerID = new ArrayList<>();
 
-// ********************************** ROUND 2 EC ************************************
+    // ********************************** ROUND 2 EC ************************************
     private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, byte[]>> newGenEC = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> bijsEC = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, byte[]>> newGenPowBijsEC = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, SchnorrZKP>> schnorrZKPbijsEC = new ConcurrentHashMap<>();
 
-// ********************************** ROUND 3 EC ************************************
+    // ********************************** ROUND 3 EC ************************************
     private static ConcurrentHashMap<Long, byte[]> gPowZiPowYiEC = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<Long, ChaumPedersonZKP> chaumPedersonZKPiEC = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<Long, ConcurrentHashMap<Long, BigInteger>> pairwiseKeysMACEC = new ConcurrentHashMap<>();
@@ -208,10 +201,10 @@ public class Server {
                         socket.getInputStream()));
                 out = new PrintWriter(socket.getOutputStream(), true);
 
-                // Request a name from this client.  Keep requesting until
-                // a name is submitted that is not already used.  Note that
-                // checking for the existence of a name and adding the name
-                // must be done while locking the set of names.
+                // Request a name from this client until a name is submitted
+                // that is not already used.  Note that checking for the
+                // existence of a name and adding the name must be done
+                // while locking the set of names.
                 while (true) {
                     out.println("SUBMITNAME");
                     name = in.readLine();
@@ -230,16 +223,12 @@ public class Server {
 
                 }
 
-                // Now that a successful name has been chosen, add the
-                // socket's print writer to the set of all writers so
-                // this client can receive broadcast messages.
+                // Add the socket's print writer to the set of all writers
                 out.println("NAMEACCEPTED");
                 out.println(currentThread().getId());
                 writers.add(out);
 
-                // Accept messages from this client and broadcast them.
-                // Ignore other clients that cannot be broadcasted to.
-                System.out.println(currentThread().getId());
+                // Server logic
                 while (true) {
                     String input = in.readLine();
                     System.out.println("input " + input);
@@ -279,7 +268,6 @@ public class Server {
 //                        writer.println("MESSAGE " + name + ": " + input);
 //                    }
                 }
-//                System.out.println("DONE PAIRING");
 
             } catch (IOException e) {
                 System.out.println(e);
@@ -287,8 +275,7 @@ public class Server {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                // This client is going down!  Remove its name and its print
-                // writer from the sets, and close its socket.
+                // Handle client removal gracefully
                 if (name != null) {
                     names.remove(idName);
                 }
@@ -306,7 +293,7 @@ public class Server {
                 roundTwoVComplete.remove(id);
                 roundThreeComplete.remove(id);
                 roundFourComplete.remove(id);
-                System.out.println("Remove User");
+                System.out.println("Removed User");
                 removeUser(id);
                 System.out.println(names.toString());
                 System.out.println(clientIDs.toString());
@@ -317,8 +304,7 @@ public class Server {
         public void addNewClient(boolean partner) {
             try {
                 if (groupMade) {
-                    //  pick random client in group
-                    if (partner) {
+                    if (partner) { // client not in group
                         ArrayList<Long> pairwiseClients = new ArrayList<>();
                         Long joiningClient = Long.parseLong(in.readLine());
                         pairwiseClients.add(joiningClient);
@@ -337,21 +323,18 @@ public class Server {
                         System.out.println("Sending key to requester "+ pairwiseClients.get(0) + ": " + response);
                         clients.get(pairwiseClients.get(0)).println(response);
                     }
-                    else {
+                    else { // client in group
                         ArrayList<Long> pairwiseClients = new ArrayList<>();
                         pairwiseClients.add(currentThread().getId());
                         pairwiseClients.add(clientIDs.get(0));
                         clients.get(pairwiseClients.get(1)).println(":PARTNER");
                         clients.get(pairwiseClients.get(1)).println(currentThread().getId());
                         jPAKEProtocol(pairwiseClients);
-//                        clients.get(currentThread().getId()).println(gro);
                     }
-
-                    //  perform jpake protocol
-                    //  send group key
 
                 } else {
 //                    jPAKEPlusECProtocol();
+                    // TODO: perform jpake+ ec on connected memebrs if > 3
                     System.out.println("No pre-existing group established, please set up first");
                 }
             }
@@ -390,7 +373,7 @@ public class Server {
             signerID = new ArrayList<>();
 
 
-// ****************************** ROUND 2 ****************************************
+            // ****************************** ROUND 2 ****************************************
 
              newGen = new ConcurrentHashMap<>();
              bijs = new ConcurrentHashMap<>();
@@ -413,12 +396,12 @@ public class Server {
              gsPowXiSpeke = new ConcurrentHashMap<>();
              gPowYiSpeke = new ConcurrentHashMap<>();
              gPowZiSpeke = new ConcurrentHashMap<>();
-            schnorrZKPiSpeke = new ConcurrentHashMap<>();
-            signerIDSpeke = new ArrayList<>();
+             schnorrZKPiSpeke = new ConcurrentHashMap<>();
+             signerIDSpeke = new ArrayList<>();
 
 
              gPowZiPowYiSpeke = new ConcurrentHashMap<>();
-            chaumPedersonZKPiSpeke = new ConcurrentHashMap<>();
+             chaumPedersonZKPiSpeke = new ConcurrentHashMap<>();
              pairwiseKeysMACSpeke = new ConcurrentHashMap<>();
              pairwiseKeysKCSpeke = new ConcurrentHashMap<>();
              hMacsMACSpeke = new ConcurrentHashMap<>();
@@ -427,8 +410,8 @@ public class Server {
 
             // ********************************* ROUND 1 EC **********************************
             aijEC = new ConcurrentHashMap<>();
-             gPowAijEC = new ConcurrentHashMap<>();
-             schnorrZKPaijEC = new ConcurrentHashMap<>();
+            gPowAijEC = new ConcurrentHashMap<>();
+            schnorrZKPaijEC = new ConcurrentHashMap<>();
             bijEC = new ConcurrentHashMap<>();
             gPowBijEC = new ConcurrentHashMap<>();
             schnorrZKPbijEC = new ConcurrentHashMap<>();
@@ -436,21 +419,20 @@ public class Server {
             gPowYiEC = new ConcurrentHashMap<>();
             gPowZiEC = new ConcurrentHashMap<>();
             schnorrZKPyiEC = new ConcurrentHashMap<>();
-//    private  static ArrayList<String> signerID = new ArrayList<>();
 
-// ********************************** ROUND 2 EC ************************************
+            // ********************************** ROUND 2 EC ************************************
             newGenEC = new ConcurrentHashMap<>();
-             bijsEC = new ConcurrentHashMap<>();
+            bijsEC = new ConcurrentHashMap<>();
             newGenPowBijsEC = new ConcurrentHashMap<>();
             schnorrZKPbijsEC = new ConcurrentHashMap<>();
 
-// ********************************** ROUND 3 EC ************************************
+            // ********************************** ROUND 3 EC ************************************
             gPowZiPowYiEC = new ConcurrentHashMap<>();
-             chaumPedersonZKPiEC = new ConcurrentHashMap<>();
-             pairwiseKeysMACEC = new ConcurrentHashMap<>();
-             pairwiseKeysKCEC = new ConcurrentHashMap<>();
-             hMacsMACEC = new ConcurrentHashMap<>();
-             hMacsKCEC = new ConcurrentHashMap<>();
+            chaumPedersonZKPiEC = new ConcurrentHashMap<>();
+            pairwiseKeysMACEC = new ConcurrentHashMap<>();
+            pairwiseKeysKCEC = new ConcurrentHashMap<>();
+            hMacsMACEC = new ConcurrentHashMap<>();
+            hMacsKCEC = new ConcurrentHashMap<>();
 
             // ********************************** JPAKE ************************************
             jpakeRoundOne = new ConcurrentHashMap<>();
@@ -464,25 +446,46 @@ public class Server {
                 p.getValue().println(":REMOVE");
             }
         }
+
         /**
          * Update the servers global bulletin board of data associated with
          * each user with the data collected at round 1.
          *
          * @param  id   ID of the client
-         * @param  data Data collected from the first round of JPAKE+
+         * @param  data Data collected from the first round of JPAKE
          */
         public void updatePairDataRoundOne(Long id, JPAKERound1Payload data) {
             jpakeRoundOne.put(id, data);
         }
 
+        /**
+         * Update the servers global bulletin board of data associated with
+         * each user with the data collected at round 2.
+         *
+         * @param  id   ID of the client
+         * @param  data Data collected from the first second of JPAKE
+         */
         public void updatePairDataRoundTwo(Long id, JPAKERound2Payload data) {
             jpakeRoundTwo.put(id, data);
         }
 
+        /**
+         * Update the servers global bulletin board of data associated with
+         * each user with the data collected at round 3.
+         *
+         * @param  id   ID of the client
+         * @param  data Data collected from the thirdround of JPAKE
+         */
         public void updatePairDataRoundThree(Long id, JPAKERound3Payload data) {
             jpakeRoundThree.put(id, data);
         }
 
+        /**
+         * Perform the jpake protocol between two clients. Called by the client
+         * attempting to join the group.
+         *
+         * @param  pairwiseClients list of clients connected to server
+         */
         public void jPAKEProtocol(ArrayList<Long> pairwiseClients) throws Exception {
 
             JPAKEroundOneComplete.put(pairwiseClients.get(0), false);
@@ -534,11 +537,12 @@ public class Server {
                     JPAKEroundOneVComplete.replace(id, true);
                 }
                 System.out.println(JPAKEroundOneVComplete.toString());
+
                 while (JPAKEroundOneVComplete.containsValue(false)) {
                 }
+
                 // round 2
                 System.out.println("************ ROUND 2 ***********");
-
                 out.println("1"); // OK
 
                 // Take in users round two data
@@ -754,7 +758,7 @@ public class Server {
              signerID = new ArrayList<>();
 
 
-// ****************************** ROUND 2 ****************************************
+            // ****************************** ROUND 2 ****************************************
 
              newGen = new ConcurrentHashMap<>();
              bijs = new ConcurrentHashMap<>();
@@ -763,7 +767,7 @@ public class Server {
 
             // ****************************** ROUND 3 ****************************************
              gPowZiPowYi = new ConcurrentHashMap<>();
-            chaumPedersonZKPi = new ConcurrentHashMap<>();
+             chaumPedersonZKPi = new ConcurrentHashMap<>();
              pairwiseKeysMAC = new ConcurrentHashMap<>();
              pairwiseKeysKC = new ConcurrentHashMap<>();
              hMacsMAC = new ConcurrentHashMap<>();
@@ -870,6 +874,11 @@ public class Server {
             }
         }
 
+        /**
+         * Update the servers global static values spekes round one data
+         * @param id client id to append values to in the hashmaps
+         * @param data pojo containing relevant info
+         */
         public void updateSpekeDataRoundOne(long id, SpekeRoundOne data) {
             gPowYiSpeke.put(id, data.getgPowYi());
 //            gPowZiSpeke.put(id, data.getgPowZi());
@@ -880,6 +889,11 @@ public class Server {
             signerID.add(data.getSignerID());
         }
 
+        /**
+         * Generate the POJO containing the servers info regarding speke+
+         * round one.
+         * @return response object containing servers speke round one results
+         */
         public SpekeRoundOneResponse setSpekeDataRoundOneResponse() {
             SpekeRoundOneResponse r = new SpekeRoundOneResponse();
             r.setgPowYi(gPowYiSpeke);
@@ -892,6 +906,12 @@ public class Server {
             return r;
         }
 
+
+        /**
+         * Update the servers global static values spekes round two data
+         * @param id client id to append values to in the hashmaps
+         * @param data pojo containing relevant info
+         */
         public void updateSpekeDataRoundTwo(long id, SpekeRoundTwo data) {
             chaumPedersonZKPiSpeke.put(id, data.getChaumPedersonZKPi());
             gPowZiPowYiSpeke.put(id, data.getgPowZiPowYi());
@@ -901,6 +921,11 @@ public class Server {
             pairwiseKeysMACSpeke.put(id, data.getPairwiseKeysMAC());
         }
 
+        /**
+         * Generate the POJO containing the servers info regarding speke+
+         * round two.
+         * @return response object containing servers speke round one results
+         */
         public SpekeRoundTwoResponse setSpekeDataRoundTwoResponse() {
             SpekeRoundTwoResponse r = new SpekeRoundTwoResponse();
             r.setChaumPedersonZKPi(chaumPedersonZKPiSpeke);
@@ -912,6 +937,10 @@ public class Server {
             return r;
         }
 
+        /**
+         * Perform the speke+ protocol
+         * @throws Exception
+         */
         public void sPEKEPlusProtocol() throws  Exception {
             try {
                 out.println(":SPEKE");
@@ -986,6 +1015,11 @@ public class Server {
             }
         }
 
+        /**
+         * Update the servers global static values jpake+ ec round one data
+         * @param id client id to append values to in the hashmaps
+         * @param data pojo containing relevant info
+         */
         public void updateECDataRoundOne(Long id, ECRoundOne data) {
             aijEC.put(id, data.getAij());
             gPowAijEC.put(id, data.getgPowAij());
@@ -1000,6 +1034,11 @@ public class Server {
             signerID.add(data.getSignerID());
         }
 
+        /**
+         * Generate POJO containing servers info regarding jpake+ ec
+         * round one
+         * @return jpake+ ec round one response
+         */
         public ECRoundOneResponse setECDataRoundOneResponse() {
             ECRoundOneResponse r = new ECRoundOneResponse();
             r.setAij(aijEC);
@@ -1016,6 +1055,11 @@ public class Server {
             return r;
         }
 
+        /**
+         * Update the servers global static values jpake+ ec round two data
+         * @param id client id to append values to in the hashmaps
+         * @param data pojo containing relevant info
+         */
         public void updateECDataRoundTwo(Long id, ECRoundTwo data) {
             newGenEC.put(id, data.getNewGen());
             bijsEC.put(id, data.getBijs());
@@ -1024,6 +1068,12 @@ public class Server {
 //            signerIDEC.add(data.getSignerID());
         }
 
+
+        /**
+         * Generate POJO containing servers info regarding jpake+ ec
+         * round two
+         * @return jpake+ ec round two response
+         */
         public ECRoundTwoResponse setECDataRoundTwoResponse() {
             ECRoundTwoResponse r = new ECRoundTwoResponse();
             r.setNewGen(newGenEC);
@@ -1034,6 +1084,11 @@ public class Server {
             return r;
         }
 
+        /**
+         * Update the servers global static values jpake+ ec round three data
+         * @param id client id to append values to in the hashmaps
+         * @param data pojo containing relevant info
+         */
         public void updateECDataRoundThree(Long id, ECRoundThree data) {
             gPowZiPowYiEC.put(id, data.getgPowZiPowYi());
             chaumPedersonZKPiEC.put(id, data.getChaumPedersonZKPi());
@@ -1043,6 +1098,11 @@ public class Server {
             hMacsMACEC.put(id, data.gethMacsMAC());
         }
 
+        /**
+         * Generate POJO containing servers info regarding jpake+ ec
+         * round three
+         * @return jpake+ ec round three response
+         */
         public ECRoundThreeResponse setECDataRoundThreeResponse() {
             ECRoundThreeResponse r = new ECRoundThreeResponse();
             r.setChaumPedersonZKPi(chaumPedersonZKPiEC);
@@ -1054,6 +1114,10 @@ public class Server {
             return r;
         }
 
+        /**
+         * perform the jpake+ protocol using ecc
+         * @throws Exception
+         */
         public void jPAKEPlusECProtocol() throws  Exception {
             try {
                 out.println(":EC");

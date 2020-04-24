@@ -1,3 +1,7 @@
+/**
+ * @author Bhavik Makwana
+ */
+
 package SPEKEPlus.POJOs;
 
 import SPEKEPlus.POJOs.POJOs.SpekeRoundOne;

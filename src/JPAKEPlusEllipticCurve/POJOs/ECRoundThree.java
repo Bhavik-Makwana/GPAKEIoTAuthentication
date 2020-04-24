@@ -1,3 +1,7 @@
+/**
+ * @author Bhavik Makwana
+ */
+
 package JPAKEPlusEllipticCurve.POJOs;
 
 import JPAKEPlusEllipticCurve.ZKPs.ChaumPedersonZKP;

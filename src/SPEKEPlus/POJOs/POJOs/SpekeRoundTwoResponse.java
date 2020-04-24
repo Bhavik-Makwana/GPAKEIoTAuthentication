@@ -1,3 +1,7 @@
+/**
+ * @author Bhavik Makwana
+ */
+
 package SPEKEPlus.POJOs.POJOs;
 
 import java.math.BigInteger;

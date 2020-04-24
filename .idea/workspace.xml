@@ -3,6 +3,38 @@
   <component name="ChangeListManager">
     <list default="true" id="f9c1d043-d834-41f2-bb3f-99c43d026b18" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/pythonJPAKEPlusECDemo/ChaumPedersonZKP.py" afterPath="$PROJECT_DIR$/pythonJPAKEPlusECDemo/ChaumPedersonZKP.py" />
+      <change beforePath="$PROJECT_DIR$/pythonJPAKEPlusECDemo/JPAKEPlusECDemo.py" afterPath="$PROJECT_DIR$/pythonJPAKEPlusECDemo/JPAKEPlusECDemo.py" />
+      <change beforePath="$PROJECT_DIR$/pythonJPAKEPlusECDemo/SchnorrZKP.py" afterPath="$PROJECT_DIR$/pythonJPAKEPlusECDemo/SchnorrZKP.py" />
+      <change beforePath="$PROJECT_DIR$/src/AESEncryption.java" afterPath="$PROJECT_DIR$/src/AESEncryption.java" />
+      <change beforePath="$PROJECT_DIR$/src/AESPOJO.java" afterPath="$PROJECT_DIR$/src/AESPOJO.java" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" afterPath="$PROJECT_DIR$/src/Client.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKE/RoundOne.java" afterPath="$PROJECT_DIR$/src/JPAKE/RoundOne.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKE/RoundThree.java" afterPath="$PROJECT_DIR$/src/JPAKE/RoundThree.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKE/RoundTwo.java" afterPath="$PROJECT_DIR$/src/JPAKE/RoundTwo.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/JPAKEPlusNetwork.java" afterPath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/JPAKEPlusNetwork.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOne.java" afterPath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOne.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOneResponse.java" afterPath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOneResponse.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThree.java" afterPath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThree.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThreeResponse.java" afterPath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThreeResponse.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwo.java" afterPath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwo.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwoResponse.java" afterPath="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwoResponse.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOne.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOne.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOneResponse.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOneResponse.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThree.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThree.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThreeResponse.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThreeResponse.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwo.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwo.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwoResponse.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwoResponse.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/ChaumPedersonZKP.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/ChaumPedersonZKP.java" />
+      <change beforePath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/SchnorrZKP.java" afterPath="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/SchnorrZKP.java" />
+      <change beforePath="$PROJECT_DIR$/src/RoundZero.java" afterPath="$PROJECT_DIR$/src/RoundZero.java" />
+      <change beforePath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOne.java" afterPath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOne.java" />
+      <change beforePath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOneResponse.java" afterPath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOneResponse.java" />
+      <change beforePath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwo.java" afterPath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwo.java" />
+      <change beforePath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwoResponse.java" afterPath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwoResponse.java" />
+      <change beforePath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/SPEKEPlusNetwork.java" afterPath="$PROJECT_DIR$/src/SPEKEPlus/POJOs/SPEKEPlusNetwork.java" />
+      <change beforePath="$PROJECT_DIR$/src/Server.java" afterPath="$PROJECT_DIR$/src/Server.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -15,222 +47,118 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JPAKEPlusDemo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DemoCode/JPAKEPlusDemo.java">
+      <file leaf-file-name="RoundOne.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOne.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="398" column="57" lean-forward="false" selection-start-line="398" selection-start-column="57" selection-end-line="398" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChaumPedersonZKP.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/ChaumPedersonZKP.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="837">
-              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JPAKEPlusECNetwork.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="342" column="11" lean-forward="false" selection-start-line="342" selection-start-column="11" selection-end-line="342" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EllipticCurveJPAKEDemo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DemoCode/EllipticCurveJPAKEDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1679">
-              <caret line="372" column="0" lean-forward="false" selection-start-line="372" selection-start-column="0" selection-end-line="372" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ECPoint.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/Downloads/bcprov-jdk15on-164.jar!/org/bouncycastle/math/ec/ECPoint.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding>
-                <marker date="1575292893529" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1575292893529" expanded="false" signature="148:197" ph="..." />
-                <marker date="1575292893529" expanded="true" signature="546:1243" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="1323:1387" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="1490:1628" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="1727:1995" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="2040:2051" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="2084:2090" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="2121:2132" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="2150:2156" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="2244:2255" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="2320:2326" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="2372:2444" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="2490:2562" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="2601:2612" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="2626:2632" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="2671:2682" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="2696:2702" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="2749:2760" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="2825:2831" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="2874:3141" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="3189:3200" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="3214:3220" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="3268:3279" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="3293:3299" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="3353:3364" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="3379:3385" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="3424:3550" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="3586:3727" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="3760:4143" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="4188:4665" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="4749:4875" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="4909:5010" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="5040:5051" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="5088:5094" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="5124:5135" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="5173:5179" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="5245:6734" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="5430:5520" ph="precompute(var1x) → {" />
-                <marker date="1575292893529" expanded="false" signature="6659:6678" ph="}" />
-                <marker date="1575292893529" expanded="true" signature="6783:6943" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="6999:7168" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="7217:7377" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="7433:7602" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="7644:8939" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="8980:9151" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="9179:9502" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="9533:10053" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="10098:10925" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="11162:11513" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="11595:11606" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="11636:11642" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="11675:11686" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="11714:11720" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="11766:11777" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="11837:11843" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="11906:20209" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="11993:12008" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="12032:12042" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="12153:12207" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="12260:14633" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="14678:15766" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="15819:17046" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="17105:17120" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="17145:17155" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="17208:17851" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="17910:17925" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="17950:17960" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="18007:18022" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="18091:18101" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="18144:19129" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="19183:20203" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="20271:22343" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="20357:20372" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="20396:20406" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="20516:20570" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="20620:20635" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="20679:20689" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="20742:22196" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="22243:22258" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="22327:22337" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="22401:39373" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="22470:22485" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="22509:22519" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="22612:22666" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="22703:22813" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="22857:23606" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="23657:24158" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="24201:31012" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="31045:35264" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="35313:37956" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="37990:39367" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="39429:63550" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="39497:39512" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="39536:39546" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="39638:39692" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="39729:39838" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="39890:40025" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="40068:47045" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="47078:51793" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="51842:54264" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="54302:56111" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="56156:60368" ph="{...}" />
-                <marker date="1575292893529" expanded="false" signature="60427:60442" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="60464:60474" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="60535:60550" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="60582:60592" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="60652:60667" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="60699:60709" ph=" }" />
-                <marker date="1575292893529" expanded="false" signature="60770:60785" ph=" { " />
-                <marker date="1575292893529" expanded="false" signature="60818:60828" ph=" }" />
-                <marker date="1575292893529" expanded="true" signature="60972:61057" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="61091:61445" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="61549:62173" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="62231:62463" ph="{...}" />
-                <marker date="1575292893529" expanded="true" signature="62530:63544" ph="{...}" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SchnorrZKP.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/SchnorrZKP.java">
+      <file leaf-file-name="RoundOneResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOneResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPAKEPlusNetwork.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/JPAKEPlusNetwork.java">
+      <file leaf-file-name="RoundThree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RoundThreeResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThreeResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoundTwo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoundTwoResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwoResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4590">
-              <caret line="329" column="51" lean-forward="false" selection-start-line="329" selection-start-column="44" selection-end-line="329" selection-end-column="51" />
+            <state relative-caret-position="315">
+              <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoundOne.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JPAKE/RoundOne.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#23787#23788#0" expanded="true" />
-                <element signature="e#23838#23839#0" expanded="true" />
-                <element signature="e#23918#23919#0" expanded="true" />
-                <element signature="e#23969#23970#0" expanded="true" />
-                <element signature="e#24051#24052#0" expanded="true" />
-                <element signature="e#24104#24105#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AESEncryption.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AESEncryption.java">
+      <file leaf-file-name="RoundThree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JPAKE/RoundThree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="58" lean-forward="false" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding>
+                <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#2880#2881#0" expanded="true" />
-                <element signature="e#2919#2920#0" expanded="true" />
-                <element signature="e#2993#2994#0" expanded="true" />
-                <element signature="e#3049#3050#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoundTwo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JPAKE/RoundTwo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -311,20 +239,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ChaumPedersonZKP.java" />
-        <option value="$PROJECT_DIR$/src/DemoCode/EllipticCurveJPAKEDemo.java" />
-        <option value="$PROJECT_DIR$/src/DemoCode/JPAKEDemo.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/POJOs/ChaumPedersonZKP.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/POJOs/SchnorrZKP.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ZKPs/ChaumPedersonZKP.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ZKPs/SchnorrZKP.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/POJOs/ECRoundOne.java" />
         <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/POJOs/ECRoundOneResponse.java" />
         <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/POJOs/ECRoundThree.java" />
         <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/POJOs/ECRoundThreeResponse.java" />
         <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/POJOs/ECRoundTwo.java" />
         <option value="$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/POJOs/ECRoundTwoResponse.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwoResponse.java" />
         <option value="$PROJECT_DIR$/src/JPAKEPlus/RoundOne.java" />
         <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/RoundOne.java" />
         <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/RoundOneResponse.java" />
@@ -336,32 +255,41 @@
         <option value="$PROJECT_DIR$/src/SPEKEPlus/POJOs/SpekeRoundOneResponse.java" />
         <option value="$PROJECT_DIR$/src/SPEKEPlus/POJOs/SpekeRoundTwo.java" />
         <option value="$PROJECT_DIR$/src/SPEKEPlus/POJOs/SpekeRoundTwoResponse.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusClient.java" />
+        <option value="$PROJECT_DIR$/hs_err_pid8094.log" />
+        <option value="$PROJECT_DIR$/src/DemoCode/BouncyCastleJPAKEDemo.java" />
+        <option value="$PROJECT_DIR$/src/DemoCode/JPAKEPlusDemo.java" />
+        <option value="$PROJECT_DIR$/src/DemoCode/SPEKEPlusDemo.java" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/src/Client.java" />
+        <option value="$PROJECT_DIR$/src/Server.java" />
+        <option value="$PROJECT_DIR$/src/RoundZero.java" />
+        <option value="$PROJECT_DIR$/src/AESPOJO.java" />
+        <option value="$PROJECT_DIR$/src/AESEncryption.java" />
+        <option value="$PROJECT_DIR$/src/SPEKEPlus/POJOs/SPEKEPlusNetwork.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/ChaumPedersonZKP.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/SchnorrZKP.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/JPAKEPlusNetwork.java" />
         <option value="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOne.java" />
         <option value="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOneResponse.java" />
         <option value="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwo.java" />
         <option value="$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwoResponse.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOne.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOneResponse.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThree.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThreeResponse.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwo.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwoResponse.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOne.java" />
+        <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOneResponse.java" />
         <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThree.java" />
         <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThreeResponse.java" />
         <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwo.java" />
         <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwoResponse.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEPlusClient.java" />
-        <option value="$PROJECT_DIR$/hs_err_pid8094.log" />
-        <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOneResponse.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOne.java" />
-        <option value="$PROJECT_DIR$/src/DemoCode/BouncyCastleJPAKEDemo.java" />
-        <option value="$PROJECT_DIR$/src/DemoCode/JPAKEPlusDemo.java" />
-        <option value="$PROJECT_DIR$/src/DemoCode/SPEKEPlusDemo.java" />
         <option value="$PROJECT_DIR$/src/JPAKE/RoundOne.java" />
-        <option value="$PROJECT_DIR$/src/JPAKE/RoundTwo.java" />
         <option value="$PROJECT_DIR$/src/JPAKE/RoundThree.java" />
-        <option value="$PROJECT_DIR$/src/Server.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java" />
-        <option value="$PROJECT_DIR$/src/SPEKEPlus/POJOs/SPEKEPlusNetwork.java" />
-        <option value="$PROJECT_DIR$/src/JPAKEPlus/POJOs/JPAKEPlusNetwork.java" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
-        <option value="$PROJECT_DIR$/src/AESPOJO.java" />
-        <option value="$PROJECT_DIR$/src/Client.java" />
-        <option value="$PROJECT_DIR$/src/AESEncryption.java" />
+        <option value="$PROJECT_DIR$/src/JPAKE/RoundTwo.java" />
       </list>
     </option>
   </component>
@@ -386,7 +314,8 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -403,27 +332,13 @@
               <item name="IoTComissioning" type="b2602c69:ProjectViewProjectNode" />
               <item name="IoTComissioningPerformanceTesting" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DemoCode" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IoTComissioning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IoTComissioningPerformanceTesting" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="JPAKEPlusEllipticCurve" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IoTComissioning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IoTComissioningPerformanceTesting" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="JPAKEPlusEllipticCurve" type="462c0819:PsiDirectoryNode" />
-              <item name="ZKPs" type="462c0819:PsiDirectoryNode" />
+              <item name="JPAKE" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,7 +365,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -662,37 +577,36 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997677" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38554215" sideWeight="0.67430556" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29812834" sideWeight="0.42291668" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38502672" sideWeight="0.32569444" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38470587" sideWeight="0.67430556" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38502672" sideWeight="0.32569444" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.4952153" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -737,36 +651,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>963</line>
-          <properties />
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>955</line>
-          <properties />
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>895</line>
-          <properties />
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>896</line>
-          <properties />
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>897</line>
-          <properties />
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/DemoCode/EllipticCurveJPAKEDemo.java</url>
           <line>308</line>
           <properties />
@@ -774,127 +658,85 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>877</line>
+          <line>881</line>
           <properties />
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>871</line>
+          <line>875</line>
           <properties />
           <option name="timeStamp" value="104" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>862</line>
+          <line>866</line>
           <properties />
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>855</line>
+          <line>859</line>
           <properties />
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>422</line>
+          <line>426</line>
           <properties />
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Client.java</url>
-          <line>464</line>
-          <properties />
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>1122</line>
-          <properties />
-          <option name="timeStamp" value="116" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>1121</line>
-          <properties />
-          <option name="timeStamp" value="117" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>817</line>
+          <line>821</line>
           <properties />
           <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>833</line>
+          <line>837</line>
           <properties />
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>839</line>
+          <line>843</line>
           <properties />
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>328</line>
+          <line>332</line>
           <properties />
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java</url>
-          <line>826</line>
+          <line>830</line>
           <properties />
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>518</line>
-          <properties />
-          <option name="timeStamp" value="127" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>527</line>
-          <properties />
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>343</line>
+          <line>329</line>
           <properties />
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Client.java</url>
-          <line>223</line>
-          <properties />
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Client.java</url>
-          <line>239</line>
-          <properties />
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server.java</url>
-          <line>336</line>
+          <line>322</line>
           <properties />
           <option name="timeStamp" value="155" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Client.java</url>
-          <line>317</line>
+          <line>335</line>
           <properties />
           <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Client.java</url>
-          <line>321</line>
+          <line>339</line>
           <properties />
           <option name="timeStamp" value="159" />
         </line-breakpoint>
@@ -918,50 +760,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/JPAKEProtocol.java" />
     <entry file="file://$PROJECT_DIR$/src/JPAKEEllipticCurvePOJOs/ZKPs.java" />
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOneResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThreeResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwoResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DemoCode/JPAKEDemo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
@@ -980,7 +780,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -989,50 +791,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="26" column="15" lean-forward="false" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#23787#23788#0" expanded="true" />
-            <element signature="e#23838#23839#0" expanded="true" />
-            <element signature="e#23918#23919#0" expanded="true" />
-            <element signature="e#23969#23970#0" expanded="true" />
-            <element signature="e#24051#24052#0" expanded="true" />
-            <element signature="e#24104#24105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOneResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwoResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,55 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="789" column="14" lean-forward="false" selection-start-line="789" selection-start-column="14" selection-end-line="789" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOneResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="15" column="66" lean-forward="false" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="28" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwoResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThreeResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RoundZero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1127,42 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKE/RoundOne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="93" lean-forward="false" selection-start-line="8" selection-start-column="93" selection-end-line="8" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKE/RoundTwo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="93" lean-forward="false" selection-start-line="8" selection-start-column="93" selection-end-line="8" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKE/RoundThree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/SPEKEPlusNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/JPAKEPlusNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mvnw.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1177,65 +851,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server.java">
+    <entry file="jrt:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home!/java.base/javax/crypto/Mac.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4590">
-          <caret line="329" column="51" lean-forward="false" selection-start-line="329" selection-start-column="44" selection-end-line="329" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#23787#23788#0" expanded="true" />
-            <element signature="e#23838#23839#0" expanded="true" />
-            <element signature="e#23918#23919#0" expanded="true" />
-            <element signature="e#23969#23970#0" expanded="true" />
-            <element signature="e#24051#24052#0" expanded="true" />
-            <element signature="e#24104#24105#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/DemoCode/JPAKEPlusDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3330">
-          <caret line="254" column="34" lean-forward="false" selection-start-line="254" selection-start-column="34" selection-end-line="254" selection-end-column="34" />
+        <state relative-caret-position="5820">
+          <caret line="398" column="57" lean-forward="false" selection-start-line="398" selection-start-column="57" selection-end-line="398" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AESEncryption.java">
+    <entry file="file://$PROJECT_DIR$/src/DemoCode/EllipticCurveJPAKEDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="58" lean-forward="false" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2880#2881#0" expanded="true" />
-            <element signature="e#2919#2920#0" expanded="true" />
-            <element signature="e#2993#2994#0" expanded="true" />
-            <element signature="e#3049#3050#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AESPOJO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#455#456#0" expanded="false" />
-            <element signature="e#517#518#0" expanded="false" />
-            <element signature="e#571#572#0" expanded="false" />
-            <element signature="e#624#625#0" expanded="false" />
-            <element signature="e#663#664#0" expanded="false" />
-            <element signature="e#737#738#0" expanded="false" />
-            <element signature="e#793#794#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/SchnorrZKP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="773">
+          <caret line="372" column="0" lean-forward="false" selection-start-line="372" selection-start-column="0" selection-end-line="372" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1365,42 +999,299 @@
         </state>
       </provider>
     </entry>
-    <entry file="jrt:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home!/java.base/javax/crypto/Mac.class">
+    <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemoCode/EllipticCurveJPAKEDemo.java">
+    <entry file="file://$PROJECT_DIR$/src/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="372" column="0" lean-forward="false" selection-start-line="372" selection-start-column="0" selection-end-line="372" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="90">
+          <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/ChaumPedersonZKP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemoCode/JPAKEPlusDemo.java">
+    <entry file="file://$PROJECT_DIR$/src/AESPOJO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="398" column="57" lean-forward="false" selection-start-line="398" selection-start-column="57" selection-end-line="398" selection-end-column="57" />
-          <folding />
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/ZKPs/SchnorrZKP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/JPAKEPlusNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RoundZero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AESEncryption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#3086#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/SPEKEPlusNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundOneResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SPEKEPlus/POJOs/POJOs/SpekeRoundTwoResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/JPAKEPlusECNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="342" column="11" lean-forward="false" selection-start-line="342" selection-start-column="11" selection-end-line="342" selection-end-column="11" />
+        <state relative-caret-position="120">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundOneResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundThreeResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlusEllipticCurve/POJOs/ECRoundTwoResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundThreeResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundTwoResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKE/RoundOne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKEPlus/POJOs/POJOs/RoundOneResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKE/RoundThree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JPAKE/RoundTwo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
           <folding />
         </state>
       </provider>
