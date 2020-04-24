@@ -1,3 +1,7 @@
+/**
+ * @author Bhavik Makwana
+ */
+
 package JPAKEPlusEllipticCurve;
 
 import java.math.BigInteger;

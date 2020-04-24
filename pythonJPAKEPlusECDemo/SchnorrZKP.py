@@ -1,15 +1,28 @@
 import random 
 import hashlib
 class SchnorrZKP:
+    '''
+        This class provides the functionality to generate a 
+        schnorr zero-knowledge proof using ecc.
+    '''
     V = 0
     r = 0
 
     def __init__(self): 
         pass
     
-    def test(self):
-        print("hello")
     def generateZKP(self, cv, generator, N, x, X, userID):
+        '''
+            function: generateZKP
+            This function creates the parameters needed for a CPZKP.
+            params: @cv Curve
+                    @generator Point
+                    @N Point
+                    @x int
+                    @X Point
+                    @signerID string
+            @return Null
+        '''
         # Generate a random v from [1, n-1], and compute V = G*v 
         v = random.randint(1, N)
         self.V = generator.mul(v);
@@ -25,6 +38,17 @@ class SchnorrZKP:
         return self.r
 
     def getSHA256(self, cv, generator, V, X, userID):
+        '''
+            function: getSHA256_ec
+            This function hashes multiple ec points with a 
+            string using sha256.
+            params: @cv curve elliptic curve
+                    @generator Point ec point
+                    @V Point ec point
+                    @X Point ec point
+                    @userID string user id
+            return: int
+        '''
         m = hashlib.sha256()
         try:
             GBytes = bytearray(cv.encode_point(generator));

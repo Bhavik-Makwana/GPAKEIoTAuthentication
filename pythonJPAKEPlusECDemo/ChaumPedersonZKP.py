@@ -2,7 +2,10 @@
 import random
 import hashlib
 class ChaumPedersonZKP:
-
+    '''
+        This class provides the functionality to generate a 
+        ChaumPederson zero-knowledge proof using ecc.
+    '''
     gPowS = 0
     gPowZPowS = 0
     t = 0
@@ -11,6 +14,20 @@ class ChaumPedersonZKP:
         self.cv = cv
 
     def generateZKP(self, G, N, gPowX, x, h, gPowZ, gPowZPowX, signerID, q):
+        '''
+            function: generateZKP
+            This function creates the parameters needed for a CPZKP.
+            params: @G Point
+                    @N Point
+                    @gPowX Point
+                    @x int
+                    @h int
+                    @gPowZ Point
+                    @gPowZPowX Point
+                    @signerID string
+                    @q int
+            @return Null
+        '''
 
         # Generate s from [1, q-1] and compute (A, B) = (gen^s, genPowZ^s)
         s = random.randint(1, q-1)

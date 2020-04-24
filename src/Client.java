@@ -1,3 +1,6 @@
+/**
+ * @author Bhavik Makwana
+ */
 
 import JPAKEPlus.POJOs.*;
 import JPAKEPlus.POJOs.POJOs.*;
@@ -88,8 +91,10 @@ public class Client {
         });
     }
 
+
     /**
      * Prompt for and return the address of the server.
+     * @return String server address
      */
     private String getServerAddress() {
         return JOptionPane.showInputDialog(
@@ -101,6 +106,7 @@ public class Client {
 
     /**
      * Prompt for and return the desired screen name.
+     * @return String username
      */
     private String getName() {
         return JOptionPane.showInputDialog(
@@ -110,6 +116,10 @@ public class Client {
                 JOptionPane.PLAIN_MESSAGE);
     }
 
+    /**
+     * perform the jpake protocol
+     * @return BigInteger pair key
+     */
     private BigInteger jpake() {
         System.out.println("hello");
         long startTime = 0;
@@ -175,6 +185,8 @@ public class Client {
             response = in.readLine();
 
             JPAKE.RoundTwo round2Response = gson.fromJson(response, JPAKE.RoundTwo.class);
+
+
             /* Alice verifies Bob's ZKP in step 2*/
             System.out.println("*************************** ROUND 2V **************************");
             startTime = System.currentTimeMillis();
@@ -193,21 +205,19 @@ public class Client {
                 exitWithError("All participants failed to verify Round 1");
             }
 
-            /* After step 2, compute the common key material */
-//        BigInteger bobKeyingMaterial = bob.calculateKeyingMaterial();
 
             System.out.println("*************************** ROUND 3 ***************************");
             startTime = System.currentTimeMillis();
             BigInteger keyingMaterial = client.calculateKeyingMaterial();
-            /* Step 3 (optional): Explicit key confirmation */
             JPAKERound3Payload round3 = client.createRound3PayloadToSend(keyingMaterial);
-//        JPAKERound3Payload bobRound3 = bob.createRound3PayloadToSend(bobKeyingMaterial);
             endTime = System.currentTimeMillis();
             total += endTime-startTime;
             data = gson.toJson(round3);
             out.println(data);
             response = in.readLine();
             JPAKE.RoundThree round3Response = gson.fromJson(response, JPAKE.RoundThree.class);
+
+
             System.out.println("*************************** ROUND 3V ***************************");
             startTime = System.currentTimeMillis();
             try {
@@ -263,6 +273,10 @@ public class Client {
 
     }
 
+    /**
+     * perform the speke+ protocol
+     * @return group key
+     */
     private BigInteger spekePlus() {
         try {
             String json = in.readLine();
@@ -311,6 +325,10 @@ public class Client {
         return null;
     }
 
+    /**
+     * perform the jpake+ protocol
+     * @return group key
+     */
     private BigInteger jpakePlus() {
         try {
 
@@ -411,6 +429,10 @@ public class Client {
         return null;
     }
 
+    /**
+     * perform the jpake+ protocol using ecc
+     * @return group key
+     */
     private BigInteger jpakePlusEC() {
         try {
 
@@ -492,6 +514,8 @@ public class Client {
 
     /**
      * Connects to the server then enters the processing loop.
+     * @throws IOException
+     * @throws ClassNotFoundException
      */
     private void run() throws IOException, ClassNotFoundException {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
@@ -504,6 +528,7 @@ public class Client {
         RoundZero roundZero = new RoundZero();
         // Process all messages from server, according to the protocol.
         ArrayList<Long> clients = new ArrayList<>();
+        // Commands to interact with server
         while (true) {
 
 
@@ -563,15 +588,14 @@ public class Client {
                 pairKey = key;
                 System.out.println(key.toString(16));
             }
-//            else {
-//                break;
-//            }
         }
 
     }
 
     /**
      * Runs the client as an application with a closeable frame.
+     * @param args
+     * @throws Exception
      */
     public static void main(String[] args) throws Exception {
         Client client = new Client();
@@ -581,13 +605,20 @@ public class Client {
     }
 
 
-
-
+    /**
+     * force program to close if error ran into
+     * @param s
+     */
     public void exitWithError(String s){
         System.out.println("Exit with ERROR: " + s);
         System.exit(0);
     }
 
+    /**
+     * hash a biginteger
+     * @param K
+     * @return BigInteger hash
+     */
     public BigInteger getSHA256(BigInteger K) {
 
         java.security.MessageDigest sha = null;
