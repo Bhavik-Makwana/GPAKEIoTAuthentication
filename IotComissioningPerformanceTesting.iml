@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/bcprov-jdk15on-164.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/bcprov-jdk15on-164.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,16 +19,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/json-simple-2.2.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/gson-2.8.6.jar!/" />
+          <root url="jar://$MODULE_DIR$/jars/gson-2.8.6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
