@@ -294,7 +294,7 @@ public class Server {
                 roundThreeComplete.remove(id);
                 roundFourComplete.remove(id);
                 System.out.println("Removed User");
-                removeUser(id);
+//                removeUser(id);
                 System.out.println(names.toString());
                 System.out.println(clientIDs.toString());
                 System.out.println(writers.toString());
